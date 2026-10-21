@@ -173,6 +173,13 @@ form .btn{justify-self:start;cursor:pointer}
 .visit h3{font-size:20px;margin-bottom:8px}
 .visit p{color:var(--soft);font-size:17px}
 
+.updates{background:var(--white);border-top:1px solid var(--rule);padding:72px 0}
+.upd{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.upd h2{margin:10px 0 10px}
+.upd p{color:var(--soft);margin:0}
+.upd form{grid-template-columns:1fr auto;align-items:end;gap:10px}
+.upd form .sent{grid-column:1/-1}
+.upd form .btn{padding:13px 20px}
 footer{background:var(--ink);color:#c9b8c0;padding:48px 0 30px;font-size:15px;}
 footer .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
 footer .top img{height:46px;width:auto}
@@ -194,6 +201,9 @@ footer a{color:#e8dde2}
   .help > div + div{border-top:1px solid var(--rule)}
   .people{grid-template-columns:1fr 1fr}
   .visit{grid-template-columns:1fr;gap:28px}
+  .upd{grid-template-columns:1fr;gap:24px}
+  .upd form{grid-template-columns:1fr}
+  .upd form .btn{justify-self:start}
   section{padding:72px 0}
 }
 @media (max-width:600px){
@@ -466,6 +476,18 @@ footer a{color:#e8dde2}
       </div>
     </div>
   </section>
+  <section id="updates" class="updates">
+    <div class="wrap">
+      <div class="upd">
+        <div><span class="label">Updates from the barn</span><h2>Hear how the horses are doing</h2><p>One email a month, with the horse you helped and what it cost. No more than that.</p></div>
+        <form id="eform" novalidate>
+          <label>Email<input type="email" name="email" autocomplete="email" required></label>
+          <button class="btn fill" type="submit">Sign up</button>
+          <p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -488,6 +510,8 @@ footer a{color:#e8dde2}
   n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded',false)}});
   var f=document.getElementById('vform');
   f.addEventListener('submit',function(e){e.preventDefault();f.querySelector('.sent').classList.add('on')});
+  var g=document.getElementById('eform');
+  g.addEventListener('submit',function(e){e.preventDefault();g.querySelector('.sent').classList.add('on')});
 })();
 </script>
 </body>
