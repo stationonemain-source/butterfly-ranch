@@ -8,214 +8,209 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Marcellus+SC&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f4efe9; --white:#fff; --ink:#1d1418; --ink2:#2a1d23; --soft:#5a4d53; --mute:#8b7e84;
-  --rule:#d9cfd3; --mag:#a71c5a; --mag-d:#7f1444; --pink:#f3dbe6; --gray:#909190;
-  --disp:"Big Shoulders Display","Arial Narrow",Impact,sans-serif; --body:"Lora",Georgia,serif;
-  --w:1240px;
+  --paper:#fbf8f6; --white:#fff; --ink:#2b2026; --soft:#5e5258; --mute:#8a7f85;
+  --rule:#e7dde1; --rose:#f6e9ef; --mag:#a71c5a; --mag-d:#86164a; --gray:#909190;
+  --fd:"Marcellus",Georgia,serif; --fs:"Marcellus SC",Georgia,serif; --fb:"Source Serif 4",Georgia,serif;
+  --w:1180px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.6 var(--fb);-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 figure{margin:0}
-a{color:inherit}
+a{color:var(--mag)}
+h1,h2,h3{font-family:var(--fd);font-weight:400;line-height:1.12;margin:0;letter-spacing:.005em}
+h2{font-size:clamp(30px,4vw,44px)}
+h3{font-size:22px}
 p{margin:0 0 1em}
-.wrap{max-width:var(--w);margin:0 auto;padding:0 32px}
-.d{font-family:var(--disp);font-weight:800;text-transform:uppercase;line-height:.9;letter-spacing:.005em;margin:0}
-.kick{font:600 12.5px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mag)}
-.btn{display:inline-block;font:700 15px/1 var(--disp);font-size:19px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:15px 24px 13px;border:2px solid var(--mag);border-radius:3px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 28px}
+.label{font-family:var(--fs);font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+.tbc{font-style:italic;color:var(--mute)}
+.dash{color:var(--mute)}
+.btn{display:inline-block;font:600 16px/1 var(--fb);text-decoration:none;border-radius:6px;padding:14px 22px;border:1.5px solid var(--mag)}
 .btn.fill{background:var(--mag);color:#fff}
 .btn.fill:hover{background:var(--mag-d);border-color:var(--mag-d)}
-.btn.ghost{color:#fff;border-color:#fff}
-.btn.ghost:hover{background:rgba(255,255,255,.12)}
-.btn.ink{color:var(--mag)}
-.btn.ink:hover{background:var(--pink)}
-.tag{display:inline-block;font:700 14px/1 var(--disp);font-size:17px;letter-spacing:.04em;background:var(--mag);color:#fff;border-radius:999px;padding:7px 14px 6px;white-space:nowrap}
-.blank{color:var(--mute);font-style:italic}
+.btn.line{color:var(--mag);background:transparent}
+.btn.line:hover{background:var(--rose)}
 
 /* header */
-header{position:absolute;top:0;left:0;right:0;z-index:20;color:#fff}
-header .wrap{display:flex;align-items:center;gap:28px;height:84px}
-.logo img{height:54px;width:auto}
-nav{display:flex;gap:28px;margin-left:auto}
-nav a{text-decoration:none;font:700 17px/1 var(--disp);letter-spacing:.08em;text-transform:uppercase;opacity:.92}
-nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
-.menu{display:none;margin-left:auto;background:none;border:1.5px solid rgba(255,255,255,.7);color:#fff;border-radius:3px;font:700 16px var(--disp);letter-spacing:.08em;padding:9px 12px 7px}
+header{background:var(--white);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:20}
+header .wrap{display:flex;align-items:center;gap:28px;height:78px}
+.logo img{height:52px;width:auto}
+nav{display:flex;gap:26px;margin-left:auto}
+nav a{color:var(--ink);text-decoration:none;font-size:16px}
+nav a:hover{color:var(--mag)}
+header .btn{padding:11px 18px}
+.menu{display:none;margin-left:auto;background:none;border:1px solid var(--rule);border-radius:6px;font:600 14px var(--fb);padding:9px 12px;color:var(--ink)}
 
 /* hero */
-.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:#fff;background:var(--ink)}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0,rgba(0,0,0,0) 30%,rgba(0,0,0,.05) 55%,rgba(29,20,24,.92) 100%)}
-.hero .wrap{position:relative;z-index:2;padding-bottom:64px;padding-top:160px;width:100%}
-.hero h1{font-size:clamp(58px,10.5vw,152px);max-width:11ch}
-.hero h1 em{font-style:normal;color:#f09bc3}
-.hero .row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-top:28px}
-.hero .lede{font-size:19px;max-width:32em;color:#e8dde2;margin:0}
-.hero .acts{display:flex;gap:12px;flex-wrap:wrap}
-.hero .meta{position:absolute;top:110px;right:32px;z-index:2;text-align:right;font:600 12.5px/1.7 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#f2e6ec}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:calc(100vh - 78px);max-height:880px;background:var(--white)}
+.hero .copy{padding:72px 56px 56px max(28px,calc((100vw - var(--w))/2 + 28px));display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(44px,6.2vw,84px);margin:18px 0 26px;letter-spacing:-.01em;max-width:11ch}
+.hero .lede{font-size:20px;color:var(--soft);max-width:34em}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 34px}
+.facts{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--rule);padding-top:18px;font-size:15px;color:var(--soft)}
+.facts span{padding-right:18px;margin-right:18px;border-right:1px solid var(--rule)}
+.facts span:last-child{border:0}
+.hero figure{margin:0;position:relative;overflow:hidden}
+.hero figure img{width:100%;height:100%;object-fit:cover;object-position:30% 70%}
+.hero figcaption{position:absolute;left:18px;bottom:16px;color:#fff;font-size:13.5px;opacity:.85;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 
-/* statement */
-.state{background:var(--mag);color:#fff;padding:72px 0}
-.state p{font:500 clamp(24px,3.2vw,40px)/1.25 var(--body);margin:0;max-width:26em}
-.state p b{font-weight:600;color:#ffd7e8}
+section{padding:104px 0}
+.state{background:var(--mag);color:#fff;padding:64px 0}
+.state p{font:400 clamp(24px,3vw,38px)/1.3 var(--fd);margin:0;max-width:28em}
+.state p b{font-weight:400;color:#f6c6de}
+.head{display:grid;grid-template-columns:260px 1fr;gap:40px;margin-bottom:48px;align-items:baseline}
+.head p{color:var(--soft);max-width:40em;margin:16px 0 0}
 
 /* path */
-.path{padding:96px 0 0}
-.path .top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
-.path h2{font-size:clamp(48px,6.5vw,96px)}
-.path .top p{color:var(--soft);font-size:18px;margin:0;max-width:30em}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--ink)}
-.steps > div{padding:28px 32px 36px 0}
-.steps > div + div{border-left:1px solid var(--rule);padding-left:32px}
-.steps .n{font:800 84px/1 var(--disp);color:var(--mag)}
-.steps h3{font:800 30px/1 var(--disp);text-transform:uppercase;margin:12px 0 12px}
+.path{display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:start}
+.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.steps li{display:grid;grid-template-columns:72px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--rule)}
+.steps .n{font-family:var(--fd);font-size:30px;color:var(--mag);line-height:1}
+.steps h3{margin-bottom:8px}
 .steps p{color:var(--soft);margin:0}
-.path figure{margin-top:72px}
-.path figure img{width:100%;height:min(70vh,640px);object-fit:cover;object-position:50% 60%}
-.cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 20px;font-size:14px;color:var(--mute);padding:12px 0 0;border-top:1px solid var(--rule);margin-top:0}
+.path figure{margin:0}
+figure figcaption{font-size:14.5px;color:var(--mute);margin-top:10px}
 
-/* journal */
-.journal{background:var(--ink);color:#f4ecf0;padding:104px 0}
-.journal .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start}
-.journal h2{font-size:clamp(52px,7vw,104px);color:#fff}
-.journal .kick{color:#f09bc3}
-.journal .intro{color:#c9b8c0;font-size:18px;max-width:30em}
-.journal figure{position:sticky;top:40px}
-.journal figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.journal .cap{color:#9f8e96;border-color:#3a2c33}
-.card{border:1px solid #4a3a42;padding:22px 24px;margin:36px 0 10px;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;font-size:15.5px}
-.card .nm{grid-column:1/-1;font:800 44px/1 var(--disp);text-transform:uppercase;color:#fff;margin-bottom:6px}
-.card span{color:#9f8e96;display:block;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase}
-.tl{list-style:none;margin:0;padding:0 0 0 28px;border-left:2px solid #4a3a42}
-.tl li{position:relative;padding:26px 0 26px 26px;border-bottom:1px solid #332630}
-.tl li:before{content:"";position:absolute;left:-35px;top:34px;width:12px;height:12px;border-radius:50%;background:var(--mag);border:3px solid var(--ink)}
-.tl time{display:block;font:700 15px/1 var(--disp);letter-spacing:.16em;color:#f09bc3;margin-bottom:8px}
-.tl h3{font:800 28px/1 var(--disp);text-transform:uppercase;margin:0 0 8px;color:#fff}
-.tl p{color:#c9b8c0;margin:0;font-size:16px}
-.tl .cost{display:inline-block;margin-top:10px;font-size:14px;color:#9f8e96;border:1px solid #4a3a42;padding:4px 10px;border-radius:3px}
+/* follow */
+#follow{background:var(--ink);color:#f4ecef}
+#follow .label{color:#b9aab1}
+#follow .head p{color:#d3c5cc}
+#follow .card-id{background:#3a2a32;border-color:#53414a}
+#follow .card-id dt{color:#b9aab1}
+#follow .card-id .tbc,#follow .card-id .dash{color:#c9b8c0}
+#follow .log li{border-color:#4a3a42}
+#follow .log li:first-child{border-top-color:#f4ecef}
+#follow .log time{color:#f09bc3}
+#follow .log p,#follow .log .cost{color:#d3c5cc}
+#follow .tbc{color:#b9aab1}
+.journal{display:grid;grid-template-columns:320px 1fr;gap:56px}
+.card-id{border:1px solid var(--rule);border-radius:10px;padding:26px;background:var(--paper);align-self:start;position:sticky;top:110px}
+.card-id .name{font-family:var(--fd);font-size:34px;margin:6px 0 16px}
+.card-id dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0;font-size:15.5px}
+.card-id dt{color:var(--mute)}
+.card-id dd{margin:0}
+.log{list-style:none;margin:0;padding:0}
+.log li{display:grid;grid-template-columns:150px 1fr auto;gap:24px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.log li:first-child{border-top:1px solid var(--ink)}
+.log time{font-family:var(--fs);font-size:14px;letter-spacing:.14em;color:var(--mag)}
+.log h3{font-size:20px;margin-bottom:4px}
+.log p{color:var(--soft);margin:0;font-size:16.5px}
+.log .cost{font-size:15px;color:var(--soft);white-space:nowrap}
+.note{font-size:15px;color:var(--mute);margin-top:22px}
 
 /* ledger */
-.ledger{padding:104px 0}
-.ledger .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:72px;align-items:start}
-.ledger h2{font-size:clamp(52px,7vw,104px)}
-.big{display:flex;align-items:baseline;gap:14px;margin:24px 0 30px}
-.big .amt{font:800 clamp(80px,11vw,150px)/.9 var(--disp);color:var(--mag)}
-.big .amt i{font-style:normal;font-weight:700;opacity:.35}
-.big .per{font:500 18px/1.3 var(--body);color:var(--soft);max-width:12em}
+.ledger-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.big{display:flex;align-items:baseline;gap:16px;margin:4px 0 34px}
+.big .amt{font:400 clamp(72px,8vw,112px)/1 var(--fd);color:var(--mag)}
+.big .amt i{font-style:normal;opacity:.35}
+.big .per{font-size:17px;color:var(--soft);max-width:14em;line-height:1.35}
 table{width:100%;border-collapse:collapse;font-size:17px}
-th,td{text-align:left;padding:14px 0;border-bottom:1px solid var(--rule);vertical-align:baseline}
-thead th{font:700 15px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);border-bottom:3px solid var(--ink)}
-td.amt,th.amt{text-align:right;font-family:var(--disp);font-weight:700;font-size:22px;white-space:nowrap}
-td small{display:block;color:var(--mute);font-size:14px}
-.promise{background:var(--white);padding:36px;border-top:6px solid var(--mag)}
-.promise h3{font:800 34px/1 var(--disp);text-transform:uppercase;margin:0 0 20px}
-.promise ol{margin:0;padding:0;list-style:none;counter-reset:p}
-.promise li{counter-increment:p;display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--rule);color:var(--soft)}
-.promise li:before{content:counter(p,decimal-leading-zero);font:800 24px/1.2 var(--disp);color:var(--mag);flex:0 0 30px}
+caption{text-align:left;font-family:var(--fs);font-size:14px;letter-spacing:.22em;color:var(--gray);padding-bottom:12px}
+th,td{text-align:left;padding:15px 0;border-bottom:1px solid var(--rule);vertical-align:baseline}
+thead th{font:600 13px var(--fb);color:var(--mute);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--ink)}
+td.amt,th.amt{text-align:right;white-space:nowrap}
+td small{display:block;color:var(--mute);font-size:14.5px}
+tfoot td{font-weight:600;border-bottom:0;border-top:1px solid var(--ink)}
+.promise h3{margin-bottom:12px}
+.promise ul{margin:0;padding:0;list-style:none}
+.promise li{padding:14px 0;border-bottom:1px solid var(--rule);color:var(--soft)}
 .promise li b{color:var(--ink);font-weight:600}
-.fn{font-size:14.5px;color:var(--mute);margin-top:18px}
 
-/* program (their flyer's language: pink pills) */
-.program{background:var(--white);padding:104px 0;border-top:1px solid var(--rule)}
-.program .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px}
-.program h2{font-size:clamp(52px,7vw,104px)}
-.program .intro{color:var(--soft);font-size:18px;max-width:28em}
-.plist h3{font:800 30px/1 var(--disp);text-transform:uppercase;margin:34px 0 10px;padding-bottom:10px;border-bottom:3px solid var(--ink)}
-.plist h3:first-child{margin-top:0}
-.pr{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;padding:13px 0;border-bottom:1px solid var(--rule)}
-.pr .nm{font-weight:600}
-.pr small{display:block;color:var(--mute);font-size:14.5px;font-weight:400}
-.pr .tag{justify-self:end}
-.program .note{font-size:15px;color:var(--soft);margin-top:22px}
-.program .note a{color:var(--mag)}
+/* program */
+#program{background:var(--ink);color:#f4ecef}
+#program .label{color:#b9aab1}
+#program .head p,#program .soft{color:#d3c5cc}
+.prog{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.prog figure img{border-radius:6px}
+#program figcaption{color:#a9989f}
+.flyer{border-top:1px solid #f4ecef}
+.flyer h3{font-size:20px;margin:30px 0 6px}
+.row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:11px 0;font-size:17px}
+.row .what{white-space:nowrap}
+.row .dots{flex:1}
+.row .price{font:600 14px/1 var(--fb);background:var(--mag);color:#fff;border-radius:999px;padding:7px 13px;white-space:nowrap}
+.row small{display:block;color:#a9989f;font-size:14.5px;margin-top:-2px}
+.row .meta{flex-basis:100%}
+#program .tbc{color:#a9989f}
+#program a{color:#f3b6d0}
 
 /* help */
-.help{padding:104px 0;background:var(--ink);color:#f4ecf0}
-.help h2{font-size:clamp(52px,7vw,104px);color:#fff;margin-bottom:56px}
-.help .kick{color:#f09bc3}
-.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #4a3a42}
-.ways > div{padding:36px 36px 20px 0}
-.ways > div + div{border-left:1px solid #4a3a42;padding-left:36px}
-.ways h3{font:800 44px/1 var(--disp);text-transform:uppercase;color:#fff;margin:0 0 16px}
-.ways p,.ways li{color:#c9b8c0}
-.ways ul{margin:0 0 1em;padding-left:18px}
-.ways a{color:#f09bc3}
-.ways .btn.fill{margin-top:4px}
-form{display:grid;gap:12px}
-label{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#9f8e96;display:grid;gap:6px}
-input,select{font:400 16px var(--body);color:#fff;background:#2a1d23;border:1px solid #4a3a42;border-radius:3px;padding:12px;width:100%}
-select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#9f8e96 50%),linear-gradient(135deg,#9f8e96 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat}
-input:focus,select:focus{outline:2px solid #f09bc3;outline-offset:1px}
-fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px}
-fieldset legend{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#9f8e96;margin-bottom:8px;padding:0}
-fieldset label{display:flex;align-items:center;gap:7px;font:400 16px var(--body);text-transform:none;letter-spacing:0;color:#f4ecf0}
+.help{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.help > div{padding:34px 34px 10px 0}
+.help > div + div{padding-left:34px;border-left:1px solid var(--rule)}
+.help h3{font-size:26px;margin-bottom:12px}
+.help p{color:var(--soft);font-size:17px}
+.help ul{padding-left:18px;color:var(--soft);font-size:17px;margin:0 0 1em}
+form{display:grid;gap:12px;margin-top:6px}
+label{font-size:14.5px;color:var(--soft);display:grid;gap:5px}
+input,select,textarea{font:400 16px var(--fb);color:var(--ink);background:var(--white);border:1px solid #d9ccd2;border-radius:6px;padding:11px 12px;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--mag);outline-offset:1px;border-color:var(--mag)}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 16px}
+fieldset legend{font-size:14.5px;color:var(--soft);margin-bottom:6px;padding:0}
+fieldset label{display:flex;align-items:center;gap:6px;font-size:15.5px;color:var(--ink)}
 fieldset input{width:auto;accent-color:var(--mag)}
-form .btn{justify-self:start;cursor:pointer;border-color:var(--mag)}
-.sent{display:none;font-size:15px;background:#2a1d23;border-left:3px solid #f09bc3;padding:12px 14px;color:#f4ecf0}
+form .btn{justify-self:start;cursor:pointer}
+.sent{display:none;font-size:15.5px;background:var(--rose);border-radius:6px;padding:12px 14px;color:var(--mag-d)}
 .sent.on{display:block}
 
 /* people */
-.people{padding:104px 0}
-.people h2{font-size:clamp(52px,7vw,104px);margin-bottom:12px}
-.people .intro{color:var(--soft);font-size:18px;max-width:34em;margin-bottom:48px}
-.crew{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.crew img{aspect-ratio:4/5;object-fit:cover;width:100%}
-.crew h3{font:800 38px/1 var(--disp);text-transform:uppercase;margin:18px 0 4px}
-.crew .role{font:600 12.5px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--mag);margin-bottom:12px}
-.crew p{color:var(--soft);font-size:16px}
+#people{background:var(--white);border-top:1px solid var(--rule)}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.people img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:6px;margin-bottom:18px}
+.people h3{font-size:26px}
+.people .role{font-family:var(--fs);font-size:14px;letter-spacing:.16em;color:var(--mag);margin:6px 0 12px}
+.people p{color:var(--soft);font-size:16.5px}
 
-/* visit + footer */
-.visit{background:var(--mag);color:#fff;padding:88px 0}
-.visit .grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;align-items:start}
-.visit h2{font-size:clamp(56px,8vw,120px)}
-.visit h3{font:700 14px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:#ffd7e8;margin:0 0 12px}
-.visit p{font-size:20px;margin:0}
-.visit a{color:#fff}
-footer{background:var(--ink);color:#9f8e96;padding:40px 0;font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap;align-items:center}
-footer img{height:40px;width:auto;opacity:.85}
-footer a{color:#c9b8c0}
-footer .fine{flex-basis:100%;border-top:1px solid #332630;padding-top:16px;margin-top:8px;line-height:1.6}
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:56px 0 0;border-top:1px solid var(--ink);margin-top:0}
+.visit h3{font-size:20px;margin-bottom:8px}
+.visit p{color:var(--soft);font-size:17px}
+
+footer{background:var(--ink);color:#c9b8c0;padding:48px 0 30px;font-size:15px;}
+footer .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
+footer .top img{height:46px;width:auto}
+footer .base{display:flex;justify-content:space-between;gap:10px 30px;flex-wrap:wrap;border-top:1px solid #4a3a42;margin-top:30px;padding-top:20px;font-size:14.5px;color:#9f8e96}
+footer .base a{color:#e8dde2}
+footer a{color:#e8dde2}
 
 @media (max-width:1000px){
   nav{display:none}
   .menu{display:block}
-  nav.open{display:flex;flex-direction:column;position:absolute;top:84px;left:0;right:0;background:var(--ink);padding:16px 32px 24px;gap:16px}
-  .hero .meta{display:none}
-  .path .top,.journal .grid,.ledger .grid,.program .grid,.visit .grid{grid-template-columns:1fr;gap:40px}
-  .journal figure{position:static}
-  .steps{grid-template-columns:1fr}
-  .steps > div,.steps > div + div{padding:26px 0;border-left:0;border-bottom:1px solid var(--rule)}
-  .steps .n{font-size:64px}
-  .ways{grid-template-columns:1fr}
-  .ways > div,.ways > div + div{padding:32px 0 16px;border-left:0;border-top:1px solid #4a3a42}
-  .ways > div:first-child{border-top:0}
-  .crew{grid-template-columns:1fr 1fr}
-  .path,.journal,.ledger,.program,.help,.people{padding:72px 0}
-  .path{padding-bottom:0}
+  nav.open{display:flex;flex-direction:column;position:absolute;top:78px;left:0;right:0;background:var(--white);padding:12px 28px 20px;gap:14px;border-bottom:1px solid var(--rule)}
+  .hero{grid-template-columns:1fr;max-height:none;min-height:0}
+  .hero .copy{padding:48px 28px 40px}
+  .hero figure{height:62vh;order:-1}
+  .head,.path,.journal,.ledger-grid,.prog{grid-template-columns:1fr;gap:28px}
+  .card-id{position:static}
+  .help{grid-template-columns:1fr}
+  .help > div,.help > div + div{padding:30px 0 10px;border-left:0}
+  .help > div + div{border-top:1px solid var(--rule)}
+  .people{grid-template-columns:1fr 1fr}
+  .visit{grid-template-columns:1fr;gap:28px}
+  section{padding:72px 0}
 }
 @media (max-width:600px){
-  .wrap{padding:0 18px}
-  header .wrap{height:72px}
-  .logo img{height:44px}
-  nav.open{top:72px;padding:12px 18px 20px}
-  .hero{min-height:92vh}
-  .hero .wrap{padding-bottom:40px}
-  .hero h1{font-size:clamp(52px,15vw,72px);line-height:.95}
-  .hero .lede{font-size:17px}
-  .state{padding:48px 0}
-  .path figure img{height:52vh}
-  .crew{grid-template-columns:1fr}
-  .crew img{aspect-ratio:1/1}
-  .big .amt{font-size:84px}
-  .promise{padding:26px 22px}
-  .pr{grid-template-columns:1fr}
-  .pr .tag{justify-self:start}
-  .ways h3{font-size:38px}
-  .visit h2{font-size:64px}
+  body{font-size:17px}
+  .state{padding:44px 0}
+  .big .amt{font-size:64px}
+  .wrap{padding:0 16px}
+  header .wrap{gap:12px;height:68px}
+  .logo img{height:42px}
+  header .btn.fill{display:none}
+  nav.open{top:68px;padding:12px 16px 20px}
+  .hero .copy{padding:36px 16px 32px}
+  .hero .lede{font-size:18px}
+  .log li{grid-template-columns:1fr;gap:4px}
+  .steps li{grid-template-columns:36px 1fr;gap:12px}
+  .people img{aspect-ratio:1/1}
+  .people{grid-template-columns:1fr}
+  .row .what{white-space:normal}
+  .facts span{border:0;padding:0;margin:0 0 4px;width:100%}
 }
 </style>
 </head>
@@ -223,222 +218,249 @@ footer .fine{flex-basis:100%;border-top:1px solid #332630;padding-top:16px;margi
 
 <header>
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Butterfly Rescue Ranch, home"><img src="assets/logo-white.png" alt="Butterfly Ranch" width="900" height="313"></a>
+    <a class="logo" href="#top" aria-label="Butterfly Rescue Ranch, home"><img src="assets/logo.png" alt="Butterfly Ranch" width="900" height="313"></a>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav">
-      <a href="#journal">The horses</a>
+      <a href="#follow">The horses</a>
       <a href="#ledger">Where it goes</a>
       <a href="#program">Program</a>
-      <a href="#people">The barn</a>
-      <a href="#help">Help</a>
+      <a href="#people">About</a>
+      <a href="#visit">Visit</a>
     </nav>
+    <a class="btn fill" href="#help">Help a horse</a>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
-    <img src="assets/barn.jpg" alt="The Butterfly Ranch barn at sunset, its lit sign glowing against the dark wall" width="1440" height="1920" fetchpriority="high">
-    <div class="meta">501(c)(3) horse rescue<br>Norman, Oklahoma<br>Est. 2022</div>
-    <div class="wrap">
-      <h1 class="d">From the kill pen to a <em>kid's own horse.</em></h1>
-      <div class="row">
-        <p class="lede">We take in horses from kill pens, abusive homes and surrenders, bring them back to health, and match each one with a student who cares for it all summer. Some go home with that student for good.</p>
-        <div class="acts"><a class="btn fill" href="#give">Give</a><a class="btn ghost" href="#volunteer">Volunteer</a></div>
+  <div class="hero">
+    <div class="copy">
+      <span class="label">501(c)(3) horse rescue · Norman, Oklahoma</span>
+      <h1>Every horse here gets followed, from the day it arrives.</h1>
+      <p class="lede">We take in horses from abusive homes, kill pens and surrenders. Once a horse is rehabilitated, it is introduced to students in our program. Each summer a student is assigned a horse to care for, and some go on to become its owner.</p>
+      <div class="acts">
+        <a class="btn fill" href="#give">Give</a>
+        <a class="btn line" href="#volunteer">Volunteer</a>
       </div>
+      <div class="facts"><span>Founded 2022</span><span>7475 By Drive, Norman</span><span><a href="tel:+14059220839">(405) 922-0839</a></span></div>
     </div>
-  </section>
+    <figure>
+      <img src="assets/barn.jpg" alt="The Butterfly Ranch barn at sunset, its lit sign glowing against the dark wall" width="1440" height="1920">
+      <figcaption>The barn at sundown</figcaption>
+    </figure>
+  </div>
 
   <section class="state">
+    <div class="wrap"><p>A horse that nobody wanted gets fed, shod, doctored and worked, slowly, <b>until a kid shows up and keeps showing up.</b> That's the whole program.</p></div>
+  </section>
+
+  <section id="path">
     <div class="wrap">
-      <p>A horse that nobody wanted gets fed, shod, doctored and worked, slowly, <b>until a kid shows up and keeps showing up.</b> That's the whole program.</p>
+      <div class="head">
+        <span class="label">How a horse comes through</span>
+        <div><h2>Rescue, rehab, and a student of its own</h2></div>
+      </div>
+      <div class="path">
+        <ol class="steps">
+          <li><span class="n">1</span><div><h3>Rescue</h3><p>Horses come to us from dangerous places: kill pens, abusive homes, and owners who can no longer keep them.</p></div></li>
+          <li><span class="n">2</span><div><h3>Rehabilitation</h3><p>Feed, supplements, farrier, vet care and time. The work goes at the horse's pace, not ours.</p></div></li>
+          <li><span class="n">3</span><div><h3>A student of its own</h3><p>When a horse is ready, it meets the students in our program. Each summer a student is assigned a horse to care for, and some go on to become its owner.</p></div></li>
+        </ol>
+        <figure>
+          <img src="assets/buckets.jpg" alt="A row of white supplement pump jugs against the barn wall, each labelled by hand in marker" width="1180" height="1010" loading="lazy">
+          <figcaption>In the feed room. Everyone's supplements, labelled by hand.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
-  <section class="path" id="path">
+  <section id="follow">
     <div class="wrap">
-      <div class="top">
-        <div><span class="kick">How it works</span><h2 class="d">Rescue. Rehab. Rematch.</h2></div>
-        <p>Every horse at the ranch is on the same road. Where it is on that road is written up on its own page, so the people who paid for the hay can see what the hay did.</p>
-      </div>
-      <div class="steps">
-        <div><div class="n">01</div><h3>Rescue</h3><p>Horses come to us from dangerous places: kill pens, abusive homes, and owners who can no longer keep them.</p></div>
-        <div><div class="n">02</div><h3>Rehab</h3><p>Feed, supplements, farrier, vet and time. The work goes at the horse's pace, not ours.</p></div>
-        <div><div class="n">03</div><h3>Rematch</h3><p>When a horse is ready, it meets the students. Each summer a student is assigned a horse to care for, and some become its owner.</p></div>
-      </div>
-      <figure>
-        <img src="assets/buckets.jpg" alt="A row of white supplement pump jugs against the barn wall, each labelled by hand in marker" width="1180" height="1011" loading="lazy">
-        <figcaption class="cap"><span>The feed room. Everyone's supplements, labelled by hand.</span><span>Butterfly Ranch, Norman</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="journal" id="journal">
-    <div class="wrap">
-      <div class="grid">
+      <div class="head">
+        <span class="label">Follow a horse</span>
         <div>
-          <span class="kick">Follow a horse</span>
-          <h2 class="d">The journal</h2>
-          <p class="intro">Each rescue gets a page like this one, updated as it recovers, with what was spent and who helped. This is the layout; the first horse is Braxton's to choose.</p>
-          <figure>
-            <img src="assets/riders.jpg" alt="Four riders seen from behind, wearing competition numbers, sitting on their horses in an indoor arena" width="1180" height="883" loading="lazy">
-            <figcaption class="cap"><span>Ranch riders waiting their turn.</span></figcaption>
-          </figure>
-        </div>
-        <div>
-          <div class="card">
-            <div class="nm"><span class="blank">Horse's name</span></div>
-            <div><span>Came from</span><i class="blank">Kill pen, auction or surrender</i></div>
-            <div><span>Arrived</span><i class="blank">Month, year</i></div>
-            <div><span>Breed, age</span><i class="blank">—</i></div>
-            <div><span>Spent so far</span><i class="blank">$ —</i></div>
-            <div><span>Sponsored by</span><i class="blank">Donors, with permission</i></div>
-          </div>
-          <ol class="tl">
-            <li><time>Day 1</time><h3>Arrival</h3><p>Where the horse came from, its weight and condition, and the first vet check. Intake photo.</p><span class="cost">Intake vet · $ —</span></li>
-            <li><time>Week 2</time><h3>Feet and teeth</h3><p>First farrier visit and a dental float. What the farrier found, in plain words.</p><span class="cost">Farrier and dental · $ —</span></li>
-            <li><time>Month 2</time><h3>Weight back on</h3><p>The feed plan, the weight change, and the first time the horse comes to the gate on its own.</p><span class="cost">Feed · $ — a month</span></li>
-            <li><time>Month 4</time><h3>Meets a student</h3><p>Groundwork with a student from the program. Photographed from behind, or with a parent's OK.</p></li>
-            <li><time>Summer</time><h3>Assigned</h3><p>Matched with a student for the summer program. A thank-you goes to every donor who helped get it here.</p><span class="cost">Total · $ —</span></li>
-          </ol>
+          <h2>One horse, from the day it arrives</h2>
+          <p>Each rescue gets a page like this. It's updated as the horse recovers, with what was spent and who helped, so donors can see what their gift did. <span class="tbc">This is the layout; the first horse is Braxton's to choose.</span></p>
         </div>
       </div>
+      <div class="journal">
+        <aside class="card-id" aria-label="Horse details">
+          <span class="label">Now in rehab</span>
+          <div class="name tbc">Horse's name</div>
+          <dl>
+            <dt>Came from</dt><dd class="tbc">Kill pen, auction or surrender</dd>
+            <dt>Arrived</dt><dd class="tbc">Month, year</dd>
+            <dt>Breed, age</dt><dd class="dash">—</dd>
+            <dt>Spent so far</dt><dd class="dash">$ —</dd>
+            <dt>Sponsored by</dt><dd class="tbc">Donors, with permission</dd>
+          </dl>
+        </aside>
+        <ol class="log">
+          <li><time>Day 1</time><div><h3>Arrival</h3><p>Where the horse came from, its weight and condition, and the first vet check. Intake photo here.</p></div><span class="cost">Intake vet · $ —</span></li>
+          <li><time>Week 2</time><div><h3>Feet and teeth</h3><p>First farrier visit and dental float. What the farrier found, in plain words.</p></div><span class="cost">Farrier and dental · $ —</span></li>
+          <li><time>Month 2</time><div><h3>Putting weight back on</h3><p>Feed plan, weight change, and the first time the horse comes to the gate on its own.</p></div><span class="cost">Feed · $ — a month</span></li>
+          <li><time>Month 4</time><div><h3>Meeting a student</h3><p>Groundwork with a student from the program. A photo from behind, or with a parent's OK.</p></div></li>
+          <li><time>Summer</time><div><h3>Assigned</h3><p>The horse is matched with a student for the summer program. Thank-you note to every donor who helped get it here.</p></div><span class="cost">Total · $ —</span></li>
+        </ol>
+      </div>
     </div>
   </section>
 
-  <section class="ledger" id="ledger">
+  <section id="ledger">
     <div class="wrap">
-      <div class="grid">
+      <div class="head">
+        <span class="label">Where it goes</span>
         <div>
-          <span class="kick">Where it goes</span>
-          <h2 class="d">What one horse costs</h2>
-          <div class="big"><span class="amt">$<i>—</i></span><span class="per">a month, for one rescue horse at the ranch</span></div>
-          <table>
-            <thead><tr><th>Item</th><th class="amt">Monthly</th></tr></thead>
-            <tbody>
-              <tr><td>Hay<small>Shared across the herd</small></td><td class="amt">—</td></tr>
-              <tr><td>Feed and supplements<small>Grain, minerals, the jugs in the feed room</small></td><td class="amt">—</td></tr>
-              <tr><td>Farrier<small>Trim or shoes every 6 to 8 weeks</small></td><td class="amt">—</td></tr>
-              <tr><td>Vet, vaccines, deworming<small>Routine care, spread monthly</small></td><td class="amt">—</td></tr>
-              <tr><td>Dental<small>A yearly float, spread monthly</small></td><td class="amt">—</td></tr>
-            </tbody>
-          </table>
-          <p class="fn">The dashes are deliberate. The ranch fills these from its own records rather than publishing a guess.</p>
+          <h2>What one horse costs us each month</h2>
+          <p>Hay isn't free, and neither is a farrier. Here is the real monthly cost of keeping one rescue horse at the ranch, so you know what a gift covers.</p>
+        </div>
+      </div>
+      <div class="ledger-grid">
+        <div>
+        <div class="big"><span class="amt">$<i>—</i></span><span class="per">a month, for one rescue horse at the ranch</span></div>
+        <table>
+          <caption>One horse · one month</caption>
+          <thead><tr><th>Item</th><th class="amt">Cost</th></tr></thead>
+          <tbody>
+            <tr><td>Hay<small>Shared across the herd</small></td><td class="amt dash">—</td></tr>
+            <tr><td>Feed and supplements<small>Grain, minerals and supplements</small></td><td class="amt dash">—</td></tr>
+            <tr><td>Farrier<small>Trim or shoes every 6 to 8 weeks, spread monthly</small></td><td class="amt dash">—</td></tr>
+            <tr><td>Vet, vaccines and deworming<small>Routine care, spread monthly</small></td><td class="amt dash">—</td></tr>
+            <tr><td>Dental<small>Yearly float, spread monthly</small></td><td class="amt dash">—</td></tr>
+          </tbody>
+          <tfoot><tr><td>One horse, one month</td><td class="amt dash">$ —</td></tr></tfoot>
+        </table>
         </div>
         <div class="promise">
-          <h3>What a donor gets</h3>
-          <ol>
-            <li><span><b>A thank-you from us, personally,</b> after every gift.</span></li>
-            <li><span><b>An update on the horse you helped,</b> with photos, as it recovers.</span></li>
-            <li><span><b>The numbers in public.</b> This table changes when the costs do.</span></li>
-            <li><span><b>Your name stays private</b> unless you ask to be thanked by name.</span></li>
-          </ol>
-          <p class="fn">Butterfly Rescue Ranch is a registered 501(c)(3). Gifts may be tax-deductible.</p>
+          <h3>What we promise donors</h3>
+          <ul>
+            <li><b>A thank-you from us, personally,</b> after every gift.</li>
+            <li><b>An update on the horse you helped,</b> with photos, as it recovers.</li>
+            <li><b>The numbers, in public.</b> This table is updated as costs change.</li>
+            <li><b>Your name stays private</b> unless you tell us you'd like to be thanked by name.</li>
+          </ul>
+          <p class="note">The dashes are deliberate. The ranch fills these in from its own records rather than publishing a guess.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="program" id="program">
+  <section id="program">
     <div class="wrap">
-      <div class="grid">
+      <div class="head">
+        <span class="label">The program</span>
         <div>
-          <span class="kick">The program</span>
-          <h2 class="d">Lessons and camps</h2>
-          <p class="intro">Kids and adults come out to ride, learn horsemanship and get away from city life. Camp and lesson fees are what keep the lights on between donations.</p>
-          <p class="intro">Camps hold a spot with a $100 non-refundable deposit. <span class="blank">2026 dates to come.</span></p>
+          <h2>Lessons, camps, and a horse to look after</h2>
+          <p>Kids and adults come out to ride, learn horsemanship and get away from city life. In summer, students in the rescue program are each assigned a horse to care for.</p>
         </div>
-        <div class="plist">
+      </div>
+      <div class="prog">
+        <figure>
+          <img src="assets/riders.jpg" alt="Four riders seen from behind, wearing competition numbers, sitting on their horses in an indoor arena" width="1180" height="886" loading="lazy">
+          <figcaption>Waiting their turn in the arena.</figcaption>
+        </figure>
+        <div class="flyer">
           <h3>Summer camps</h3>
-          <div class="pr"><div class="nm">Overnight Barrel Camp<small>Advanced barrel students</small></div><span class="tag">$600</span></div>
-          <div class="pr"><div class="nm">Barrel Day Camp<small>Advanced barrel students · 8am to 1pm</small></div><span class="tag">$375</span></div>
-          <div class="pr"><div class="nm">Overnight Camp<small>All ages and skill levels</small></div><span class="tag">$500</span></div>
-          <div class="pr"><div class="nm">River Day Camp<small>All ages and skill levels</small></div><span class="tag">$250 – $325</span></div>
-          <div class="pr"><div class="nm">Playday Camp<small>All ages and skill levels · 8am to 1pm</small></div><span class="tag">$250</span></div>
+          <p class="soft" style="font-size:15.5px;margin:0 0 6px">Last summer's camps. <span class="tbc">2026 dates to come.</span></p>
+          <div class="row"><span class="what">Overnight Barrel Camp</span><span class="dots"></span><span class="price">$600</span><small class="meta">Advanced barrel students</small></div>
+          <div class="row"><span class="what">Barrel Day Camp</span><span class="dots"></span><span class="price">$375</span><small class="meta">Advanced barrel students · 8am to 1pm</small></div>
+          <div class="row"><span class="what">Overnight Camp</span><span class="dots"></span><span class="price">$500</span><small class="meta">All ages and skill levels</small></div>
+          <div class="row"><span class="what">River Day Camp</span><span class="dots"></span><span class="price">$250–$325</span><small class="meta">All ages and skill levels</small></div>
+          <div class="row"><span class="what">Playday Camp</span><span class="dots"></span><span class="price">$250</span><small class="meta">All ages and skill levels · 8am to 1pm</small></div>
           <h3>Breakaway lessons</h3>
-          <div class="pr"><div class="nm">Ground lesson<small>Half hour</small></div><span class="tag">$25</span></div>
-          <div class="pr"><div class="nm">Horseback lesson<small>One hour. The instructor decides when a student is ready to practise on a horse.</small></div><span class="tag">$50</span></div>
+          <div class="row"><span class="what">Ground lesson, half hour</span><span class="dots"></span><span class="price">$25</span></div>
+          <div class="row"><span class="what">Horseback lesson, one hour</span><span class="dots"></span><span class="price">$50</span><small class="meta">The instructor decides when a student is ready to practise on a horse.</small></div>
           <h3>Pony parties</h3>
-          <div class="pr"><div class="nm">Pony rides, petting and brushing<small>Unicorn, paint-a-pony, cowboy and cowgirl themes</small></div><span class="tag">from $300</span></div>
-          <p class="note">To book, text Anna at <a href="sms:+13072507508">(307) 250-7508</a>.</p>
+          <div class="row"><span class="what">Pony rides, petting and brushing</span><span class="dots"></span><span class="price">from $300</span><small class="meta">Themes: unicorn, paint a pony, cowboy and cowgirl</small></div>
+          <p class="soft" style="font-size:15.5px;margin-top:18px">Camps hold a spot with a $100 non-refundable deposit. To book, text Anna at <a href="sms:+13072507508">(307) 250-7508</a>.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="help" id="help">
+  <section id="help">
     <div class="wrap">
-      <span class="kick">Help a horse</span>
-      <h2 class="d">Three ways in</h2>
-      <div class="ways">
+      <div class="head">
+        <span class="label">Help a horse</span>
+        <div><h2>Three ways in</h2></div>
+      </div>
+      <div class="help">
         <div id="give">
           <h3>Give</h3>
           <p>Every dollar goes to hay, feed and care, and you'll hear back about the horse it helped.</p>
-          <p>For now, giving starts with a call to Braxton. <span class="blank">An online giving link is coming.</span></p>
-          <a class="btn fill" href="tel:+14059220839">Call (405) 922-0839</a>
+          <p>Right now the simplest way to give is to call Braxton at <a href="tel:+14059220839">(405) 922-0839</a>. <span class="tbc">An online giving link is coming.</span></p>
+          <p style="font-size:15px;color:var(--mute)">Butterfly Rescue Ranch is a registered 501(c)(3), so gifts may be tax-deductible.</p>
         </div>
         <div id="volunteer">
           <h3>Volunteer</h3>
-          <p>Feeding, grooming, mucking, barn days. Tell us when you're free.</p>
+          <p>Feeding, grooming, mucking, barn days. Tell us when you're free and we'll be in touch.</p>
           <form id="vform" novalidate>
             <label>Name<input name="name" autocomplete="name" required></label>
             <label>Email or phone<input name="contact" autocomplete="email" required></label>
             <fieldset>
-              <legend>I can help with</legend>
+              <legend>I'd like to help with</legend>
               <label><input type="checkbox" name="i" value="feeding">Feeding</label>
               <label><input type="checkbox" name="i" value="grooming">Grooming</label>
               <label><input type="checkbox" name="i" value="barn">Barn work</label>
               <label><input type="checkbox" name="i" value="events">Events</label>
             </fieldset>
-            <label>When<select name="when"><option>Weekday mornings</option><option>Weekday evenings</option><option>Weekends</option><option>Whenever you need me</option></select></label>
+            <label>When are you free?<select name="when"><option>Weekday mornings</option><option>Weekday evenings</option><option>Weekends</option><option>Whenever you need me</option></select></label>
             <button class="btn fill" type="submit">Send</button>
-            <p class="sent" role="status">This is a preview, so the form isn't connected yet and nothing was sent. On the live site it goes straight to the ranch.</p>
+            <p class="sent" role="status">This is a preview site, so the form isn't connected yet and nothing was sent. On the live site this goes straight to the ranch.</p>
           </form>
         </div>
         <div id="supplies">
-          <h3>Supplies</h3>
-          <p>Some of the most useful gifts arrive in a truck bed.</p>
+          <h3>Bring supplies</h3>
+          <p>Some of the most useful gifts come in a truck bed.</p>
           <ul>
             <li>Hay and feed</li>
             <li>Fly spray, wormer, hoof care</li>
             <li>Halters, lead ropes, brushes</li>
           </ul>
-          <p><span class="blank">A wish list from the barn is coming.</span> Call before you drop anything off.</p>
+          <p><span class="tbc">A wish list from the barn is coming.</span></p>
+          <p>Call ahead before dropping anything off: <a href="tel:+14059220839">(405) 922-0839</a>.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="people" id="people">
+  <section id="people">
     <div class="wrap">
-      <span class="kick">The barn</span>
-      <h2 class="d">Who's here</h2>
-      <p class="intro">Braxton started Butterfly Ranch in 2022 because the community needed a place where kids and adults could spend time with horses and get away from city life.</p>
-      <div class="crew">
+      <div class="head">
+        <span class="label">About</span>
+        <div>
+          <h2>The people at the barn</h2>
+          <p>Braxton started Butterfly Ranch in 2022 because the community needed a place where kids and adults could spend time with horses and get away from city life.</p>
+        </div>
+      </div>
+      <div class="people">
         <div>
           <img src="assets/braxton.jpg" alt="Braxton Brackin in a pink western shirt and straw hat, holding a buckskin horse at a rodeo arena" width="900" height="948" loading="lazy">
-          <h3>Braxton Brackin</h3><div class="role">Founder &amp; CEO</div>
+          <h3>Braxton Brackin</h3>
+          <div class="role">Founder &amp; CEO</div>
           <p>Raised around rodeo and riding for 27 years, Braxton learned calf roping from her uncle before she could walk. She still competes, and teaches with a firm but encouraging style that helps students believe they can do anything they set their minds to.</p>
         </div>
         <div>
           <img src="assets/anna.jpg" alt="Anna Foote cheek to cheek with a dark horse with a white blaze, mountains behind" width="900" height="1005" loading="lazy">
-          <h3>Anna Foote</h3><div class="role">Barn Manager &amp; Instructor</div>
-          <p>Born and raised in Cody, Wyoming, Anna rode six years with a rodeo drill team before moving to Oklahoma after college in 2023. She loves breakaway roping and teaching riders of every age.</p>
+          <h3>Anna Foote</h3>
+          <div class="role">Barn Manager &amp; Instructor</div>
+          <p>Born and raised in Cody, Wyoming, Anna rode six years with a rodeo drill team before moving to Oklahoma after college in 2023. She loves breakaway roping and teaching riders of every age, and making it fun.</p>
         </div>
         <div>
           <img src="assets/chloe.jpg" alt="Chloe Bjornberg in a navy show jacket, standing with a dapple grey horse" width="733" height="1100" loading="lazy">
-          <h3>Chloe Bjornberg</h3><div class="role">Instructor</div>
-          <p>A former president of the OU Equestrian Team, Chloe has taught English and western lessons for over eight years. She's now in graduate school at OU, training to offer equine-assisted counseling.</p>
+          <h3>Chloe Bjornberg</h3>
+          <div class="role">Instructor</div>
+          <p>A former president of the OU Equestrian Team, Chloe has taught English and western lessons for over eight years. She's now in graduate school at OU, working toward becoming a counselor who offers equine-assisted therapy.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="visit" id="visit">
+  <section id="visit" style="padding:0 0 88px">
     <div class="wrap">
-      <div class="grid">
-        <h2 class="d">Come meet the herd</h2>
-        <div><h3>Where</h3><p>7475 By Drive<br>Norman, OK 73072<br><a href="https://www.google.com/maps/search/?api=1&amp;query=7475+By+Drive+Norman+OK+73072" target="_blank" rel="noopener">Open in Maps</a></p></div>
-        <div><h3>Call first</h3><p>It's a working barn.<br><a href="tel:+14059220839">(405) 922-0839</a></p></div>
+      <div class="visit">
+        <div><span class="label">Visit</span><h2 style="margin-top:12px">Come meet the herd</h2></div>
+        <div><h3>Where</h3><p>7475 By Drive<br>Norman, Oklahoma 73072<br><a href="https://www.google.com/maps/search/?api=1&amp;query=7475+By+Drive+Norman+OK+73072" target="_blank" rel="noopener">Open in Maps</a></p></div>
+        <div><h3>Call first</h3><p>We're a working barn, so please call before you come out.<br><a href="tel:+14059220839">(405) 922-0839</a></p></div>
       </div>
     </div>
   </section>
@@ -446,9 +468,14 @@ footer .fine{flex-basis:100%;border-top:1px solid #332630;padding-top:16px;margi
 
 <footer>
   <div class="wrap">
-    <img src="assets/logo-white.png" alt="Butterfly Ranch" width="900" height="313" loading="lazy">
-    <div>Butterfly Rescue Ranch · a 501(c)(3) nonprofit · 7475 By Drive, Norman, OK 73072</div>
-    <div class="fine">Concept site by Station, not the ranch's official website. Photos are the ranch's own, from its website and Facebook page; three were enlarged from small originals. Designed by <a href="https://station.solutions/" target="_blank" rel="noopener">Station.Solutions</a></div>
+    <div class="top">
+      <img src="assets/logo-white.png" alt="Butterfly Ranch" width="900" height="313" loading="lazy">
+      <div>Butterfly Rescue Ranch · a 501(c)(3) nonprofit<br>7475 By Drive, Norman, OK 73072 · <a href="tel:+14059220839">(405) 922-0839</a></div>
+    </div>
+    <div class="base">
+      <span>Concept site by Station, not the ranch's official website. Photos are the ranch's own, from its website and Facebook page. Three were enlarged from small originals.</span>
+      <span>Designed by <a href="https://station.solutions/" target="_blank" rel="noopener">Station.Solutions</a></span>
+    </div>
   </div>
 </footer>
 
