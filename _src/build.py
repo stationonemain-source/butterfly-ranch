@@ -110,12 +110,13 @@ def write(path, content):
 def head(label, h2, p=None, more=None):
     return f'<div class="head"><span class="label">{e(label)}</span><div><h2>{h2}</h2>{f"<p>{p}</p>" if p else ""}{f"<p class=more>{more}</p>" if more else ""}</div></div>'
 
-def ph(label, h1, lede, img=None, alt="", crumbs=None, rel=""):
+def ph(label, h1, lede, img=None, alt="", crumbs=None, rel="", pos=None):
     c = ""
     if crumbs:
         parts = [f'<a href="{rel}{u}">{e(n)}</a>' if u is not None else e(n) for n, u in crumbs]
         c = '<p class="crumbs">' + " › ".join(parts) + "</p>"
-    pic = f'<img src="{rel}assets/photos/{img}.jpg" alt="{e(alt)}" width="1600" height="1200">' if img else ""
+    st = f' style="object-position:{pos}"' if pos else ""
+    pic = f'<img src="{rel}assets/photos/{img}.jpg" alt="{e(alt)}" width="1600" height="1200"{st}>' if img else ""
     return f'<div class="ph{"" if img else " plain"}"><div class="wrap"><div>{c}<span class="label">{e(label)}</span><h1>{h1}</h1><p class="lede">{lede}</p></div>{pic}</div></div>'
 
 def band(rel, h="Give once, or a little every month", p="Every gift goes to hay, feed and care, and you'll hear back about the horse it helped."):
@@ -183,12 +184,12 @@ def home():
 
 <section>
   <div class="wrap">
-    {head("The program", "Lessons, camps, and a horse to look after", "Kids and adults come out to ride, learn horsemanship and get away from city life. Lessons and camps help keep the rescue fed.", '<a href="program/">Camps, lessons and pony parties →</a>')}
+    {head("The program", "Lessons, camps and pony parties", "Kids and adults come out to ride, learn horsemanship and get away from city life. Lessons and camps help keep the rescue fed.", '<a href="program/">Camps, lessons and pony parties →</a>')}
     <div class="gallery">
       <div class="wide"><img src="assets/photos/friends.jpg" alt="Two horses, a bay with a wide blaze and a chestnut, stand head to head at a wooden feeder" width="1600" height="1000" loading="lazy"></div>
-      <div><img src="assets/photos/supplement-bucket.jpg" alt="A pink feed bucket on the barn bench beside bottles of supplements" width="1200" height="1600" loading="lazy"></div>
+      <div><img src="assets/photos/goofy.jpg" alt="A bay horse lifts its head high over the fence, lip curled, showing off" width="1200" height="1600" loading="lazy"></div>
       <div><img src="assets/photos/saddles.jpg" alt="Western saddles and a striped saddle blanket racked against the barn wall" width="1200" height="1600" loading="lazy"></div>
-      <div><img src="assets/photos/hay.jpg" alt="Square bales of hay stacked on a flatbed trailer beside a block wall" width="1200" height="1600" loading="lazy"></div>
+      <div><img src="assets/photos/trough.jpg" alt="A bay horse stands by a full water trough with wildflowers along the fence" width="1200" height="1600" loading="lazy"></div>
       <div><img src="assets/photos/goat.jpg" alt="A brown and white goat with long ears looks at the camera beside a horse trailer" width="1200" height="1600" loading="lazy"></div>
     </div>
   </div>
@@ -352,7 +353,7 @@ def volunteer():
           ("How old do volunteers have to be?", "<span class=\"tbc\">The ranch's minimum age and the rule for under-18s with a parent will be stated here.</span>"),
           ("When are volunteer days?", "<span class=\"tbc\">Regular days and times will be listed here once the ranch sets them.</span> Tell us when you're free in the form and we'll match you to one."),
           ("Can a group or a class come out?", f"Yes. Call {O['phone']} and we'll plan a barn day around your group.")]
-    body = ph("Volunteer", "Hands on. Horses first.", "Feeding, grooming, mucking, barn days. Tell us when you're free and the ranch will be in touch.", img="hand-nose", alt="A hand reaches up to a dark bay horse's nose over a wire fence", crumbs=[("Home", ""), ("Volunteer", None)], rel=rel)
+    body = ph("Volunteer", "Hands on. Horses first.", "Feeding, grooming, mucking, barn days. Tell us when you're free and the ranch will be in touch.", img="hand-nose", alt="A hand reaches up to a dark bay horse's nose over a wire fence", crumbs=[("Home", ""), ("Volunteer", None)], rel=rel, pos="50% 38%")
     body += f'''
 <section><div class="wrap"><div class="two">
 <div>{head("Sign up", "Tell us about you")}
@@ -383,7 +384,7 @@ def volunteer():
 def program():
     rel = "../"
     def rows(items): return "".join(f'<div class="row"><span class="what">{e(w)}</span><span class="dots"></span><span class="price">{e(p)}</span>{f"<small class=meta>{e(m)}</small>" if m else ""}</div>' for w, p, m in items)
-    body = ph("The program", "Lessons, camps, and a horse to look after", "Kids and adults come out to ride, learn horsemanship and get away from city life. Lessons and camps help keep the rescue fed.", img="friends", alt="Two horses, a bay with a wide blaze and a chestnut, stand head to head at a wooden feeder", crumbs=[("Home", ""), ("Program", None)], rel=rel)
+    body = ph("The program", "Lessons, camps and pony parties", "Kids and adults come out to ride, learn horsemanship and get away from city life. Lessons and camps help keep the rescue fed.", img="friends", alt="Two horses, a bay with a wide blaze and a chestnut, stand head to head at a wooden feeder", crumbs=[("Home", ""), ("Program", None)], rel=rel)
     body += f'''
 <section class="dark"><div class="wrap"><div class="prog">
 <figure><img src="{rel}assets/photos/chestnut-sky.jpg" alt="A chestnut horse with a white blaze stands in the pen under a wide blue sky" width="1200" height="1600" loading="lazy"><figcaption>In the pens, between lessons.</figcaption></figure>
@@ -406,7 +407,7 @@ def about():
     body = ph("About", "Started in 2022, for the horses", "Braxton started Butterfly Ranch because the community needed a place where kids and adults could spend time with horses and get away from city life. The rescue grew out of that, and it is now the heart of it.", img="sign-sky", alt="The pink Butterfly Ranch sign on a dark block wall under a big Oklahoma sky", crumbs=[("Home", ""), ("About", None)], rel=rel)
     body += f'''
 <section><div class="wrap">{head("The people", "The people at the barn")}<div class="people">{people}</div>
-<p class="note">Which portrait is Anna and which is Chloe is inferred from the ranch's site and should be confirmed with Braxton.</p></div></section>
+</div></section>
 <section class="dark"><div class="wrap">{head("What we believe", "Hopeful, not heartbreaking")}
 <div class="two"><div><p class="soft">We don't lead with the worst photo of a horse's life. We show the recovery: weight coming back, feet fixed, the first day a horse walks to the gate on its own. Where a horse came from is part of its story, told plainly, once.</p></div>
 <div><p class="soft">We publish what things cost and where gifts went. Every horse has a page that is updated as it recovers, and every donor hears back about the horse they helped. Your name stays private unless you ask to be thanked by name.</p></div></div></div></section>
