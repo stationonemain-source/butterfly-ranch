@@ -28,7 +28,7 @@
 <main id="main">
 
 <div class="film">
-  <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-label="The horses of Butterfly Ranch coming to the fence, filmed at the ranch in October 2026"><source src="assets/hero.mp4" type="video/mp4"></video>
+  <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-label="The horses of Butterfly Ranch coming to the fence, filmed at the ranch in October 2026"><source src="assets/hero-m.mp4" type="video/mp4" media="(max-aspect-ratio: 4/5)"><source src="assets/hero.mp4" type="video/mp4"></video>
   <img class="still" src="assets/hero-poster.jpg" alt="A chestnut horse with a white blaze looks at the camera over the fence at Butterfly Ranch">
   <div class="wrap">
     <span class="label">501(c)(3) horse rescue · Norman, Oklahoma</span>
@@ -111,7 +111,7 @@
 <script>
 (function(){
   var b=document.querySelector('.menu'), n=document.getElementById('nav'), h=document.querySelector('header');
-  if(document.body.classList.contains('home')){var film=document.querySelector('.film');function sol(){h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}addEventListener('scroll',sol,{passive:true});sol()}
+  if(document.body.classList.contains('home')){var film=document.querySelector('.film');if(matchMedia('(max-aspect-ratio: 4/5)').matches){var v=film.querySelector('video'),st=film.querySelector('.still');v.poster='assets/hero-poster-m.jpg';st.src='assets/hero-poster-m.jpg'}function sol(){h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}addEventListener('scroll',sol,{passive:true});sol()}
   b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
   document.querySelectorAll('form[data-preview]').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelector('.sent').classList.add('on')})});
   var g=document.getElementById('giver');

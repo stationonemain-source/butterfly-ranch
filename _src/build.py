@@ -84,7 +84,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
 <script>
 (function(){{
   var b=document.querySelector('.menu'), n=document.getElementById('nav'), h=document.querySelector('header');
-  if(document.body.classList.contains('home')){{var film=document.querySelector('.film');function sol(){{h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}}addEventListener('scroll',sol,{{passive:true}});sol()}}
+  if(document.body.classList.contains('home')){{var film=document.querySelector('.film');if(matchMedia('(max-aspect-ratio: 4/5)').matches){{var v=film.querySelector('video'),st=film.querySelector('.still');v.poster='assets/hero-poster-m.jpg';st.src='assets/hero-poster-m.jpg'}}function sol(){{h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}}addEventListener('scroll',sol,{{passive:true}});sol()}}
   b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}});
   document.querySelectorAll('form[data-preview]').forEach(function(f){{f.addEventListener('submit',function(ev){{ev.preventDefault();f.querySelector('.sent').classList.add('on')}})}});
   var g=document.getElementById('giver');
@@ -134,7 +134,7 @@ def home():
     herd = "".join(f'<a href="horses/{h["slug"]}/"><img src="assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"><h3>{e(h["title"])}</h3><p class="coat">{e(h["coat"])}</p></a>' for h in D["horses"][:8])
     body = f'''
 <div class="film">
-  <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-label="The horses of Butterfly Ranch coming to the fence, filmed at the ranch in October 2026"><source src="assets/hero.mp4" type="video/mp4"></video>
+  <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-label="The horses of Butterfly Ranch coming to the fence, filmed at the ranch in October 2026"><source src="assets/hero-m.mp4" type="video/mp4" media="(max-aspect-ratio: 4/5)"><source src="assets/hero.mp4" type="video/mp4"></video>
   <img class="still" src="assets/hero-poster.jpg" alt="A chestnut horse with a white blaze looks at the camera over the fence at Butterfly Ranch">
   <div class="wrap">
     <span class="label">501(c)(3) horse rescue · Norman, Oklahoma</span>
@@ -263,7 +263,7 @@ def donate():
           ("Does my employer match gifts?", "Many do. Ask your HR team for their matching-gift form and send it to the ranch with your receipt; the ranch will complete its part.")]
     body = ph("Donate", "Give to the horses", "Every dollar goes to hay, feed and care, and you'll hear back about the horse it helped. Three steps: pick an amount, choose once or monthly, pay.", crumbs=[("Home", ""), ("Donate", None)], rel=rel)
     body += f'''
-<section style="padding-top:64px">
+<section>
   <div class="wrap">
     <div class="give">
       <form class="giver" id="giver" novalidate aria-label="Donation form">

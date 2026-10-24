@@ -69,7 +69,7 @@
 <script>
 (function(){
   var b=document.querySelector('.menu'), n=document.getElementById('nav'), h=document.querySelector('header');
-  if(document.body.classList.contains('home')){var film=document.querySelector('.film');function sol(){h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}addEventListener('scroll',sol,{passive:true});sol()}
+  if(document.body.classList.contains('home')){var film=document.querySelector('.film');if(matchMedia('(max-aspect-ratio: 4/5)').matches){var v=film.querySelector('video'),st=film.querySelector('.still');v.poster='assets/hero-poster-m.jpg';st.src='assets/hero-poster-m.jpg'}function sol(){h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}addEventListener('scroll',sol,{passive:true});sol()}
   b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
   document.querySelectorAll('form[data-preview]').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelector('.sent').classList.add('on')})});
   var g=document.getElementById('giver');

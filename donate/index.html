@@ -27,7 +27,7 @@
 </header>
 <main id="main">
 <div class="ph plain"><div class="wrap"><div><p class="crumbs"><a href="../">Home</a> › Donate</p><span class="label">Donate</span><h1>Give to the horses</h1><p class="lede">Every dollar goes to hay, feed and care, and you'll hear back about the horse it helped. Three steps: pick an amount, choose once or monthly, pay.</p></div></div></div>
-<section style="padding-top:64px">
+<section>
   <div class="wrap">
     <div class="give">
       <form class="giver" id="giver" novalidate aria-label="Donation form">
@@ -103,7 +103,7 @@
 <script>
 (function(){
   var b=document.querySelector('.menu'), n=document.getElementById('nav'), h=document.querySelector('header');
-  if(document.body.classList.contains('home')){var film=document.querySelector('.film');function sol(){h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}addEventListener('scroll',sol,{passive:true});sol()}
+  if(document.body.classList.contains('home')){var film=document.querySelector('.film');if(matchMedia('(max-aspect-ratio: 4/5)').matches){var v=film.querySelector('video'),st=film.querySelector('.still');v.poster='assets/hero-poster-m.jpg';st.src='assets/hero-poster-m.jpg'}function sol(){h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}addEventListener('scroll',sol,{passive:true});sol()}
   b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
   document.querySelectorAll('form[data-preview]').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelector('.sent').classList.add('on')})});
   var g=document.getElementById('giver');
