@@ -1,0 +1,27 @@
+# Butterfly Rescue Ranch
+
+> A 501(c)(3) horse rescue in Norman, Oklahoma, founded in 2022 by Braxton Brackin. Horses from kill pens, abusive homes and surrenders are rehabilitated and matched with students in a summer program. The ranch also runs riding lessons, summer camps and pony parties.
+
+Address: 7475 By Drive, Norman, OK 73072. Phone: (405) 922-0839. Camps and lessons: text Anna at (307) 250-7508.
+
+## Pages
+- [Home](https://stationonemain-source.github.io/butterfly-ranch/): what the ranch does and the horses there now
+- [The horses](https://stationonemain-source.github.io/butterfly-ranch/horses/): one page per horse, each with a journal of its recovery and costs
+- [Donate](https://stationonemain-source.github.io/butterfly-ranch/donate/): one-time or monthly gifts; card, Venmo, PayPal, mail, supplies, employer match
+- [Sponsor a horse](https://stationonemain-source.github.io/butterfly-ranch/sponsor/): monthly sponsorship of one horse, with updates; business logos welcome
+- [Volunteer](https://stationonemain-source.github.io/butterfly-ranch/volunteer/): feeding, grooming, barn days, events; no experience needed
+- [Program](https://stationonemain-source.github.io/butterfly-ranch/program/): lessons, summer camps and pony parties, with prices
+- [About](https://stationonemain-source.github.io/butterfly-ranch/about/): the founder and team, what the ranch stands for, legal facts
+- [Visit](https://stationonemain-source.github.io/butterfly-ranch/visit/): address, map, call first
+- [Updates](https://stationonemain-source.github.io/butterfly-ranch/updates/): news from the barn
+
+## Facts
+- Status: 501(c)(3) nonprofit; gifts are tax-deductible as allowed by law
+- Founded: 2022
+- Founder: Braxton Brackin, Founder & CEO
+- Barn manager and instructor: Anna Foote; instructor: Chloe Bjornberg
+- Camps (last summer): Overnight Barrel Camp $600; Barrel Day Camp $375; Overnight Camp $500; River Day Camp $250–$325; Playday Camp $250. $100 deposit holds a spot.
+- Lessons: ground lesson (half hour) $25; horseback lesson (one hour) $50. Pony parties from $300.
+- Monthly cost per horse and total horses rescued: to be published by the ranch.
+
+This is a concept site built by Station (station.solutions) with the University of Oklahoma MKT 4970 class, October 2026. It is not yet the ranch's official website.

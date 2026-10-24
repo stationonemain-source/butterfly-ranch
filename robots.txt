@@ -1,2 +1,5 @@
 User-agent: *
 Disallow: /
+
+# Concept site, not yet the ranch's official website. Sitemap kept for when it goes live.
+Sitemap: https://stationonemain-source.github.io/butterfly-ranch/sitemap.xml

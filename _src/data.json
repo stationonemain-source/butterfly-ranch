@@ -1,0 +1,71 @@
+{
+  "org": {
+    "name": "Butterfly Rescue Ranch",
+    "short": "Butterfly Ranch",
+    "tagline": "Every horse has a story. Every heart that loves them deserves to see it.",
+    "founded": "2022",
+    "street": "7475 By Drive",
+    "city": "Norman",
+    "state": "OK",
+    "zip": "73072",
+    "phone": "(405) 922-0839",
+    "phone_e164": "+14059220839",
+    "camp_phone": "(307) 250-7508",
+    "camp_phone_e164": "+13072507508",
+    "url": "https://stationonemain-source.github.io/butterfly-ranch/",
+    "maps": "https://www.google.com/maps/search/?api=1&query=7475+By+Drive+Norman+OK+73072"
+  },
+  "horses": [
+    {"slug": "chestnut-blaze", "title": "The chestnut with the blaze", "coat": "Chestnut, white blaze", "status": "At the ranch", "hero": true,
+     "alt": "A chestnut horse with a long white blaze looks straight at the camera over a wire fence, ears forward"},
+    {"slug": "bay-lightning", "title": "The bay with the lightning blaze", "coat": "Bay, jagged white blaze", "status": "At the ranch",
+     "alt": "A bay horse with a jagged white blaze leans over a gray pipe gate"},
+    {"slug": "bay-star", "title": "The bay with the star", "coat": "Bay, small star", "status": "At the ranch",
+     "alt": "A bay horse with a small white star on its forehead looks over the top rail of a fence"},
+    {"slug": "dark-bay", "title": "The dark bay", "coat": "Dark bay", "status": "At the ranch",
+     "alt": "A dark bay horse faces the camera over a pipe fence, a water trough beside it"},
+    {"slug": "paint", "title": "The paint", "coat": "Brown and white paint, blue eye", "status": "At the ranch",
+     "alt": "A brown and white paint horse pushes its nose toward the camera over a black pipe gate"},
+    {"slug": "palomino-pony", "title": "The palomino pony", "coat": "Palomino pony", "status": "At the ranch",
+     "alt": "A palomino pony with a thick blond mane looks through the rails of a gate"},
+    {"slug": "little-pinto", "title": "The little pinto", "coat": "Miniature pinto", "status": "At the ranch",
+     "alt": "A small brown and white pinto pony stands by a wire fence under a blue sky"},
+    {"slug": "cream", "title": "The cream horse", "coat": "Cream, red halter", "status": "At the ranch",
+     "alt": "A cream-coloured horse in a red halter looks at the camera with its forelock in its eyes"},
+    {"slug": "buckskin", "title": "The buckskin", "coat": "Buckskin, scar on the shoulder", "status": "At the ranch",
+     "alt": "A buckskin horse in a red rope halter stands in the sun with the barn behind"},
+    {"slug": "gray", "title": "The gray", "coat": "Gray, red halter", "status": "At the ranch",
+     "alt": "A gray horse in a red halter stands by a red pipe gate"},
+    {"slug": "chestnut-braids", "title": "The chestnut with the braided mane", "coat": "Chestnut, braided mane", "status": "At the ranch",
+     "alt": "A chestnut horse with a braided mane and white blaze stands by a wooden feeder"}
+  ],
+  "people": [
+    {"img": "braxton.jpg", "name": "Braxton Brackin", "role": "Founder & CEO", "alt": "Braxton Brackin in a pink western shirt and straw hat, holding a buckskin horse at a rodeo arena",
+     "bio": "Raised around rodeo and riding for 27 years, Braxton learned calf roping from her uncle before she could walk. She still competes, and teaches with a firm but encouraging style that helps students believe they can do anything they set their minds to."},
+    {"img": "anna.jpg", "name": "Anna Foote", "role": "Barn Manager & Instructor", "alt": "Anna Foote cheek to cheek with a dark horse with a white blaze, mountains behind",
+     "bio": "Born and raised in Cody, Wyoming, Anna rode six years with a rodeo drill team before moving to Oklahoma after college in 2023. She loves breakaway roping and teaching riders of every age, and making it fun."},
+    {"img": "chloe.jpg", "name": "Chloe Bjornberg", "role": "Instructor", "alt": "Chloe Bjornberg in a navy show jacket, standing with a dapple grey horse",
+     "bio": "A former president of the OU Equestrian Team, Chloe has taught English and western lessons for over eight years. She's now in graduate school at OU, working toward becoming a counselor who offers equine-assisted therapy."}
+  ],
+  "camps": [
+    ["Overnight Barrel Camp", "$600", "Advanced barrel students"],
+    ["Barrel Day Camp", "$375", "Advanced barrel students · 8am to 1pm"],
+    ["Overnight Camp", "$500", "All ages and skill levels"],
+    ["River Day Camp", "$250–$325", "All ages and skill levels"],
+    ["Playday Camp", "$250", "All ages and skill levels · 8am to 1pm"]
+  ],
+  "lessons": [
+    ["Ground lesson, half hour", "$25", ""],
+    ["Horseback lesson, one hour", "$50", "The instructor decides when a student is ready to practise on a horse."]
+  ],
+  "parties": [
+    ["Pony rides, petting and brushing", "from $300", "Themes: unicorn, paint a pony, cowboy and cowgirl"]
+  ],
+  "tiers": [
+    {"amt": 25, "for": "Fly spray, wormer and hoof care"},
+    {"amt": 50, "for": "Farrier work"},
+    {"amt": 100, "for": "Vet visits and vaccines"},
+    {"amt": 250, "for": "Hay and feed"}
+  ],
+  "credits": "Photos and film from the October 2026 site visit by OU MKT 4970 students (Kaylee Veeravan, Savannah Fritzen, Team 1). Staff portraits and logo from the ranch. Some hero shots were animated from those photos with AI; nothing in them was invented."
+}
