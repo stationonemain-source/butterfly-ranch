@@ -138,13 +138,13 @@ def home():
   <div class="wrap">
     <span class="label">501(c)(3) horse rescue · Norman, Oklahoma</span>
     <h1>Every horse has a story. Here, you get to see it.</h1>
-    <p class="lede">We take in horses from kill pens, abusive homes and surrenders, bring them back to health, and match each one with a student who keeps showing up. You can follow every horse from the day it arrives.</p>
+    <p class="lede">We take in horses from kill pens, abusive homes and surrenders and bring them back to health. You can follow every horse from the day it arrives, and see exactly where your help went.</p>
     <div class="acts"><a class="btn fill" href="donate/">Donate</a><a class="btn ghost" href="horses/">Meet the horses</a></div>
   </div>
   <span class="credit">Filmed at the ranch, October 2026</span>
 </div>
 
-<section class="state"><div class="wrap"><p>A horse that nobody wanted gets fed, shod, doctored and worked, slowly, <b>until a kid shows up and keeps showing up.</b> That's the whole program.</p></div></section>
+<section class="state"><div class="wrap"><p>A horse that nobody wanted gets fed, shod, doctored and worked, slowly, <b>and every step of it is here for you to see.</b> That's the whole idea.</p></div></section>
 
 <section>
   <div class="wrap">
@@ -155,12 +155,12 @@ def home():
 
 <section class="dark">
   <div class="wrap">
-    {head("How a horse comes through", "Rescue, rehab, and a student of its own")}
+    {head("How a horse comes through", "Rescue, rehab, and every step in the open")}
     <div class="path">
       <ol class="steps">
         <li><span class="n">1</span><div><h3>Rescue</h3><p>Horses come to us from dangerous places: kill pens, abusive homes, and owners who can no longer keep them.</p></div></li>
         <li><span class="n">2</span><div><h3>Rehabilitation</h3><p>Feed, supplements, farrier, vet care and time. The work goes at the horse's pace, not ours.</p></div></li>
-        <li><span class="n">3</span><div><h3>A student of its own</h3><p>When a horse is ready, it meets the students in our program. Each summer a student is assigned a horse to care for, and some go on to become its owner.</p></div></li>
+        <li><span class="n">3</span><div><h3>Followed, in public</h3><p>Every step goes on the horse's page: what was done, what it cost and who helped. Donors see exactly where their gift went.</p></div></li>
       </ol>
       <figure><img src="assets/photos/student-bucket.jpg" alt="A student in a maroon shirt and cap, seen from behind, brushes a chestnut horse beside a pink feed bucket, the ranch sign behind them" width="1200" height="1600" loading="lazy"><figcaption>Grooming by the pens, with the sign behind.</figcaption></figure>
     </div>
@@ -183,7 +183,7 @@ def home():
 
 <section>
   <div class="wrap">
-    {head("The program", "Lessons, camps, and a horse to look after", "Kids and adults come out to ride, learn horsemanship and get away from city life. In summer, students in the rescue program are each assigned a horse to care for.", '<a href="program/">Camps, lessons and pony parties →</a>')}
+    {head("The program", "Lessons, camps, and a horse to look after", "Kids and adults come out to ride, learn horsemanship and get away from city life. Lessons and camps help keep the rescue fed.", '<a href="program/">Camps, lessons and pony parties →</a>')}
     <div class="gallery">
       <div class="wide"><img src="assets/photos/friends.jpg" alt="Two horses, a bay with a wide blaze and a chestnut, stand head to head at a wooden feeder" width="1600" height="1000" loading="lazy"></div>
       <div><img src="assets/photos/supplement-bucket.jpg" alt="A pink feed bucket on the barn bench beside bottles of supplements" width="1200" height="1600" loading="lazy"></div>
@@ -195,7 +195,7 @@ def home():
 </section>
 
 {updates(rel)}'''
-    write("", page("", f"{O['name']} · Horse rescue in Norman, Oklahoma", "Butterfly Rescue Ranch is a 501(c)(3) horse rescue in Norman, Oklahoma. Horses from kill pens, abusive homes and surrenders are rehabilitated and matched with students. Follow every horse, donate, sponsor or volunteer.", body, home=True))
+    write("", page("", f"{O['name']} · Horse rescue in Norman, Oklahoma", "Butterfly Rescue Ranch is a 501(c)(3) horse rescue in Norman, Oklahoma. Horses from kill pens, abusive homes and surrenders are rehabilitated in the open: follow every horse, donate, sponsor or volunteer.", body, home=True))
 
 # ---------- HORSES ----------
 def horses():
@@ -236,8 +236,8 @@ def horse(h):
         <li><time>Day 1</time><div><h3>Arrival</h3><p>Where the horse came from, its weight and condition, and the first vet check. Intake photo here.</p></div><span class="cost">Intake vet · $ —</span></li>
         <li><time>Week 2</time><div><h3>Feet and teeth</h3><p>First farrier visit and dental float. What the farrier found, in plain words.</p></div><span class="cost">Farrier and dental · $ —</span></li>
         <li><time>Month 2</time><div><h3>Putting weight back on</h3><p>Feed plan, weight change, and the first time the horse comes to the gate on its own.</p></div><span class="cost">Feed · $ — a month</span></li>
-        <li><time>Month 4</time><div><h3>Meeting a student</h3><p>Groundwork with a student from the program. A photo from behind, or with a parent's OK.</p></div></li>
-        <li><time>Summer</time><div><h3>Assigned</h3><p>The horse is matched with a student for the summer program. Thank-you note to every donor who helped get it here.</p></div><span class="cost">Total · $ —</span></li>
+        <li><time>Month 4</time><div><h3>Back to work</h3><p>Groundwork, then saddle time when the horse is sound. Photos as it fills out.</p></div></li>
+        <li><time>Recovered</time><div><h3>Well</h3><p>Sound, at weight, and settled. A thank-you to every donor who helped get it here, and what the whole journey cost.</p></div><span class="cost">Total · $ —</span></li>
       </ol>
     </div>
   </div>
@@ -332,7 +332,7 @@ def sponsor():
 <div><span class="label">Sponsor</span><div class="a">$<i style="font-style:normal;opacity:.35">—</i></div><p class="per">a month</p><ul><li>Everything above</li><li>Come out and meet your horse</li><li>Named in the monthly email</li></ul></div>
 <div><span class="label">Business</span><div class="a">$<i style="font-style:normal;opacity:.35">—</i></div><p class="per">a month</p><ul><li>Everything above</li><li>Your logo on this page and on the horse's page</li><li>A thank-you post on the ranch's channels</li></ul></div></div>
 <p class="note">Levels and prices are the ranch's to set from its real monthly costs; the dashes stay until it does.</p>'''
-    body = ph("Sponsor a horse", "One horse. Your name on its story.", "Pick a horse, cover part of its care each month, and follow it from the day it arrived to the day it's matched with a student.", img="horse-sign", alt="A bay horse at the fence in front of the pink Butterfly Ranch sign", crumbs=[("Home", ""), ("Sponsor a horse", None)], rel=rel)
+    body = ph("Sponsor a horse", "One horse. Your name on its story.", "Pick a horse, cover part of its care each month, and follow it from the day it arrived to the day it's well.", img="horse-sign", alt="A bay horse at the fence in front of the pink Butterfly Ranch sign", crumbs=[("Home", ""), ("Sponsor a horse", None)], rel=rel)
     body += f'''
 <section><div class="wrap">{head("Levels", "Three ways to sponsor")}{levels}</div></section>
 <section class="dark"><div class="wrap">{head("Pick a horse", "Who needs a sponsor", "Every horse at the ranch is open for sponsorship right now.", f'<a href="{rel}horses/">All the horses →</a>')}
@@ -383,7 +383,7 @@ def volunteer():
 def program():
     rel = "../"
     def rows(items): return "".join(f'<div class="row"><span class="what">{e(w)}</span><span class="dots"></span><span class="price">{e(p)}</span>{f"<small class=meta>{e(m)}</small>" if m else ""}</div>' for w, p, m in items)
-    body = ph("The program", "Lessons, camps, and a horse to look after", "Kids and adults come out to ride, learn horsemanship and get away from city life. In summer, students in the rescue program are each assigned a horse to care for.", img="friends", alt="Two horses, a bay with a wide blaze and a chestnut, stand head to head at a wooden feeder", crumbs=[("Home", ""), ("Program", None)], rel=rel)
+    body = ph("The program", "Lessons, camps, and a horse to look after", "Kids and adults come out to ride, learn horsemanship and get away from city life. Lessons and camps help keep the rescue fed.", img="friends", alt="Two horses, a bay with a wide blaze and a chestnut, stand head to head at a wooden feeder", crumbs=[("Home", ""), ("Program", None)], rel=rel)
     body += f'''
 <section class="dark"><div class="wrap"><div class="prog">
 <figure><img src="{rel}assets/photos/chestnut-sky.jpg" alt="A chestnut horse with a white blaze stands in the pen under a wide blue sky" width="1200" height="1600" loading="lazy"><figcaption>In the pens, between lessons.</figcaption></figure>
@@ -393,17 +393,17 @@ def program():
   <h3>Pony parties</h3>{rows(D["parties"])}
   <p class="soft" style="font-size:15.5px;margin-top:18px">Camps hold a spot with a $100 non-refundable deposit. To book, text Anna at <a href="sms:{O["camp_phone_e164"]}">{O["camp_phone"]}</a>.</p>
 </div></div></div></section>
-<section><div class="wrap">{head("The rescue program", "A student and a horse, for a summer", "When a rescued horse is ready, it meets the students. Each summer a student is assigned a horse to care for: feeding, grooming, groundwork, riding when the horse is ready. Some students go on to become that horse's owner.")}
+<section><div class="wrap">{head("Why it matters", "Lessons that feed the rescue", "Every lesson, camp and pony party helps pay for hay, farrier and vet care for the rescue horses. Come ride, and you're part of it.")}
 <div class="gallery pair"><div><img src="{rel}assets/photos/student-bucket.jpg" alt="A student seen from behind brushes a chestnut horse beside a pink bucket" width="1200" height="1600" loading="lazy"></div><div><img src="{rel}assets/photos/braids.jpg" alt="A horse's mane in neat braids" width="1200" height="1600" loading="lazy"></div></div></div></section>
 {band(rel)}'''
     ld = [crumbs_ld([("Home", ""), ("Program", "program/")])]
-    write("program/", page("program/", f"Lessons, camps and pony parties · {O['name']}", "Riding lessons, summer horse camps and pony parties at Butterfly Rescue Ranch in Norman, Oklahoma, plus the rescue program that pairs students with horses.", body, ld, current="program/"))
+    write("program/", page("program/", f"Lessons, camps and pony parties · {O['name']}", "Riding lessons, summer horse camps and pony parties at Butterfly Rescue Ranch in Norman, Oklahoma. Every lesson helps feed the rescue horses.", body, ld, current="program/"))
 
 # ---------- ABOUT ----------
 def about():
     rel = "../"
     people = "".join(f'<div><img src="{rel}assets/{p["img"]}" alt="{e(p["alt"])}" width="900" height="1000" loading="lazy"><h3>{e(p["name"])}</h3><div class="role">{e(p["role"])}</div><p>{e(p["bio"])}</p></div>' for p in D["people"])
-    body = ph("About", "Started in 2022, for the horses and the kids", "Braxton started Butterfly Ranch because the community needed a place where kids and adults could spend time with horses and get away from city life. The rescue grew out of that.", img="sign-sky", alt="The pink Butterfly Ranch sign on a dark block wall under a big Oklahoma sky", crumbs=[("Home", ""), ("About", None)], rel=rel)
+    body = ph("About", "Started in 2022, for the horses", "Braxton started Butterfly Ranch because the community needed a place where kids and adults could spend time with horses and get away from city life. The rescue grew out of that, and it is now the heart of it.", img="sign-sky", alt="The pink Butterfly Ranch sign on a dark block wall under a big Oklahoma sky", crumbs=[("Home", ""), ("About", None)], rel=rel)
     body += f'''
 <section><div class="wrap">{head("The people", "The people at the barn")}<div class="people">{people}</div>
 <p class="note">Which portrait is Anna and which is Chloe is inferred from the ranch's site and should be confirmed with Braxton.</p></div></section>
@@ -411,7 +411,7 @@ def about():
 <div class="two"><div><p class="soft">We don't lead with the worst photo of a horse's life. We show the recovery: weight coming back, feet fixed, the first day a horse walks to the gate on its own. Where a horse came from is part of its story, told plainly, once.</p></div>
 <div><p class="soft">We publish what things cost and where gifts went. Every horse has a page that is updated as it recovers, and every donor hears back about the horse they helped. Your name stays private unless you ask to be thanked by name.</p></div></div></div></section>
 <section><div class="wrap">{head("The facts", "On the record")}
-<table><tbody><tr><td>Legal name</td><td>{e(O["name"])}</td></tr><tr><td>Status</td><td>501(c)(3) nonprofit <span class="tbc">(EIN to be shown)</span></td></tr><tr><td>Founded</td><td>{O["founded"]}, by Braxton Brackin</td></tr><tr><td>Where</td><td>{e(O["street"])}, {e(O["city"])}, Oklahoma {O["zip"]}</td></tr><tr><td>Phone</td><td>{PHONE}</td></tr><tr><td>What we do</td><td>Rescue and rehabilitate horses; riding lessons, camps and pony parties; a summer program that pairs students with rescue horses</td></tr></tbody></table></div></section>
+<table><tbody><tr><td>Legal name</td><td>{e(O["name"])}</td></tr><tr><td>Status</td><td>501(c)(3) nonprofit <span class="tbc">(EIN to be shown)</span></td></tr><tr><td>Founded</td><td>{O["founded"]}, by Braxton Brackin</td></tr><tr><td>Where</td><td>{e(O["street"])}, {e(O["city"])}, Oklahoma {O["zip"]}</td></tr><tr><td>Phone</td><td>{PHONE}</td></tr><tr><td>What we do</td><td>Rescue and rehabilitate horses, in the open; riding lessons, camps and pony parties</td></tr></tbody></table></div></section>
 {band(rel)}'''
     ld = [crumbs_ld([("Home", ""), ("About", "about/")]),
           {"@context": "https://schema.org", "@type": "Person", "name": "Braxton Brackin", "jobTitle": "Founder & CEO", "worksFor": {"@type": "NGO", "name": O["name"]}, "url": BASE + "about/"}]
@@ -435,12 +435,12 @@ def visit():
 # ---------- UPDATES ----------
 def updates_page():
     rel = "../"
-    body = ph("Updates", "News from the barn", "Short posts as horses arrive, recover and get matched. The first post goes up when the ranch is ready.", crumbs=[("Home", ""), ("Updates", None)], rel=rel)
+    body = ph("Updates", "News from the barn", "Short posts as horses arrive and recover. The first post goes up when the ranch is ready.", crumbs=[("Home", ""), ("Updates", None)], rel=rel)
     body += f'''<section style="padding-top:48px"><div class="wrap"><ol class="log">
 <li><time>Oct 2026</time><div><h3>The OU class came out</h3><p>Students from the University of Oklahoma's marketing program spent a day at the ranch photographing and filming the horses for this site and the ranch's channels.</p></div></li>
 <li><time>Soon</time><div><h3 class="tbc">The first horse's story</h3><p class="tbc">Braxton picks the horse; the ranch writes it.</p></div></li>
 </ol></div></section>{updates(rel)}'''
-    write("updates/", page("updates/", f"Updates · {O['name']}", "News from Butterfly Rescue Ranch in Norman, Oklahoma: horses arriving, recovering and being matched with students.", body, [crumbs_ld([("Home", ""), ("Updates", "updates/")])]))
+    write("updates/", page("updates/", f"Updates · {O['name']}", "News from Butterfly Rescue Ranch in Norman, Oklahoma: horses arriving and recovering.", body, [crumbs_ld([("Home", ""), ("Updates", "updates/")])]))
 
 # ---------- LINKS (bio page) ----------
 def links():
@@ -464,7 +464,7 @@ def sitemap_and_llms():
     open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8", newline="\n").write(f"User-agent: *\nDisallow: /\n\n# Concept site, not yet the ranch's official website. Sitemap kept for when it goes live.\nSitemap: {BASE}sitemap.xml\n")
     llms = f"""# {O['name']}
 
-> A 501(c)(3) horse rescue in {O['city']}, Oklahoma, founded in {O['founded']} by Braxton Brackin. Horses from kill pens, abusive homes and surrenders are rehabilitated and matched with students in a summer program. The ranch also runs riding lessons, summer camps and pony parties.
+> A 501(c)(3) horse rescue in {O['city']}, Oklahoma, founded in {O['founded']} by Braxton Brackin. Horses from kill pens, abusive homes and surrenders are rehabilitated, and every horse's recovery and costs are published on its own page. The ranch also runs riding lessons, summer camps and pony parties.
 
 Address: {O['street']}, {O['city']}, {O['state']} {O['zip']}. Phone: {O['phone']}. Camps and lessons: text Anna at {O['camp_phone']}.
 

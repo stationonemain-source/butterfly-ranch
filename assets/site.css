@@ -82,7 +82,7 @@ section{padding:96px 0}
 .head .more{margin-top:18px;font-size:16px}
 
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr)}
 .stats div{padding:30px 28px 26px 0}
 .stats div+div{padding-left:28px;border-left:1px solid var(--rule)}
 .stats .n{font:400 clamp(44px,5vw,64px)/1 var(--fd);color:var(--mag)}
@@ -254,7 +254,7 @@ form .btn{justify-self:start}
 .gallery.pair img{aspect-ratio:4/5}
 
 /* visit */
-.visit{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:56px 0 0;border-top:1px solid var(--ink)}
+.visit{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:16px 0 0}
 .visit h3{font-size:20px;margin-bottom:8px}
 .visit p{color:var(--soft);font-size:17px}
 
@@ -323,7 +323,8 @@ footer .base a,footer a{color:#e8dde2}
   .film .wrap{padding-top:72px;padding-bottom:48px}
   .film .lede{font-size:18px}
   .film .credit{position:static;display:block;margin-top:18px}
-  .film h1{font-size:44px}
+  .film h1{font-size:38px;max-width:none;margin:10px 0 16px}
+  .film .lede{font-size:17px;margin-bottom:22px}
   .log li{grid-template-columns:1fr;gap:4px}
   .steps li{grid-template-columns:36px 1fr;gap:12px}
   .people img{aspect-ratio:1/1}
