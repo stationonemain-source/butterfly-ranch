@@ -30,7 +30,8 @@ p{margin:0 0 1em}
 .skip:focus{left:10px}
 
 /* header */
-header{background:var(--white);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:20}
+header{background:var(--white);position:sticky;top:0;z-index:20;transition:background .35s ease,box-shadow .35s ease}
+.light-logo{display:none}
 header .wrap{display:flex;align-items:center;gap:28px;height:78px}
 .logo img{height:52px;width:auto}
 nav{display:flex;gap:24px;margin-left:auto}
@@ -39,11 +40,20 @@ nav a:hover,nav a[aria-current]{color:var(--mag)}
 header .btn{padding:11px 18px}
 .menu{display:none;margin-left:auto;background:none;border:1px solid var(--rule);border-radius:6px;font:600 14px var(--fb);padding:9px 12px;color:var(--ink)}
 
+/* home: header floats over the film, goes solid after the hero */
+.home header{position:fixed;left:0;right:0;background:transparent}
+.home header:not(.solid) nav a,.home header:not(.solid) .menu{color:#fff;border-color:rgba(255,255,255,.5)}
+.home header:not(.solid) nav a:hover{color:#f3b6d0}
+.home header:not(.solid) .dark-logo{display:none}
+.home header:not(.solid) .light-logo{display:block}
+.home header.solid{background:var(--white);box-shadow:0 1px 0 rgba(43,32,38,.06),0 10px 30px rgba(43,32,38,.06)}
+.home main{padding-top:0}
+
 /* film hero (home) */
 .film{position:relative;min-height:min(92vh,900px);display:flex;align-items:flex-end;background:#1d1518;color:#fff;overflow:hidden}
 .film video,.film .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 .film .still{display:none}
-.film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,21,24,.05) 30%,rgba(29,21,24,.55) 70%,rgba(29,21,24,.9) 100%)}
+.film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,21,24,.45) 0%,rgba(29,21,24,.05) 22%,rgba(29,21,24,.55) 70%,rgba(29,21,24,.9) 100%)}
 .film .wrap{position:relative;z-index:1;padding-bottom:64px;padding-top:140px;width:100%}
 .film .label{color:#f3b6d0}
 .film h1{max-width:12ch;margin:14px 0 22px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
@@ -53,7 +63,7 @@ header .btn{padding:11px 18px}
 @media (prefers-reduced-motion:reduce){.film video{display:none}.film .still{display:block}}
 
 /* page hero (inner pages) */
-.ph{background:var(--white);border-bottom:1px solid var(--rule)}
+.ph{background:var(--white)}
 .ph .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-top:64px;padding-bottom:64px}
 .ph h1{font-size:clamp(38px,5vw,64px);margin:12px 0 18px;max-width:14ch}
 .ph .lede{font-size:19px;color:var(--soft);max-width:36em}
@@ -255,7 +265,7 @@ form .btn{justify-self:start}
 .band p{color:var(--soft);margin:0}
 .band .acts{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
 
-.updates{background:var(--white);border-top:1px solid var(--rule);padding:72px 0}
+.updates{background:var(--white);padding:72px 0}
 .upd{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
 .upd h2{margin:10px 0 10px}
 .upd p{color:var(--soft);margin:0}
@@ -269,13 +279,14 @@ footer .top img{height:46px;width:auto}
 footer .cols{display:flex;gap:40px;flex-wrap:wrap}
 footer .cols a{display:block;color:#e8dde2;text-decoration:none;font-size:15px;padding:2px 0}
 footer .cols a:hover{color:#f3b6d0}
-footer .base{border-top:1px solid #4a3a42;margin-top:30px;padding-top:20px;font-size:14px;color:#9f8e96;display:grid;gap:8px}
+footer .base{margin-top:36px;padding-top:0;font-size:14px;color:#9f8e96;display:grid;gap:8px}
 footer .base a,footer a{color:#e8dde2}
 
 @media (max-width:1000px){
   nav{display:none}
   .menu{display:block}
-  nav.open{display:flex;flex-direction:column;position:absolute;top:78px;left:0;right:0;background:var(--white);padding:12px 28px 20px;gap:14px;border-bottom:1px solid var(--rule)}
+  nav.open{display:flex;flex-direction:column;position:absolute;top:78px;left:0;right:0;background:var(--white);padding:12px 28px 20px;gap:14px;box-shadow:0 12px 30px rgba(43,32,38,.08)}
+  .home header:not(.solid) nav.open a{color:var(--ink)}
   .film{min-height:88vh}
   .film .wrap{padding-top:96px;padding-bottom:56px}
   .ph .wrap{grid-template-columns:1fr;gap:28px;padding-top:44px;padding-bottom:44px}

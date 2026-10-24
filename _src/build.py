@@ -28,10 +28,11 @@ def faq_ld(qa):
 def faq_html(qa):
     return '<div class="faq">' + "".join(f"<details><summary>{e(q)}</summary><p>{a}</p></details>" for q, a in qa) + "</div>"
 
-def page(path, title, desc, body, ld=(), current=None, depth=None):
+def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
     """path: '' for home, 'donate/' etc. All asset/link URLs are root-relative to the Pages project path."""
     rel = "../" * path.count("/")
     CUR = ' aria-current="page"'
+    BODYCLS = ' class="home"' if home else ""
     links = "".join(f'<a href="{rel}{u}"{CUR if current == u else ""}>{n}</a>' for n, u in NAV)
     lds = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ((org_ld(),) + tuple(ld)))
     return f"""<!doctype html>
@@ -51,11 +52,11 @@ def page(path, title, desc, body, ld=(), current=None, depth=None):
 <link rel="stylesheet" href="{rel}assets/site.css?v={TODAY}">
 {lds}
 </head>
-<body>
+<body{BODYCLS}>
 <a class="skip" href="#main">Skip to content</a>
 <header>
   <div class="wrap">
-    <a class="logo" href="{rel if rel else './'}" aria-label="{e(O['name'])}, home"><img src="{rel}assets/logo.png" alt="{e(O['short'])}" width="900" height="313"></a>
+    <a class="logo" href="{rel if rel else './'}" aria-label="{e(O['name'])}, home"><img class="dark-logo" src="{rel}assets/logo.png" alt="{e(O['short'])}" width="900" height="313"><img class="light-logo" src="{rel}assets/logo-white.png" alt="" width="900" height="313" aria-hidden="true"></a>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav">{links}</nav>
     <a class="btn fill" href="{rel}donate/">Donate</a>
@@ -82,7 +83,8 @@ def page(path, title, desc, body, ld=(), current=None, depth=None):
 </footer>
 <script>
 (function(){{
-  var b=document.querySelector('.menu'), n=document.getElementById('nav');
+  var b=document.querySelector('.menu'), n=document.getElementById('nav'), h=document.querySelector('header');
+  if(document.body.classList.contains('home')){{var film=document.querySelector('.film');function sol(){{h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}}addEventListener('scroll',sol,{{passive:true}});sol()}}
   b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}});
   document.querySelectorAll('form[data-preview]').forEach(function(f){{f.addEventListener('submit',function(ev){{ev.preventDefault();f.querySelector('.sent').classList.add('on')}})}});
   var g=document.getElementById('giver');
@@ -193,7 +195,7 @@ def home():
 </section>
 
 {updates(rel)}'''
-    write("", page("", f"{O['name']} · Horse rescue in Norman, Oklahoma", "Butterfly Rescue Ranch is a 501(c)(3) horse rescue in Norman, Oklahoma. Horses from kill pens, abusive homes and surrenders are rehabilitated and matched with students. Follow every horse, donate, sponsor or volunteer.", body))
+    write("", page("", f"{O['name']} · Horse rescue in Norman, Oklahoma", "Butterfly Rescue Ranch is a 501(c)(3) horse rescue in Norman, Oklahoma. Horses from kill pens, abusive homes and surrenders are rehabilitated and matched with students. Follow every horse, donate, sponsor or volunteer.", body, home=True))
 
 # ---------- HORSES ----------
 def horses():
