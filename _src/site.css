@@ -1,7 +1,8 @@
+@font-face{font-family:"BR Num";src:url(fonts/num.woff2) format("woff2");unicode-range:U+24-25,U+2C,U+2E,U+30-39;font-display:swap}
 :root{
   --paper:#fbf8f6; --white:#fff; --ink:#2b2026; --soft:#5e5258; --mute:#8a7f85;
   --rule:#e7dde1; --rose:#f6e9ef; --mag:#a71c5a; --mag-d:#86164a; --gray:#909190;
-  --fd:"Marcellus",Georgia,serif; --fs:"Marcellus SC",Georgia,serif; --fb:"Source Serif 4",Georgia,serif;
+  --fd:"BR Num","Marcellus",Georgia,serif; --fs:"BR Num","Marcellus SC",Georgia,serif; --fb:"Source Serif 4",Georgia,serif;
   --w:1180px;
 }
 *{box-sizing:border-box}
@@ -174,23 +175,25 @@ tfoot td{font-weight:600;border-bottom:0;border-top:1px solid var(--ink)}
 .prog figure img{border-radius:6px}
 .flyer{border-top:1px solid #f4ecef}
 .flyer h3{font-size:20px;margin:30px 0 6px}
-.row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:11px 0;font-size:17px}
-.row .what{white-space:nowrap}
-.row .dots{flex:1}
-.row .price{font:600 14px/1 var(--fb);background:var(--mag);color:#fff;border-radius:999px;padding:7px 13px;white-space:nowrap}
+.row{display:grid;grid-template-columns:1fr auto;column-gap:16px;row-gap:2px;align-items:start;padding:11px 0;font-size:17px}
+.row .what{white-space:normal;line-height:1.45}
+.row .dots{display:none}
+.row .price{grid-column:2;grid-row:1;justify-self:end;align-self:start;font:600 14px/1 var(--fb);font-variant-numeric:lining-nums tabular-nums;background:var(--mag);color:#fff;border-radius:999px;padding:7px 13px;white-space:nowrap;margin-top:-1px}
 .row small{display:block;color:#a9989f;font-size:14.5px;margin-top:-2px}
-.row .meta{flex-basis:100%}
+.row .meta{grid-column:1/-1}
 
 /* donate */
 .give{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .giver{border:1px solid var(--rule);border-radius:10px;background:var(--white);padding:28px}
 .give > div > h2:first-child{margin-top:22px}
-.giver .seg{display:inline-flex;border:1px solid var(--rule);border-radius:999px;padding:3px;margin-bottom:22px}
-.giver .seg label{cursor:pointer;padding:8px 16px;border-radius:999px;font:600 15px var(--fb);color:var(--soft)}
+.giver .seg{display:inline-flex;justify-self:start;width:max-content;gap:2px;border:1px solid var(--rule);border-radius:999px;padding:4px;margin-bottom:22px;background:var(--paper)}
+.giver .seg label{display:block;cursor:pointer;padding:0;margin:0;border-radius:999px}
 .giver .seg input{position:absolute;opacity:0;width:0;height:0}
-.giver .seg input:checked+span{background:var(--mag);color:#fff;border-radius:999px;padding:8px 16px;margin:-8px -16px}
+.giver .seg span{display:block;padding:10px 20px;border-radius:999px;font:600 15px/1 var(--fb);color:var(--soft);transition:background .2s,color .2s}
+.giver .seg input:checked+span{background:var(--mag);color:#fff}
+.giver .seg label:has(input:focus-visible) span{outline:2px solid var(--mag);outline-offset:2px}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.tiles label{cursor:pointer;border:1.5px solid var(--rule);border-radius:8px;padding:16px 16px 14px;display:grid;gap:4px;background:var(--paper)}
+.tiles label{cursor:pointer;border:1.5px solid var(--rule);border-radius:8px;padding:16px 16px 14px;display:grid;gap:6px;align-content:start;background:var(--paper)}
 .tiles input{position:absolute;opacity:0;width:0;height:0}
 .tiles .a{font:400 30px/1 var(--fd);color:var(--ink)}
 .tiles .f{font-size:14.5px;color:var(--soft)}
@@ -333,3 +336,5 @@ form .btn{justify-self:start}
   .ways li{grid-template-columns:1fr;gap:4px}
   .stats{grid-template-columns:1fr 1fr}
 }
+/* label column in two-column fact tables (About > On the record): a real gap, labels never touching the value */
+table td:first-child{padding-right:24px}

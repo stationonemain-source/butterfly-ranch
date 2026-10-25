@@ -129,13 +129,9 @@ def tear_footer(rel, O, credits):
 <a class="tpf-z tpf-side tpf-ink tpf-p r" style="--i:2;left:71.5%" href="{rel}links/"><span>all links</span>{icon("link")}</a>
 
 <div class="tpf-z tpf-foot tpf-ink">
-  <span class="tpf-p"{i(3)}>© 2026 {e(O['name'])}</span>
+  <span class="tpf-p"{i(3)}>© 2026 {e(O['name'])}<span class="tpf-sep"> · </span><a class="tpf-by" href="https://station.solutions/" target="_blank" rel="noopener">site by Station</a></span>
   <span class="tpf-credit tpf-p"{i(4)}>{e(O['street'])}, {e(O['city'])}, {O['state']}</span>
   <a class="tpf-handle tpf-p"{i(5)} href="{rel}donate/">give a little →</a>
 </div>
 </footer>
-<div class="tpf-base"><div class="wrap">
-  <span>Concept site by Station, not the ranch's official website. {e(credits)}</span>
-  <span>Designed by <a href="https://station.solutions/" target="_blank" rel="noopener">Station.Solutions</a></span>
-</div></div>
 <script src="{rel}assets/tear.js?v=1" defer></script>'''

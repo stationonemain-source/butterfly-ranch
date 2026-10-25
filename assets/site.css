@@ -1,7 +1,8 @@
+@font-face{font-family:"BR Num";src:url(fonts/num.woff2) format("woff2");unicode-range:U+24-25,U+2C,U+2E,U+30-39;font-display:swap}
 :root{
   --paper:#fbf8f6; --white:#fff; --ink:#2b2026; --soft:#5e5258; --mute:#8a7f85;
   --rule:#e7dde1; --rose:#f6e9ef; --mag:#a71c5a; --mag-d:#86164a; --gray:#909190;
-  --fd:"Marcellus",Georgia,serif; --fs:"Marcellus SC",Georgia,serif; --fb:"Source Serif 4",Georgia,serif;
+  --fd:"BR Num","Marcellus",Georgia,serif; --fs:"BR Num","Marcellus SC",Georgia,serif; --fb:"Source Serif 4",Georgia,serif;
   --w:1180px;
 }
 *{box-sizing:border-box}
@@ -174,23 +175,25 @@ tfoot td{font-weight:600;border-bottom:0;border-top:1px solid var(--ink)}
 .prog figure img{border-radius:6px}
 .flyer{border-top:1px solid #f4ecef}
 .flyer h3{font-size:20px;margin:30px 0 6px}
-.row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:11px 0;font-size:17px}
-.row .what{white-space:nowrap}
-.row .dots{flex:1}
-.row .price{font:600 14px/1 var(--fb);background:var(--mag);color:#fff;border-radius:999px;padding:7px 13px;white-space:nowrap}
+.row{display:grid;grid-template-columns:1fr auto;column-gap:16px;row-gap:2px;align-items:start;padding:11px 0;font-size:17px}
+.row .what{white-space:normal;line-height:1.45}
+.row .dots{display:none}
+.row .price{grid-column:2;grid-row:1;justify-self:end;align-self:start;font:600 14px/1 var(--fb);font-variant-numeric:lining-nums tabular-nums;background:var(--mag);color:#fff;border-radius:999px;padding:7px 13px;white-space:nowrap;margin-top:-1px}
 .row small{display:block;color:#a9989f;font-size:14.5px;margin-top:-2px}
-.row .meta{flex-basis:100%}
+.row .meta{grid-column:1/-1}
 
 /* donate */
 .give{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .giver{border:1px solid var(--rule);border-radius:10px;background:var(--white);padding:28px}
 .give > div > h2:first-child{margin-top:22px}
-.giver .seg{display:inline-flex;border:1px solid var(--rule);border-radius:999px;padding:3px;margin-bottom:22px}
-.giver .seg label{cursor:pointer;padding:8px 16px;border-radius:999px;font:600 15px var(--fb);color:var(--soft)}
+.giver .seg{display:inline-flex;justify-self:start;width:max-content;gap:2px;border:1px solid var(--rule);border-radius:999px;padding:4px;margin-bottom:22px;background:var(--paper)}
+.giver .seg label{display:block;cursor:pointer;padding:0;margin:0;border-radius:999px}
 .giver .seg input{position:absolute;opacity:0;width:0;height:0}
-.giver .seg input:checked+span{background:var(--mag);color:#fff;border-radius:999px;padding:8px 16px;margin:-8px -16px}
+.giver .seg span{display:block;padding:10px 20px;border-radius:999px;font:600 15px/1 var(--fb);color:var(--soft);transition:background .2s,color .2s}
+.giver .seg input:checked+span{background:var(--mag);color:#fff}
+.giver .seg label:has(input:focus-visible) span{outline:2px solid var(--mag);outline-offset:2px}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.tiles label{cursor:pointer;border:1.5px solid var(--rule);border-radius:8px;padding:16px 16px 14px;display:grid;gap:4px;background:var(--paper)}
+.tiles label{cursor:pointer;border:1.5px solid var(--rule);border-radius:8px;padding:16px 16px 14px;display:grid;gap:6px;align-content:start;background:var(--paper)}
 .tiles input{position:absolute;opacity:0;width:0;height:0}
 .tiles .a{font:400 30px/1 var(--fd);color:var(--ink)}
 .tiles .f{font-size:14.5px;color:var(--soft)}
@@ -333,6 +336,8 @@ form .btn{justify-self:start}
   .ways li{grid-template-columns:1fr;gap:4px}
   .stats{grid-template-columns:1fr 1fr}
 }
+/* label column in two-column fact tables (About > On the record): a real gap, labels never touching the value */
+table td:first-child{padding-right:24px}
 
 /* ---- torn-poster footer (port of the 21st.dev "Pushpin Tear Footer"; behaviour in assets/tear.js) ---- */
 .tpf{position:relative;overflow:hidden;container-type:size;height:calc(100vh - 78px);height:calc(100svh - 78px);min-height:600px;max-height:940px;background:var(--tpf-sheet);color:var(--tpf-on-sheet);font-family:var(--fb);isolation:isolate;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;--ease:cubic-bezier(.22,1,.36,1);--fs:max(13px,1.9cqmin)}
@@ -444,6 +449,7 @@ form .btn{justify-self:start}
 .tpf-side:hover span{background-size:100% 1px}
 .tpf-foot{left:0;right:0;bottom:5%;display:flex;align-items:center;justify-content:space-between;gap:1.5em;padding:0 15%;font-size:max(13px,1.85cqmin)}
 .tpf-credit{position:absolute;left:50%;transform:translateX(-50%);font-family:var(--fs);font-size:max(11px,1.4cqmin);letter-spacing:.12em;text-transform:uppercase;opacity:.62;white-space:nowrap}
+.tpf-by{opacity:.7}.tpf-by:hover{opacity:1;text-decoration:underline;text-underline-offset:.2em}
 .tpf-handle{color:var(--tpf-word)}.tpf-handle:hover{text-decoration:underline;text-underline-offset:.2em}
 /* phone column */
 @container (max-width: 620px){
@@ -453,7 +459,8 @@ form .btn{justify-self:start}
   .tpf-col{top:36.5%}.tpf-col.l{left:7%}.tpf-col.r{right:7%}.tpf-col li:nth-child(n+3){display:none}
   /* the tear sits lower on phones (tear.js shifts the ridge), so the paper's print moves down with it */
   .tpf-pin{top:73%}.tpf-brand{top:76%}.tpf-side{display:none}
-  .tpf-foot{padding:0 7%;bottom:3.5%}.tpf-credit{bottom:2.4em}
+  .tpf-foot{padding:0 7%;bottom:3.5%;align-items:flex-end}.tpf-credit{display:none}
+  .tpf-sep{display:none}.tpf-by{display:block;margin-top:.15em}   /* copyright and credit stack into two short lines */
 }
 @keyframes tpf-hit{0%{transform:translateY(0)}30%{transform:translateY(2px)}60%{transform:translateY(-.5px)}100%{transform:translateY(0)}}
 @keyframes tpf-drop{0%{transform:translateY(-62cqh) rotate(-28deg) scale(1.5);opacity:0}25%{opacity:1}80%{transform:translateY(0) rotate(3deg) scale(1)}90%{transform:scale(1.04,.95)}100%{transform:none;opacity:1}}
@@ -463,7 +470,4 @@ form .btn{justify-self:start}
 @keyframes tpf-blink{0%{opacity:1}50%{opacity:.25}}
 @keyframes tpf-ping{0%{transform:scale(1);opacity:.9}80%,100%{transform:scale(2.6);opacity:0}}
 @media (prefers-reduced-motion: reduce){.tpf *,.tpf *::before,.tpf *::after{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}}
-/* the disclosures, on the same paper under the poster */
-.tpf-base{background:var(--paper);color:var(--mute);font-size:13.5px;line-height:1.55;padding:6px 0 28px}
-.tpf-base .wrap{display:grid;gap:6px}
-.tpf-base a{color:var(--mag)}
+/* (the disclosure strip moved to About > On the record, 2026-10-25) */
