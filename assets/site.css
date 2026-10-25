@@ -52,8 +52,8 @@ header .btn{padding:11px 18px}
 
 /* film hero (home) */
 .film{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;background:#1d1518;color:#fff;overflow:hidden}
-.film video,.film .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-.film .still{display:none}
+.film video,.film .still,.film .still img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+.film video{background:transparent}   /* the full-bleed still shows through until (or unless) the film plays */
 /* shade only where the words sit (bottom-left) and a light band under the header; the rest of the film stays daylight */
 .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,21,24,.32) 0%,rgba(29,21,24,0) 15%),radial-gradient(120% 75% at 0% 100%,rgba(29,21,24,.72) 0%,rgba(29,21,24,.38) 40%,rgba(29,21,24,0) 72%)}
 .film .wrap{position:relative;z-index:1;padding-bottom:64px;padding-top:140px;width:100%}
@@ -62,7 +62,7 @@ header .btn{padding:11px 18px}
 .film .lede{font-size:20px;max-width:30em;color:#fff;margin-bottom:28px;text-shadow:0 1px 12px rgba(0,0,0,.55)}
 .film .acts{display:flex;gap:12px;flex-wrap:wrap}
 .film .credit{position:absolute;right:24px;bottom:16px;z-index:1;font-size:13px;color:#fff;opacity:.85;text-shadow:0 1px 6px rgba(0,0,0,.6)}
-@media (prefers-reduced-motion:reduce){.film video{display:none}.film .still{display:block}}
+@media (prefers-reduced-motion:reduce){.film video{display:none}}
 
 /* page hero (inner pages) */
 .ph{background:var(--paper)}
@@ -343,6 +343,7 @@ table td:first-child{padding-right:24px}
 @media (max-width:600px){
   .film::after{background:linear-gradient(180deg,rgba(29,21,24,.3) 0%,rgba(29,21,24,0) 14%,rgba(29,21,24,0) 52%,rgba(29,21,24,.55) 74%,rgba(29,21,24,.82) 100%)}
   .film h1{font-size:36px;max-width:none}
+  .film .label{font-size:12.5px;letter-spacing:.16em;white-space:nowrap}
   .film .acts{flex-wrap:nowrap}
   .film .acts .btn{flex:1 1 0;justify-content:center;text-align:center;padding-left:12px;padding-right:12px}
   .film .credit{position:absolute;left:16px;right:16px;bottom:12px;font-size:11px;line-height:1.35;text-align:right}
