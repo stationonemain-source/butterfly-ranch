@@ -1,6 +1,8 @@
 """Builds the Butterfly Rescue Ranch concept site from data.json. One page per URL, shared chrome, JSON-LD on every page.
 Run from anywhere: python _src/build.py. Output lands next to _src (the git root). Never hand-edit the generated HTML."""
-import json, os, html, datetime
+import json, os, html, datetime, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from tear_footer import tear_footer
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = json.load(open(os.path.join(ROOT, "_src", "data.json"), encoding="utf-8"))
 O = D["org"]; BASE = O["url"]
@@ -65,22 +67,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
 <main id="main">
 {body}
 </main>
-<footer>
-  <div class="wrap">
-    <div class="top">
-      <img src="{rel}assets/logo-white.png" alt="{e(O['short'])}" width="900" height="313" loading="lazy">
-      <div class="cols">
-        <div><a href="{rel}horses/">The horses</a><a href="{rel}donate/">Donate</a><a href="{rel}sponsor/">Sponsor a horse</a><a href="{rel}volunteer/">Volunteer</a></div>
-        <div><a href="{rel}program/">Lessons and camps</a><a href="{rel}about/">About</a><a href="{rel}visit/">Visit</a><a href="{rel}updates/">Updates</a><a href="{rel}links/">Links</a></div>
-      </div>
-      <div>{e(O['name'])} · a 501(c)(3) nonprofit<br>{e(O['street'])}, {e(O['city'])}, {O['state']} {O['zip']}<br><a href="tel:{O['phone_e164']}">{O['phone']}</a></div>
-    </div>
-    <div class="base">
-      <span>Concept site by Station, not the ranch's official website. {e(D['credits'])}</span>
-      <span>Designed by <a href="https://station.solutions/" target="_blank" rel="noopener">Station.Solutions</a></span>
-    </div>
-  </div>
-</footer>
+{tear_footer(rel, O, D["credits"])}
 <script>
 (function(){{
   var b=document.querySelector('.menu'), n=document.getElementById('nav'), h=document.querySelector('header');
@@ -495,6 +482,8 @@ This is a concept site built by Station (station.solutions) with the University 
 
 if __name__ == "__main__":
     import shutil
-    shutil.copy(os.path.join(ROOT, "_src", "site.css"), os.path.join(ROOT, "assets", "site.css"))
+    css = open(os.path.join(ROOT, "_src", "site.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "tear.css"), encoding="utf-8").read()
+    open(os.path.join(ROOT, "assets", "site.css"), "w", encoding="utf-8", newline="\n").write(css)
+    shutil.copy(os.path.join(ROOT, "_src", "tear.js"), os.path.join(ROOT, "assets", "tear.js"))
     home(); horses(); donate(); sponsor(); volunteer(); program(); about(); visit(); updates_page(); links(); sitemap_and_llms()
     print("built", 10 + len(D["horses"]), "pages")

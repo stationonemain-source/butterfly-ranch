@@ -277,14 +277,6 @@ form .btn{justify-self:start}
 .upd form .sent{grid-column:1/-1}
 .upd form .btn{padding:13px 20px}
 
-footer{background:var(--ink);color:#c9b8c0;padding:48px 0 30px;font-size:15px}
-footer .top{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:start}
-footer .top img{height:46px;width:auto}
-footer .cols{display:flex;gap:40px;flex-wrap:wrap}
-footer .cols a{display:block;color:#e8dde2;text-decoration:none;font-size:15px;padding:2px 0}
-footer .cols a:hover{color:#f3b6d0}
-footer .base{margin-top:36px;padding-top:0;font-size:14px;color:#9f8e96;display:grid;gap:8px}
-footer .base a,footer a{color:#e8dde2}
 
 @media (max-width:1000px){
   nav{display:none}
@@ -312,7 +304,6 @@ footer .base a,footer a{color:#e8dde2}
   .upd form{grid-template-columns:1fr}
   .upd form .btn{justify-self:start}
   section{padding:72px 0}
-  footer .top{grid-template-columns:1fr}
 }
 @media (max-width:600px){
   body{font-size:17px}
