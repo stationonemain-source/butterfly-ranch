@@ -121,7 +121,7 @@ def home():
     herd = "".join(f'<a href="horses/{h["slug"]}/"><img src="assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"><h3>{e(h["title"])}</h3><p class="coat">{e(h["coat"])}</p></a>' for h in D["horses"][:8])
     body = f'''
 <div class="film">
-  <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-label="The horses of Butterfly Ranch coming to the fence, filmed at the ranch in October 2026"><source src="assets/hero-m.mp4" type="video/mp4" media="(max-aspect-ratio: 4/5)"><source src="assets/hero.mp4" type="video/mp4"></video>
+  <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-label="The horses of Butterfly Ranch coming to the fence, filmed at the ranch in October 2026; some shots are animated from photos"><source src="assets/hero-m.mp4" type="video/mp4" media="(max-aspect-ratio: 4/5)"><source src="assets/hero.mp4" type="video/mp4"></video>
   <img class="still" src="assets/hero-poster.jpg" alt="Two horses with white blazes look straight at the camera over the fence at Butterfly Ranch">
   <div class="wrap">
     <span class="label">Horse rescue · Norman, Oklahoma</span>
@@ -129,7 +129,7 @@ def home():
     <p class="lede">Rescued from kill pens and hard homes, brought back to health, and every step shown.</p>
     <div class="acts"><a class="btn fill" href="donate/">Donate</a><a class="btn ghost" href="horses/">Meet the horses</a></div>
   </div>
-  <span class="credit">Filmed at the ranch by OU students, October 2026</span>
+  <span class="credit">Filmed at the ranch by OU students, October 2026 · some shots animated from their photos</span>
 </div>
 
 <section class="state"><div class="wrap"><p>A horse that nobody wanted gets fed, shod, doctored and worked, slowly, <b>and every step of it is here for you to see.</b> That's the whole idea.</p></div></section>

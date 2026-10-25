@@ -345,8 +345,8 @@ table td:first-child{padding-right:24px}
   .film h1{font-size:36px;max-width:none}
   .film .acts{flex-wrap:nowrap}
   .film .acts .btn{flex:1 1 0;justify-content:center;text-align:center;padding-left:12px;padding-right:12px}
-  .film .credit{position:absolute;right:16px;bottom:10px;font-size:11.5px}
-  .film .wrap{padding-bottom:44px}
+  .film .credit{position:absolute;left:16px;right:16px;bottom:12px;font-size:11px;line-height:1.35;text-align:right}
+  .film .wrap{padding-bottom:62px}
 }
 
 /* ---- torn-poster footer (port of the 21st.dev "Pushpin Tear Footer"; behaviour in assets/tear.js) ---- */
