@@ -22,6 +22,7 @@
     <a class="logo" href="../" aria-label="Butterfly Rescue Ranch, home"><img class="dark-logo" src="../assets/logo.png" alt="Butterfly Ranch" width="900" height="313"><img class="light-logo" src="../assets/logo-white.png" alt="" width="900" height="313" aria-hidden="true"></a>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav"><a href="../horses/">The horses</a><a href="../sponsor/">Sponsor</a><a href="../volunteer/">Volunteer</a><a href="../program/">Program</a><a href="../about/">About</a><a href="../visit/">Visit</a></nav>
+    <button class="how-btn" type="button" aria-pressed="false" hidden title="Show which Station product runs each part of this page"><span class="how-sw" aria-hidden="true"></span>How it works</button>
     <a class="btn fill" href="../donate/">Donate</a>
   </div>
 </header>
@@ -30,7 +31,7 @@
 <section>
   <div class="wrap">
     <div class="give">
-      <form class="giver" id="giver" novalidate aria-label="Donation form">
+      <form class="giver" id="giver" data-how="giver" data-how-at="end" novalidate aria-label="Donation form">
         <div class="seg" role="radiogroup" aria-label="How often"><label><input type="radio" name="freq" value="once" checked><span>One time</span></label><label><input type="radio" name="freq" value="monthly"><span>Monthly</span></label></div>
         <div class="tiles"><label><input type="radio" name="amt" value="25"><span class="a">$25</span><span class="f">Fly spray, wormer and hoof care</span></label><label><input type="radio" name="amt" value="50" checked><span class="a">$50</span><span class="f">Farrier work</span></label><label><input type="radio" name="amt" value="100"><span class="a">$100</span><span class="f">Vet visits and vaccines</span></label><label><input type="radio" name="amt" value="250"><span class="a">$250</span><span class="f">Hay and feed</span></label></div>
         <div class="other"><span>Or another amount</span><input type="number" name="other" min="1" inputmode="numeric" placeholder="$" aria-label="Other amount in dollars"></div>
@@ -72,7 +73,7 @@
         </table>
         <p class="note">The dashes are deliberate. The ranch fills these in from its own records rather than publishing a guess.</p>
       </div>
-      <div class="promise">
+      <div class="promise" data-how="promise" data-how-at="end">
         <h3>What we promise donors</h3>
         <ul><li><b>A thank-you from us, personally,</b> after every gift.</li><li><b>An update on the horse you helped,</b> with photos, as it recovers.</li><li><b>The numbers, in public.</b> This table is updated as costs change.</li><li><b>Your name stays private</b> unless you tell us you'd like to be thanked by name.</li></ul>
       </div>
@@ -82,7 +83,7 @@
 
 <section><div class="wrap"><div class="head"><span class="label">Questions</span><div><h2>Giving, answered</h2></div></div><div class="faq"><details><summary>Is my gift tax-deductible?</summary><p>Butterfly Rescue Ranch is a registered 501(c)(3) nonprofit, so gifts are tax-deductible to the extent the law allows. You'll get a receipt by email for every gift. <span class="tbc">The ranch's EIN will be shown here.</span></p></details><details><summary>Where does the money go?</summary><p>Hay, feed and supplements, farrier work, vet care, vaccines and dental. The monthly cost of one horse is published on this page as the ranch fills in its figures, and every horse's page shows what was spent on it.</p></details><details><summary>Can I give monthly?</summary><p>Yes. Choose <b>Monthly</b> above. Monthly gifts are what let the ranch plan feed and farrier visits ahead instead of month to month. You can stop at any time from the receipt email.</p></details><details><summary>Can I give to one particular horse?</summary><p>Yes. <a href="../sponsor/">Sponsor a horse</a> covers one horse's care by the month, and you'll get its updates. A one-time gift here goes wherever the need is that month.</p></details><details><summary>Can I give supplies instead of money?</summary><p>Please do. Hay, feed, fly spray, wormer, hoof care, halters, lead ropes and brushes are all used daily. Call ahead before dropping anything off. A wish list is on its way.</p></details><details><summary>Does my employer match gifts?</summary><p>Many do. Ask your HR team for their matching-gift form and send it to the ranch with your receipt; the ranch will complete its part.</p></details></div></div></section>
 <section class="updates"><div class="wrap"><div class="upd"><div><span class="label">Updates from the barn</span><h2>Hear how the horses are doing</h2><p>One email a month, with the horse you helped and what it cost. No more than that.</p></div>
-<form class="join" data-preview novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>
+<form class="join" data-preview data-how="join" data-how-at="end" novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>
 </main>
 <footer class="tpf" data-seed="7" style="--tpf-sheet:#a71c5a;--tpf-paper:#fbf8f6;--tpf-on-sheet:#ffffff;--tpf-on-paper:#2b2026;--tpf-word:#a71c5a;--tpf-rim:#fefdfd">
 <svg class="tpf-stage" aria-hidden="true"><defs>
@@ -167,6 +168,6 @@
   }
 })();
 </script>
-<script src="../assets/forms.js?v=1" defer></script><script src="../assets/chat.js?v=4" defer></script>
+<script src="../assets/forms.js?v=1" defer></script><script src="../assets/chat.js?v=4" defer></script><script src="../assets/how.js?v=2026-10-25" defer></script>
 </body>
 </html>

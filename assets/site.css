@@ -547,3 +547,78 @@ table td:first-child{padding-right:24px}
   .join-row{flex-direction:column;padding:8px}
   .join-row .btn{min-height:50px}
 }
+
+
+/* ---- "How it works" switch (2026-10-25): a quiet annotation layer. Behaviour and copy: assets/how.js ---- */
+.how-btn{display:inline-flex;align-items:center;gap:9px;flex:none;font:600 14px/1 var(--fb);color:var(--ink);background:transparent;border:1px solid var(--rule);border-radius:999px;padding:8px 13px 8px 10px;cursor:pointer;white-space:nowrap;transition:border-color .2s,color .2s,background .2s}
+.how-btn[hidden]{display:none}
+.how-btn:hover{border-color:var(--mag);color:var(--mag)}
+.how-btn:focus-visible{outline:2px solid var(--mag);outline-offset:2px}
+.how-sw{position:relative;width:28px;height:16px;border-radius:999px;background:#d9ccd2;flex:none;transition:background .2s}
+.how-sw::after{content:"";position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(43,32,38,.25);transition:transform .2s}
+.how-btn[aria-pressed=true]{border-color:var(--mag);color:var(--mag)}
+.how-btn[aria-pressed=true] .how-sw{background:var(--mag)}
+.how-btn[aria-pressed=true] .how-sw::after{transform:translateX(12px)}
+.home header:not(.solid) .how-btn{color:#fff;border-color:rgba(255,255,255,.5)}
+.home header:not(.solid) .how-btn .how-sw{background:rgba(255,255,255,.35)}
+.home header:not(.solid) .how-btn[aria-pressed=true] .how-sw{background:var(--mag)}
+
+/* the outline on each feature a product runs */
+.how-on [data-how],.how-on [data-how-mark]{outline:1px solid var(--mag);outline-offset:8px;border-radius:10px}
+.how-on .dark [data-how]{outline-color:#f09bc3}
+.how-on .tpf [data-how-mark]{outline-color:#fff;outline-offset:5px;border-radius:999px}
+.how-on .ask-btn[data-how-mark]{outline-offset:4px;border-radius:999px}
+
+/* the notes */
+.how-note,.how-legend,.how-out{display:none}
+.how-on .how-legend{display:block}
+.how-on .how-out{display:block}
+.how-on .how-note{display:grid;gap:8px;box-sizing:border-box;max-width:100%;margin:24px 0 0;padding:14px 16px 15px;background:#fff;color:var(--ink);border:1px solid var(--mag);border-radius:10px;box-shadow:0 12px 28px -20px rgba(43,32,38,.45);font:400 14.5px/1.45 var(--fb);text-align:left;animation:how-in .3s ease both}
+.how-note .how-eye{margin:0;font:400 12.5px/1.2 var(--fs);letter-spacing:.16em;text-transform:uppercase;color:var(--gray)}
+.how-rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px 28px}
+.how-row{min-width:0}
+.how-p{display:block;font:400 13.5px/1.25 var(--fs);letter-spacing:.12em;text-transform:uppercase;color:var(--mag);margin:0 0 3px}
+.how-row p{margin:0;color:var(--soft);font-size:14.5px;line-height:1.45;overflow-wrap:break-word}
+form .how-note{margin-top:20px}
+.how-on .join .how-note,.how-on .giver .how-note{margin-top:16px}
+.how-out{padding-top:8px;padding-bottom:40px}
+.how-out .how-note{margin:0}
+
+/* the legend under the header / film */
+.how-on .how-legend{background:var(--rose);padding:16px 0;animation:how-in .3s ease both}
+.how-legend .wrap{display:flex;gap:18px;align-items:baseline}
+.how-legend .how-p{flex:none;margin:0}
+.how-legend p{margin:0;color:var(--ink);font-size:15.5px;line-height:1.45;max-width:52em}
+
+/* the chat bubble's tab floats just above it and goes away with it; its note opens from the tab */
+.how-fly{display:none}
+.how-on .how-fly{display:flex;flex-direction:column;align-items:flex-end;position:fixed;right:18px;bottom:80px;z-index:59}
+.ask-btn.off + .how-fly{display:none!important}
+.how-tab{font:400 12.5px/1 var(--fs);letter-spacing:.12em;text-transform:uppercase;color:var(--mag);background:#fff;border:1px solid var(--mag);border-radius:999px;padding:8px 13px;cursor:pointer;box-shadow:0 8px 20px -12px rgba(43,32,38,.5);white-space:nowrap}
+.how-tab[hidden],.how-on .how-note[hidden]{display:none}
+.how-tab:hover{background:var(--rose)}
+.how-tab:focus-visible{outline:2px solid var(--mag);outline-offset:2px}
+.how-on .how-fly .how-note{position:relative;margin:0;width:min(310px,calc(100vw - 32px));padding-right:40px;box-shadow:0 18px 40px -18px rgba(43,32,38,.5)}
+.how-x{position:absolute;right:6px;top:6px;width:30px;height:30px;border:0;border-radius:50%;background:transparent;color:var(--mute);font:400 20px/1 var(--fb);cursor:pointer}
+.how-x:hover{background:var(--rose);color:var(--mag)}
+.how-x:focus-visible{outline:2px solid var(--mag);outline-offset:1px}
+
+@keyframes how-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.how-on .how-note,.how-on .how-legend{animation:none}.how-btn,.how-sw,.how-sw::after{transition:none}}
+
+/* header placement: before Menu on tablets and phones */
+@media (min-width:1001px) and (max-width:1200px){nav{gap:18px}header .wrap{gap:20px}}
+@media (max-width:1000px){
+  .logo{order:-2}
+  .how-btn{order:-1;margin-left:auto}
+  .menu{margin-left:0}
+}
+@media (max-width:600px){
+  .how-btn{font-size:13.5px;padding:7px 11px 7px 9px;gap:7px}
+  .how-legend .wrap{display:block}
+  .how-legend .how-p{margin-bottom:4px}
+  .how-on .how-note{padding:13px 14px 14px}
+  .how-on .how-fly{right:14px;bottom:72px}
+  .how-on .how-fly .how-note{width:calc(100vw - 28px);padding-right:38px}
+}
+@media (max-width:370px){.how-sw{display:none}}

@@ -61,6 +61,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
     <a class="logo" href="{rel if rel else './'}" aria-label="{e(O['name'])}, home"><img class="dark-logo" src="{rel}assets/logo.png" alt="{e(O['short'])}" width="900" height="313"><img class="light-logo" src="{rel}assets/logo-white.png" alt="" width="900" height="313" aria-hidden="true"></a>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav">{links}</nav>
+    <button class="how-btn" type="button" aria-pressed="false" hidden title="Show which Station product runs each part of this page"><span class="how-sw" aria-hidden="true"></span>How it works</button>
     <a class="btn fill" href="{rel}donate/">Donate</a>
   </div>
 </header>
@@ -86,7 +87,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
   }}
 }})();
 </script>
-<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/chat.js?v=4" defer></script>
+<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/chat.js?v=4" defer></script><script src="{rel}assets/how.js?v={TODAY}" defer></script>
 </body>
 </html>"""
 
@@ -112,7 +113,7 @@ def band(rel, h="Give once, or a little every month", p="Every gift goes to hay,
 
 def updates(rel, what="the horses"):
     return f'''<section class="updates"><div class="wrap"><div class="upd"><div><span class="label">Updates from the barn</span><h2>Hear how {what} are doing</h2><p>One email a month, with the horse you helped and what it cost. No more than that.</p></div>
-<form class="join" data-preview novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>'''
+<form class="join" data-preview data-how="join" data-how-at="end" novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>'''
 
 PHONE = f'<a href="tel:{O["phone_e164"]}">{O["phone"]}</a>'
 
@@ -138,7 +139,7 @@ def home():
 <section>
   <div class="wrap">
     {head("The herd", "The horses at the ranch right now", "Every horse here has its own page, updated as it recovers, with what was spent and who helped.", '<a href="horses/">See all the horses →</a>')}
-    <div class="herd">{herd}</div>
+    <div class="herd" data-how="herd">{herd}</div>
   </div>
 </section>
 
@@ -191,7 +192,7 @@ def horses():
     rel = "../"
     herd = "".join(f'<a href="{h["slug"]}/"><img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"><h3>{e(h["title"])}</h3><p class="coat">{e(h["coat"])}</p></a>' for h in D["horses"])
     body = ph("The herd", "The horses at the ranch", f"Every one of them has a page that follows it from the day it arrived. <span class=\"tbc\">Names and stories are Braxton's to add; the photos are from the ranch on 23 October 2026.</span>", crumbs=[("Home", ""), ("The horses", None)], rel=rel)
-    body += f'<section><div class="wrap"><div class="herd">{herd}</div></div></section>{band(rel)}{updates(rel)}'
+    body += f'<section><div class="wrap"><div class="herd" data-how="herd">{herd}</div></div></section>{band(rel)}{updates(rel)}'
     ld = [crumbs_ld([("Home", ""), ("The horses", "horses/")]),
           {"@context": "https://schema.org", "@type": "ItemList", "name": "Horses at Butterfly Rescue Ranch", "itemListElement": [
               {"@type": "ListItem", "position": i + 1, "name": h["title"], "url": f"{BASE}horses/{h['slug']}/"} for i, h in enumerate(D["horses"])]}]
@@ -214,7 +215,7 @@ def horse(h):
 <section class="dark">
   <div class="wrap">
     {head("The journal", "From the day it arrived", "Updated as the horse recovers, with what was spent and who helped, so donors can see what their gift did.")}
-    <div class="journal">
+    <div class="journal" data-how="journal">
       <aside class="card-id" aria-label="Horse details">
         <span class="label">{e(h["status"])}</span>
         <div class="name">{e(h["title"])}</div>
@@ -254,7 +255,7 @@ def donate():
 <section>
   <div class="wrap">
     <div class="give">
-      <form class="giver" id="giver" novalidate aria-label="Donation form">
+      <form class="giver" id="giver" data-how="giver" data-how-at="end" novalidate aria-label="Donation form">
         <div class="seg" role="radiogroup" aria-label="How often"><label><input type="radio" name="freq" value="once" checked><span>One time</span></label><label><input type="radio" name="freq" value="monthly"><span>Monthly</span></label></div>
         <div class="tiles">{tiles}</div>
         <div class="other"><span>Or another amount</span><input type="number" name="other" min="1" inputmode="numeric" placeholder="$" aria-label="Other amount in dollars"></div>
@@ -296,7 +297,7 @@ def donate():
         </table>
         <p class="note">The dashes are deliberate. The ranch fills these in from its own records rather than publishing a guess.</p>
       </div>
-      <div class="promise">
+      <div class="promise" data-how="promise" data-how-at="end">
         <h3>What we promise donors</h3>
         <ul><li><b>A thank-you from us, personally,</b> after every gift.</li><li><b>An update on the horse you helped,</b> with photos, as it recovers.</li><li><b>The numbers, in public.</b> This table is updated as costs change.</li><li><b>Your name stays private</b> unless you tell us you'd like to be thanked by name.</li></ul>
       </div>
@@ -316,7 +317,7 @@ def sponsor():
           ("How long does it last?", "Month to month. Stop whenever you need to; the horse stays."),
           ("Can two people sponsor the same horse?", "Yes. Care for one horse costs more than most single sponsorships, so several sponsors on one horse is normal and welcome."),
           ("Is it tax-deductible?", f"{O['name']} is a 501(c)(3), so yes, to the extent the law allows. You'll get a receipt for each payment.")]
-    levels = f'''<div class="levels">
+    levels = f'''<div class="levels" data-how="levels">
 <div><span class="label">Friend</span><div class="a">$<i style="font-style:normal;opacity:.35">—</i></div><p class="per">a month</p><ul><li>Monthly photo and note on your horse</li><li>Your first name on its page, if you like</li><li>A receipt for every payment</li></ul></div>
 <div><span class="label">Sponsor</span><div class="a">$<i style="font-style:normal;opacity:.35">—</i></div><p class="per">a month</p><ul><li>Everything above</li><li>Come out and meet your horse</li><li>Named in the monthly email</li></ul></div>
 <div><span class="label">Business</span><div class="a">$<i style="font-style:normal;opacity:.35">—</i></div><p class="per">a month</p><ul><li>Everything above</li><li>Your logo on this page and on the horse's page</li><li>A thank-you post on the ranch's channels</li></ul></div></div>
@@ -327,7 +328,7 @@ def sponsor():
 <section class="dark"><div class="wrap">{head("Pick a horse", "Who needs a sponsor", "Every horse at the ranch is open for sponsorship right now.", f'<a href="{rel}horses/">All the horses →</a>')}
 <div class="herd">{"".join(f'<a href="{rel}horses/{h["slug"]}/"><img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"><h3 style="color:#f4ecef">{e(h["title"])}</h3><p class="coat" style="color:#b9aab1">{e(h["coat"])}</p></a>' for h in D["horses"][:8])}</div></div></section>
 <section><div class="wrap">{head("Business sponsors", "Norman businesses behind the herd", "Sponsor a horse as a business and your logo sits here and on the horse's page.")}
-<div class="logos"><div>Your business here</div><div>Your business here</div><div>Your business here</div><div>Your business here</div></div>
+<div class="logos" data-how="logos"><div>Your business here</div><div>Your business here</div><div>Your business here</div><div>Your business here</div></div>
 <p style="margin-top:28px"><a class="btn fill" href="mailto:?subject=Sponsoring%20a%20horse%20at%20Butterfly%20Ranch">Ask about sponsoring</a> <span class="tbc" style="margin-left:12px">Email address to be added.</span></p></div></section>
 <section class="dark"><div class="wrap">{head("Questions", "Sponsoring, answered")}{faq_html(qa)}</div></section>
 {updates(rel)}'''
@@ -345,7 +346,7 @@ def volunteer():
     body += f'''
 <section><div class="wrap"><div class="two">
 <div>{head("Sign up", "Tell us about you")}
-<form class="steps-form" data-preview data-steps novalidate aria-label="Volunteer sign-up">
+<form class="steps-form" data-preview data-steps data-how="volunteer" novalidate aria-label="Volunteer sign-up">
   <div class="sf-bar" aria-hidden="true"><i></i></div>
   <fieldset class="sf-step" data-step="1"><legend class="sf-q">What would you like to help with?</legend><p class="sf-hint">Pick any. No horse experience needed.</p>
     <div class="picks">
@@ -397,7 +398,7 @@ def program():
     body += f'''
 <section class="dark"><div class="wrap"><div class="prog">
 <figure><img src="{rel}assets/photos/chestnut-sky.jpg" alt="A chestnut horse with a white blaze stands in the pen under a wide blue sky" width="1200" height="1600" loading="lazy"><figcaption>In the pens, between lessons.</figcaption></figure>
-<div class="flyer">
+<div class="flyer" data-how="flyer" data-how-at="end">
   <h3>Summer camps</h3><p class="soft" style="font-size:15.5px;margin:0 0 6px">Last summer's camps. <span class="tbc">2026 dates to come.</span></p>{rows(D["camps"])}
   <h3>Breakaway lessons</h3>{rows(D["lessons"])}
   <h3>Pony parties</h3>{rows(D["parties"])}
@@ -421,7 +422,7 @@ def about():
 <div class="two"><div><p class="soft">We don't lead with the worst photo of a horse's life. We show the recovery: weight coming back, feet fixed, the first day a horse walks to the gate on its own. Where a horse came from is part of its story, told plainly, once.</p></div>
 <div><p class="soft">We publish what things cost and where gifts went. Every horse has a page that is updated as it recovers, and every donor hears back about the horse they helped. Your name stays private unless you ask to be thanked by name.</p></div></div></div></section>
 <section><div class="wrap">{head("The facts", "On the record")}
-<table><tbody><tr><td>Legal name</td><td>{e(O["name"])}</td></tr><tr><td>Status</td><td>501(c)(3) nonprofit <span class="tbc">(EIN to be shown)</span></td></tr><tr><td>Founded</td><td>{O["founded"]}, by Braxton Brackin</td></tr><tr><td>Where</td><td>{e(O["street"])}, {e(O["city"])}, Oklahoma {O["zip"]}</td></tr><tr><td>Phone</td><td>{PHONE}</td></tr><tr><td>What we do</td><td>Rescue and rehabilitate horses, in the open; riding lessons, camps and pony parties</td></tr><tr><td>Photos and film</td><td>{e(D["credits"])}</td></tr><tr><td>This site</td><td>A concept by <a href="https://station.solutions/" target="_blank" rel="noopener">Station</a>, not yet the ranch's official website</td></tr></tbody></table></div></section>
+<table data-how="facts"><tbody><tr><td>Legal name</td><td>{e(O["name"])}</td></tr><tr><td>Status</td><td>501(c)(3) nonprofit <span class="tbc">(EIN to be shown)</span></td></tr><tr><td>Founded</td><td>{O["founded"]}, by Braxton Brackin</td></tr><tr><td>Where</td><td>{e(O["street"])}, {e(O["city"])}, Oklahoma {O["zip"]}</td></tr><tr><td>Phone</td><td>{PHONE}</td></tr><tr><td>What we do</td><td>Rescue and rehabilitate horses, in the open; riding lessons, camps and pony parties</td></tr><tr><td>Photos and film</td><td>{e(D["credits"])}</td></tr><tr><td>This site</td><td>A concept by <a href="https://station.solutions/" target="_blank" rel="noopener">Station</a>, not yet the ranch's official website</td></tr></tbody></table></div></section>
 {band(rel)}'''
     ld = [crumbs_ld([("Home", ""), ("About", "about/")]),
           {"@context": "https://schema.org", "@type": "Person", "name": "Braxton Brackin", "jobTitle": "Founder & CEO", "worksFor": {"@type": "NGO", "name": O["name"]}, "url": BASE + "about/"}]
@@ -433,8 +434,8 @@ def visit():
     body = ph("Visit", "Come meet the herd", "We're a working barn, so please call before you come out. Lessons, camps and pony parties are booked by text.", img="gate", alt="The red pipe entrance gate of the ranch with the sign beyond", crumbs=[("Home", ""), ("Visit", None)], rel=rel)
     body += f'''
 <section><div class="wrap"><div class="visit">
-<div><h3>Where</h3><p>{e(O["street"])}<br>{e(O["city"])}, Oklahoma {O["zip"]}<br><a href="{O["maps"]}" target="_blank" rel="noopener">Open in Maps</a></p></div>
-<div><h3>Call first</h3><p>We're a working barn, so please call before you come out.<br>{PHONE}</p></div>
+<div data-how="where" data-how-at="end"><h3>Where</h3><p>{e(O["street"])}<br>{e(O["city"])}, Oklahoma {O["zip"]}<br><a href="{O["maps"]}" target="_blank" rel="noopener">Open in Maps</a></p></div>
+<div data-how="call" data-how-at="end"><h3>Call first</h3><p>We're a working barn, so please call before you come out.<br>{PHONE}</p></div>
 <div><h3>Camps and lessons</h3><p>Text Anna at <a href="sms:{O["camp_phone_e164"]}">{O["camp_phone"]}</a>.</p></div>
 </div>
 <div class="gallery pair" style="margin-top:64px"><div><img src="{rel}assets/photos/sign-flowers.jpg" alt="The Butterfly Ranch sign behind yellow wildflowers" width="1200" height="1600" loading="lazy"></div><div><img src="{rel}assets/photos/trough.jpg" alt="A bay horse stands by a full water trough with wildflowers along the fence" width="1200" height="1600" loading="lazy"></div></div></div></section>
@@ -446,7 +447,7 @@ def visit():
 def updates_page():
     rel = "../"
     body = ph("Updates", "News from the barn", "Short posts as horses arrive and recover. The first post goes up when the ranch is ready.", crumbs=[("Home", ""), ("Updates", None)], rel=rel)
-    body += f'''<section style="padding-top:48px"><div class="wrap"><ol class="log">
+    body += f'''<section style="padding-top:48px"><div class="wrap"><ol class="log" data-how="news">
 <li><time>Oct 2026</time><div><h3>The OU class came out</h3><p>Students from the University of Oklahoma's marketing program spent a day at the ranch photographing and filming the horses for this site and the ranch's channels.</p></div></li>
 <li><time>Soon</time><div><h3 class="tbc">The first horse's story</h3><p class="tbc">Braxton picks the horse; the ranch writes it.</p></div></li>
 </ol></div></section>{updates(rel)}'''
@@ -456,7 +457,7 @@ def updates_page():
 def links():
     rel = "../"
     body = f'''<div class="ph plain"><div class="wrap" style="text-align:center;padding-top:48px"><div><span class="label">Butterfly Ranch</span><h1 style="margin:12px auto 10px;max-width:none">Every horse has a story.</h1><p class="lede" style="margin:0 auto">Norman, Oklahoma · 501(c)(3) horse rescue</p></div></div></div>
-<section style="padding-top:40px"><div class="wrap" style="max-width:520px"><div style="display:grid;gap:12px">
+<section style="padding-top:40px"><div class="wrap" style="max-width:520px"><div style="display:grid;gap:12px" data-how="links">
 <a class="btn fill" style="text-align:center;padding:18px" href="{rel}donate/">Donate</a>
 <a class="btn line" style="text-align:center;padding:18px" href="{rel}sponsor/">Sponsor a horse</a>
 <a class="btn line" style="text-align:center;padding:18px" href="{rel}horses/">Meet the horses</a>
@@ -504,10 +505,15 @@ This is a concept site built by Station (station.solutions) with the University 
 
 if __name__ == "__main__":
     import shutil
-    css = open(os.path.join(ROOT, "_src", "site.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "tear.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "forms.css"), encoding="utf-8").read()
+    css = open(os.path.join(ROOT, "_src", "site.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "tear.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "forms.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "how.css"), encoding="utf-8").read()
     open(os.path.join(ROOT, "assets", "site.css"), "w", encoding="utf-8", newline="\n").write(css)
     shutil.copy(os.path.join(ROOT, "_src", "tear.js"), os.path.join(ROOT, "assets", "tear.js"))
     shutil.copy(os.path.join(ROOT, "_src", "forms.js"), os.path.join(ROOT, "assets", "forms.js"))
     shutil.copy(os.path.join(ROOT, "_src", "chat.js"), os.path.join(ROOT, "assets", "chat.js"))
+    # the "How it works" switch: its copy lives in data.json ("how") and is written into the script
+    how = open(os.path.join(ROOT, "_src", "how.js"), encoding="utf-8").read()
+    assert "/*HOW_DATA*/null" in how
+    how_data = {k: v for k, v in D["how"].items() if not k.startswith("_")}
+    open(os.path.join(ROOT, "assets", "how.js"), "w", encoding="utf-8", newline="\n").write(how.replace("/*HOW_DATA*/null", json.dumps(how_data, ensure_ascii=False)))
     home(); horses(); donate(); sponsor(); volunteer(); program(); about(); visit(); updates_page(); links(); sitemap_and_llms()
     print("built", 10 + len(D["horses"]), "pages")

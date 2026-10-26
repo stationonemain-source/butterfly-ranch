@@ -22,6 +22,7 @@
     <a class="logo" href="../../" aria-label="Butterfly Rescue Ranch, home"><img class="dark-logo" src="../../assets/logo.png" alt="Butterfly Ranch" width="900" height="313"><img class="light-logo" src="../../assets/logo-white.png" alt="" width="900" height="313" aria-hidden="true"></a>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav"><a href="../../horses/" aria-current="page">The horses</a><a href="../../sponsor/">Sponsor</a><a href="../../volunteer/">Volunteer</a><a href="../../program/">Program</a><a href="../../about/">About</a><a href="../../visit/">Visit</a></nav>
+    <button class="how-btn" type="button" aria-pressed="false" hidden title="Show which Station product runs each part of this page"><span class="how-sw" aria-hidden="true"></span>How it works</button>
     <a class="btn fill" href="../../donate/">Donate</a>
   </div>
 </header>
@@ -37,7 +38,7 @@
 <section class="dark">
   <div class="wrap">
     <div class="head"><span class="label">The journal</span><div><h2>From the day it arrived</h2><p>Updated as the horse recovers, with what was spent and who helped, so donors can see what their gift did.</p></div></div>
-    <div class="journal">
+    <div class="journal" data-how="journal">
       <aside class="card-id" aria-label="Horse details">
         <span class="label">At the ranch</span>
         <div class="name">The dark bay</div>
@@ -58,7 +59,7 @@
 <section><div class="wrap"><div class="head"><span class="label">Also at the ranch</span><div><h2>More of the herd</h2><p class=more><a href="../">All the horses →</a></p></div></div><div class="herd"><a href="../chestnut-blaze/"><img src="../../assets/photos/horse-chestnut-blaze.jpg" alt="A chestnut horse with a long white blaze looks straight at the camera over a wire fence, ears forward" width="1200" height="1500" loading="lazy"><h3>The chestnut with the blaze</h3><p class="coat">Chestnut, white blaze</p></a><a href="../bay-lightning/"><img src="../../assets/photos/horse-bay-lightning.jpg" alt="A bay horse with a jagged white blaze leans over a gray pipe gate" width="1200" height="1500" loading="lazy"><h3>The bay with the lightning blaze</h3><p class="coat">Bay, jagged white blaze</p></a><a href="../bay-star/"><img src="../../assets/photos/horse-bay-star.jpg" alt="A bay horse with a small white star on its forehead looks over the top rail of a fence" width="1200" height="1500" loading="lazy"><h3>The bay with the star</h3><p class="coat">Bay, small star</p></a><a href="../paint/"><img src="../../assets/photos/horse-paint.jpg" alt="A brown and white paint horse pushes its nose toward the camera over a black pipe gate" width="1200" height="1500" loading="lazy"><h3>The paint</h3><p class="coat">Brown and white paint, blue eye</p></a></div></div></section>
 <section class="band"><div class="wrap"><div><span class="label">Help a horse</span><h2>Help this horse</h2><p>Sponsor it by the month, or give once toward its feed, farrier and vet care. Either way you'll hear how it's doing.</p></div><div class="acts"><a class="btn fill" href="../../donate/">Donate</a><a class="btn line" href="../../sponsor/">Sponsor a horse</a><a class="btn line" href="../../volunteer/">Volunteer</a></div></div></section>
 <section class="updates"><div class="wrap"><div class="upd"><div><span class="label">Updates from the barn</span><h2>Hear how this horse and the others are doing</h2><p>One email a month, with the horse you helped and what it cost. No more than that.</p></div>
-<form class="join" data-preview novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>
+<form class="join" data-preview data-how="join" data-how-at="end" novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>
 </main>
 <footer class="tpf" data-seed="7" style="--tpf-sheet:#a71c5a;--tpf-paper:#fbf8f6;--tpf-on-sheet:#ffffff;--tpf-on-paper:#2b2026;--tpf-word:#a71c5a;--tpf-rim:#fefdfd">
 <svg class="tpf-stage" aria-hidden="true"><defs>
@@ -143,6 +144,6 @@
   }
 })();
 </script>
-<script src="../../assets/forms.js?v=1" defer></script><script src="../../assets/chat.js?v=4" defer></script>
+<script src="../../assets/forms.js?v=1" defer></script><script src="../../assets/chat.js?v=4" defer></script><script src="../../assets/how.js?v=2026-10-25" defer></script>
 </body>
 </html>
