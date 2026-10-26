@@ -6,6 +6,7 @@
 <title>About · Butterfly Rescue Ranch</title>
 <meta name="description" content="Butterfly Rescue Ranch is a 501(c)(3) horse rescue founded in 2022 by Braxton Brackin in Norman, Oklahoma. Meet the team and read what the ranch stands for.">
 <meta name="robots" content="noindex, nofollow">
+<meta name="give-api" content="https://give.srv1748596.hstgr.cloud/api/butterfly-ranch">
 <link rel="canonical" href="https://stationonemain-source.github.io/butterfly-ranch/about/">
 <meta property="og:title" content="About · Butterfly Rescue Ranch"><meta property="og:description" content="Butterfly Rescue Ranch is a 501(c)(3) horse rescue founded in 2022 by Braxton Brackin in Norman, Oklahoma. Meet the team and read what the ranch stands for."><meta property="og:type" content="website"><meta property="og:url" content="https://stationonemain-source.github.io/butterfly-ranch/about/"><meta property="og:image" content="https://stationonemain-source.github.io/butterfly-ranch/assets/hero-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -66,7 +67,7 @@
   <label for="tpf-email">one email a month about the horses</label>
   <div class="tpf-pill" data-sent="false">
     <input id="tpf-email" type="email" placeholder="your@email" autocomplete="email">
-    <span class="tpf-sent" aria-live="polite"><svg viewBox="0 0 24 24" class="tpf-ico" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5.5 12.5 4 4 9-9.5"/></svg> preview: not connected yet</span>
+    <span class="tpf-sent" aria-live="polite"><svg viewBox="0 0 24 24" class="tpf-ico" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5.5 12.5 4 4 9-9.5"/></svg> sending…</span>
     <button type="submit" class="tpf-knob" aria-label="Sign up"><svg viewBox="0 0 24 24" class="tpf-ico" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 18.5 12 13 17.5"/></svg></button>
   </div>
 </form>
@@ -115,11 +116,9 @@
     function freq(){return g.querySelector('input[name=freq]:checked').value}
     function label(){var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':'')):'Choose an amount'}
     g.addEventListener('change',label); other.addEventListener('input',function(){tiles.forEach(function(x){x.checked=false});label()}); label();
-    g.addEventListener('submit',function(ev){ev.preventDefault();var a=amt();if(!a){other.focus();return}
-      out.textContent='Preview: $'+a+(freq()==='monthly'?' a month':'')+' would go to checkout here. Payments switch on when the ranch connects its Givebutter account; nothing was charged.';out.classList.add('on')});
   }
 })();
 </script>
-<script src="../assets/forms.js?v=1" defer></script><script src="../assets/chat.js?v=4" defer></script><script src="../assets/how.js?v=2026-10-25" defer></script>
+<script src="../assets/forms.js?v=1" defer></script><script src="../assets/give.js?v=2026-10-25" defer></script><script src="../assets/chat.js?v=4" defer></script><script src="../assets/how.js?v=2026-10-25" defer></script>
 </body>
 </html>

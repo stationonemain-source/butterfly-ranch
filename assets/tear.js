@@ -200,7 +200,7 @@
   var up = root.querySelector('.tpf-up');
   if (up) up.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' }); });
 
-  // newsletter: a preview until the ranch connects a real list (says so, like the site's other sign-up forms)
+  // newsletter: the pill flips to its sent state; give.js posts the address and writes the result into .tpf-sent
   var form = root.querySelector('.tpf-news');
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();

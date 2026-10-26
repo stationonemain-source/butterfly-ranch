@@ -45,6 +45,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <meta name="robots" content="noindex, nofollow">
+<meta name="give-api" content="https://give.srv1748596.hstgr.cloud/api/butterfly-ranch">
 <link rel="canonical" href="{BASE}{path}">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="{BASE}{path}"><meta property="og:image" content="{BASE}assets/hero-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -82,12 +83,10 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
     function freq(){{return g.querySelector('input[name=freq]:checked').value}}
     function label(){{var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':'')):'Choose an amount'}}
     g.addEventListener('change',label); other.addEventListener('input',function(){{tiles.forEach(function(x){{x.checked=false}});label()}}); label();
-    g.addEventListener('submit',function(ev){{ev.preventDefault();var a=amt();if(!a){{other.focus();return}}
-      out.textContent='Preview: $'+a+(freq()==='monthly'?' a month':'')+' would go to checkout here. Payments switch on when the ranch connects its Givebutter account; nothing was charged.';out.classList.add('on')}});
   }}
 }})();
 </script>
-<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/chat.js?v=4" defer></script><script src="{rel}assets/how.js?v={TODAY}" defer></script>
+<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/give.js?v={TODAY}" defer></script><script src="{rel}assets/chat.js?v=4" defer></script><script src="{rel}assets/how.js?v={TODAY}" defer></script>
 </body>
 </html>"""
 
@@ -113,7 +112,7 @@ def band(rel, h="Give once, or a little every month", p="Every gift goes to hay,
 
 def updates(rel, what="the horses"):
     return f'''<section class="updates"><div class="wrap"><div class="upd"><div><span class="label">Updates from the barn</span><h2>Hear how {what} are doing</h2><p>One email a month, with the horse you helped and what it cost. No more than that.</p></div>
-<form class="join" data-preview data-how="join" data-how-at="end" novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>'''
+<form class="join" data-signup data-how="join" data-how-at="end" novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status"></p></form></div></div></section>'''
 
 PHONE = f'<a href="tel:{O["phone_e164"]}">{O["phone"]}</a>'
 
@@ -208,7 +207,7 @@ def horse(h):
 <div class="ph"><div class="wrap">
   <div><p class="crumbs"><a href="{rel}">Home</a> › <a href="../">The horses</a> › {e(h["title"])}</p><span class="label">{e(h["status"])}</span><h1>{e(h["title"])}</h1>
   <p class="lede">{e(h["coat"])}. <span class="tbc">Name, age, where it came from and its story are Braxton's to add. This page shows the layout every horse will get.</span></p>
-  <div class="acts" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn fill" href="{rel}sponsor/">Sponsor this horse</a><a class="btn line" href="{rel}donate/">Give toward its care</a></div></div>
+  <div class="acts" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn fill" href="{rel}sponsor/?horse={h["slug"]}#start">Sponsor this horse</a><a class="btn line" href="{rel}donate/?horse={h["slug"]}">Give toward its care</a></div></div>
   <img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" style="aspect-ratio:4/5">
 </div></div>
 
@@ -220,7 +219,7 @@ def horse(h):
         <span class="label">{e(h["status"])}</span>
         <div class="name">{e(h["title"])}</div>
         <dl><dt>Coat</dt><dd>{e(h["coat"])}</dd><dt>Came from</dt><dd class="tbc">Kill pen, auction or surrender</dd><dt>Arrived</dt><dd class="tbc">Month, year</dd><dt>Breed, age</dt><dd class="dash">—</dd><dt>Spent so far</dt><dd class="dash">$ —</dd><dt>Sponsored by</dt><dd class="tbc">Open</dd></dl>
-        <a class="btn fill" href="{rel}sponsor/">Sponsor this horse</a>
+        <a class="btn fill" href="{rel}sponsor/?horse={h["slug"]}#start">Sponsor this horse</a>
       </aside>
       <ol class="log">
         <li><time>Day 1</time><div><h3>Arrival</h3><p>Where the horse came from, its weight and condition, and the first vet check. Intake photo here.</p></div><span class="cost">Intake vet · $ —</span></li>
@@ -255,12 +254,14 @@ def donate():
 <section>
   <div class="wrap">
     <div class="give">
-      <form class="giver" id="giver" data-how="giver" data-how-at="end" novalidate aria-label="Donation form">
+      <form class="giver" id="giver" data-horses='{e(json.dumps({h["slug"]: h["title"][0].lower() + h["title"][1:] for h in D["horses"]}))}' data-how="giver" data-how-at="end" novalidate aria-label="Donation form">
         <div class="seg" role="radiogroup" aria-label="How often"><label><input type="radio" name="freq" value="once" checked><span>One time</span></label><label><input type="radio" name="freq" value="monthly"><span>Monthly</span></label></div>
         <div class="tiles">{tiles}</div>
         <div class="other"><span>Or another amount</span><input type="number" name="other" min="1" inputmode="numeric" placeholder="$" aria-label="Other amount in dollars"></div>
-        <p class="impact" aria-live="polite"></p><button class="btn fill" type="submit">Give $50</button>
-        <p class="fine">{e(O["name"])} is a 501(c)(3). Gifts are tax-deductible as allowed by law. Card, Venmo and PayPal at checkout. <span class="tbc">Checkout switches on when the ranch connects its Givebutter account.</span></p>
+        <p class="for-horse" hidden></p><p class="impact" aria-live="polite"></p>
+        <div class="give-progress" data-give-progress hidden><div class="bar"><i></i></div><span></span></div>
+        <button class="btn fill" type="submit">Give $50</button>
+        <p class="fine">{e(O["name"])} is a 501(c)(3). Gifts are tax-deductible as allowed by law. Pay by card, Apple Pay, Google Pay or bank in a secure form on this page; the money goes straight to the ranch's own Stripe account. For Venmo, see below.</p>
         <p class="sent" role="status"></p>
       </form>
       <div>
@@ -308,7 +309,16 @@ def donate():
 <section><div class="wrap">{head("Questions", "Giving, answered")}{faq_html(qa)}</div></section>
 {updates(rel)}'''
     ld = [crumbs_ld([("Home", ""), ("Donate", "donate/")]), faq_ld([(q, a.replace('<span class="tbc">', '').replace('</span>', '').replace('<b>', '').replace('</b>', '')) for q, a in qa if "<a" not in a])]
-    write("donate/", page("donate/", f"Donate · {O['name']}", "Give to the rescue horses at Butterfly Rescue Ranch, Norman, Oklahoma. One-time or monthly, card, Venmo or PayPal. A 501(c)(3); gifts are tax-deductible.", body, ld, current="donate/"))
+    write("donate/", page("donate/", f"Donate · {O['name']}", "Give to the rescue horses at Butterfly Rescue Ranch, Norman, Oklahoma. One-time or monthly, by card, Apple Pay, Google Pay or bank. A 501(c)(3); gifts are tax-deductible.", body, ld, current="donate/"))
+
+# ---------- THANKS (Stripe returns here) ----------
+def thanks():
+    rel = "../../"
+    body = ph("Thank you", "Thank you for the horses", "Your gift goes to hay, feed and care.", crumbs=[("Home", ""), ("Donate", "donate/"), ("Thank you", None)], rel=rel)
+    body += f'''<section><div class="wrap"><div id="give-thanks"><p class="gt-msg lede" role="status">Checking your gift…</p>
+<p class="gt-ok" hidden>A tax receipt is on its way by email, and Braxton will write to say thank you. If you gave for a horse, you'll hear how it's doing.</p>
+<p style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px"><a class="btn fill" href="{rel}horses/">Meet the horses</a><a class="btn line" href="{rel}">Back to the ranch</a></p></div></div></section>'''
+    write("donate/thanks/", page("donate/thanks/", f"Thank you · {O['name']}", "Thank you for your gift to Butterfly Rescue Ranch.", body, [], current="donate/"))
 
 # ---------- SPONSOR ----------
 def sponsor():
@@ -325,6 +335,15 @@ def sponsor():
     body = ph("Sponsor a horse", "One horse. Your name on its story.", "Pick a horse, cover part of its care each month, and follow it from the day it arrived to the day it's well.", img="horse-sign", alt="A bay horse at the fence in front of the pink Butterfly Ranch sign", crumbs=[("Home", ""), ("Sponsor a horse", None)], rel=rel)
     body += f'''
 <section><div class="wrap">{head("Levels", "Three ways to sponsor")}{levels}</div></section>
+<section id="start"><div class="wrap">{head("Start", "Sponsor a horse today", "Choose the horse and what you'd like to give each month. Stop any time from your receipt.")}
+<form class="giver sponsor-form" data-sponsor-form data-how="giver" novalidate aria-label="Start a sponsorship">
+  <label class="field">Horse<select name="horse">{"".join(f'<option value="{h["slug"]}">{e(h["title"])}</option>' for h in D["horses"])}</select></label>
+  <div class="other"><span>Each month</span><input type="number" name="amount" min="5" inputmode="numeric" placeholder="$" aria-label="Monthly amount in dollars"></div>
+  <label class="check"><input type="checkbox" name="name_on_page"> Show my first name on the horse's page</label>
+  <button class="btn fill" type="submit">Sponsor monthly</button>
+  <p class="fine">A monthly gift on the ranch's own Stripe account, with a receipt for every payment.</p>
+  <p class="sent" role="status"></p>
+</form></div></section>
 <section class="dark"><div class="wrap">{head("Pick a horse", "Who needs a sponsor", "Every horse at the ranch is open for sponsorship right now.", f'<a href="{rel}horses/">All the horses →</a>')}
 <div class="herd">{"".join(f'<a href="{rel}horses/{h["slug"]}/"><img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"><h3 style="color:#f4ecef">{e(h["title"])}</h3><p class="coat" style="color:#b9aab1">{e(h["coat"])}</p></a>' for h in D["horses"][:8])}</div></div></section>
 <section><div class="wrap">{head("Business sponsors", "Norman businesses behind the herd", "Sponsor a horse as a business and your logo sits here and on the horse's page.")}
@@ -482,7 +501,7 @@ Address: {O['street']}, {O['city']}, {O['state']} {O['zip']}. Phone: {O['phone']
 ## Pages
 - [Home]({BASE}): what the ranch does and the horses there now
 - [The horses]({BASE}horses/): one page per horse, each with a journal of its recovery and costs
-- [Donate]({BASE}donate/): one-time or monthly gifts; card, Venmo, PayPal, mail, supplies, employer match
+- [Donate]({BASE}donate/): one-time or monthly gifts by card, Apple Pay, Google Pay or bank; Venmo, mail, supplies, employer match
 - [Sponsor a horse]({BASE}sponsor/): monthly sponsorship of one horse, with updates; business logos welcome
 - [Volunteer]({BASE}volunteer/): feeding, grooming, barn days, events; no experience needed
 - [Program]({BASE}program/): lessons, summer camps and pony parties, with prices
@@ -505,15 +524,16 @@ This is a concept site built by Station (station.solutions) with the University 
 
 if __name__ == "__main__":
     import shutil
-    css = open(os.path.join(ROOT, "_src", "site.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "tear.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "forms.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "how.css"), encoding="utf-8").read()
+    css = open(os.path.join(ROOT, "_src", "site.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "tear.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "forms.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "how.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "give.css"), encoding="utf-8").read()
     open(os.path.join(ROOT, "assets", "site.css"), "w", encoding="utf-8", newline="\n").write(css)
     shutil.copy(os.path.join(ROOT, "_src", "tear.js"), os.path.join(ROOT, "assets", "tear.js"))
     shutil.copy(os.path.join(ROOT, "_src", "forms.js"), os.path.join(ROOT, "assets", "forms.js"))
+    shutil.copy(os.path.join(ROOT, "_src", "give.js"), os.path.join(ROOT, "assets", "give.js"))
     shutil.copy(os.path.join(ROOT, "_src", "chat.js"), os.path.join(ROOT, "assets", "chat.js"))
     # the "How it works" switch: its copy lives in data.json ("how") and is written into the script
     how = open(os.path.join(ROOT, "_src", "how.js"), encoding="utf-8").read()
     assert "/*HOW_DATA*/null" in how
     how_data = {k: v for k, v in D["how"].items() if not k.startswith("_")}
     open(os.path.join(ROOT, "assets", "how.js"), "w", encoding="utf-8", newline="\n").write(how.replace("/*HOW_DATA*/null", json.dumps(how_data, ensure_ascii=False)))
-    home(); horses(); donate(); sponsor(); volunteer(); program(); about(); visit(); updates_page(); links(); sitemap_and_llms()
+    home(); horses(); donate(); thanks(); sponsor(); volunteer(); program(); about(); visit(); updates_page(); links(); sitemap_and_llms()
     print("built", 10 + len(D["horses"]), "pages")

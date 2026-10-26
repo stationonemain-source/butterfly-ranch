@@ -7,7 +7,7 @@ Address: 7475 By Drive, Norman, OK 73072. Phone: (405) 922-0839. Camps and lesso
 ## Pages
 - [Home](https://stationonemain-source.github.io/butterfly-ranch/): what the ranch does and the horses there now
 - [The horses](https://stationonemain-source.github.io/butterfly-ranch/horses/): one page per horse, each with a journal of its recovery and costs
-- [Donate](https://stationonemain-source.github.io/butterfly-ranch/donate/): one-time or monthly gifts; card, Venmo, PayPal, mail, supplies, employer match
+- [Donate](https://stationonemain-source.github.io/butterfly-ranch/donate/): one-time or monthly gifts by card, Apple Pay, Google Pay or bank; Venmo, mail, supplies, employer match
 - [Sponsor a horse](https://stationonemain-source.github.io/butterfly-ranch/sponsor/): monthly sponsorship of one horse, with updates; business logos welcome
 - [Volunteer](https://stationonemain-source.github.io/butterfly-ranch/volunteer/): feeding, grooming, barn days, events; no experience needed
 - [Program](https://stationonemain-source.github.io/butterfly-ranch/program/): lessons, summer camps and pony parties, with prices

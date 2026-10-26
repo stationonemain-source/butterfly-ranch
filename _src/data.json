@@ -69,8 +69,8 @@
   ],
   "credits": "Photos and film from the October 2026 site visit by OU MKT 4970 students (Kaylee Veeravan, Savannah Fritzen, Team 1). Staff portraits and logo from the ranch. Some hero shots were animated from those photos with AI; nothing in them was invented.",
   "how": {
-    "_comment": "The 'How it works' switch (header). Each note names the Station product behind a feature and says what it does ON THE LIVE SITE. Nothing on this preview is connected, so no note may claim a feature works now, or anything the products do not do. No invented prices or numbers. Features carry data-how=<key> in build.py; 'spots' are matched by selector for parts other scripts build. Rendered by _src/how.js.",
-    "legend": "Each outlined part of this page is run by a Station product, named in the note beside it. This site is a preview, so nothing is connected yet: the notes say what happens on the live site.",
+    "_comment": "The 'How it works' switch (header). Each note names the Station product behind a feature and says what it does ON THE LIVE SITE. Only the email sign-ups are connected on this preview (to Station Give, the ranch's list; no email is sent until the ranch's mailbox is connected), so no note may claim a feature works now, or anything the products do not do. No invented prices or numbers. Features carry data-how=<key> in build.py; 'spots' are matched by selector for parts other scripts build. Rendered by _src/how.js.",
+    "legend": "Each outlined part of this page is run by a Station product, named in the note beside it. This site is a preview. Email sign-ups already go to the ranch’s own list; donations, the chat and texts switch on when the site goes live. The notes say what happens then.",
     "notes": {
       "herd": [
         ["Custom website", "Every horse gets its own page, following it from the day it arrived to the day it is well."],
@@ -90,7 +90,7 @@
       ],
       "giver": [
         ["Tap", "Secure checkout on the ranch’s own Stripe account: card, Apple Pay, Google Pay or bank. The money goes straight to the ranch, and a tax receipt arrives by email at once."],
-        ["Tap · monthly gifts", "Monthly donors change or stop their gift from the link in their receipt. A card that fails is retried automatically."]
+        ["Tap · monthly gifts", "Monthly donors update their card or stop their gift from the link in their receipt. A card that fails is retried automatically."]
       ],
       "promise": [
         ["Pursuit", "Every donor gets a thank-you from Braxton within the hour. A gift of $250 or more also alerts Braxton to call the donor personally."],
@@ -98,13 +98,13 @@
         ["Revive", "A donor who has not given for 12 months gets a short note from the ranch inviting them back."]
       ],
       "levels": [
-        ["Tap", "A sponsorship is a monthly gift through secure checkout on the ranch’s own Stripe account, with a tax receipt by email. Sponsors change or stop it from their receipt link, and a failed card is retried automatically."],
+        ["Tap", "A sponsorship is a monthly gift through secure checkout on the ranch’s own Stripe account, with a tax receipt by email. Sponsors update their card or stop it from their receipt link, and a failed card is retried automatically."],
         ["Pursuit", "Each new sponsor gets a thank-you from Braxton within the hour."],
         ["Dispatch", "The monthly note on the horse, the January giving summary and Giving Tuesday all go out by email."]
       ],
       "logos": [
         ["Radar", "Radar finds local businesses that fit, like feed and tack stores, vet clinics and riding programs, and lines them up in the ranch’s sponsor pipeline for the ask."],
-        ["Tap", "A business sponsor can be sent an invoice and pay it online."]
+        ["Tap", "A business sponsors through the same secure monthly checkout, with a receipt for every payment."]
       ],
       "volunteer": [
         ["Pursuit", "Every sign-up gets a welcome by text and email the same day, and follow-ups until the volunteer replies."],

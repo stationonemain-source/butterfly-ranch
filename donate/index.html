@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Donate · Butterfly Rescue Ranch</title>
-<meta name="description" content="Give to the rescue horses at Butterfly Rescue Ranch, Norman, Oklahoma. One-time or monthly, card, Venmo or PayPal. A 501(c)(3); gifts are tax-deductible.">
+<meta name="description" content="Give to the rescue horses at Butterfly Rescue Ranch, Norman, Oklahoma. One-time or monthly, by card, Apple Pay, Google Pay or bank. A 501(c)(3); gifts are tax-deductible.">
 <meta name="robots" content="noindex, nofollow">
+<meta name="give-api" content="https://give.srv1748596.hstgr.cloud/api/butterfly-ranch">
 <link rel="canonical" href="https://stationonemain-source.github.io/butterfly-ranch/donate/">
-<meta property="og:title" content="Donate · Butterfly Rescue Ranch"><meta property="og:description" content="Give to the rescue horses at Butterfly Rescue Ranch, Norman, Oklahoma. One-time or monthly, card, Venmo or PayPal. A 501(c)(3); gifts are tax-deductible."><meta property="og:type" content="website"><meta property="og:url" content="https://stationonemain-source.github.io/butterfly-ranch/donate/"><meta property="og:image" content="https://stationonemain-source.github.io/butterfly-ranch/assets/hero-poster.jpg">
+<meta property="og:title" content="Donate · Butterfly Rescue Ranch"><meta property="og:description" content="Give to the rescue horses at Butterfly Rescue Ranch, Norman, Oklahoma. One-time or monthly, by card, Apple Pay, Google Pay or bank. A 501(c)(3); gifts are tax-deductible."><meta property="og:type" content="website"><meta property="og:url" content="https://stationonemain-source.github.io/butterfly-ranch/donate/"><meta property="og:image" content="https://stationonemain-source.github.io/butterfly-ranch/assets/hero-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +32,14 @@
 <section>
   <div class="wrap">
     <div class="give">
-      <form class="giver" id="giver" data-how="giver" data-how-at="end" novalidate aria-label="Donation form">
+      <form class="giver" id="giver" data-horses='{&quot;chestnut-blaze&quot;: &quot;the chestnut with the blaze&quot;, &quot;bay-lightning&quot;: &quot;the bay with the lightning blaze&quot;, &quot;bay-star&quot;: &quot;the bay with the star&quot;, &quot;dark-bay&quot;: &quot;the dark bay&quot;, &quot;paint&quot;: &quot;the paint&quot;, &quot;palomino-pony&quot;: &quot;the palomino pony&quot;, &quot;little-pinto&quot;: &quot;the little pinto&quot;, &quot;cream&quot;: &quot;the cream horse&quot;, &quot;buckskin&quot;: &quot;the buckskin&quot;, &quot;gray&quot;: &quot;the gray&quot;, &quot;chestnut-braids&quot;: &quot;the chestnut with the braided mane&quot;}' data-how="giver" data-how-at="end" novalidate aria-label="Donation form">
         <div class="seg" role="radiogroup" aria-label="How often"><label><input type="radio" name="freq" value="once" checked><span>One time</span></label><label><input type="radio" name="freq" value="monthly"><span>Monthly</span></label></div>
         <div class="tiles"><label><input type="radio" name="amt" value="25"><span class="a">$25</span><span class="f">Fly spray, wormer and hoof care</span></label><label><input type="radio" name="amt" value="50" checked><span class="a">$50</span><span class="f">Farrier work</span></label><label><input type="radio" name="amt" value="100"><span class="a">$100</span><span class="f">Vet visits and vaccines</span></label><label><input type="radio" name="amt" value="250"><span class="a">$250</span><span class="f">Hay and feed</span></label></div>
         <div class="other"><span>Or another amount</span><input type="number" name="other" min="1" inputmode="numeric" placeholder="$" aria-label="Other amount in dollars"></div>
-        <p class="impact" aria-live="polite"></p><button class="btn fill" type="submit">Give $50</button>
-        <p class="fine">Butterfly Rescue Ranch is a 501(c)(3). Gifts are tax-deductible as allowed by law. Card, Venmo and PayPal at checkout. <span class="tbc">Checkout switches on when the ranch connects its Givebutter account.</span></p>
+        <p class="for-horse" hidden></p><p class="impact" aria-live="polite"></p>
+        <div class="give-progress" data-give-progress hidden><div class="bar"><i></i></div><span></span></div>
+        <button class="btn fill" type="submit">Give $50</button>
+        <p class="fine">Butterfly Rescue Ranch is a 501(c)(3). Gifts are tax-deductible as allowed by law. Pay by card, Apple Pay, Google Pay or bank in a secure form on this page; the money goes straight to the ranch's own Stripe account. For Venmo, see below.</p>
         <p class="sent" role="status"></p>
       </form>
       <div>
@@ -83,7 +86,7 @@
 
 <section><div class="wrap"><div class="head"><span class="label">Questions</span><div><h2>Giving, answered</h2></div></div><div class="faq"><details><summary>Is my gift tax-deductible?</summary><p>Butterfly Rescue Ranch is a registered 501(c)(3) nonprofit, so gifts are tax-deductible to the extent the law allows. You'll get a receipt by email for every gift. <span class="tbc">The ranch's EIN will be shown here.</span></p></details><details><summary>Where does the money go?</summary><p>Hay, feed and supplements, farrier work, vet care, vaccines and dental. The monthly cost of one horse is published on this page as the ranch fills in its figures, and every horse's page shows what was spent on it.</p></details><details><summary>Can I give monthly?</summary><p>Yes. Choose <b>Monthly</b> above. Monthly gifts are what let the ranch plan feed and farrier visits ahead instead of month to month. You can stop at any time from the receipt email.</p></details><details><summary>Can I give to one particular horse?</summary><p>Yes. <a href="../sponsor/">Sponsor a horse</a> covers one horse's care by the month, and you'll get its updates. A one-time gift here goes wherever the need is that month.</p></details><details><summary>Can I give supplies instead of money?</summary><p>Please do. Hay, feed, fly spray, wormer, hoof care, halters, lead ropes and brushes are all used daily. Call ahead before dropping anything off. A wish list is on its way.</p></details><details><summary>Does my employer match gifts?</summary><p>Many do. Ask your HR team for their matching-gift form and send it to the ranch with your receipt; the ranch will complete its part.</p></details></div></div></section>
 <section class="updates"><div class="wrap"><div class="upd"><div><span class="label">Updates from the barn</span><h2>Hear how the horses are doing</h2><p>One email a month, with the horse you helped and what it cost. No more than that.</p></div>
-<form class="join" data-preview data-how="join" data-how-at="end" novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>
+<form class="join" data-signup data-how="join" data-how-at="end" novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status"></p></form></div></div></section>
 </main>
 <footer class="tpf" data-seed="7" style="--tpf-sheet:#a71c5a;--tpf-paper:#fbf8f6;--tpf-on-sheet:#ffffff;--tpf-on-paper:#2b2026;--tpf-word:#a71c5a;--tpf-rim:#fefdfd">
 <svg class="tpf-stage" aria-hidden="true"><defs>
@@ -114,7 +117,7 @@
   <label for="tpf-email">one email a month about the horses</label>
   <div class="tpf-pill" data-sent="false">
     <input id="tpf-email" type="email" placeholder="your@email" autocomplete="email">
-    <span class="tpf-sent" aria-live="polite"><svg viewBox="0 0 24 24" class="tpf-ico" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5.5 12.5 4 4 9-9.5"/></svg> preview: not connected yet</span>
+    <span class="tpf-sent" aria-live="polite"><svg viewBox="0 0 24 24" class="tpf-ico" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5.5 12.5 4 4 9-9.5"/></svg> sending…</span>
     <button type="submit" class="tpf-knob" aria-label="Sign up"><svg viewBox="0 0 24 24" class="tpf-ico" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6.5 18.5 12 13 17.5"/></svg></button>
   </div>
 </form>
@@ -163,11 +166,9 @@
     function freq(){return g.querySelector('input[name=freq]:checked').value}
     function label(){var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':'')):'Choose an amount'}
     g.addEventListener('change',label); other.addEventListener('input',function(){tiles.forEach(function(x){x.checked=false});label()}); label();
-    g.addEventListener('submit',function(ev){ev.preventDefault();var a=amt();if(!a){other.focus();return}
-      out.textContent='Preview: $'+a+(freq()==='monthly'?' a month':'')+' would go to checkout here. Payments switch on when the ranch connects its Givebutter account; nothing was charged.';out.classList.add('on')});
   }
 })();
 </script>
-<script src="../assets/forms.js?v=1" defer></script><script src="../assets/chat.js?v=4" defer></script><script src="../assets/how.js?v=2026-10-25" defer></script>
+<script src="../assets/forms.js?v=1" defer></script><script src="../assets/give.js?v=2026-10-25" defer></script><script src="../assets/chat.js?v=4" defer></script><script src="../assets/how.js?v=2026-10-25" defer></script>
 </body>
 </html>

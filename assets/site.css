@@ -622,3 +622,33 @@ form .how-note{margin-top:20px}
   .how-on .how-fly .how-note{width:calc(100vw - 28px);padding-right:38px}
 }
 @media (max-width:370px){.how-sw{display:none}}
+
+/* Donations through Station Give: the checkout sheet, the month's progress, the sponsor form. */
+.give-sheet{position:fixed;inset:0;z-index:80;background:rgba(43,32,38,.55);display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.give-sheet[hidden]{display:none}
+.gs-card{background:var(--white);border-radius:10px;width:min(560px,100%);max-height:calc(100svh - 48px);overflow:auto;box-shadow:0 30px 70px -20px rgba(43,32,38,.5)}
+.gs-top{position:sticky;top:0;z-index:1;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:14px 16px;background:var(--white);border-bottom:1px solid var(--rule)}
+.gs-top b{font:400 20px/1.2 var(--fd);color:var(--ink)}
+.gs-test{order:3;flex-basis:100%;font-size:14px;color:var(--mag-d);background:var(--rose);border-radius:6px;padding:8px 10px}
+.gs-x{margin-left:auto;width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:var(--paper);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+.gs-x:focus-visible{outline:2px solid var(--mag);outline-offset:2px}
+#give-mount{padding:8px 4px 16px;min-height:320px}
+html.gs-open{overflow:hidden}
+@media (max-width:600px){.give-sheet{padding:0;align-items:stretch}.gs-card{border-radius:0;max-height:none;height:100%}}
+
+.for-horse{margin:0 0 12px;font-size:15.5px;color:var(--mag-d)}
+.give-progress{margin:4px 0 18px;font-size:14px;color:var(--soft)}
+.give-progress[hidden]{display:none}
+.give-progress .bar{height:8px;border-radius:999px;background:var(--rose);overflow:hidden;margin-bottom:6px}
+.give-progress .bar i{display:block;height:100%;width:0;background:var(--mag);border-radius:999px;transition:width .8s ease}
+@media (prefers-reduced-motion:reduce){.give-progress .bar i{transition:none}}
+
+.sponsor-form{max-width:560px;display:grid;gap:4px}
+.sponsor-form .field{margin-bottom:16px}
+.sponsor-form select{font:400 17px var(--fb);color:var(--ink);background:#fff;border:1.5px solid #e2d6dc;border-radius:12px;padding:14px 16px;min-height:52px;width:100%}
+.sponsor-form select:focus{outline:none;border-color:var(--mag);box-shadow:0 0 0 4px rgba(167,28,90,.14)}
+.sponsor-form .other input{font:400 17px var(--fb);border:1.5px solid #e2d6dc;border-radius:12px;padding:12px 14px;min-height:48px}
+.sponsor-form .other input[aria-invalid=true]{border-color:#c0392b}
+.sponsor-form .check{display:flex;align-items:center;gap:10px;font-size:15.5px;color:var(--soft);margin:0 0 18px;cursor:pointer}
+.sponsor-form .check input{width:20px;height:20px;accent-color:var(--mag)}
+.sponsor-form .sent{margin-top:14px}

@@ -99,7 +99,7 @@ def tear_footer(rel, O, credits):
   <label for="tpf-email">one email a month about the horses</label>
   <div class="tpf-pill" data-sent="false">
     <input id="tpf-email" type="email" placeholder="your@email" autocomplete="email">
-    <span class="tpf-sent" aria-live="polite">{icon("check")} preview: not connected yet</span>
+    <span class="tpf-sent" aria-live="polite">{icon("check")} sending…</span>
     <button type="submit" class="tpf-knob" aria-label="Sign up">{icon("arrow")}</button>
   </div>
 </form>
