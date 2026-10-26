@@ -104,6 +104,9 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) close(); });
   box.querySelector('form').addEventListener('submit', function (e) { e.preventDefault(); var q = input.value.trim(); if (!q) return; input.value = ''; ask(q); });
 
+  // gallery: step aside while the photo rope is on screen (its arrows sit where the bubble does)
+  var rope = document.querySelector('[data-rope]');
+  if (rope && window.IntersectionObserver) new IntersectionObserver(function (en) { if (box.hidden) btn.classList.toggle('off', en[0].isIntersecting); }, { threshold: 0.35 }).observe(rope);
   // home: wait until the visitor is past the film, so the bubble never sits on the hero's buttons
   var film = document.querySelector('.home .film');
   if (film) {

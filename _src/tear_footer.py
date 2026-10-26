@@ -109,7 +109,7 @@ def tear_footer(rel, O, credits):
 
 <a class="tpf-z tpf-status tpf-h"{i(5)} href="{rel}volunteer/"><i class="tpf-live" aria-hidden="true"></i><span>volunteers welcome</span></a>
 
-{col("l", 6, "the ranch", [("The horses", f"{rel}horses/"), ("Lessons and camps", f"{rel}program/"), ("Updates", f"{rel}updates/")], ("donate.", f"{rel}donate/"))}
+{col("l", 6, "the ranch", [("The horses", f"{rel}horses/"), ("Gallery", f"{rel}gallery/"), ("Lessons and camps", f"{rel}program/")], ("donate.", f"{rel}donate/"))}
 {col("r", 7, "pitch in", [("Sponsor a horse", f"{rel}sponsor/"), ("Volunteer", f"{rel}volunteer/"), ("Visit", f"{rel}visit/")], ("call.", tel))}
 
 <button type="button" class="tpf-pin" data-pin="idle" aria-label="Pull the nail: tear a new edge" title="Pull the nail">

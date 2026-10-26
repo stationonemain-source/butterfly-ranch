@@ -652,3 +652,72 @@ html.gs-open{overflow:hidden}
 .sponsor-form .check{display:flex;align-items:center;gap:10px;font-size:15.5px;color:var(--soft);margin:0 0 18px;cursor:pointer}
 .sponsor-form .check input{width:20px;height:20px;accent-color:var(--mag)}
 .sponsor-form .sent{margin-top:14px}
+
+
+/* ---- gallery page (2026-10-25) ---- */
+/* the lead rope: polaroids pegged with wooden clothes pins, on the barn-paper colour */
+.rope{position:relative;height:clamp(440px,64vh,600px);overflow:hidden;background:linear-gradient(180deg,#f3ece6,#efe6df);user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:grab;outline:none;--rp-cw:260px}
+.rope[data-drag="1"]{cursor:grabbing}
+.rope:focus-visible{box-shadow:inset 0 0 0 2px var(--mag)}
+.rp-line{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.rp-line path{fill:none;stroke:#8c6a52;stroke-width:5;stroke-linecap:round;stroke-dasharray:9 3;filter:drop-shadow(0 3px 2px rgba(60,35,20,.25))}   /* a braided lead rope */
+.rp-card{position:absolute;left:0;top:0;width:var(--rp-cw);transform-origin:50% 0;will-change:transform}
+.rp-print{margin-top:12px;background:#fdfbf7;padding:10px 10px 0;box-shadow:0 1px 2px rgba(0,0,0,.12),0 20px 32px -16px rgba(43,32,38,.45);transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .5s}
+.rp-card[data-on="0"] .rp-print{transform:scale(.9);filter:saturate(.75) brightness(.96)}
+.rp-card[data-on="1"]{cursor:pointer}
+.rp-shot{position:relative;aspect-ratio:1;overflow:hidden;background:#d9d1c8}
+.rp-shot img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;pointer-events:none}
+.rp-note{height:48px;display:flex;align-items:center;justify-content:center;font:400 19px/1 var(--fd);color:#3b3236;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 6px}
+.rp-peg{position:absolute;left:50%;top:0;width:11px;height:28px;margin-left:-5.5px;border-radius:2px;background:linear-gradient(90deg,#b98f63,#dcbf95 45%,#a87e52);box-shadow:0 2px 3px rgba(0,0,0,.28)}
+.rp-peg::after{content:"";position:absolute;left:4.5px;top:9px;width:2px;height:8px;background:rgba(80,55,25,.5);border-radius:1px}
+.rp-bar{position:absolute;left:clamp(16px,4vw,56px);right:clamp(16px,4vw,56px);bottom:clamp(18px,4vh,34px);display:flex;align-items:center;gap:clamp(12px,2vw,22px);cursor:default}
+.rp-cap{flex:1;min-width:0}
+.rp-title{display:block;font:400 clamp(20px,2.4vw,28px)/1.15 var(--fd);color:var(--ink)}
+.rp-sub{display:block;margin-top:3px;font-size:14.5px;color:var(--soft)}
+.rp-count{font:600 12.5px/1 var(--fb);letter-spacing:.14em;color:var(--mute)}.rp-count b{color:var(--ink)}
+.rp-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid #d8c3cd;background:#fff;color:var(--mag);font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.rp-btn:hover{background:var(--mag);color:#fff;border-color:var(--mag)}
+.rp-hint{position:absolute;top:14px;right:clamp(16px,4vw,56px);font-size:13px;color:var(--mute);font-style:italic}
+
+/* category tabs */
+.gtabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 2px;margin:0 0 14px}
+.gtabs::-webkit-scrollbar{display:none}
+.gtab{flex:none;border:1.5px solid #e2d0d8;background:#fff;color:var(--ink);border-radius:999px;padding:10px 16px;font:600 15px var(--fb);cursor:pointer;transition:all .2s}
+.gtab span{font-weight:400;color:var(--mute);margin-left:4px}
+.gtab.on{background:var(--mag);border-color:var(--mag);color:#fff}.gtab.on span{color:#f3c9db}
+.gtab:focus-visible{outline:2px solid var(--mag);outline-offset:2px}
+.g-lede{margin:0 0 22px;color:var(--soft);max-width:46em}
+
+/* the wall: rows of photos at their own shape (flex-grow by aspect ratio) */
+.gwall{display:flex;flex-wrap:wrap;gap:8px}
+.gwall::after{content:"";flex-grow:999}
+.gph{--ar:1.33;flex:var(--ar) 1 calc(var(--ar) * 190px);aspect-ratio:var(--ar);padding:0;border:0;border-radius:6px;overflow:hidden;cursor:zoom-in;background:#e9e1dc;position:relative}
+.gph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .3s}
+.gph:hover img{transform:scale(1.04)}
+.gph:focus-visible{outline:3px solid var(--mag);outline-offset:2px}
+
+/* lightbox */
+.glb{position:fixed;inset:0;z-index:80;background:rgba(22,14,18,.94);display:none;align-items:center;justify-content:center}
+.glb.on{display:flex;animation:glb-in .25s ease}
+@keyframes glb-in{from{opacity:0}to{opacity:1}}
+.glb figure{margin:0;max-width:min(1400px,92vw);display:grid;gap:10px;justify-items:center}
+.glb img{max-width:92vw;max-height:84svh;object-fit:contain;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.glb figcaption{color:#d9c9d0;font-size:14px;text-align:center}
+.glb button{position:absolute;border:0;background:rgba(255,255,255,.1);color:#fff;border-radius:50%;width:48px;height:48px;font-size:28px;line-height:1;cursor:pointer}
+.glb button:hover{background:rgba(255,255,255,.22)}
+.glb-x{top:16px;right:16px}.glb-p{left:16px;top:50%;transform:translateY(-50%)}.glb-n{right:16px;top:50%;transform:translateY(-50%)}
+
+/* home teaser: a strip of photos into the gallery */
+.gstrip{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.gstrip a{display:block;aspect-ratio:3/4;overflow:hidden;border-radius:6px}
+.gstrip img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.gstrip a:hover img{transform:scale(1.05)}
+
+@media (max-width:700px){
+  .rope{height:min(560px,78svh)}
+  .rp-hint{display:none}
+  .gph{flex-basis:calc(var(--ar) * 120px)}
+  .gwall{gap:6px}
+  .gstrip{grid-template-columns:repeat(3,1fr)}
+  .glb-p,.glb-n{display:none}
+}

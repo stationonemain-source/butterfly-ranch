@@ -9,7 +9,7 @@ O = D["org"]; BASE = O["url"]
 TODAY = datetime.date.today().isoformat()
 def e(s): return html.escape(str(s), quote=True)
 
-NAV = [("The horses", "horses/"), ("Sponsor", "sponsor/"), ("Volunteer", "volunteer/"), ("Program", "program/"), ("About", "about/"), ("Visit", "visit/")]
+NAV = [("The horses", "horses/"), ("Gallery", "gallery/"), ("Sponsor", "sponsor/"), ("Volunteer", "volunteer/"), ("Program", "program/"), ("About", "about/"), ("Visit", "visit/")]
 
 def org_ld():
     return {"@context": "https://schema.org", "@type": "NGO", "name": O["name"], "alternateName": O["short"], "url": BASE,
@@ -86,7 +86,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
   }}
 }})();
 </script>
-<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/give.js?v={TODAY}" defer></script><script src="{rel}assets/chat.js?v=4" defer></script><script src="{rel}assets/how.js?v={TODAY}" defer></script>
+<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/give.js?v={TODAY}" defer></script><script src="{rel}assets/chat.js?v=5" defer></script><script src="{rel}assets/how.js?v={TODAY}" defer></script>
 </body>
 </html>"""
 
@@ -141,6 +141,7 @@ def home():
     <div class="herd" data-how="herd">{herd}</div>
   </div>
 </section>
+{gallery_strip()}
 
 <section class="dark">
   <div class="wrap">
@@ -462,6 +463,41 @@ def visit():
     ld = [crumbs_ld([("Home", ""), ("Visit", "visit/")])]
     write("visit/", page("visit/", f"Visit · {O['name']}", "Visit Butterfly Rescue Ranch at 7475 By Drive, Norman, Oklahoma 73072. Call (405) 922-0839 before you come out.", body, ld, current="visit/"))
 
+
+# ---------- GALLERY ----------
+def _gallery():
+    return json.load(open(os.path.join(ROOT, "assets", "gallery", "gallery.json"), encoding="utf-8"))
+
+def gallery_strip():
+    G = _gallery(); picks = G["rope"][:6]; n = sum(len(c["photos"]) for c in G["cats"])
+    tiles = "".join(f'<a href="gallery/#{r["cat"]}"><img src="{r["thumb"]}" alt="{e(r["alt"])}" loading="lazy" width="560" height="560"></a>' for r in picks)
+    return f'<section><div class="wrap">{head("The gallery", "See the whole ranch", f"{n} photos from the class visit: the horses, the barn, the work and the petting zoo.", "<a href=gallery/>Open the gallery &rarr;</a>")}<div class="gstrip">{tiles}</div></div></section>'
+
+def gallery():
+    rel = "../"; G = _gallery(); n = sum(len(c["photos"]) for c in G["cats"])
+    body = ph("Gallery", "The ranch, up close", f"{n} photos from the class's visit on 23 October 2026. Drag the rope, or pick a set below.", crumbs=[("Home", ""), ("Gallery", None)], rel=rel)
+    body += f"""
+<div data-gallery data-base="{rel}">
+<div class="rope" data-rope tabindex="0" role="region" aria-roledescription="carousel" aria-label="Favourite photos on a rope">
+  <svg class="rp-line" aria-hidden="true"><path d=""/></svg>
+  <span class="rp-hint">Drag the rope &middot; tap the front photo to see its set</span>
+  <div class="rp-cards"></div>
+  <div class="rp-bar"><div class="rp-cap" aria-live="polite"></div><span class="rp-count"></span><button class="rp-btn rp-prev" type="button" aria-label="Previous photo">&lsaquo;</button><button class="rp-btn rp-next" type="button" aria-label="Next photo">&rsaquo;</button></div>
+</div>
+<section><div class="wrap">
+  <div data-wall-head><span class="label">Every photo</span><h2 style="margin:8px 0 18px">Pick a set</h2></div>
+  <div class="gtabs" role="tablist" aria-label="Photo sets"></div>
+  <p class="g-lede" data-cat-lede></p>
+  <div class="gwall"></div>
+  <noscript><p>The gallery needs JavaScript to show the photos.</p></noscript>
+</div></section>
+</div>
+<script src="{rel}assets/gallery.js?v=3" defer></script>
+{band(rel)}"""
+    ld = [crumbs_ld([("Home", ""), ("Gallery", "gallery/")]),
+          {"@context": "https://schema.org", "@type": "ImageGallery", "name": "Butterfly Rescue Ranch gallery", "url": BASE + "gallery/", "about": O["name"], "numberOfItems": n}]
+    write("gallery/", page("gallery/", f"Gallery · {O['name']}", f"{n} photos of Butterfly Rescue Ranch in Norman, Oklahoma: the horses, the ranch, the daily work and the petting zoo.", body, ld, current="gallery/"))
+
 # ---------- UPDATES ----------
 def updates_page():
     rel = "../"
@@ -488,7 +524,7 @@ def links():
     write("links/", page("links/", f"Links · {O['name']}", "Butterfly Rescue Ranch: donate, sponsor a horse, meet the horses, volunteer, camps and lessons.", body))
 
 def sitemap_and_llms():
-    urls = ["", "horses/", "donate/", "sponsor/", "volunteer/", "program/", "about/", "visit/", "updates/", "links/"] + [f"horses/{h['slug']}/" for h in D["horses"]]
+    urls = ["", "horses/", "gallery/", "donate/", "sponsor/", "volunteer/", "program/", "about/", "visit/", "updates/", "links/"] + [f"horses/{h['slug']}/" for h in D["horses"]]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{BASE}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n"
     open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8", newline="\n").write(sm)
     open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8", newline="\n").write(f"User-agent: *\nDisallow: /\n\n# Concept site, not yet the ranch's official website. Sitemap kept for when it goes live.\nSitemap: {BASE}sitemap.xml\n")
@@ -524,16 +560,17 @@ This is a concept site built by Station (station.solutions) with the University 
 
 if __name__ == "__main__":
     import shutil
-    css = open(os.path.join(ROOT, "_src", "site.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "tear.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "forms.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "how.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "give.css"), encoding="utf-8").read()
+    css = open(os.path.join(ROOT, "_src", "site.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "tear.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "forms.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "how.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "give.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "gallery.css"), encoding="utf-8").read()
     open(os.path.join(ROOT, "assets", "site.css"), "w", encoding="utf-8", newline="\n").write(css)
     shutil.copy(os.path.join(ROOT, "_src", "tear.js"), os.path.join(ROOT, "assets", "tear.js"))
     shutil.copy(os.path.join(ROOT, "_src", "forms.js"), os.path.join(ROOT, "assets", "forms.js"))
     shutil.copy(os.path.join(ROOT, "_src", "give.js"), os.path.join(ROOT, "assets", "give.js"))
     shutil.copy(os.path.join(ROOT, "_src", "chat.js"), os.path.join(ROOT, "assets", "chat.js"))
+    shutil.copy(os.path.join(ROOT, "_src", "gallery.js"), os.path.join(ROOT, "assets", "gallery.js"))
     # the "How it works" switch: its copy lives in data.json ("how") and is written into the script
     how = open(os.path.join(ROOT, "_src", "how.js"), encoding="utf-8").read()
     assert "/*HOW_DATA*/null" in how
     how_data = {k: v for k, v in D["how"].items() if not k.startswith("_")}
     open(os.path.join(ROOT, "assets", "how.js"), "w", encoding="utf-8", newline="\n").write(how.replace("/*HOW_DATA*/null", json.dumps(how_data, ensure_ascii=False)))
-    home(); horses(); donate(); thanks(); sponsor(); volunteer(); program(); about(); visit(); updates_page(); links(); sitemap_and_llms()
+    home(); horses(); gallery(); donate(); thanks(); sponsor(); volunteer(); program(); about(); visit(); updates_page(); links(); sitemap_and_llms()
     print("built", 10 + len(D["horses"]), "pages")
