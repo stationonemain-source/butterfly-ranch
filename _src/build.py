@@ -73,7 +73,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
   var b=document.querySelector('.menu'), n=document.getElementById('nav'), h=document.querySelector('header');
   if(document.body.classList.contains('home')){{var film=document.querySelector('.film');var v=film.querySelector('video');if(v&&matchMedia('(max-aspect-ratio: 4/5)').matches&&!/hero-m\.mp4/.test(v.currentSrc||'')){{v.src='assets/hero-m.mp4';v.load();var pp=v.play();if(pp&&pp.catch)pp.catch(function(){{}})}}function sol(){{h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}}addEventListener('scroll',sol,{{passive:true}});sol()}}
   b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)}});
-  document.querySelectorAll('form[data-preview]').forEach(function(f){{f.addEventListener('submit',function(ev){{ev.preventDefault();f.querySelector('.sent').classList.add('on')}})}});
+  document.querySelectorAll('form[data-preview]:not([data-steps])').forEach(function(f){{f.addEventListener('submit',function(ev){{ev.preventDefault();f.querySelector('.sent').classList.add('on')}})}});
   var g=document.getElementById('giver');
   if(g){{
     var other=g.querySelector('input[name=other]'), tiles=g.querySelectorAll('input[name=amt]'), out=g.querySelector('.sent'), btn=g.querySelector('button');
@@ -86,6 +86,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
   }}
 }})();
 </script>
+<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/chat.js?v=4" defer></script>
 </body>
 </html>"""
 
@@ -111,7 +112,7 @@ def band(rel, h="Give once, or a little every month", p="Every gift goes to hay,
 
 def updates(rel, what="the horses"):
     return f'''<section class="updates"><div class="wrap"><div class="upd"><div><span class="label">Updates from the barn</span><h2>Hear how {what} are doing</h2><p>One email a month, with the horse you helped and what it cost. No more than that.</p></div>
-<form data-preview novalidate><label>Email<input type="email" name="email" autocomplete="email" required></label><button class="btn fill" type="submit">Sign up</button><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>'''
+<form class="join" data-preview novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>'''
 
 PHONE = f'<a href="tel:{O["phone_e164"]}">{O["phone"]}</a>'
 
@@ -257,7 +258,7 @@ def donate():
         <div class="seg" role="radiogroup" aria-label="How often"><label><input type="radio" name="freq" value="once" checked><span>One time</span></label><label><input type="radio" name="freq" value="monthly"><span>Monthly</span></label></div>
         <div class="tiles">{tiles}</div>
         <div class="other"><span>Or another amount</span><input type="number" name="other" min="1" inputmode="numeric" placeholder="$" aria-label="Other amount in dollars"></div>
-        <button class="btn fill" type="submit">Give $50</button>
+        <p class="impact" aria-live="polite"></p><button class="btn fill" type="submit">Give $50</button>
         <p class="fine">{e(O["name"])} is a 501(c)(3). Gifts are tax-deductible as allowed by law. Card, Venmo and PayPal at checkout. <span class="tbc">Checkout switches on when the ranch connects its Givebutter account.</span></p>
         <p class="sent" role="status"></p>
       </form>
@@ -344,15 +345,36 @@ def volunteer():
     body += f'''
 <section><div class="wrap"><div class="two">
 <div>{head("Sign up", "Tell us about you")}
-<form data-preview novalidate>
-  <label>Name<input name="name" autocomplete="name" required></label>
-  <label>Email<input type="email" name="email" autocomplete="email" required></label>
-  <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
-  <fieldset><legend>I'd like to help with</legend><label><input type="checkbox" name="i" value="feeding">Feeding</label><label><input type="checkbox" name="i" value="grooming">Grooming</label><label><input type="checkbox" name="i" value="barn">Barn work</label><label><input type="checkbox" name="i" value="events">Events</label><label><input type="checkbox" name="i" value="skills">A skill (photos, fencing, vet, farrier)</label></fieldset>
-  <label>When are you free?<select name="when"><option>Weekday mornings</option><option>Weekday evenings</option><option>Weekends</option><option>Whenever you need me</option></select></label>
-  <label>Anything else?<textarea name="note" rows="3"></textarea></label>
-  <button class="btn fill" type="submit">Send</button>
-  <p class="sent" role="status">This is a preview site, so the form isn't connected yet and nothing was sent. On the live site this goes straight to the ranch.</p>
+<form class="steps-form" data-preview data-steps novalidate aria-label="Volunteer sign-up">
+  <div class="sf-bar" aria-hidden="true"><i></i></div>
+  <fieldset class="sf-step" data-step="1"><legend class="sf-q">What would you like to help with?</legend><p class="sf-hint">Pick any. No horse experience needed.</p>
+    <div class="picks">
+      <label class="pick"><input type="checkbox" name="i" value="feeding"><span><b>Feeding</b><small>Hay, water, supplements</small></span></label>
+      <label class="pick"><input type="checkbox" name="i" value="grooming"><span><b>Grooming</b><small>Brushing, feet, leading</small></span></label>
+      <label class="pick"><input type="checkbox" name="i" value="barn"><span><b>Barn days</b><small>Mucking, fences, hay</small></span></label>
+      <label class="pick"><input type="checkbox" name="i" value="events"><span><b>Events and camps</b><small>Extra hands on busy days</small></span></label>
+      <label class="pick"><input type="checkbox" name="i" value="skills"><span><b>A skill</b><small>Photos, fencing, vet, farrier</small></span></label>
+    </div>
+    <div class="sf-nav"><button class="btn fill sf-next" type="button">Next</button></div>
+  </fieldset>
+  <fieldset class="sf-step" data-step="2"><legend class="sf-q">When are you usually free?</legend><p class="sf-hint">Pick any that fit.</p>
+    <div class="picks two">
+      <label class="pick"><input type="checkbox" name="when" value="weekday-am"><span><b>Weekday mornings</b></span></label>
+      <label class="pick"><input type="checkbox" name="when" value="weekday-pm"><span><b>Weekday evenings</b></span></label>
+      <label class="pick"><input type="checkbox" name="when" value="weekends"><span><b>Weekends</b></span></label>
+      <label class="pick"><input type="checkbox" name="when" value="any"><span><b>Whenever you need me</b></span></label>
+    </div>
+    <div class="sf-nav"><button class="sf-back" type="button">Back</button><button class="btn fill sf-next" type="button">Next</button></div>
+  </fieldset>
+  <fieldset class="sf-step" data-step="3"><legend class="sf-q">How should the ranch reach you?</legend>
+    <label class="field">Your name<input name="name" autocomplete="name" required></label>
+    <label class="field">Email<input type="email" name="email" autocomplete="email" inputmode="email" required></label>
+    <label class="field">Phone <span class="opt">optional</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel"></label>
+    <label class="field">Anything else? <span class="opt">optional</span><textarea name="note" rows="2"></textarea></label>
+    <div class="sf-nav"><button class="sf-back" type="button">Back</button><button class="btn fill" type="submit">Count me in</button></div>
+    <p class="sf-err" role="alert" hidden></p>
+  </fieldset>
+  <div class="sf-done" hidden tabindex="-1"><h3>Thank you, <span data-first></span>.</h3><p>Braxton or Anna will get in touch about a first barn day.</p><p class="sf-note">This is a preview site, so the form isn't connected yet and nothing was sent. On the live site this goes straight to the ranch.</p></div>
 </form></div>
 <div>{head("What the work is", "A day at the barn")}
 <ol class="steps">
@@ -482,8 +504,10 @@ This is a concept site built by Station (station.solutions) with the University 
 
 if __name__ == "__main__":
     import shutil
-    css = open(os.path.join(ROOT, "_src", "site.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "tear.css"), encoding="utf-8").read()
+    css = open(os.path.join(ROOT, "_src", "site.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "tear.css"), encoding="utf-8").read() + "\n" + open(os.path.join(ROOT, "_src", "forms.css"), encoding="utf-8").read()
     open(os.path.join(ROOT, "assets", "site.css"), "w", encoding="utf-8", newline="\n").write(css)
     shutil.copy(os.path.join(ROOT, "_src", "tear.js"), os.path.join(ROOT, "assets", "tear.js"))
+    shutil.copy(os.path.join(ROOT, "_src", "forms.js"), os.path.join(ROOT, "assets", "forms.js"))
+    shutil.copy(os.path.join(ROOT, "_src", "chat.js"), os.path.join(ROOT, "assets", "chat.js"))
     home(); horses(); donate(); sponsor(); volunteer(); program(); about(); visit(); updates_page(); links(); sitemap_and_llms()
     print("built", 10 + len(D["horses"]), "pages")

@@ -34,7 +34,7 @@
         <div class="seg" role="radiogroup" aria-label="How often"><label><input type="radio" name="freq" value="once" checked><span>One time</span></label><label><input type="radio" name="freq" value="monthly"><span>Monthly</span></label></div>
         <div class="tiles"><label><input type="radio" name="amt" value="25"><span class="a">$25</span><span class="f">Fly spray, wormer and hoof care</span></label><label><input type="radio" name="amt" value="50" checked><span class="a">$50</span><span class="f">Farrier work</span></label><label><input type="radio" name="amt" value="100"><span class="a">$100</span><span class="f">Vet visits and vaccines</span></label><label><input type="radio" name="amt" value="250"><span class="a">$250</span><span class="f">Hay and feed</span></label></div>
         <div class="other"><span>Or another amount</span><input type="number" name="other" min="1" inputmode="numeric" placeholder="$" aria-label="Other amount in dollars"></div>
-        <button class="btn fill" type="submit">Give $50</button>
+        <p class="impact" aria-live="polite"></p><button class="btn fill" type="submit">Give $50</button>
         <p class="fine">Butterfly Rescue Ranch is a 501(c)(3). Gifts are tax-deductible as allowed by law. Card, Venmo and PayPal at checkout. <span class="tbc">Checkout switches on when the ranch connects its Givebutter account.</span></p>
         <p class="sent" role="status"></p>
       </form>
@@ -82,7 +82,7 @@
 
 <section><div class="wrap"><div class="head"><span class="label">Questions</span><div><h2>Giving, answered</h2></div></div><div class="faq"><details><summary>Is my gift tax-deductible?</summary><p>Butterfly Rescue Ranch is a registered 501(c)(3) nonprofit, so gifts are tax-deductible to the extent the law allows. You'll get a receipt by email for every gift. <span class="tbc">The ranch's EIN will be shown here.</span></p></details><details><summary>Where does the money go?</summary><p>Hay, feed and supplements, farrier work, vet care, vaccines and dental. The monthly cost of one horse is published on this page as the ranch fills in its figures, and every horse's page shows what was spent on it.</p></details><details><summary>Can I give monthly?</summary><p>Yes. Choose <b>Monthly</b> above. Monthly gifts are what let the ranch plan feed and farrier visits ahead instead of month to month. You can stop at any time from the receipt email.</p></details><details><summary>Can I give to one particular horse?</summary><p>Yes. <a href="../sponsor/">Sponsor a horse</a> covers one horse's care by the month, and you'll get its updates. A one-time gift here goes wherever the need is that month.</p></details><details><summary>Can I give supplies instead of money?</summary><p>Please do. Hay, feed, fly spray, wormer, hoof care, halters, lead ropes and brushes are all used daily. Call ahead before dropping anything off. A wish list is on its way.</p></details><details><summary>Does my employer match gifts?</summary><p>Many do. Ask your HR team for their matching-gift form and send it to the ranch with your receipt; the ranch will complete its part.</p></details></div></div></section>
 <section class="updates"><div class="wrap"><div class="upd"><div><span class="label">Updates from the barn</span><h2>Hear how the horses are doing</h2><p>One email a month, with the horse you helped and what it cost. No more than that.</p></div>
-<form data-preview novalidate><label>Email<input type="email" name="email" autocomplete="email" required></label><button class="btn fill" type="submit">Sign up</button><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>
+<form class="join" data-preview novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>
 </main>
 <footer class="tpf" data-seed="7" style="--tpf-sheet:#a71c5a;--tpf-paper:#fbf8f6;--tpf-on-sheet:#ffffff;--tpf-on-paper:#2b2026;--tpf-word:#a71c5a;--tpf-rim:#fefdfd">
 <svg class="tpf-stage" aria-hidden="true"><defs>
@@ -154,7 +154,7 @@
   var b=document.querySelector('.menu'), n=document.getElementById('nav'), h=document.querySelector('header');
   if(document.body.classList.contains('home')){var film=document.querySelector('.film');var v=film.querySelector('video');if(v&&matchMedia('(max-aspect-ratio: 4/5)').matches&&!/hero-m\.mp4/.test(v.currentSrc||'')){v.src='assets/hero-m.mp4';v.load();var pp=v.play();if(pp&&pp.catch)pp.catch(function(){})}function sol(){h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}addEventListener('scroll',sol,{passive:true});sol()}
   b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
-  document.querySelectorAll('form[data-preview]').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelector('.sent').classList.add('on')})});
+  document.querySelectorAll('form[data-preview]:not([data-steps])').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelector('.sent').classList.add('on')})});
   var g=document.getElementById('giver');
   if(g){
     var other=g.querySelector('input[name=other]'), tiles=g.querySelectorAll('input[name=amt]'), out=g.querySelector('.sent'), btn=g.querySelector('button');
@@ -167,5 +167,6 @@
   }
 })();
 </script>
+<script src="../assets/forms.js?v=1" defer></script><script src="../assets/chat.js?v=4" defer></script>
 </body>
 </html>

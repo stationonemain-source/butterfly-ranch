@@ -58,7 +58,7 @@
 <section><div class="wrap"><div class="head"><span class="label">Also at the ranch</span><div><h2>More of the herd</h2><p class=more><a href="../">All the horses →</a></p></div></div><div class="herd"><a href="../bay-lightning/"><img src="../../assets/photos/horse-bay-lightning.jpg" alt="A bay horse with a jagged white blaze leans over a gray pipe gate" width="1200" height="1500" loading="lazy"><h3>The bay with the lightning blaze</h3><p class="coat">Bay, jagged white blaze</p></a><a href="../bay-star/"><img src="../../assets/photos/horse-bay-star.jpg" alt="A bay horse with a small white star on its forehead looks over the top rail of a fence" width="1200" height="1500" loading="lazy"><h3>The bay with the star</h3><p class="coat">Bay, small star</p></a><a href="../dark-bay/"><img src="../../assets/photos/horse-dark-bay.jpg" alt="A dark bay horse faces the camera over a pipe fence, a water trough beside it" width="1200" height="1500" loading="lazy"><h3>The dark bay</h3><p class="coat">Dark bay</p></a><a href="../paint/"><img src="../../assets/photos/horse-paint.jpg" alt="A brown and white paint horse pushes its nose toward the camera over a black pipe gate" width="1200" height="1500" loading="lazy"><h3>The paint</h3><p class="coat">Brown and white paint, blue eye</p></a></div></div></section>
 <section class="band"><div class="wrap"><div><span class="label">Help a horse</span><h2>Help this horse</h2><p>Sponsor it by the month, or give once toward its feed, farrier and vet care. Either way you'll hear how it's doing.</p></div><div class="acts"><a class="btn fill" href="../../donate/">Donate</a><a class="btn line" href="../../sponsor/">Sponsor a horse</a><a class="btn line" href="../../volunteer/">Volunteer</a></div></div></section>
 <section class="updates"><div class="wrap"><div class="upd"><div><span class="label">Updates from the barn</span><h2>Hear how this horse and the others are doing</h2><p>One email a month, with the horse you helped and what it cost. No more than that.</p></div>
-<form data-preview novalidate><label>Email<input type="email" name="email" autocomplete="email" required></label><button class="btn fill" type="submit">Sign up</button><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>
+<form class="join" data-preview novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status">This is a preview, so the sign-up isn't connected yet and nothing was sent.</p></form></div></div></section>
 </main>
 <footer class="tpf" data-seed="7" style="--tpf-sheet:#a71c5a;--tpf-paper:#fbf8f6;--tpf-on-sheet:#ffffff;--tpf-on-paper:#2b2026;--tpf-word:#a71c5a;--tpf-rim:#fefdfd">
 <svg class="tpf-stage" aria-hidden="true"><defs>
@@ -130,7 +130,7 @@
   var b=document.querySelector('.menu'), n=document.getElementById('nav'), h=document.querySelector('header');
   if(document.body.classList.contains('home')){var film=document.querySelector('.film');var v=film.querySelector('video');if(v&&matchMedia('(max-aspect-ratio: 4/5)').matches&&!/hero-m\.mp4/.test(v.currentSrc||'')){v.src='assets/hero-m.mp4';v.load();var pp=v.play();if(pp&&pp.catch)pp.catch(function(){})}function sol(){h.classList.toggle('solid',window.scrollY>film.offsetHeight-h.offsetHeight-8)}addEventListener('scroll',sol,{passive:true});sol()}
   b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
-  document.querySelectorAll('form[data-preview]').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelector('.sent').classList.add('on')})});
+  document.querySelectorAll('form[data-preview]:not([data-steps])').forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();f.querySelector('.sent').classList.add('on')})});
   var g=document.getElementById('giver');
   if(g){
     var other=g.querySelector('input[name=other]'), tiles=g.querySelectorAll('input[name=amt]'), out=g.querySelector('.sent'), btn=g.querySelector('button');
@@ -143,5 +143,6 @@
   }
 })();
 </script>
+<script src="../../assets/forms.js?v=1" defer></script><script src="../../assets/chat.js?v=4" defer></script>
 </body>
 </html>
