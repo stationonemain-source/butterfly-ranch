@@ -74,6 +74,18 @@ td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:t
 td:first-child{font-weight:600}
 table.plain td:first-child{font-weight:400}
 td.r,th.r{text-align:right}
+h4.ag{font-family:var(--f-sc);font-weight:400;letter-spacing:.1em;font-size:16px;color:var(--mag);margin:26px 0 4px}
+.auto table{table-layout:fixed;font-size:15px}
+.auto th:nth-child(1){width:2.6em}.auto th:nth-child(2){width:27%}.auto th:nth-child(4){width:12%}.auto th:nth-child(5){width:11%}.auto th:nth-child(6){width:11%}
+.auto td:nth-child(6){color:var(--muted)}
+@media (max-width:640px){
+  .auto table{table-layout:auto}
+  .tw.stack.auto td:first-child{display:inline-block;width:auto;margin-right:8px;color:var(--mag)}
+  .tw.stack.auto td:nth-child(2){display:inline;width:auto;font-weight:600}
+  .tw.stack.auto td[data-l]:nth-child(2)::before{content:none}
+  .tw.stack.auto td:nth-child(3){margin-top:4px}
+  .tw.stack.auto td:nth-child(n+4){display:inline-block;width:auto;margin-right:16px}
+}
 tr.hi td{background:var(--tint)}
 tr.hi td:first-child{padding-left:10px}
 @media (max-width:640px){
@@ -149,6 +161,7 @@ tr.hi td:first-child{padding-left:10px}
   <a href="#s1"><span>01</span>Project overview</a>
   <a href="#s2"><span>02</span>Objectives and success measures</a>
   <a href="#s3"><span>03</span>Scope of work</a>
+  <a href="#automations"><span>03</span>The 29 automations</a>
   <a href="#s4"><span>04</span>Deliverables and acceptance</a>
   <a href="#s5"><span>05</span>Out of scope</a>
   <a href="#s6"><span>06</span>Timeline and milestones</a>
@@ -265,6 +278,77 @@ tr.hi td:first-child{padding-left:10px}
 <li>A monthly report of donations, volunteers, bookings, calls, chats, reviews and list growth, sent automatically each month.</li>
 <li>A one-hour training for the OU intern in January 2027, and a written guide to the weekly routine: post the series, send the monthly email, check the pipeline.</li>
 </ul>
+
+<h3 id="automations">What runs automatically: the 29 automations</h3>
+<p>Workstreams B to G run as 29 automations inside the ranch's Station app. Each one starts on its own trigger. Every message is pre-written in the ranch's voice, signed by the ranch, and approved by Braxton in a one-hour review before go-live.</p>
+<p class="note"><b>Approval column.</b> <b>Template</b>: approved once, in the one-hour review. <b>Each time</b>: waits for Braxton's approval on every send. <b>Script</b> and <b>Facts</b>: the receptionist and chat answer only from a script and fact sheet Braxton approves. <b>—</b>: an alert or a record, nothing sent to the public.</p>
+
+<h4 class="ag">Giving</h4>
+<div class="tw stack auto"><table>
+<thead><tr><th>#</th><th>When this happens</th><th>What goes out</th><th>To</th><th>Product</th><th>Approval</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Any gift (one-time, monthly or sponsorship)</td><td>Tax receipt with IRS wording and the EIN, immediately</td><td>Donor</td><td>Tap</td><td>Template</td></tr>
+<tr><td>2</td><td>A one-time gift, or the first payment of a monthly gift</td><td>Personal thank-you from Braxton about 20 minutes later, by email (by text if the donor opted in)</td><td>Donor</td><td>Pursuit</td><td>Template</td></tr>
+<tr><td>3</td><td>A gift of $250 or more</td><td>Alert by email and text: who gave, how much, “worth a call today”</td><td>Braxton</td><td>Pursuit</td><td>—</td></tr>
+<tr><td>4</td><td>A gift for a named horse</td><td>The donor is set to follow that horse and receives its updates</td><td>Donor</td><td>Dispatch</td><td>—</td></tr>
+<tr><td>5</td><td>A sponsor opts in</td><td>Their first name appears on the horse's page</td><td>Website</td><td>Tap</td><td>—</td></tr>
+<tr><td>6</td><td>Every monthly payment</td><td>Receipt with a link to update the card or stop the gift</td><td>Donor</td><td>Tap</td><td>Template</td></tr>
+<tr><td>7</td><td>A monthly card fails</td><td>“Update your card” email; the card is retried automatically</td><td>Donor</td><td>Tap</td><td>Template</td></tr>
+<tr><td>8</td><td>15 January each year</td><td>Summary of last year's giving, for taxes</td><td>Every donor</td><td>Dispatch</td><td>Template</td></tr>
+<tr><td>9</td><td>Ahead of Giving Tuesday</td><td>Appeal drafted automatically; site banner on the day</td><td>Email list</td><td>Dispatch</td><td>Each time</td></tr>
+<tr><td>10</td><td>A one-time donor reaches 12 months without giving</td><td>“The horses remember you” invitation back</td><td>Donor</td><td>Revive</td><td>Template</td></tr>
+</tbody></table></div>
+
+<h4 class="ag">Email list and updates</h4>
+<div class="tw stack auto"><table>
+<thead><tr><th>#</th><th>When this happens</th><th>What goes out</th><th>To</th><th>Product</th><th>Approval</th></tr></thead>
+<tbody>
+<tr><td>11</td><td>Someone signs up on the site or links page</td><td>Welcome to the list</td><td>Subscriber</td><td>Dispatch</td><td>Template</td></tr>
+<tr><td>12</td><td>Monthly</td><td>Horse update: arrivals, who moved a stage, what last month's gifts paid for</td><td>Email list</td><td>Dispatch</td><td>Each time</td></tr>
+<tr><td>13</td><td>Quarterly</td><td>Win-back wave to past donors and volunteers who went quiet</td><td>Up to 5,000 contacts</td><td>Revive</td><td>Each time</td></tr>
+<tr><td>14</td><td>Anyone clicks unsubscribe</td><td>Removed from all marketing in one click (receipts still go)</td><td>Subscriber</td><td>Dispatch</td><td>—</td></tr>
+</tbody></table></div>
+
+<h4 class="ag">Volunteers and visits</h4>
+<div class="tw stack auto"><table>
+<thead><tr><th>#</th><th>When this happens</th><th>What goes out</th><th>To</th><th>Product</th><th>Approval</th></tr></thead>
+<tbody>
+<tr><td>15</td><td>Volunteer form submitted</td><td>Same-day welcome by text and email, with a link to book a first barn day</td><td>Volunteer</td><td>Pursuit</td><td>Template</td></tr>
+<tr><td>16</td><td>The volunteer hasn't replied</td><td>Follow-ups, up to 5 texts and 5 emails over 14 days; they stop on reply</td><td>Volunteer</td><td>Pursuit</td><td>Template</td></tr>
+<tr><td>17</td><td>Any volunteer, sponsor, partner or adopter enquiry</td><td>Added to the ranch's pipeline with its source</td><td>Ranch</td><td>Pursuit</td><td>—</td></tr>
+<tr><td>18</td><td>A booking (barn day, orientation, meet-and-greet, lesson, camp, pony party)</td><td>Confirmation, then text and email reminders</td><td>Visitor</td><td>Slate</td><td>Template</td></tr>
+</tbody></table></div>
+
+<h4 class="ag">Phone and chat</h4>
+<div class="tw stack auto"><table>
+<thead><tr><th>#</th><th>When this happens</th><th>What goes out</th><th>To</th><th>Product</th><th>Approval</th></tr></thead>
+<tbody>
+<tr><td>19</td><td>A call goes unanswered</td><td>Text back within seconds</td><td>Caller</td><td>Lineback</td><td>Template</td></tr>
+<tr><td>20</td><td>The receptionist answers a call</td><td>Answers from the ranch's FAQ and takes a message</td><td>Caller, then Braxton</td><td>Frontdesk</td><td>Script</td></tr>
+<tr><td>21</td><td>A surrender or welfare call that is urgent</td><td>Passed straight to Braxton</td><td>Braxton</td><td>Frontdesk</td><td>—</td></tr>
+<tr><td>22</td><td>A website visitor asks a question</td><td>Answer from the ranch's own facts at any hour; details captured into the pipeline</td><td>Visitor</td><td>Greet</td><td>Facts</td></tr>
+</tbody></table></div>
+
+<h4 class="ag">Reputation and reach</h4>
+<div class="tw stack auto"><table>
+<thead><tr><th>#</th><th>When this happens</th><th>What goes out</th><th>To</th><th>Product</th><th>Approval</th></tr></thead>
+<tbody>
+<tr><td>23</td><td>After a visit or volunteer day</td><td>Google review request to everyone who came, never only the happy ones</td><td>Visitor</td><td>Repute</td><td>Template</td></tr>
+<tr><td>24</td><td>A new Google review</td><td>Drafted reply</td><td>Braxton</td><td>Repute</td><td>Each time</td></tr>
+<tr><td>25</td><td>Weekly</td><td>Horse update posted to the Google profile; name, hours and links kept consistent</td><td>Google</td><td>Echo</td><td>Template</td></tr>
+<tr><td>26</td><td>Twice a week</td><td>Horse series posted to Instagram, Facebook and one more account, tagging donors and partners</td><td>Followers</td><td>Marquee</td><td>Each time</td></tr>
+<tr><td>27</td><td>Weekly</td><td>5 new local sponsor prospects (feed and tack, vets, riding programs) added to the pipeline</td><td>Ranch</td><td>Radar</td><td>—</td></tr>
+</tbody></table></div>
+
+<h4 class="ag">Reporting and safeguards</h4>
+<div class="tw stack auto"><table>
+<thead><tr><th>#</th><th>When this happens</th><th>What goes out</th><th>To</th><th>Product</th><th>Approval</th></tr></thead>
+<tbody>
+<tr><td>28</td><td>1st of each month</td><td>Report on donations, volunteers, bookings, calls, chats, reviews and list growth</td><td>Braxton</td><td>Station</td><td>—</td></tr>
+<tr><td>29</td><td>Usage reaches 80% and 100% of an allowance</td><td>Warning in the app. At 100%, that sending pauses until the 1st; nothing is billed</td><td>Braxton</td><td>Station</td><td>—</td></tr>
+</tbody></table></div>
+<p><b>Built-in protections.</b> A gift is never counted or thanked twice. No one gets more than 6 messages a day. Unsubscribes are honored everywhere. No email leaves until the ranch's own mailbox is connected, and no text until its carrier registration is approved. Donations stay off until the ranch's EIN, legal name, address and its own Stripe account are in place.</p>
+
 <p class="note">Every message any product sends is pre-written in the ranch's voice (hopeful, accountable, personal, as the brief sets it), editable in the app, and approved by Braxton before it goes live. The ranch's name and number are on everything; Station stays backstage.</p>
 </section>
 
