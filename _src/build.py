@@ -293,7 +293,7 @@ def donate():
 <section>
   <div class="wrap">
     <div class="give">
-      <form class="giver" id="giver" data-horses='{e(json.dumps({h["slug"]: h["title"][0].lower() + h["title"][1:] for h in D["horses"]}))}' data-how="giver" data-how-at="end" novalidate aria-label="Donation form">
+      <form class="giver" id="giver" data-horses='{e(json.dumps({h["slug"]: (h["title"][0].lower() + h["title"][1:]) if h["title"].startswith("The ") else h["title"] for h in D["horses"]}))}' data-how="giver" data-how-at="end" novalidate aria-label="Donation form">
         <div class="seg" role="radiogroup" aria-label="How often"><label><input type="radio" name="freq" value="once" checked><span>One time</span></label><label><input type="radio" name="freq" value="monthly"><span>Monthly</span></label></div>
         <div class="tiles">{tiles}</div>
         <div class="other"><span>Or another amount</span><input type="number" name="other" min="1" inputmode="numeric" placeholder="$" aria-label="Other amount in dollars"></div>
