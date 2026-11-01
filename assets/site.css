@@ -352,6 +352,54 @@ table td:first-child{padding-right:24px}
   .film .wrap{padding-bottom:calc(62px + var(--bar))}
 }
 
+/* the January goal (class idea, NS): bar with the $2,000 floor marked, still-needed list beside it */
+.goal{background:var(--rose)}
+.goal-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:start}
+.gbar{position:relative;height:18px;border-radius:999px;background:var(--white);border:1px solid var(--rule);margin:34px 0 14px}
+.gbar i{position:absolute;inset:0 auto 0 0;background:var(--mag);border-radius:999px}
+.gbar b{position:absolute;top:-8px;bottom:-8px;width:2px;background:var(--ink);font-weight:400}
+.gbar b span{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);font:600 13px/1 var(--fb);color:var(--soft);white-space:nowrap}
+.gnums{display:flex;justify-content:space-between;gap:12px;color:var(--soft);font-size:16px}
+.gnums strong{font:400 30px/1 var(--fd);color:var(--mag);margin-right:4px}
+.goal .note{color:var(--soft);font-size:15.5px;margin:16px 0 22px}
+.goal .acts{display:flex;gap:12px;flex-wrap:wrap}
+.need h3{margin-bottom:10px}
+.need ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.need li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);font-size:16px}
+.need li b{font-weight:600}
+.need li span{color:var(--soft)}
+
+/* horse pages: $9 feeds this horse for a day (class idea, AH) */
+.feed{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;margin-top:22px;padding:14px 18px;border:1px solid var(--rule);border-radius:10px;background:var(--white);text-decoration:none;color:var(--ink);max-width:520px}
+.feed b{font:400 34px/1 var(--fd);color:var(--mag)}
+.feed span{font-size:16px;color:var(--soft);line-height:1.35}
+.feed em{font-style:normal;font-weight:600;color:var(--mag);white-space:nowrap;font-size:15.5px}
+.feed:hover{border-color:var(--mag)}
+
+/* volunteer: dates at the ranch (class idea, GY) */
+.cal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cal > div{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.cal p{color:var(--soft);font-size:16px;margin:0;flex:1}
+.cal .when{font-size:15px;border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+
+/* visit: found a horse in trouble (class idea, SF) */
+.trouble{margin-top:72px;display:grid;gap:12px}
+.trouble h2{margin-bottom:12px}
+
+@media (max-width:1000px){
+  .goal-grid{grid-template-columns:1fr;gap:36px}
+  .cal{grid-template-columns:1fr}
+}
+/* phones: Donate stays in the top bar (class idea, AC); the How it works switch drops its words to make room */
+@media (max-width:600px){
+  header .btn.fill{display:inline-block;padding:9px 12px;font-size:14px}
+  header .how-btn{font-size:0;gap:0;padding:8px}
+  .menu{padding:8px 10px}
+  .need li{grid-template-columns:1fr;gap:2px}
+  .feed{grid-template-columns:auto 1fr}
+  .feed em{grid-column:1/-1}
+}
+
 /* ---- torn-poster footer (port of the 21st.dev "Pushpin Tear Footer"; behaviour in assets/tear.js) ---- */
 .tpf{position:relative;overflow:hidden;container-type:size;height:calc(100vh - 78px);height:calc(100svh - 78px);min-height:600px;max-height:940px;background:var(--tpf-sheet);color:var(--tpf-on-sheet);font-family:var(--fb);isolation:isolate;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;--ease:cubic-bezier(.22,1,.36,1);--fs:max(13px,1.9cqmin)}
 .tpf *,.tpf *::before,.tpf *::after{box-sizing:border-box}

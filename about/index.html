@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Marcellus+SC&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css?v=2026-10-25">
+<link rel="stylesheet" href="../assets/site.css?v=2026-11-01">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "name": "Butterfly Rescue Ranch", "alternateName": "Butterfly Ranch", "url": "https://stationonemain-source.github.io/butterfly-ranch/", "logo": "https://stationonemain-source.github.io/butterfly-ranch/assets/logo.png", "foundingDate": "2022", "nonprofitStatus": "Nonprofit501c3", "telephone": "+14059220839", "slogan": "Every horse has a story. Every heart that loves them deserves to see it.", "address": {"@type": "PostalAddress", "streetAddress": "7475 By Drive", "addressLocality": "Norman", "addressRegion": "OK", "postalCode": "73072", "addressCountry": "US"}, "areaServed": "Norman, Oklahoma", "knowsAbout": ["horse rescue", "equine rehabilitation", "riding lessons", "summer horse camps"], "potentialAction": {"@type": "DonateAction", "target": "https://stationonemain-source.github.io/butterfly-ranch/donate/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stationonemain-source.github.io/butterfly-ranch/"}, {"@type": "ListItem", "position": 2, "name": "About", "item": "https://stationonemain-source.github.io/butterfly-ranch/about/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Braxton Brackin", "jobTitle": "Founder & CEO", "worksFor": {"@type": "NGO", "name": "Butterfly Rescue Ranch"}, "url": "https://stationonemain-source.github.io/butterfly-ranch/about/"}</script>
 </head>
 <body>
@@ -115,10 +115,11 @@
     function amt(){var t=[].filter.call(tiles,function(x){return x.checked})[0];return other.value?Number(other.value):(t?Number(t.value):0)}
     function freq(){return g.querySelector('input[name=freq]:checked').value}
     function label(){var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':'')):'Choose an amount'}
+    var want=new URLSearchParams(location.search).get('amt');if(want){var hit=[].filter.call(tiles,function(x){return x.value===want})[0];if(hit)hit.checked=true;else other.value=want}
     g.addEventListener('change',label); other.addEventListener('input',function(){tiles.forEach(function(x){x.checked=false});label()}); label();
   }
 })();
 </script>
-<script src="../assets/forms.js?v=1" defer></script><script src="../assets/give.js?v=2026-10-25" defer></script><script src="../assets/chat.js?v=5" defer></script><script src="../assets/how.js?v=2026-10-25" defer></script>
+<script src="../assets/forms.js?v=1" defer></script><script src="../assets/give.js?v=2026-11-01" defer></script><script src="../assets/chat.js?v=5" defer></script><script src="../assets/how.js?v=2026-11-01" defer></script>
 </body>
 </html>

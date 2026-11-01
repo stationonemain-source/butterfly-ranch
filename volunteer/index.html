@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Marcellus+SC&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css?v=2026-10-25">
+<link rel="stylesheet" href="../assets/site.css?v=2026-11-01">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NGO", "name": "Butterfly Rescue Ranch", "alternateName": "Butterfly Ranch", "url": "https://stationonemain-source.github.io/butterfly-ranch/", "logo": "https://stationonemain-source.github.io/butterfly-ranch/assets/logo.png", "foundingDate": "2022", "nonprofitStatus": "Nonprofit501c3", "telephone": "+14059220839", "slogan": "Every horse has a story. Every heart that loves them deserves to see it.", "address": {"@type": "PostalAddress", "streetAddress": "7475 By Drive", "addressLocality": "Norman", "addressRegion": "OK", "postalCode": "73072", "addressCountry": "US"}, "areaServed": "Norman, Oklahoma", "knowsAbout": ["horse rescue", "equine rehabilitation", "riding lessons", "summer horse camps"], "potentialAction": {"@type": "DonateAction", "target": "https://stationonemain-source.github.io/butterfly-ranch/donate/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stationonemain-source.github.io/butterfly-ranch/"}, {"@type": "ListItem", "position": 2, "name": "Volunteer", "item": "https://stationonemain-source.github.io/butterfly-ranch/volunteer/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need horse experience?", "acceptedAnswer": {"@type": "Answer", "text": "No. Feeding, filling water, mucking and barn days need willing hands, not experience. Anyone working directly with a horse is shown how first."}}, {"@type": "Question", "name": "Can a group or a class come out?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Call (405) 922-0839 and we'll plan a barn day around your group."}}]}</script>
 </head>
 <body>
@@ -70,6 +70,13 @@
 <li><span class="n">4</span><div><h3>Events and camps</h3><p>Extra hands for pony parties, camps and open days.</p></div></li>
 </ol></div>
 </div></div></section>
+<section class="events" id="dates"><div class="wrap"><div class="head"><span class="label">Coming up</span><div><h2>Dates at the ranch</h2><p>Pick a date and you'll get a reminder the day before. Braxton sets the dates; they appear here as she does.</p></div></div>
+<div class="cal">
+  <div><span class="label">Every week</span><h3>Barn day</h3><p>Feeding, mucking, fences and hay. No experience needed; bring gloves.</p><span class="when tbc">Day and time to be set</span></div>
+  <div><span class="label">Before your first barn day</span><h3>Volunteer orientation</h3><p>A walk round the barn, the safety rules, and the horses you'll work around.</p><span class="when tbc">Dates to be set</span></div>
+  <div><span class="label">Open to everyone</span><h3>Meet the horses</h3><p>Come out, meet Rico and the herd, and hear their stories from Braxton.</p><span class="when tbc">Dates to be set</span></div>
+</div>
+<p class="note" style="margin-top:18px">On the live site each date has a booking button, with a text and email reminder before it.</p></div></section>
 <section class="dark"><div class="wrap"><div class="head"><span class="label">Questions</span><div><h2>Volunteering, answered</h2></div></div><div class="faq"><details><summary>Do I need horse experience?</summary><p>No. Feeding, filling water, mucking and barn days need willing hands, not experience. Anyone working directly with a horse is shown how first.</p></details><details><summary>How old do volunteers have to be?</summary><p><span class="tbc">The ranch's minimum age and the rule for under-18s with a parent will be stated here.</span></p></details><details><summary>When are volunteer days?</summary><p><span class="tbc">Regular days and times will be listed here once the ranch sets them.</span> Tell us when you're free in the form and we'll match you to one.</p></details><details><summary>Can a group or a class come out?</summary><p>Yes. Call (405) 922-0839 and we'll plan a barn day around your group.</p></details></div></div></section>
 <section class="band"><div class="wrap"><div><span class="label">Help a horse</span><h2>Give once, or a little every month</h2><p>Every gift goes to hay, feed and care, and you'll hear back about the horse it helped.</p></div><div class="acts"><a class="btn fill" href="../donate/">Donate</a><a class="btn line" href="../sponsor/">Sponsor a horse</a><a class="btn line" href="../volunteer/">Volunteer</a></div></div></section>
 </main>
@@ -150,10 +157,11 @@
     function amt(){var t=[].filter.call(tiles,function(x){return x.checked})[0];return other.value?Number(other.value):(t?Number(t.value):0)}
     function freq(){return g.querySelector('input[name=freq]:checked').value}
     function label(){var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':'')):'Choose an amount'}
+    var want=new URLSearchParams(location.search).get('amt');if(want){var hit=[].filter.call(tiles,function(x){return x.value===want})[0];if(hit)hit.checked=true;else other.value=want}
     g.addEventListener('change',label); other.addEventListener('input',function(){tiles.forEach(function(x){x.checked=false});label()}); label();
   }
 })();
 </script>
-<script src="../assets/forms.js?v=1" defer></script><script src="../assets/give.js?v=2026-10-25" defer></script><script src="../assets/chat.js?v=5" defer></script><script src="../assets/how.js?v=2026-10-25" defer></script>
+<script src="../assets/forms.js?v=1" defer></script><script src="../assets/give.js?v=2026-11-01" defer></script><script src="../assets/chat.js?v=5" defer></script><script src="../assets/how.js?v=2026-11-01" defer></script>
 </body>
 </html>

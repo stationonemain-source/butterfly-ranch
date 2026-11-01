@@ -1,146 +1,421 @@
 {
-  "org": {
-    "name": "Butterfly Rescue Ranch",
-    "short": "Butterfly Ranch",
-    "tagline": "Every horse has a story. Every heart that loves them deserves to see it.",
-    "founded": "2022",
-    "street": "7475 By Drive",
-    "city": "Norman",
-    "state": "OK",
-    "zip": "73072",
-    "phone": "(405) 922-0839",
-    "phone_e164": "+14059220839",
-    "camp_phone": "(307) 250-7508",
-    "camp_phone_e164": "+13072507508",
-    "url": "https://stationonemain-source.github.io/butterfly-ranch/",
-    "maps": "https://www.google.com/maps/search/?api=1&query=7475+By+Drive+Norman+OK+73072"
-  },
-  "horses": [
-    {"slug": "chestnut-blaze", "title": "The chestnut with the blaze", "coat": "Chestnut, white blaze", "status": "At the ranch", "hero": true,
-     "alt": "A chestnut horse with a long white blaze looks straight at the camera over a wire fence, ears forward"},
-    {"slug": "bay-lightning", "title": "The bay with the lightning blaze", "coat": "Bay, jagged white blaze", "status": "At the ranch",
-     "alt": "A bay horse with a jagged white blaze leans over a gray pipe gate"},
-    {"slug": "bay-star", "title": "The bay with the star", "coat": "Bay, small star", "status": "At the ranch",
-     "alt": "A bay horse with a small white star on its forehead looks over the top rail of a fence"},
-    {"slug": "dark-bay", "title": "The dark bay", "coat": "Dark bay", "status": "At the ranch",
-     "alt": "A dark bay horse faces the camera over a pipe fence, a water trough beside it"},
-    {"slug": "paint", "title": "The paint", "coat": "Brown and white paint, blue eye", "status": "At the ranch",
-     "alt": "A brown and white paint horse pushes its nose toward the camera over a black pipe gate"},
-    {"slug": "palomino-pony", "title": "The palomino pony", "coat": "Palomino pony", "status": "At the ranch",
-     "alt": "A palomino pony with a thick blond mane looks through the rails of a gate"},
-    {"slug": "little-pinto", "title": "The little pinto", "coat": "Miniature pinto", "status": "At the ranch",
-     "alt": "A small brown and white pinto pony stands by a wire fence under a blue sky"},
-    {"slug": "cream", "title": "The cream horse", "coat": "Cream, red halter", "status": "At the ranch",
-     "alt": "A cream-coloured horse in a red halter looks at the camera with its forelock in its eyes"},
-    {"slug": "buckskin", "title": "The buckskin", "coat": "Buckskin, scar on the shoulder", "status": "At the ranch",
-     "alt": "A buckskin horse in a red rope halter stands in the sun with the barn behind"},
-    {"slug": "gray", "title": "The gray", "coat": "Gray, red halter", "status": "At the ranch",
-     "alt": "A gray horse in a red halter stands by a red pipe gate"},
-    {"slug": "chestnut-braids", "title": "The chestnut with the braided mane", "coat": "Chestnut, braided mane", "status": "At the ranch",
-     "alt": "A chestnut horse with a braided mane and white blaze stands by a wooden feeder"}
-  ],
-  "people": [
-    {"img": "braxton.jpg", "name": "Braxton Brackin", "role": "Founder & CEO", "alt": "Braxton Brackin in a pink western shirt and straw hat, holding a buckskin horse at a rodeo arena",
-     "bio": "Raised around rodeo and riding for 27 years, Braxton learned calf roping from her uncle before she could walk. She still competes, and teaches with a firm but encouraging style that helps students believe they can do anything they set their minds to."},
-    {"img": "anna.jpg", "name": "Anna Foote", "role": "Barn Manager & Instructor", "alt": "Anna Foote cheek to cheek with a dark horse with a white blaze, mountains behind",
-     "bio": "Born and raised in Cody, Wyoming, Anna rode six years with a rodeo drill team before moving to Oklahoma after college in 2023. She loves breakaway roping and teaching riders of every age, and making it fun."},
-    {"img": "chloe.jpg", "name": "Chloe Bjornberg", "role": "Instructor", "alt": "Chloe Bjornberg in a navy show jacket, standing with a dapple grey horse",
-     "bio": "A former president of the OU Equestrian Team, Chloe has taught English and western lessons for over eight years. She's now in graduate school at OU, working toward becoming a counselor who offers equine-assisted therapy."}
-  ],
-  "camps": [
-    ["Overnight Barrel Camp", "$600", "Advanced barrel students"],
-    ["Barrel Day Camp", "$375", "Advanced barrel students · 8am to 1pm"],
-    ["Overnight Camp", "$500", "All ages and skill levels"],
-    ["River Day Camp", "$250–$325", "All ages and skill levels"],
-    ["Playday Camp", "$250", "All ages and skill levels · 8am to 1pm"]
-  ],
-  "lessons": [
-    ["Ground lesson, half hour", "$25", ""],
-    ["Horseback lesson, one hour", "$50", "The instructor decides when a student is ready to practise on a horse."]
-  ],
-  "parties": [
-    ["Pony rides, petting and brushing", "from $300", "Themes: unicorn, paint a pony, cowboy and cowgirl"]
-  ],
-  "tiers": [
-    {"amt": 25, "for": "Fly spray, wormer and hoof care"},
-    {"amt": 50, "for": "Farrier work"},
-    {"amt": 100, "for": "Vet visits and vaccines"},
-    {"amt": 250, "for": "Hay and feed"}
-  ],
-  "credits": "Photos and film from the October 2026 site visit by OU MKT 4970 students (Kaylee Veeravan, Savannah Fritzen, Team 1). Staff portraits and logo from the ranch. Some hero shots were animated from those photos with AI; nothing in them was invented.",
-  "how": {
-    "_comment": "The 'How it works' switch (header). Each note names the Station product behind a feature and says what it does ON THE LIVE SITE. Only the email sign-ups are connected on this preview (to Station Give, the ranch's list; no email is sent until the ranch's mailbox is connected), so no note may claim a feature works now, or anything the products do not do. No invented prices or numbers. Features carry data-how=<key> in build.py; 'spots' are matched by selector for parts other scripts build. Rendered by _src/how.js.",
-    "legend": "Each outlined part of this page is run by a Station product, named in the note beside it. This site is a preview. Email sign-ups already go to the ranch’s own list; donations, the chat and texts switch on when the site goes live. The notes say what happens then.",
-    "notes": {
-      "herd": [
-        ["Custom website", "Every horse gets its own page, following it from the day it arrived to the day it is well."],
-        ["Marquee", "The same story goes out as the ranch’s two-a-week horse series on Instagram and Facebook, scheduled from one calendar."]
-      ],
-      "journal": [
-        ["Custom website", "Each step of the horse’s recovery, and what it cost, is added to this page as it happens."],
-        ["Marquee", "The same updates go out as the two-a-week horse series on Instagram and Facebook, scheduled from one calendar."],
-        ["Dispatch", "The monthly email tells donors which horses moved forward and what their gifts paid for."]
-      ],
-      "news": [
-        ["Marquee", "Each post here also goes out on Instagram and Facebook, scheduled from one calendar."],
-        ["Dispatch", "Once a month the news goes to everyone on the ranch’s email list."]
-      ],
-      "join": [
-        ["Dispatch", "The address joins the ranch’s own email list. Once a month, everyone on it hears how the horses are doing."]
-      ],
-      "giver": [
-        ["Tap", "Secure checkout on the ranch’s own Stripe account: card, Apple Pay, Google Pay or bank. The money goes straight to the ranch, and a tax receipt arrives by email at once."],
-        ["Tap · monthly gifts", "Monthly donors update their card or stop their gift from the link in their receipt. A card that fails is retried automatically."]
-      ],
-      "promise": [
-        ["Pursuit", "Every donor gets a thank-you from Braxton within the hour. A gift of $250 or more also alerts Braxton to call the donor personally."],
-        ["Dispatch", "Donors get the horse updates, a summary of their giving each January, and the Giving Tuesday appeal."],
-        ["Revive", "A donor who has not given for 12 months gets a short note from the ranch inviting them back."]
-      ],
-      "levels": [
-        ["Tap", "A sponsorship is a monthly gift through secure checkout on the ranch’s own Stripe account, with a tax receipt by email. Sponsors update their card or stop it from their receipt link, and a failed card is retried automatically."],
-        ["Pursuit", "Each new sponsor gets a thank-you from Braxton within the hour."],
-        ["Dispatch", "The monthly note on the horse, the January giving summary and Giving Tuesday all go out by email."]
-      ],
-      "logos": [
-        ["Radar", "Radar finds local businesses that fit, like feed and tack stores, vet clinics and riding programs, and lines them up in the ranch’s sponsor pipeline for the ask."],
-        ["Tap", "A business sponsors through the same secure monthly checkout, with a receipt for every payment."]
-      ],
-      "volunteer": [
-        ["Pursuit", "Every sign-up gets a welcome by text and email the same day, and follow-ups until the volunteer replies."],
-        ["Slate", "The welcome links to the ranch’s booking page, where a new volunteer picks a first barn day and gets a reminder before it."]
-      ],
-      "flyer": [
-        ["Slate", "Families pick a lesson, camp or pony party and book it themselves, and reminders by text and email make sure they turn up."]
-      ],
-      "where": [
-        ["Echo", "The ranch’s Google listing is kept to one name, one address and one set of hours, with the donate and volunteer links and a horse update each week."],
-        ["Repute", "After a visit or a volunteer day, everyone who came is asked for a Google review, not only the happy ones. Braxton approves a drafted reply to each review."]
-      ],
-      "call": [
-        ["Lineback", "When nobody can get to the phone, a missed call gets a text back within seconds."],
-        ["Frontdesk", "An AI receptionist answers the ranch’s number, takes a message on surrender and welfare calls, and passes urgent ones straight to Braxton."]
-      ],
-      "facts": [
-        ["Custom website", "Built by Station on the ranch’s own photos and words, and the ranch’s to keep."],
-        ["Echo", "The same name, address and phone are kept on the ranch’s Google listing, so the two never disagree."]
-      ],
-      "links": [
-        ["Custom website", "Every social bio points here instead of Linktree, so a follower is one tap from Donate."],
-        ["Dispatch", "“Get the monthly update” turns a follower into someone on the ranch’s own email list."]
-      ],
-      "greet": [
-        ["Greet", "An AI assistant answers from the ranch’s own facts at any hour, and takes the visitor’s details so the ranch can follow up."]
-      ],
-      "footer": [
-        ["Dispatch", "The sign-up on the magenta sheet below joins the same monthly email list."],
-        ["Lineback, Frontdesk", "The ranch’s number gets missed-call text-back and the AI receptionist."],
-        ["Tap", "“donate.” goes to the same secure checkout on the ranch’s own Stripe account."]
-      ]
-    },
-    "spots": [
-      {"sel": ".ask-btn", "note": "greet", "at": "fly"},
-      {"sel": "footer.tpf", "note": "footer", "at": "before", "mark": ".tpf-news .tpf-pill, .tpf-mail, .tpf-big"}
+ "org": {
+  "name": "Butterfly Rescue Ranch",
+  "short": "Butterfly Ranch",
+  "tagline": "Every horse has a story. Every heart that loves them deserves to see it.",
+  "founded": "2022",
+  "street": "7475 By Drive",
+  "city": "Norman",
+  "state": "OK",
+  "zip": "73072",
+  "phone": "(405) 922-0839",
+  "phone_e164": "+14059220839",
+  "camp_phone": "(307) 250-7508",
+  "camp_phone_e164": "+13072507508",
+  "url": "https://stationonemain-source.github.io/butterfly-ranch/",
+  "maps": "https://www.google.com/maps/search/?api=1&query=7475+By+Drive+Norman+OK+73072",
+  "rescued": "20+",
+  "rescues_now": 4,
+  "cost_month": 360,
+  "goal_low": 2000,
+  "goal_high": 3000
+ },
+ "horses": [
+  {
+   "slug": "rico",
+   "title": "Rico",
+   "coat": "White, brown halter",
+   "status": "Here for good",
+   "hero": true,
+   "alt": "Rico, a white horse in a brown halter with a pink lead rope, stands by a red pipe gate under the barn roof",
+   "lede": "Pulled from a kill pen, brought back to health, sent to a home that failed him, and brought back again. He stays at the ranch for good now. In Braxton's words, he is “a genuine saint of a horse.”",
+   "card": [
+    [
+     "Came from",
+     "A kill pen"
+    ],
+    [
+     "Arrived",
+     "Twice"
+    ],
+    [
+     "Now",
+     "Here for good"
     ]
+   ],
+   "log": [
+    [
+     "First",
+     "Pulled from the kill pen",
+     "Braxton pulled Rico out of a kill pen and brought him to the ranch.",
+     ""
+    ],
+    [
+     "Then",
+     "Back to health",
+     "Feed, hay, supplements and the farrier, every day and every six weeks, until he was sound and at weight.",
+     "About $360 a month in set costs, before the vet"
+    ],
+    [
+     "Then",
+     "A home",
+     "The ranch found Rico a home.",
+     ""
+    ],
+    [
+     "Later",
+     "Brought back, worse",
+     "That home failed him. He came back to the ranch in worse condition than the first time.",
+     ""
+    ],
+    [
+     "Now",
+     "Here for good",
+     "Rehabilitated a second time. Rico stays at the ranch for the rest of his life.",
+     ""
+    ]
+   ]
+  },
+  {
+   "slug": "chestnut-blaze",
+   "title": "The chestnut with the blaze",
+   "coat": "Chestnut, white blaze",
+   "status": "At the ranch",
+   "alt": "A chestnut horse with a long white blaze looks straight at the camera over a wire fence, ears forward"
+  },
+  {
+   "slug": "bay-lightning",
+   "title": "The bay with the lightning blaze",
+   "coat": "Bay, jagged white blaze",
+   "status": "At the ranch",
+   "alt": "A bay horse with a jagged white blaze leans over a gray pipe gate"
+  },
+  {
+   "slug": "bay-star",
+   "title": "The bay with the star",
+   "coat": "Bay, small star",
+   "status": "At the ranch",
+   "alt": "A bay horse with a small white star on its forehead looks over the top rail of a fence"
+  },
+  {
+   "slug": "dark-bay",
+   "title": "The dark bay",
+   "coat": "Dark bay",
+   "status": "At the ranch",
+   "alt": "A dark bay horse faces the camera over a pipe fence, a water trough beside it"
+  },
+  {
+   "slug": "paint",
+   "title": "The paint",
+   "coat": "Brown and white paint, blue eye",
+   "status": "At the ranch",
+   "alt": "A brown and white paint horse pushes its nose toward the camera over a black pipe gate"
+  },
+  {
+   "slug": "palomino-pony",
+   "title": "The palomino pony",
+   "coat": "Palomino pony",
+   "status": "At the ranch",
+   "alt": "A palomino pony with a thick blond mane looks through the rails of a gate"
+  },
+  {
+   "slug": "little-pinto",
+   "title": "The little pinto",
+   "coat": "Miniature pinto",
+   "status": "At the ranch",
+   "alt": "A small brown and white pinto pony stands by a wire fence under a blue sky"
+  },
+  {
+   "slug": "cream",
+   "title": "The cream horse",
+   "coat": "Cream, red halter",
+   "status": "At the ranch",
+   "alt": "A cream-coloured horse in a red halter looks at the camera with its forelock in its eyes"
+  },
+  {
+   "slug": "buckskin",
+   "title": "The buckskin",
+   "coat": "Buckskin, scar on the shoulder",
+   "status": "At the ranch",
+   "alt": "A buckskin horse in a red rope halter stands in the sun with the barn behind"
+  },
+  {
+   "slug": "chestnut-braids",
+   "title": "The chestnut with the braided mane",
+   "coat": "Chestnut, braided mane",
+   "status": "At the ranch",
+   "alt": "A chestnut horse with a braided mane and white blaze stands by a wooden feeder"
   }
+ ],
+ "people": [
+  {
+   "img": "braxton.jpg",
+   "name": "Braxton Brackin",
+   "role": "Founder & CEO",
+   "alt": "Braxton Brackin in a pink western shirt and straw hat, holding a buckskin horse at a rodeo arena",
+   "bio": "Raised around rodeo and riding for 27 years, Braxton learned calf roping from her uncle before she could walk. She still competes, and teaches with a firm but encouraging style that helps students believe they can do anything they set their minds to."
+  },
+  {
+   "img": "anna.jpg",
+   "name": "Anna Foote",
+   "role": "Barn Manager & Instructor",
+   "alt": "Anna Foote cheek to cheek with a dark horse with a white blaze, mountains behind",
+   "bio": "Born and raised in Cody, Wyoming, Anna rode six years with a rodeo drill team before moving to Oklahoma after college in 2023. She loves breakaway roping and teaching riders of every age, and making it fun."
+  },
+  {
+   "img": "chloe.jpg",
+   "name": "Chloe Bjornberg",
+   "role": "Instructor",
+   "alt": "Chloe Bjornberg in a navy show jacket, standing with a dapple grey horse",
+   "bio": "A former president of the OU Equestrian Team, Chloe has taught English and western lessons for over eight years. She's now in graduate school at OU, working toward becoming a counselor who offers equine-assisted therapy."
+  }
+ ],
+ "camps": [
+  [
+   "Overnight Barrel Camp",
+   "$600",
+   "Advanced barrel students"
+  ],
+  [
+   "Barrel Day Camp",
+   "$375",
+   "Advanced barrel students · 8am to 1pm"
+  ],
+  [
+   "Overnight Camp",
+   "$500",
+   "All ages and skill levels"
+  ],
+  [
+   "River Day Camp",
+   "$250–$325",
+   "All ages and skill levels"
+  ],
+  [
+   "Playday Camp",
+   "$250",
+   "All ages and skill levels · 8am to 1pm"
+  ]
+ ],
+ "lessons": [
+  [
+   "Ground lesson, half hour",
+   "$25",
+   ""
+  ],
+  [
+   "Horseback lesson, one hour",
+   "$50",
+   "The instructor decides when a student is ready to practise on a horse."
+  ]
+ ],
+ "parties": [
+  [
+   "Pony rides, petting and brushing",
+   "from $300",
+   "Themes: unicorn, paint a pony, cowboy and cowgirl"
+  ]
+ ],
+ "tiers": [
+  {
+   "amt": 9,
+   "for": "A day of hay and feed for one horse"
+  },
+  {
+   "amt": 50,
+   "for": "A farrier visit, or a month of supplements"
+  },
+  {
+   "amt": 100,
+   "for": "Eleven days of hay and feed"
+  },
+  {
+   "amt": 360,
+   "for": "One horse's set costs for a whole month"
+  }
+ ],
+ "credits": "Photos and film from the October 2026 site visit by OU MKT 4970 students (Kaylee Veeravan, Savannah Fritzen, Team 1). Staff portraits and logo from the ranch. Some hero shots were animated from those photos with AI; nothing in them was invented.",
+ "how": {
+  "_comment": "The 'How it works' switch (header). Each note names the Station product behind a feature and says what it does ON THE LIVE SITE. Only the email sign-ups are connected on this preview (to Station Give, the ranch's list; no email is sent until the ranch's mailbox is connected), so no note may claim a feature works now, or anything the products do not do. No invented prices or numbers. Features carry data-how=<key> in build.py; 'spots' are matched by selector for parts other scripts build. Rendered by _src/how.js.",
+  "legend": "Each outlined part of this page is run by a Station product, named in the note beside it. This site is a preview. Email sign-ups already go to the ranch’s own list; donations, the chat and texts switch on when the site goes live. The notes say what happens then.",
+  "notes": {
+   "herd": [
+    [
+     "Custom website",
+     "Every horse gets its own page, following it from the day it arrived to the day it is well."
+    ],
+    [
+     "Marquee",
+     "The same story goes out as the ranch’s two-a-week horse series on Instagram and Facebook, scheduled from one calendar."
+    ]
+   ],
+   "journal": [
+    [
+     "Custom website",
+     "Each step of the horse’s recovery, and what it cost, is added to this page as it happens."
+    ],
+    [
+     "Marquee",
+     "The same updates go out as the two-a-week horse series on Instagram and Facebook, scheduled from one calendar."
+    ],
+    [
+     "Dispatch",
+     "The monthly email tells donors which horses moved forward and what their gifts paid for."
+    ]
+   ],
+   "news": [
+    [
+     "Marquee",
+     "Each post here also goes out on Instagram and Facebook, scheduled from one calendar."
+    ],
+    [
+     "Dispatch",
+     "Once a month the news goes to everyone on the ranch’s email list."
+    ]
+   ],
+   "join": [
+    [
+     "Dispatch",
+     "The address joins the ranch’s own email list. Once a month, everyone on it hears how the horses are doing."
+    ]
+   ],
+   "giver": [
+    [
+     "Tap",
+     "Secure checkout on the ranch’s own Stripe account: card, Apple Pay, Google Pay or bank. The money goes straight to the ranch, and a tax receipt arrives by email at once."
+    ],
+    [
+     "Tap · monthly gifts",
+     "Monthly donors update their card or stop their gift from the link in their receipt. A card that fails is retried automatically."
+    ]
+   ],
+   "promise": [
+    [
+     "Pursuit",
+     "Every donor gets a thank-you from Braxton within the hour. A gift of $250 or more also alerts Braxton to call the donor personally."
+    ],
+    [
+     "Dispatch",
+     "Donors get the horse updates, a summary of their giving each January, and the Giving Tuesday appeal."
+    ],
+    [
+     "Revive",
+     "A donor who has not given for 12 months gets a short note from the ranch inviting them back."
+    ]
+   ],
+   "levels": [
+    [
+     "Tap",
+     "A sponsorship is a monthly gift through secure checkout on the ranch’s own Stripe account, with a tax receipt by email. Sponsors update their card or stop it from their receipt link, and a failed card is retried automatically."
+    ],
+    [
+     "Pursuit",
+     "Each new sponsor gets a thank-you from Braxton within the hour."
+    ],
+    [
+     "Dispatch",
+     "The monthly note on the horse, the January giving summary and Giving Tuesday all go out by email."
+    ]
+   ],
+   "logos": [
+    [
+     "Radar",
+     "Radar finds local businesses that fit, like feed and tack stores, vet clinics and riding programs, and lines them up in the ranch’s sponsor pipeline for the ask."
+    ],
+    [
+     "Tap",
+     "A business sponsors through the same secure monthly checkout, with a receipt for every payment."
+    ]
+   ],
+   "volunteer": [
+    [
+     "Pursuit",
+     "Every sign-up gets a welcome by text and email the same day, and follow-ups until the volunteer replies."
+    ],
+    [
+     "Slate",
+     "The welcome links to the ranch’s booking page, where a new volunteer picks a first barn day and gets a reminder before it."
+    ]
+   ],
+   "flyer": [
+    [
+     "Slate",
+     "Families pick a lesson, camp or pony party and book it themselves, and reminders by text and email make sure they turn up."
+    ]
+   ],
+   "where": [
+    [
+     "Echo",
+     "The ranch’s Google listing is kept to one name, one address and one set of hours, with the donate and volunteer links and a horse update each week."
+    ],
+    [
+     "Repute",
+     "After a visit or a volunteer day, everyone who came is asked for a Google review, not only the happy ones. Braxton approves a drafted reply to each review."
+    ]
+   ],
+   "call": [
+    [
+     "Lineback",
+     "When nobody can get to the phone, a missed call gets a text back within seconds."
+    ],
+    [
+     "Frontdesk",
+     "An AI receptionist answers the ranch’s number, takes a message on surrender and welfare calls, and passes urgent ones straight to Braxton."
+    ]
+   ],
+   "facts": [
+    [
+     "Custom website",
+     "Built by Station on the ranch’s own photos and words, and the ranch’s to keep."
+    ],
+    [
+     "Echo",
+     "The same name, address and phone are kept on the ranch’s Google listing, so the two never disagree."
+    ]
+   ],
+   "links": [
+    [
+     "Custom website",
+     "Every social bio points here instead of Linktree, so a follower is one tap from Donate."
+    ],
+    [
+     "Dispatch",
+     "“Get the monthly update” turns a follower into someone on the ranch’s own email list."
+    ]
+   ],
+   "greet": [
+    [
+     "Greet",
+     "An AI assistant answers from the ranch’s own facts at any hour, and takes the visitor’s details so the ranch can follow up."
+    ]
+   ],
+   "footer": [
+    [
+     "Dispatch",
+     "The sign-up on the magenta sheet below joins the same monthly email list."
+    ],
+    [
+     "Lineback, Frontdesk",
+     "The ranch’s number gets missed-call text-back and the AI receptionist."
+    ],
+    [
+     "Tap",
+     "“donate.” goes to the same secure checkout on the ranch’s own Stripe account."
+    ]
+   ]
+  },
+  "spots": [
+   {
+    "sel": ".ask-btn",
+    "note": "greet",
+    "at": "fly"
+   },
+   {
+    "sel": "footer.tpf",
+    "note": "footer",
+    "at": "before",
+    "mark": ".tpf-news .tpf-pill, .tpf-mail, .tpf-big"
+   }
+  ]
+ }
 }
