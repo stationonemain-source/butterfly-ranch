@@ -51,7 +51,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Marcellus+SC&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cinzel:wght@400;600&family=Josefin+Slab:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{rel}assets/site.css?v={TODAY}">
 {lds}
 </head>
@@ -149,6 +149,7 @@ def home():
   <div class="wrap">
     <span class="label">Horse rescue · Norman, Oklahoma</span>
     <h1>Every horse here has a story.</h1>
+    <p class="script">Every loving heart deserves to see it.</p>
     <p class="lede">Rescued from kill pens and hard homes, brought back to health, and every step shown.</p>
     <div class="acts"><a class="btn fill" href="donate/">Donate</a><a class="btn ghost" href="horses/">Meet the horses</a></div>
   </div>

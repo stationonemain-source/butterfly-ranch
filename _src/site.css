@@ -1,8 +1,7 @@
-@font-face{font-family:"BR Num";src:url(fonts/num.woff2) format("woff2");unicode-range:U+24-25,U+2C,U+2E,U+30-39;font-display:swap}
 :root{
-  --paper:#fbf8f6; --white:#fff; --ink:#2b2026; --soft:#5e5258; --mute:#8a7f85;
+  --paper:#fbf8f6; --white:#fff; --ink:#2b2026; --soft:#5e5258; --mute:#6f6469;
   --rule:#e7dde1; --rose:#f6e9ef; --mag:#a71c5a; --mag-d:#86164a; --gray:#909190;
-  --fd:"BR Num","Marcellus",Georgia,serif; --fs:"BR Num","Marcellus SC",Georgia,serif; --fb:"Source Serif 4",Georgia,serif;
+  --fd:"Josefin Slab",Georgia,serif; --fs:"Cinzel",Georgia,serif; --fb:"Lora",Georgia,serif; --fa:"Allura",cursive;
   --w:1180px;
 }
 *{box-sizing:border-box}
@@ -17,7 +16,7 @@ h2{font-size:clamp(30px,4vw,44px)}
 h3{font-size:22px}
 p{margin:0 0 1em}
 .wrap{max-width:var(--w);margin:0 auto;padding:0 28px}
-.label{font-family:var(--fs);font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+.label{font-family:var(--fs);font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
 .tbc{font-style:italic;color:var(--mute)}
 .dash{color:var(--mute)}
 .btn{display:inline-block;font:600 16px/1 var(--fb);text-decoration:none;border-radius:6px;padding:14px 22px;border:1.5px solid var(--mag);cursor:pointer}
@@ -60,7 +59,7 @@ header .btn{padding:11px 18px}
 .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,21,24,.32) 0%,rgba(29,21,24,0) 15%),radial-gradient(120% 75% at 0% 100%,rgba(29,21,24,.72) 0%,rgba(29,21,24,.38) 40%,rgba(29,21,24,0) 72%)}
 .film .wrap{position:relative;z-index:1;padding-bottom:64px;padding-top:140px;width:100%}
 .film .label{color:#fff;opacity:.85;text-shadow:0 1px 8px rgba(0,0,0,.5)}
-.film h1{max-width:17ch;margin:14px 0 18px;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.film h1{max-width:17ch;margin:14px 0 4px;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.4)}
 .film .lede{font-size:20px;max-width:30em;color:#fff;margin-bottom:28px;text-shadow:0 1px 12px rgba(0,0,0,.55)}
 .film .acts{display:flex;gap:12px;flex-wrap:wrap}
 .film .credit{position:absolute;right:24px;bottom:16px;z-index:1;font-size:13px;color:#fff;opacity:.85;text-shadow:0 1px 6px rgba(0,0,0,.6)}
@@ -160,7 +159,7 @@ figure figcaption{font-size:14.5px;color:var(--mute);margin-top:10px}
 .big .amt i{font-style:normal;opacity:.35;font-size:.42em;vertical-align:.32em;letter-spacing:-.1em}
 .big .per{font-size:17px;color:var(--soft);max-width:14em;line-height:1.35}
 table{width:100%;border-collapse:collapse;font-size:17px}
-caption{text-align:left;font-family:var(--fs);font-size:14px;letter-spacing:.22em;color:var(--gray);padding-bottom:12px}
+caption{text-align:left;font-family:var(--fs);font-size:14px;letter-spacing:.22em;color:var(--mute);padding-bottom:12px}
 th,td{text-align:left;padding:15px 0;border-bottom:1px solid var(--rule);vertical-align:baseline}
 thead th{font:600 13px var(--fb);color:var(--mute);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--ink)}
 td.amt,th.amt{text-align:right;white-space:nowrap}
@@ -399,3 +398,10 @@ table td:first-child{padding-right:24px}
   .feed{grid-template-columns:auto 1fr}
   .feed em{grid-column:1/-1}
 }
+
+.film .script{font:400 clamp(30px,3.4vw,46px)/1.15 var(--fa);color:#fff;margin:0 0 18px;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+@media(max-width:600px){.film .script{font-size:28px;margin-bottom:14px}}
+
+button,input,select,textarea{font-family:var(--fb)}
+.dark .faq summary::after,.dark .steps .n,.dark .amt,.dark .stats .n{color:#f0a8c8}
+.dark .dash{color:#b9aab1}

@@ -24,7 +24,7 @@
 .how-on .how-legend{display:block}
 .how-on .how-out{display:block}
 .how-on .how-note{display:grid;gap:8px;box-sizing:border-box;max-width:100%;margin:24px 0 0;padding:14px 16px 15px;background:#fff;color:var(--ink);border:1px solid var(--mag);border-radius:10px;box-shadow:0 12px 28px -20px rgba(43,32,38,.45);font:400 14.5px/1.45 var(--fb);text-align:left;animation:how-in .3s ease both}
-.how-note .how-eye{margin:0;font:400 12.5px/1.2 var(--fs);letter-spacing:.16em;text-transform:uppercase;color:var(--gray)}
+.how-note .how-eye{margin:0;font:400 12.5px/1.2 var(--fs);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
 .how-rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px 28px}
 .how-row{min-width:0}
 .how-p{display:block;font:400 13.5px/1.25 var(--fs);letter-spacing:.12em;text-transform:uppercase;color:var(--mag);margin:0 0 3px}
