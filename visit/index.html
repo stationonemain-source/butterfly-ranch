@@ -28,7 +28,7 @@
   </div>
 </header>
 <main id="main">
-<div class="ph"><div class="wrap"><div><p class="crumbs"><a href="../">Home</a> › Visit</p><span class="label">Visit</span><h1>Come meet the herd</h1><p class="lede">We're a working barn, so please call before you come out. Lessons, camps and pony parties are booked by text.</p></div><img src="../assets/photos/gate.jpg" alt="The red pipe entrance gate of the ranch with the sign beyond" width="1600" height="1200"></div></div>
+<div class="ph"><div class="wrap"><div><p class="crumbs"><a href="../">Home</a> › Visit</p><span class="label">Visit</span><h1>Come meet the herd</h1><p class="lede">We're a working barn, so please call before you come out. Lessons and camps are booked by text.</p></div><img src="../assets/photos/gate.jpg" alt="The red pipe entrance gate of the ranch with the sign beyond" width="1600" height="1200"></div></div>
 <section><div class="wrap"><div class="visit">
 <div data-how="where" data-how-at="end"><h3>Where</h3><p>7475 By Drive<br>Norman, Oklahoma 73072<br><a href="https://www.google.com/maps/search/?api=1&query=7475+By+Drive+Norman+OK+73072" target="_blank" rel="noopener">Open in Maps</a></p></div>
 <div data-how="call" data-how-at="end"><h3>Call first</h3><p>We're a working barn, so please call before you come out.<br><a href="tel:+14059220839">(405) 922-0839</a></p></div>
@@ -119,7 +119,7 @@
     var other=g.querySelector('input[name=other]'), tiles=g.querySelectorAll('input[name=amt]'), out=g.querySelector('.sent'), btn=g.querySelector('button');
     function amt(){var t=[].filter.call(tiles,function(x){return x.checked})[0];return other.value?Number(other.value):(t?Number(t.value):0)}
     function freq(){return g.querySelector('input[name=freq]:checked').value}
-    function label(){var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':'')):'Choose an amount'}
+    function label(){var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':' once')):'Choose an amount'}
     var want=new URLSearchParams(location.search).get('amt');if(want){var hit=[].filter.call(tiles,function(x){return x.value===want})[0];if(hit)hit.checked=true;else other.value=want}
     g.addEventListener('change',label); other.addEventListener('input',function(){tiles.forEach(function(x){x.checked=false});label()}); label();
   }

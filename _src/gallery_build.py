@@ -57,6 +57,9 @@ ROPE = [   # (category, file, title on the print, caption under the rope) — no
     ('zoo', '000853.jpg', 'Sheep and lamb', 'In the shade of the trailer.'),
     ('horses', '000254.jpg', 'The little pinto', 'The smallest horse on the ranch.'),
 ]
+# The petting zoo is off the site (Week 10 meeting, 1 Nov 2026): Braxton keeps the petting farm separate from the rescue.
+CATS = [c for c in CATS if c[0] != 'zoo']
+ROPE = [r for r in ROPE if r[0] != 'zoo']
 DUP = 14                  # dHash Hamming distance at or below which two frames count as the same shot
 
 

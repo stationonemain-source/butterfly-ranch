@@ -24,15 +24,24 @@
   {
    "slug": "rico",
    "title": "Rico",
-   "coat": "White, brown halter",
+   "pron": "he",
+   "coat": "White",
    "status": "Here for good",
    "hero": true,
-   "alt": "Rico, a white horse in a brown halter with a pink lead rope, stands by a red pipe gate under the barn roof",
+   "alt": "Rico, a white horse in a red halter, looks into the camera beside a red pipe gate",
    "lede": "Pulled from a kill pen, brought back to health, sent to a home that failed him, and brought back again. He stays at the ranch for good now. In Braxton's words, he is “a genuine saint of a horse.”",
+   "quote": [
+    "He's just a sweet old boy that we use for lessons now. He's great with kids.",
+    "Ranch staff, October 2026"
+   ],
    "card": [
     [
      "Came from",
-     "A kill pen"
+     "The Stillwater kill pen"
+    ],
+    [
+     "Age",
+     "Mid-twenties"
     ],
     [
      "Arrived",
@@ -40,14 +49,14 @@
     ],
     [
      "Now",
-     "Here for good"
+     "Lessons with kids, and retirement"
     ]
    ],
    "log": [
     [
      "First",
      "Pulled from the kill pen",
-     "Braxton pulled Rico out of a kill pen and brought him to the ranch.",
+     "Braxton bought Rico out of the kill pen in Stillwater, where horses wait to be shipped to Mexico for slaughter.",
      ""
     ],
     [
@@ -71,80 +80,157 @@
     [
      "Now",
      "Here for good",
-     "Rehabilitated a second time. Rico stays at the ranch for the rest of his life.",
+     "Braxton thinks he was once a reining horse. Now he carries young riders a couple of times a week and spends the rest of it retired. He stays at the ranch for the rest of his life.",
      ""
     ]
    ]
   },
   {
-   "slug": "chestnut-blaze",
-   "title": "The chestnut with the blaze",
+   "slug": "reba",
+   "title": "Reba",
+   "pron": "she",
    "coat": "Chestnut, white blaze",
-   "status": "At the ranch",
-   "alt": "A chestnut horse with a long white blaze looks straight at the camera over a wire fence, ears forward"
+   "status": "Helping new riders",
+   "alt": "Reba, a chestnut mare with a white blaze and a green rope halter, under a blue sky",
+   "lede": "Reba came from auction with an old injury to her right knee that nobody could explain. The knee will probably always be a little swollen, but she moves better every month, and her slow, gentle way makes her the horse new riders start on. Braxton plans to find her a home in time.",
+   "quote": [
+    "Because of her sweet spirit, she's been able to be used for lessons for beginner riders.",
+    "Ranch staff, October 2026"
+   ],
+   "card": [
+    [
+     "Came from",
+     "Auction"
+    ],
+    [
+     "Age",
+     "Late teens to early twenties"
+    ],
+    [
+     "Now",
+     "Beginner lessons"
+    ]
+   ],
+   "log": [
+    [
+     "Arrival",
+     "An old knee injury",
+     "Her right knee was already swollen when the ranch picked her up. Auction horses come with no papers and no history.",
+     ""
+    ],
+    [
+     "First weeks",
+     "Vet, feet and teeth",
+     "An auction horse gets the vet, the farrier and a dental check first. Feet and teeth hide a lot of problems.",
+     "Farrier, every 6 weeks · $50"
+    ],
+    [
+     "Since",
+     "Keeping the knee moving",
+     "Gentle lead-line work, because moving is better for the joint than standing still. She gets around much better than when she arrived.",
+     ""
+    ],
+    [
+     "Now",
+     "The horse new riders start on",
+     "She takes things slow and is gentle with kids, so beginners ride Reba and Rico first.",
+     "About $360 a month in set costs"
+    ]
+   ]
   },
   {
-   "slug": "bay-lightning",
-   "title": "The bay with the lightning blaze",
-   "coat": "Bay, jagged white blaze",
-   "status": "At the ranch",
-   "alt": "A bay horse with a jagged white blaze leans over a gray pipe gate"
+   "slug": "dandelion",
+   "title": "Dandelion",
+   "pron": "she",
+   "coat": "Buckskin",
+   "status": "Riding with advanced kids",
+   "alt": "Dandelion, a buckskin mare in a pink rope halter, looking into the camera",
+   "lede": "Dandelion was in the Stillwater kill pen, headed for slaughter in Mexico, when Braxton bought her. She was so skittish the staff could tell someone had hurt her. Given time to learn that nobody here would, she came round, and now she carries the more advanced kids in lessons. Braxton plans to find her a home in time.",
+   "quote": [
+    "Once she had a little bit of love and a little bit of time to realize that nobody was going to hurt her anymore, she was able to be put into the riding lessons.",
+    "Ranch staff, October 2026"
+   ],
+   "card": [
+    [
+     "Came from",
+     "The Stillwater kill pen"
+    ],
+    [
+     "Personality",
+     "A little ditzy, in the best way"
+    ],
+    [
+     "Now",
+     "Lessons with advanced riders"
+    ]
+   ],
+   "log": [
+    [
+     "Arrival",
+     "Bought out of the kill pen",
+     "Headed for Mexico for slaughter, with no history at all and scared of everyone.",
+     ""
+    ],
+    [
+     "Then",
+     "Time, and nobody hurting her",
+     "Months of patience before she trusted people again.",
+     "About $360 a month in set costs"
+    ],
+    [
+     "Now",
+     "Lessons, and running in the field",
+     "She carries the more confident kids in lessons. In the field she runs around without watching where she's going, which is how she got the small cut on her neck. It's sprayed with a liquid bandage to keep it clean.",
+     ""
+    ]
+   ]
   },
   {
-   "slug": "bay-star",
-   "title": "The bay with the star",
-   "coat": "Bay, small star",
-   "status": "At the ranch",
-   "alt": "A bay horse with a small white star on its forehead looks over the top rail of a fence"
-  },
-  {
-   "slug": "dark-bay",
-   "title": "The dark bay",
-   "coat": "Dark bay",
-   "status": "At the ranch",
-   "alt": "A dark bay horse faces the camera over a pipe fence, a water trough beside it"
-  },
-  {
-   "slug": "paint",
-   "title": "The paint",
-   "coat": "Brown and white paint, blue eye",
-   "status": "At the ranch",
-   "alt": "A brown and white paint horse pushes its nose toward the camera over a black pipe gate"
-  },
-  {
-   "slug": "palomino-pony",
-   "title": "The palomino pony",
-   "coat": "Palomino pony",
-   "status": "At the ranch",
-   "alt": "A palomino pony with a thick blond mane looks through the rails of a gate"
-  },
-  {
-   "slug": "little-pinto",
-   "title": "The little pinto",
-   "coat": "Miniature pinto",
-   "status": "At the ranch",
-   "alt": "A small brown and white pinto pony stands by a wire fence under a blue sky"
-  },
-  {
-   "slug": "cream",
-   "title": "The cream horse",
+   "slug": "daisy",
+   "title": "Daisy",
+   "pron": "she",
    "coat": "Cream, red halter",
-   "status": "At the ranch",
-   "alt": "A cream-coloured horse in a red halter looks at the camera with its forelock in its eyes"
-  },
-  {
-   "slug": "buckskin",
-   "title": "The buckskin",
-   "coat": "Buckskin, scar on the shoulder",
-   "status": "At the ranch",
-   "alt": "A buckskin horse in a red rope halter stands in the sun with the barn behind"
-  },
-  {
-   "slug": "chestnut-braids",
-   "title": "The chestnut with the braided mane",
-   "coat": "Chestnut, braided mane",
-   "status": "At the ranch",
-   "alt": "A chestnut horse with a braided mane and white blaze stands by a wooden feeder"
+   "status": "Gaining weight",
+   "alt": "Daisy, a cream mare with a pale mane in a red halter, by the red pipe gate",
+   "lede": "Daisy came from the same Stillwater kill pen with no history at all, except that she was a skeleton when the ranch picked her up and frightened of everyone. Right now her only job is putting weight on and getting strong. When she's healthy, Braxton will find her a loving home.",
+   "quote": [
+    "She was a skeleton when they picked her up. She's a pretty big mystery, honestly.",
+    "Ranch staff, October 2026"
+   ],
+   "card": [
+    [
+     "Came from",
+     "The Stillwater kill pen"
+    ],
+    [
+     "Arrived",
+     "Underweight and skittish"
+    ],
+    [
+     "Now",
+     "Regaining weight and strength"
+    ]
+   ],
+   "log": [
+    [
+     "Arrival",
+     "A skeleton",
+     "No papers, no history, and scared of people. Someone at the sale said she'd been ridden bareback; the staff take that with a grain of salt.",
+     ""
+    ],
+    [
+     "Now",
+     "Groceries",
+     "Feed and hay every day to put weight back on. She isn't being ridden yet.",
+     "$9 a day in hay and feed"
+    ],
+    [
+     "Next",
+     "A home of her own",
+     "Once she's healthy, the staff will see what she's like under saddle and Braxton will find her the right home.",
+     ""
+    ]
+   ]
   }
  ],
  "people": [

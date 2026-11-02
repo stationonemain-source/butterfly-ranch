@@ -81,7 +81,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
     var other=g.querySelector('input[name=other]'), tiles=g.querySelectorAll('input[name=amt]'), out=g.querySelector('.sent'), btn=g.querySelector('button');
     function amt(){{var t=[].filter.call(tiles,function(x){{return x.checked}})[0];return other.value?Number(other.value):(t?Number(t.value):0)}}
     function freq(){{return g.querySelector('input[name=freq]:checked').value}}
-    function label(){{var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':'')):'Choose an amount'}}
+    function label(){{var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':' once')):'Choose an amount'}}
     var want=new URLSearchParams(location.search).get('amt');if(want){{var hit=[].filter.call(tiles,function(x){{return x.value===want}})[0];if(hit)hit.checked=true;else other.value=want}}
     g.addEventListener('change',label); other.addEventListener('input',function(){{tiles.forEach(function(x){{x.checked=false}});label()}}); label();
   }}
@@ -137,6 +137,8 @@ def updates(rel, what="the horses"):
 <form class="join" data-signup data-how="join" data-how-at="end" novalidate aria-label="Email updates"><div class="join-row"><label class="vh" for="join-email">Email</label><input id="join-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><button class="btn fill" type="submit">Get the updates</button></div><p class="join-fine">One email a month. Unsubscribe in one click.</p><p class="sent" role="status"></p></form></div></div></section>'''
 
 PHONE = f'<a href="tel:{O["phone_e164"]}">{O["phone"]}</a>'
+# buy-out up to $2,000 + a year at $9 a day hay and feed, $50 a month supplements, $50 every six weeks farrier
+NEXT_HORSE = 6300
 
 # ---------- HOME ----------
 def home():
@@ -147,67 +149,42 @@ def home():
   <picture class="still"><source media="(max-aspect-ratio: 4/5)" srcset="assets/hero-poster-m.jpg"><img src="assets/hero-poster.jpg" alt="Horses at Butterfly Ranch look straight at the camera over the fence"></picture>
   <video autoplay muted loop playsinline preload="auto" aria-label="The horses of Butterfly Ranch coming to the fence, filmed at the ranch in October 2026; some shots are animated from photos"><source src="assets/hero-m.mp4" type="video/mp4" media="(max-aspect-ratio: 4/5)"><source src="assets/hero.mp4" type="video/mp4"></video>
   <div class="wrap">
-    <span class="label">Horse rescue · Norman, Oklahoma</span>
+    <span class="label">{e(O["street"])} · {e(O["city"])}, Oklahoma</span>
     <h1>Every horse here has a story.</h1>
     <p class="script">Every loving heart deserves to see it.</p>
-    <p class="lede">Rescued from kill pens and hard homes, brought back to health, and every step shown.</p>
-    <div class="acts"><a class="btn fill" href="donate/">Donate</a><a class="btn ghost" href="horses/">Meet the horses</a></div>
+    <div class="acts"><a class="btn fill big" href="donate/">Donate</a><a class="btn ghost" href="horses/">Meet the herd</a></div>
   </div>
   <span class="credit">Filmed at the ranch by OU students, October 2026 · some shots animated from their photos</span>
 </div>
 
-<section class="state"><div class="wrap"><p>A horse that nobody wanted gets fed, shod, doctored and worked, slowly, <b>and every step of it is here for you to see.</b> That's the whole idea.</p></div></section>
-
-<section>
-  <div class="wrap">
-    {head("The herd", "The horses at the ranch right now", "Every horse here has its own page, updated as it recovers, with what was spent and who helped.", '<a href="horses/">See all the horses →</a>')}
-    <div class="herd" data-how="herd">{herd}</div>
-  </div>
-</section>
-{gallery_strip()}
-
-<section class="dark">
-  <div class="wrap">
-    {head("How a horse comes through", "Rescue, rehab, and every step in the open")}
-    <div class="path">
-      <ol class="steps">
-        <li><span class="n">1</span><div><h3>Rescue</h3><p>Horses come to us from dangerous places: kill pens, abusive homes, and owners who can no longer keep them.</p></div></li>
-        <li><span class="n">2</span><div><h3>Rehabilitation</h3><p>Feed, supplements, farrier, vet care and time. The work goes at the horse's pace, not ours.</p></div></li>
-        <li><span class="n">3</span><div><h3>Followed, in public</h3><p>Every step goes on the horse's page: what was done, what it cost and who helped. Donors see exactly where their gift went.</p></div></li>
-        <li><span class="n">4</span><div><h3>A home</h3><p>When a horse is ready, Braxton finds it the right home. Some stay for good, like <a href="horses/rico/" style="color:inherit">Rico</a>.</p></div></li>
-      </ol>
-      <figure><img src="assets/photos/student-bucket.jpg" alt="A student in a maroon shirt and cap, seen from behind, brushes a chestnut horse beside a pink feed bucket, the ranch sign behind them" width="1200" height="1600" loading="lazy"><figcaption>Grooming by the pens, with the sign behind.</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    {head("In numbers", "What the ranch is, in plain figures", "From Braxton's own records, October 2026.")}
-    <div class="stats">
-      <div><span class="n">{O["rescued"]}</span><p>horses rescued since {O["founded"]}</p></div>
-      <div><span class="n">{O["rescues_now"]}</span><p>rescue horses at the ranch right now</p></div>
-      <div><span class="n">${O["cost_month"]}</span><p>what one horse's set costs come to each month <a href="donate/#costs">see where it goes</a></p></div>
-      <div><span class="n">$9</span><p>a day of hay and feed for one horse <a href="donate/?amt=9">give a day</a></p></div>
-    </div>
-  </div>
-</section>
+<section class="state said-home"><div class="wrap"><blockquote class="said"><p>“Once she had a little bit of love and a little bit of time to realize that nobody was going to hurt her anymore, she was able to be put into the riding lessons.”</p><cite>Ranch staff, on <a href="horses/dandelion/">Dandelion</a></cite></blockquote></div></section>
 
 {band(rel)}
 {goal(rel)}
 
-<section>
+<section class="dark">
   <div class="wrap">
-    {head("The program", "Lessons, camps and pony parties", "Kids and adults come out to ride, learn horsemanship and get away from city life. Lessons and camps help keep the rescue fed.", '<a href="program/">Camps, lessons and pony parties →</a>')}
-    <div class="gallery">
-      <div class="wide"><img src="assets/photos/friends.jpg" alt="Two horses, a bay with a wide blaze and a chestnut, stand head to head at a wooden feeder" width="1600" height="1000" loading="lazy"></div>
-      <div><img src="assets/photos/goofy.jpg" alt="A bay horse lifts its head high over the fence, lip curled, showing off" width="1200" height="1600" loading="lazy"></div>
-      <div><img src="assets/photos/saddles.jpg" alt="Western saddles and a striped saddle blanket racked against the barn wall" width="1200" height="1600" loading="lazy"></div>
-      <div><img src="assets/photos/trough.jpg" alt="A bay horse stands by a full water trough with wildflowers along the fence" width="1200" height="1600" loading="lazy"></div>
-      <div><img src="assets/photos/goat.jpg" alt="A brown and white goat with long ears looks at the camera beside a horse trailer" width="1200" height="1600" loading="lazy"></div>
+    {head("The journey to a second chance", "Every horse deserves a chance to heal")}
+    <div class="path">
+      <ol class="steps">
+        <li><span class="n">01</span><div><h3>A new beginning</h3><p>Every horse arrives with a story. Some have known neglect or abuse; others come from owners who can no longer care for them. Whatever the past, each horse is welcomed with compassion, patience and the promise of a brighter future.</p></div></li>
+        <li><span class="n">02</span><div><h3>Healing takes time</h3><p>Recovery is about more than food and medical care. It's rebuilding trust, finding comfort and learning to feel safe again. With proper nutrition, vet care, gentle attention and plenty of patience, each horse heals at its own pace.</p></div></li>
+        <li><span class="n">03</span><div><h3>Be part of their story</h3><p>Every small step forward is worth celebrating, and none of it happens alone. We share each horse's journey so supporters can see the difference their kindness makes. Every donation helps write a new chapter.</p></div></li>
+        <li><span class="n">04</span><div><h3>A home</h3><p>When a horse is ready, Braxton finds it the right home. Some stay for good, like <a href="horses/rico/" style="color:inherit">Rico</a>.</p></div></li>
+      </ol>
+      <figure class="ba-rico"><div class="ba2"><div><span class="tag">Arriving</span><img src="assets/photos/rico-before.jpg" alt="Rico when he came back to the ranch: a white horse so thin his ribs and hip bones show, eating from a black tub" width="1600" height="1200" loading="lazy"></div><div><span class="tag">Today</span><img src="assets/photos/rico-now.jpg" alt="Rico today: a white horse at a healthy weight standing by the red pipe gate" width="1600" height="1200" loading="lazy"></div></div>
+      <figcaption><b>Rico's journey.</b> These photos show Rico when he arrived at Butterfly Ranch and where he is today: a reminder of what love, patience and proper care can do. Every horse deserves a second chance, and Rico is living proof.</figcaption></figure>
     </div>
   </div>
 </section>
+
+<section>
+  <div class="wrap">
+    {head("Meet the herd", "The four horses in the rescue", "Rescued from kill pens and hard homes, brought back to health, and every step shown.", '<a href="horses/">Meet the herd →</a>')}
+    <div class="herd" data-how="herd">{herd}</div>
+  </div>
+</section>
+{gallery_strip()}
 
 {updates(rel)}'''
     write("", page("", f"{O['name']} · Horse rescue in Norman, Oklahoma", "Butterfly Rescue Ranch is a 501(c)(3) horse rescue in Norman, Oklahoma. Horses from kill pens, abusive homes and surrenders are rehabilitated in the open: follow every horse, donate, sponsor or volunteer.", body, home=True))
@@ -216,7 +193,7 @@ def home():
 def horses():
     rel = "../"
     herd = "".join(f'<a href="{h["slug"]}/"><img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"><h3>{e(h["title"])}</h3><p class="coat">{e(h["coat"])}</p></a>' for h in D["horses"])
-    body = ph("The herd", "The horses at the ranch", f"Every one of them has a page that follows it from the day it arrived. <span class=\"tbc\">Names and stories are Braxton's to add; the photos are from the ranch on 23 October 2026.</span>", crumbs=[("Home", ""), ("The horses", None)], rel=rel)
+    body = ph("Meet the herd", "The four horses in the rescue", "Rico, Reba, Dandelion and Daisy are the horses in the rescue program right now. Each has a page that follows it from the day it arrived. The other horses at the ranch are Braxton's own.", crumbs=[("Home", ""), ("The horses", None)], rel=rel)
     body += f'<section><div class="wrap"><div class="herd" data-how="herd">{herd}</div></div></section>{band(rel)}{updates(rel)}'
     ld = [crumbs_ld([("Home", ""), ("The horses", "horses/")]),
           {"@context": "https://schema.org", "@type": "ItemList", "name": "Horses at Butterfly Rescue Ranch", "itemListElement": [
@@ -238,8 +215,10 @@ def horse(h):
     rel = "../../"
     named = bool(h.get("lede"))
     who = h["title"] if named else "this horse"
+    she = h.get("pron") == "she"
+    his, him, he_is = ("her", "her", "she is") if she else ("his", "him", "he is")
     if named:
-        lede = e(h["lede"]) + ' <span class="tbc">Story from Braxton. Photo matched to the class\'s Rico storyboard; Braxton to confirm.</span>'
+        lede = e(h["lede"])
     else:
         lede = f'{e(h["coat"])}. <span class="tbc">Name, age, where it came from and its story are Braxton\'s to add. This page shows the layout every horse will get.</span>'
     card = "".join(f"<dt>{e(k)}</dt><dd>{e(v)}</dd>" for k, v in h["card"]) if h.get("card") else '<dt>Came from</dt><dd class="tbc">Kill pen, auction or surrender</dd><dt>Arrived</dt><dd class="tbc">Month, year</dd><dt>Breed, age</dt><dd class="dash">—</dd>'
@@ -250,14 +229,15 @@ def horse(h):
 <div class="ph"><div class="wrap">
   <div><p class="crumbs"><a href="{rel}">Home</a> › <a href="../">The horses</a> › {e(h["title"])}</p><span class="label">{e(h["status"])}</span><h1>{e(h["title"])}</h1>
   <p class="lede">{lede}</p>
-  <div class="acts" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn fill" href="{rel}sponsor/?horse={h["slug"]}#start">Sponsor {e(who)}</a><a class="btn line" href="{rel}donate/?horse={h["slug"]}">Give toward {"his" if named else "its"} care</a></div>
+  <div class="acts" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn fill" href="{rel}sponsor/?horse={h["slug"]}#start">Sponsor {e(who)}</a><a class="btn line" href="{rel}donate/?horse={h["slug"]}">Give toward {his if named else "its"} care</a></div>
   <a class="feed" href="{rel}donate/?horse={h["slug"]}&amp;amt=9"><b>$9</b><span>feeds {e(who)} for a day: hay and feed</span><em>Give $9 →</em></a></div>
   <img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" style="aspect-ratio:4/5">
 </div></div>
 
 <section class="dark">
   <div class="wrap">
-    {head("The journal", "From the day he arrived" if named else "From the day it arrived", "Updated as the horse recovers, with what was spent and who helped, so donors can see what their gift did.")}
+    {f'<blockquote class="said"><p>“{e(h["quote"][0])}”</p><cite>{e(h["quote"][1])}</cite></blockquote>' if h.get("quote") else ""}
+    {head("The journal", f"From the day {'she' if she else 'he'} arrived" if named else "From the day it arrived", "Updated as the horse recovers, with what was spent and who helped, so donors can see what their gift did.")}
     <div class="journal" data-how="journal">
       <aside class="card-id" aria-label="Horse details">
         <span class="label">{e(h["status"])}</span>
@@ -272,8 +252,8 @@ def horse(h):
   </div>
 </section>
 
-<section><div class="wrap">{head("Also at the ranch", "More of the herd", more=f'<a href="../">All the horses →</a>')}<div class="herd">{more}</div></div></section>
-{band(rel, f"Help {who}", f"Sponsor {'him' if named else 'it'} by the month, or give once toward feed, farrier and vet care. Either way you'll hear how {'he is' if named else 'it is'} doing.")}
+<section><div class="wrap">{head("Also in the rescue", "The rest of the herd", more=f'<a href="../">All four horses →</a>')}<div class="herd">{more}</div></div></section>
+{band(rel, f"Help {who}", f"Sponsor {him if named else 'it'} by the month, or give once toward feed, farrier and vet care. Either way you'll hear how {he_is if named else 'it is'} doing.")}
 {updates(rel, "this horse and the others")}'''
     ld = [crumbs_ld([("Home", ""), ("The horses", "horses/"), (h["title"], f"horses/{h['slug']}/")]),
           {"@context": "https://schema.org", "@type": "Animal" if False else "Thing", "name": h["title"], "description": f"A rescue horse at {O['name']}, {O['city']}, Oklahoma. {h['coat']}.", "image": f"{BASE}assets/photos/horse-{h['slug']}.jpg", "url": f"{BASE}horses/{h['slug']}/"}]
@@ -287,9 +267,9 @@ def donate():
           ("Where does the money go?", "Hay and feed ($9 a day for each horse), supplements ($50 a month), the farrier ($50 every six weeks) and the vet when a horse needs one. That comes to about $360 a month for one horse before the vet, and every horse's page shows what was spent on it."),
           ("Can I give monthly?", "Yes. Choose <b>Monthly</b> above. Monthly gifts are what let the ranch plan feed and farrier visits ahead instead of month to month. You can stop at any time from the receipt email."),
           ("Can I give to one particular horse?", f"Yes. <a href=\"{rel}sponsor/\">Sponsor a horse</a> covers one horse's care by the month, and you'll get its updates. A one-time gift here goes wherever the need is that month."),
-          ("Can I give supplies instead of money?", "Please do. Hay, feed, fly spray, wormer, hoof care, halters, lead ropes and brushes are all used daily. Call ahead before dropping anything off. A wish list is on its way."),
+          ("Can I give supplies instead of money?", "Please do. Feed, hay and horse supplies are used every day, and the list of what's needed most is above. Call ahead before dropping anything off."),
           ("Does my employer match gifts?", "Many do. Ask your HR team for their matching-gift form and send it to the ranch with your receipt; the ranch will complete its part.")]
-    body = ph("Donate", "Give to the horses", "Every dollar goes to hay, feed and care, and you'll hear back about the horse it helped. Three steps: pick an amount, choose once or monthly, pay.", crumbs=[("Home", ""), ("Donate", None)], rel=rel)
+    body = ph("Donate", "Transparency you can trust, impact you can see", "Be part of every horse's story. Every dollar you give goes to a horse's journey, from rescue to rehabilitation and, in time, a new home. Three steps: pick an amount, choose once or monthly, and pay.", img="donate-sign", alt="A bay horse grazes beside the pink Butterfly Ranch sign on the block wall", crumbs=[("Home", ""), ("Donate", None)], rel=rel)
     body += f'''
 <section>
   <div class="wrap">
@@ -308,8 +288,8 @@ def donate():
         <h2 style="margin-bottom:22px" id="ways">Other ways to give</h2>
         <ul class="ways">
           <li><b>Venmo</b><p><span class="tbc">The ranch's Venmo handle will be here, with a QR code.</span></p></li>
-          <li><b>By mail</b><p>Cheques to {e(O["name"])}, {e(O["street"])}, {e(O["city"])}, {O["state"]} {O["zip"]}.</p></li>
-          <li><b>Supplies</b><p>Hay, feed, fly spray, wormer, hoof care, halters, lead ropes, brushes. <span class="tbc">Wish list to come.</span> Call first: {PHONE}.</p></li>
+          <li><b>By mail</b><p>Checks to {e(O["name"])}, {e(O["street"])}, {e(O["city"])}, {O["state"]} {O["zip"]}. <span class="tbc">A PO Box is being set up.</span></p></li>
+          <li><b>Supplies</b><p>Feed, hay and tack. <a href="#supplies">See what's needed most →</a></p></li>
           <li><b>Employer match</b><p>Many employers double a gift. Ask HR for the form; the ranch will complete its part.</p></li>
           <li><b>Sponsor a horse</b><p>One horse, by the month, with its updates. <a href="{rel}sponsor/">How sponsoring works →</a></p></li>
         </ul>
@@ -318,9 +298,29 @@ def donate():
   </div>
 </section>
 
+<section class="next-horse"><div class="wrap">
+  {head("The next horse", f"We are ${NEXT_HORSE:,} away from saving our next horse this year", "That's what it takes to bring one more horse in: up to $2,000 to buy it out of a kill pen, and about $4,300 for its first year of hay, feed, supplements and the farrier. Braxton's goal is four horses a year without paying out of her own pocket.")}
+  <div class="gbar" role="img" aria-label="$0 raised of ${NEXT_HORSE:,} for the next horse"><i style="width:0%"></i></div>
+  <div class="gnums"><span><strong>$0</strong> toward the next horse</span><span><strong>${NEXT_HORSE:,}</strong> saves one</span></div>
+  <p class="note">The bar fills from every gift once the ranch's donations go live. Until then it stays at zero.</p>
+</div></section>
+
+<section class="why"><div class="wrap">
+  {head("Why your support is critical", "Every dollar goes to the horses")}
+  <div class="two"><p class="soft">At Butterfly Ranch, every dollar spent goes directly to changing the lives of the horses in our care. We take in horses from dangerous situations and give them the safe place, the resources and the love they need to thrive.</p>
+  <p class="soft">Rescued horses need intensive daily care, from proper nutrition and hay to vet checks and rehabilitation supplies. Your gift makes sure these horses never go without what they need. Become part of their recovery today.</p></div>
+</div></section>
+
+<section class="supplies" id="supplies"><div class="wrap">
+  <img class="banner" src="{rel}assets/photos/tack-banner.jpg" alt="Saddles, halters and lead ropes in pink, green and purple hanging in the tack room" width="1600" height="640" loading="lazy">
+  {head("A gift more than money", "Give supplies the ranch uses every day", f"Have equipment or supplies to give? Physical gifts keep the ranch running. Call first so someone is there: {PHONE}.")}
+  <div class="two"><div><h3>Needed most</h3><ul class="needs"><li>Feed</li><li>Hay</li><li>Horse supplies: fly spray, wormer, hoof care, brushes</li><li>Children's saddles</li><li>Saddle pads</li><li>Riding helmets</li></ul><p class="note"><span class="tbc">The order of this list is Braxton's to confirm.</span></p></div>
+  <div><h3>Amazon wish list</h3><p class="soft">Order something the horses need and it ships straight to the ranch. <span class="tbc">Braxton is setting the list up; the link goes here.</span></p></div></div>
+</div></section>
+
 <section id="costs" class="dark">
   <div class="wrap">
-    {head("Where it goes", "What one horse costs us each month", "Hay isn't free, and neither is a farrier. These are Braxton's own figures for keeping one rescue horse, so you know what a gift covers.")}
+    {head("Where it goes", "What one horse costs us each month", "You deserve to see exactly where your money goes. A gift isn't lost in an anonymous fund: you become part of a horse's journey, with updates from arrival to recovery.")}
     <div class="ledger-grid">
       <div>
         <div class="big"><span class="amt">${O["cost_month"]}</span><span class="per soft">a month in set costs, for one rescue horse at the ranch</span></div>
@@ -371,8 +371,11 @@ def sponsor():
 <div><span class="label">Sponsor</span><div class="a">$90</div><p class="per">a month · a quarter of one horse's month</p><ul><li>Everything above</li><li>Come out and meet your horse</li><li>Named in the monthly email</li></ul></div>
 <div><span class="label">Business</span><div class="a">$360</div><p class="per">a month · one horse's whole month</p><ul><li>Everything above</li><li>Your logo on this page and on the horse's page</li><li>A thank-you post on the ranch's channels</li></ul></div></div>
 <p class="note">Suggested from Braxton's own costs: $9 a day for hay and feed, about $360 a month for one horse. The ranch sets the final levels.</p>'''
+    cards = "".join(f'''<article><a href="{rel}horses/{h["slug"]}/"><img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"></a><div><span class="label">{e(h["status"])}</span><h3>{e(h["title"])}</h3><p>{e(h["lede"])}</p><p class="how-sp">Sponsoring {e(h["title"])} pays for the feed, care and farrier {"she needs" if h.get("pron") == "she" else "he needs"}, and you'll get {"her" if h.get("pron") == "she" else "his"} updates every month.</p><a class="btn fill" href="?horse={h["slug"]}#start">Sponsor {e(h["title"])}</a></div></article>''' for h in D["horses"])
     body = ph("Sponsor a horse", "One horse. Your name on its story.", "Pick a horse, cover part of its care each month, and follow it from the day it arrived to the day it's well.", img="horse-sign", alt="A bay horse at the fence in front of the pink Butterfly Ranch sign", crumbs=[("Home", ""), ("Sponsor a horse", None)], rel=rel)
     body += f'''
+<section class="dark"><div class="wrap">{head("Pick a horse", "The four horses you can sponsor", "Only the horses in the rescue program are open for sponsorship. The other horses at the ranch are Braxton's own.", f'<a href="{rel}horses/">Meet the herd →</a>')}
+<div class="sp-horses">{cards}</div></div></section>
 <section><div class="wrap">{head("Levels", "Three ways to sponsor")}{levels}</div></section>
 <section id="start"><div class="wrap">{head("Start", "Sponsor a horse today", "Choose the horse and what you'd like to give each month. Stop any time from your receipt.")}
 <form class="giver sponsor-form" data-sponsor-form data-how="giver" novalidate aria-label="Start a sponsorship">
@@ -383,8 +386,7 @@ def sponsor():
   <p class="fine">A monthly gift on the ranch's own Stripe account, with a receipt for every payment.</p>
   <p class="sent" role="status"></p>
 </form></div></section>
-<section class="dark"><div class="wrap">{head("Pick a horse", "Who needs a sponsor", "Every horse at the ranch is open for sponsorship right now.", f'<a href="{rel}horses/">All the horses →</a>')}
-<div class="herd">{"".join(f'<a href="{rel}horses/{h["slug"]}/"><img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"><h3 style="color:#f4ecef">{e(h["title"])}</h3><p class="coat" style="color:#b9aab1">{e(h["coat"])}</p></a>' for h in D["horses"][:8])}</div></div></section>
+
 <section><div class="wrap">{head("Business sponsors", "Norman businesses behind the herd", "Sponsor a horse as a business and your logo sits here and on the horse's page.")}
 <div class="logos" data-how="logos"><div>Your business here</div><div>Your business here</div><div>Your business here</div><div>Your business here</div></div>
 <p style="margin-top:28px"><a class="btn fill" href="mailto:?subject=Sponsoring%20a%20horse%20at%20Butterfly%20Ranch">Ask about sponsoring</a> <span class="tbc" style="margin-left:12px">Email address to be added.</span></p></div></section>
@@ -396,17 +398,20 @@ def sponsor():
 # ---------- VOLUNTEER ----------
 def volunteer():
     rel = "../"
-    qa = [("Do I need horse experience?", "No. Feeding, filling water, mucking and barn days need willing hands, not experience. Anyone working directly with a horse is shown how first."),
+    qa = [("Who can volunteer?", "Anyone who wants to help the ranch and its rescued horses: individuals, students looking for service hours, groups, or someone who simply loves horses."),
+          ("What will I do?", "Help with what the ranch needs that week and with the care of the rescued horses, guided by the staff."),
+          ("Do I need horse experience?", "<span class=\"tbc\">Braxton will confirm.</span> Tell the ranch what you've done before and it will match you to work that fits. Anyone working directly with a horse is shown how first."),
           ("How old do volunteers have to be?", "<span class=\"tbc\">The ranch's minimum age and the rule for under-18s with a parent will be stated here.</span>"),
           ("When are volunteer days?", "<span class=\"tbc\">Regular days and times will be listed here once the ranch sets them.</span> Tell us when you're free in the form and we'll match you to one."),
           ("Can a group or a class come out?", f"Yes. Call {O['phone']} and we'll plan a barn day around your group.")]
-    body = ph("Volunteer", "Hands on. Horses first.", "Feeding, grooming, mucking, barn days. Tell us when you're free and the ranch will be in touch.", img="hand-nose", alt="A hand reaches up to a dark bay horse's nose over a wire fence", crumbs=[("Home", ""), ("Volunteer", None)], rel=rel, pos="50% 38%")
+    body = ph("Volunteer", "Make a difference, one horse at a time", "Every horse deserves care, patience and a chance at a better life. Volunteers make that possible here. With horse experience or without, there's a place for you at Butterfly Ranch.", img="vol-grooming", alt="A ranch hand in a cap, her face turned away, brushes the leg of a white horse tied at the red gate", crumbs=[("Home", ""), ("Volunteer", None)], rel=rel, pos="50% 42%")
     body += f'''
+<section class="state"><div class="wrap"><p><b>Give your time. Change a horse's story.</b> Volunteers keep the ranch a safe, steady place for rescued horses, from everyday chores to supporting the people who make the mission possible. A willingness to learn, lend a hand and care for these animals is a great place to start.</p></div></section>
 <section><div class="wrap"><div class="two">
 <div>{head("Sign up", "Tell us about you")}
 <form class="steps-form" data-preview data-steps data-how="volunteer" novalidate aria-label="Volunteer sign-up">
   <div class="sf-bar" aria-hidden="true"><i></i></div>
-  <fieldset class="sf-step" data-step="1"><legend class="sf-q">What would you like to help with?</legend><p class="sf-hint">Pick any. No horse experience needed.</p>
+  <fieldset class="sf-step" data-step="1"><legend class="sf-q">What would you like to help with?</legend><p class="sf-hint">Pick any.</p>
     <div class="picks">
       <label class="pick"><input type="checkbox" name="i" value="feeding"><span><b>Feeding</b><small>Hay, water, supplements</small></span></label>
       <label class="pick"><input type="checkbox" name="i" value="grooming"><span><b>Grooming</b><small>Brushing, feet, leading</small></span></label>
@@ -440,7 +445,7 @@ def volunteer():
 <li><span class="n">1</span><div><h3>Feed and water</h3><p>Morning and evening. Hay out, buckets filled, supplements measured by the labels on the jugs.</p></div></li>
 <li><span class="n">2</span><div><h3>Grooming and groundwork</h3><p>Brushing, picking feet, leading. This is where a shy horse learns people are all right.</p></div></li>
 <li><span class="n">3</span><div><h3>Barn days</h3><p>Mucking, fence repair, hay stacking, tack cleaning. Bring gloves.</p></div></li>
-<li><span class="n">4</span><div><h3>Events and camps</h3><p>Extra hands for pony parties, camps and open days.</p></div></li>
+<li><span class="n">4</span><div><h3>Events and camps</h3><p>Extra hands for camps and open days.</p></div></li>
 </ol></div>
 </div></div></section>
 <section class="events" id="dates"><div class="wrap">{head("Coming up", "Dates at the ranch", "Pick a date and you'll get a reminder the day before. Braxton sets the dates; they appear here as she does.")}
@@ -451,7 +456,7 @@ def volunteer():
 </div>
 <p class="note" style="margin-top:18px">On the live site each date has a booking button, with a text and email reminder before it.</p></div></section>
 <section class="dark"><div class="wrap">{head("Questions", "Volunteering, answered")}{faq_html(qa)}</div></section>
-{band(rel)}'''
+{band(rel, "Be part of their story", "Take the first step toward helping rescued horses: sign up above, or give once or monthly.")}'''
     ld = [crumbs_ld([("Home", ""), ("Volunteer", "volunteer/")]), faq_ld([(q, a) for q, a in qa if "tbc" not in a])]
     write("volunteer/", page("volunteer/", f"Volunteer · {O['name']}", "Volunteer at Butterfly Rescue Ranch in Norman, Oklahoma: feeding, grooming, barn days and events. No horse experience needed.", body, ld, current="volunteer/"))
 
@@ -459,21 +464,20 @@ def volunteer():
 def program():
     rel = "../"
     def rows(items): return "".join(f'<div class="row"><span class="what">{e(w)}</span><span class="dots"></span><span class="price">{e(p)}</span>{f"<small class=meta>{e(m)}</small>" if m else ""}</div>' for w, p, m in items)
-    body = ph("The program", "Lessons, camps and pony parties", "Kids and adults come out to ride, learn horsemanship and get away from city life. Lessons and camps help keep the rescue fed.", img="friends", alt="Two horses, a bay with a wide blaze and a chestnut, stand head to head at a wooden feeder", crumbs=[("Home", ""), ("Program", None)], rel=rel)
+    body = ph("The program", "Lessons and camps", "Kids and adults come out to ride, learn horsemanship and get away from city life. Rico, Reba and Dandelion all carry riders, and lessons and camps help keep the rescue fed.", img="friends", alt="Two horses, a bay with a wide blaze and a chestnut, stand head to head at a wooden feeder", crumbs=[("Home", ""), ("Program", None)], rel=rel)
     body += f'''
 <section class="dark"><div class="wrap"><div class="prog">
 <figure><img src="{rel}assets/photos/chestnut-sky.jpg" alt="A chestnut horse with a white blaze stands in the pen under a wide blue sky" width="1200" height="1600" loading="lazy"><figcaption>In the pens, between lessons.</figcaption></figure>
 <div class="flyer" data-how="flyer" data-how-at="end">
   <h3>Summer camps</h3><p class="soft" style="font-size:15.5px;margin:0 0 6px">Last summer's camps. <span class="tbc">2026 dates to come.</span></p>{rows(D["camps"])}
   <h3>Breakaway lessons</h3>{rows(D["lessons"])}
-  <h3>Pony parties</h3>{rows(D["parties"])}
   <p class="soft" style="font-size:15.5px;margin-top:18px">Camps hold a spot with a $100 non-refundable deposit. To book, text Anna at <a href="sms:{O["camp_phone_e164"]}">{O["camp_phone"]}</a>.</p>
 </div></div></div></section>
-<section><div class="wrap">{head("Why it matters", "Lessons that feed the rescue", "Every lesson, camp and pony party helps pay for hay, farrier and vet care for the rescue horses. Come ride, and you're part of it.")}
+<section><div class="wrap">{head("Why it matters", "Lessons that feed the rescue", "Every lesson and camp helps pay for hay, farrier and vet care for the rescue horses. Come ride, and you're part of it.")}
 <div class="gallery pair"><div><img src="{rel}assets/photos/student-bucket.jpg" alt="A student seen from behind brushes a chestnut horse beside a pink bucket" width="1200" height="1600" loading="lazy"></div><div><img src="{rel}assets/photos/braids.jpg" alt="A horse's mane in neat braids" width="1200" height="1600" loading="lazy"></div></div></div></section>
 {band(rel)}'''
     ld = [crumbs_ld([("Home", ""), ("Program", "program/")])]
-    write("program/", page("program/", f"Lessons, camps and pony parties · {O['name']}", "Riding lessons, summer horse camps and pony parties at Butterfly Rescue Ranch in Norman, Oklahoma. Every lesson helps feed the rescue horses.", body, ld, current="program/"))
+    write("program/", page("program/", f"Lessons and camps · {O['name']}", "Riding lessons and summer horse camps at Butterfly Rescue Ranch in Norman, Oklahoma. Every lesson helps feed the rescue horses.", body, ld, current="program/"))
 
 # ---------- ABOUT ----------
 def about():
@@ -483,11 +487,22 @@ def about():
     body += f'''
 <section><div class="wrap">{head("The people", "The people at the barn")}<div class="people">{people}</div>
 </div></section>
+<section>
+  <div class="wrap">
+    {head("In numbers", "What the ranch is, in plain figures", "From Braxton's own answers to the class, October 2026.")}
+    <div class="stats">
+      <div><span class="n">{O["rescued"]}</span><p>horses rescued since {O["founded"]}</p></div>
+      <div><span class="n">{O["rescues_now"]}</span><p>rescue horses at the ranch right now: <a href="{rel}horses/">meet them</a></p></div>
+      <div><span class="n">${O["cost_month"]}</span><p>what one horse's set costs come to each month <a href="{rel}donate/#costs">see where it goes</a></p></div>
+      <div><span class="n">$9</span><p>a day of hay and feed for one horse <a href="{rel}donate/?amt=9">give a day</a></p></div>
+    </div>
+  </div>
+</section>
 <section class="dark"><div class="wrap">{head("What we believe", "Hopeful, not heartbreaking")}
 <div class="two"><div><p class="soft">We don't lead with the worst photo of a horse's life. We show the recovery: weight coming back, feet fixed, the first day a horse walks to the gate on its own. Where a horse came from is part of its story, told plainly, once.</p></div>
 <div><p class="soft">We publish what things cost and where gifts went. Every horse has a page that is updated as it recovers, and every donor hears back about the horse they helped. Your name stays private unless you ask to be thanked by name.</p></div></div></div></section>
 <section><div class="wrap">{head("The facts", "On the record")}
-<table data-how="facts"><tbody><tr><td>Legal name</td><td>{e(O["name"])}</td></tr><tr><td>Status</td><td>501(c)(3) nonprofit <span class="tbc">(EIN to be shown)</span></td></tr><tr><td>Founded</td><td>{O["founded"]}, by Braxton Brackin</td></tr><tr><td>Where</td><td>{e(O["street"])}, {e(O["city"])}, Oklahoma {O["zip"]}</td></tr><tr><td>Phone</td><td>{PHONE}</td></tr><tr><td>What we do</td><td>Rescue and rehabilitate horses, in the open; riding lessons, camps and pony parties</td></tr><tr><td>Photos and film</td><td>{e(D["credits"])}</td></tr><tr><td>This site</td><td>A concept by <a href="https://station.solutions/" target="_blank" rel="noopener">Station</a>, not yet the ranch's official website</td></tr></tbody></table></div></section>
+<table data-how="facts"><tbody><tr><td>Legal name</td><td>{e(O["name"])}</td></tr><tr><td>Status</td><td>501(c)(3) nonprofit <span class="tbc">(EIN to be shown)</span></td></tr><tr><td>Founded</td><td>{O["founded"]}, by Braxton Brackin</td></tr><tr><td>Where</td><td>{e(O["street"])}, {e(O["city"])}, Oklahoma {O["zip"]}</td></tr><tr><td>Phone</td><td>{PHONE}</td></tr><tr><td>What we do</td><td>Rescue and rehabilitate horses, in the open; riding lessons and camps</td></tr><tr><td>Photos and film</td><td>{e(D["credits"])}</td></tr><tr><td>This site</td><td>A concept by <a href="https://station.solutions/" target="_blank" rel="noopener">Station</a>, not yet the ranch's official website</td></tr></tbody></table></div></section>
 {band(rel)}'''
     ld = [crumbs_ld([("Home", ""), ("About", "about/")]),
           {"@context": "https://schema.org", "@type": "Person", "name": "Braxton Brackin", "jobTitle": "Founder & CEO", "worksFor": {"@type": "NGO", "name": O["name"]}, "url": BASE + "about/"}]
@@ -496,7 +511,7 @@ def about():
 # ---------- VISIT ----------
 def visit():
     rel = "../"
-    body = ph("Visit", "Come meet the herd", "We're a working barn, so please call before you come out. Lessons, camps and pony parties are booked by text.", img="gate", alt="The red pipe entrance gate of the ranch with the sign beyond", crumbs=[("Home", ""), ("Visit", None)], rel=rel)
+    body = ph("Visit", "Come meet the herd", "We're a working barn, so please call before you come out. Lessons and camps are booked by text.", img="gate", alt="The red pipe entrance gate of the ranch with the sign beyond", crumbs=[("Home", ""), ("Visit", None)], rel=rel)
     body += f'''
 <section><div class="wrap"><div class="visit">
 <div data-how="where" data-how-at="end"><h3>Where</h3><p>{e(O["street"])}<br>{e(O["city"])}, Oklahoma {O["zip"]}<br><a href="{O["maps"]}" target="_blank" rel="noopener">Open in Maps</a></p></div>
@@ -522,7 +537,7 @@ def _gallery():
 def gallery_strip():
     G = _gallery(); picks = G["rope"][:6]; n = sum(len(c["photos"]) for c in G["cats"])
     tiles = "".join(f'<a href="gallery/#{r["cat"]}"><img src="{r["thumb"]}" alt="{e(r["alt"])}" loading="lazy" width="560" height="560"></a>' for r in picks)
-    return f'<section><div class="wrap">{head("The gallery", "See the whole ranch", f"{n} photos from the class visit: the horses, the barn, the work and the petting zoo.", "<a href=gallery/>Open the gallery &rarr;</a>")}<div class="gstrip">{tiles}</div></div></section>'
+    return f'<section><div class="wrap">{head("The gallery", "See the whole ranch", f"{n} photos from the class visit: the horses, the barn and the work.", "<a href=gallery/>Open the gallery &rarr;</a>")}<div class="gstrip">{tiles}</div></div></section>'
 
 def gallery():
     rel = "../"; G = _gallery(); n = sum(len(c["photos"]) for c in G["cats"])
@@ -547,7 +562,7 @@ def gallery():
 {band(rel)}"""
     ld = [crumbs_ld([("Home", ""), ("Gallery", "gallery/")]),
           {"@context": "https://schema.org", "@type": "ImageGallery", "name": "Butterfly Rescue Ranch gallery", "url": BASE + "gallery/", "about": O["name"], "numberOfItems": n}]
-    write("gallery/", page("gallery/", f"Gallery · {O['name']}", f"{n} photos of Butterfly Rescue Ranch in Norman, Oklahoma: the horses, the ranch, the daily work and the petting zoo.", body, ld, current="gallery/"))
+    write("gallery/", page("gallery/", f"Gallery · {O['name']}", f"{n} photos of Butterfly Rescue Ranch in Norman, Oklahoma: the horses, the ranch and the daily work.", body, ld, current="gallery/"))
 
 # ---------- UPDATES ----------
 def updates_page():
@@ -568,15 +583,18 @@ def links():
 <a class="btn line" style="text-align:center;padding:18px" href="{rel}sponsor/">Sponsor a horse</a>
 <a class="btn line" style="text-align:center;padding:18px" href="{rel}horses/">Meet the horses</a>
 <a class="btn line" style="text-align:center;padding:18px" href="{rel}volunteer/">Volunteer</a>
-<a class="btn line" style="text-align:center;padding:18px" href="{rel}program/">Camps, lessons and pony parties</a>
+<a class="btn line" style="text-align:center;padding:18px" href="{rel}program/">Camps and lessons</a>
 <a class="btn line" style="text-align:center;padding:18px" href="{rel}updates/">Get the monthly update</a>
 <a class="btn line" style="text-align:center;padding:18px" href="tel:{O["phone_e164"]}">Call the ranch · {O["phone"]}</a>
 </div></div></section>'''
     write("links/", page("links/", f"Links · {O['name']}", "Butterfly Rescue Ranch: donate, sponsor a horse, meet the horses, volunteer, camps and lessons.", body))
 
 def redirects():
-    for old, new in [("horses/gray/", "horses/rico/")]:
-        write(old, f'<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=../rico/"><link rel="canonical" href="{BASE}{new}"><title>Rico</title><a href="../rico/">Rico has moved here</a>')
+    moved = [("gray", "rico"), ("cream", "daisy"), ("buckskin", "dandelion"), ("chestnut-blaze", "reba")]
+    moved += [(x, "") for x in ("bay-lightning", "bay-star", "dark-bay", "paint", "palomino-pony", "little-pinto", "chestnut-braids")]
+    for old, new in moved:
+        to = f"../{new}/" if new else "../"
+        write(f"horses/{old}/", f'<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={to}"><link rel="canonical" href="{BASE}horses/{new + "/" if new else ""}"><title>The horses</title><a href="{to}">This page has moved</a>')
 
 def sitemap_and_llms():
     urls = ["", "horses/", "gallery/", "donate/", "sponsor/", "volunteer/", "program/", "about/", "visit/", "updates/", "links/"] + [f"horses/{h['slug']}/" for h in D["horses"]]
@@ -595,7 +613,7 @@ Address: {O['street']}, {O['city']}, {O['state']} {O['zip']}. Phone: {O['phone']
 - [Donate]({BASE}donate/): one-time or monthly gifts by card, Apple Pay, Google Pay or bank; Venmo, mail, supplies, employer match
 - [Sponsor a horse]({BASE}sponsor/): monthly sponsorship of one horse, with updates; business logos welcome
 - [Volunteer]({BASE}volunteer/): feeding, grooming, barn days, events; no experience needed
-- [Program]({BASE}program/): lessons, summer camps and pony parties, with prices
+- [Program]({BASE}program/): lessons and summer camps, with prices
 - [About]({BASE}about/): the founder and team, what the ranch stands for, legal facts
 - [Visit]({BASE}visit/): address, map, call first
 - [Updates]({BASE}updates/): news from the barn
@@ -606,7 +624,7 @@ Address: {O['street']}, {O['city']}, {O['state']} {O['zip']}. Phone: {O['phone']
 - Founder: Braxton Brackin, Founder & CEO
 - Barn manager and instructor: Anna Foote; instructor: Chloe Bjornberg
 - Camps (last summer): Overnight Barrel Camp $600; Barrel Day Camp $375; Overnight Camp $500; River Day Camp $250–$325; Playday Camp $250. $100 deposit holds a spot.
-- Lessons: ground lesson (half hour) $25; horseback lesson (one hour) $50. Pony parties from $300.
+- Lessons: ground lesson (half hour) $25; horseback lesson (one hour) $50.
 - About $360 a month in set costs per horse: hay and feed $9 a day, supplements $50 a month, farrier $50 every six weeks; vet on top. Roughly 20 horses rescued since 2022; 4 rescue horses at the ranch now, including Rico, who stays for good.
 - January 2027 goal: $2,000 to $3,000.
 

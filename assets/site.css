@@ -406,6 +406,40 @@ button,input,select,textarea{font-family:var(--fb)}
 .dark .faq summary::after,.dark .steps .n,.dark .amt,.dark .stats .n{color:#f0a8c8}
 .dark .dash{color:#b9aab1}
 
+.film .btn.fill.big{font-size:18px;padding:17px 34px}
+blockquote.said{margin:0 0 40px;max-width:780px}
+blockquote.said p{font:400 clamp(22px,2.4vw,30px)/1.35 var(--fd);margin:0 0 12px}
+blockquote.said cite{font:400 13px/1.3 var(--fs);letter-spacing:.18em;text-transform:uppercase;font-style:normal;color:var(--mute)}
+.dark blockquote.said p{color:#f4ecef}.dark blockquote.said cite{color:#b9aab1}
+.said-home blockquote.said{margin:0 auto;text-align:center}
+.said-home blockquote.said p{font-size:clamp(22px,2.6vw,32px)}
+.ba-rico{margin:0}
+.ba2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ba2 div{position:relative}
+.ba2 img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+.ba2 .tag{position:absolute;left:10px;top:10px;font:600 12px/1 var(--fs);letter-spacing:.14em;text-transform:uppercase;background:rgba(43,32,38,.82);color:#fff;padding:7px 10px 6px;border-radius:999px}
+.ba-rico figcaption{margin-top:14px;font-size:15.5px;line-height:1.55;color:#d3c5cc}
+.ba-rico figcaption b{color:#f4ecef}
+.steps .n{font-variant-numeric:lining-nums}
+.next-horse .gbar{margin-top:8px}
+.why .two p{margin:0}
+.supplies .banner{display:block;width:100%;height:auto;aspect-ratio:5/2;object-fit:cover;border-radius:6px;margin:0 0 40px}
+.supplies h3{font:400 24px/1.2 var(--fd);margin:0 0 12px}
+.needs{margin:0;padding:0;list-style:none}
+.needs li{padding:10px 0;border-bottom:1px solid var(--rule)}
+.sp-horses{display:grid;gap:40px}
+.sp-horses article{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:32px;align-items:start;padding-bottom:40px;border-bottom:1px solid #4a3a42}
+.sp-horses article:last-child{border-bottom:0;padding-bottom:0}
+.sp-horses img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.sp-horses h3{font:400 34px/1.1 var(--fd);margin:6px 0 12px;color:#f4ecef}
+.sp-horses p{color:#d3c5cc;margin:0 0 14px;max-width:62ch}
+.sp-horses .how-sp{color:#f4ecef}
+@media(max-width:760px){.sp-horses article{grid-template-columns:1fr;gap:18px}.sp-horses img{max-width:340px}.ba2{grid-template-columns:1fr}}
+.said-home blockquote.said cite{color:rgba(255,255,255,.85)}
+.said-home blockquote.said cite a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.film .acts{align-items:center}
+.ba2{grid-template-columns:1fr}
+
 /* ---- torn-poster footer (port of the 21st.dev "Pushpin Tear Footer"; behaviour in assets/tear.js) ---- */
 .tpf{position:relative;overflow:hidden;container-type:size;height:calc(100vh - 78px);height:calc(100svh - 78px);min-height:600px;max-height:940px;background:var(--tpf-sheet);color:var(--tpf-on-sheet);font-family:var(--fb);isolation:isolate;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;--ease:cubic-bezier(.22,1,.36,1);--fs:max(13px,1.9cqmin)}
 .tpf *,.tpf *::before,.tpf *::after{box-sizing:border-box}

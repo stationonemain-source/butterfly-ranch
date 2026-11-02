@@ -34,7 +34,7 @@
 <a class="btn line" style="text-align:center;padding:18px" href="../sponsor/">Sponsor a horse</a>
 <a class="btn line" style="text-align:center;padding:18px" href="../horses/">Meet the horses</a>
 <a class="btn line" style="text-align:center;padding:18px" href="../volunteer/">Volunteer</a>
-<a class="btn line" style="text-align:center;padding:18px" href="../program/">Camps, lessons and pony parties</a>
+<a class="btn line" style="text-align:center;padding:18px" href="../program/">Camps and lessons</a>
 <a class="btn line" style="text-align:center;padding:18px" href="../updates/">Get the monthly update</a>
 <a class="btn line" style="text-align:center;padding:18px" href="tel:+14059220839">Call the ranch · (405) 922-0839</a>
 </div></div></section>
@@ -115,7 +115,7 @@
     var other=g.querySelector('input[name=other]'), tiles=g.querySelectorAll('input[name=amt]'), out=g.querySelector('.sent'), btn=g.querySelector('button');
     function amt(){var t=[].filter.call(tiles,function(x){return x.checked})[0];return other.value?Number(other.value):(t?Number(t.value):0)}
     function freq(){return g.querySelector('input[name=freq]:checked').value}
-    function label(){var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':'')):'Choose an amount'}
+    function label(){var a=amt();btn.textContent=a?('Give $'+a+(freq()==='monthly'?' a month':' once')):'Choose an amount'}
     var want=new URLSearchParams(location.search).get('amt');if(want){var hit=[].filter.call(tiles,function(x){return x.value===want})[0];if(hit)hit.checked=true;else other.value=want}
     g.addEventListener('change',label); other.addEventListener('input',function(){tiles.forEach(function(x){x.checked=false});label()}); label();
   }
