@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Butterfly Rescue Ranch · Class Proposal</title>
+<meta name="description" content="MKT 4970's campaign proposal for Butterfly Rescue Ranch, Norman, Oklahoma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cinzel:wght@500;600&family=Josefin+Slab:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --berry:#AA2060; --berry-d:#8a1a4e; --paper:#FEE7F8; --cream:#FDF4E7; --blush:#FEE7F8; --rose:#F6D3E1;
+  --ink:#2D2B30; --mute:#665c61; --gray:#8E8D93; --sage:#97A28A; --line:#efc9db;
+  --fd:'Josefin Slab',Georgia,serif; --fb:'Lora',Georgia,serif; --fs:'Cinzel',Georgia,serif; --fa:'Allura',cursive;
+  --B:.55s;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#1d1b1f;overflow:hidden}
+body{font-family:var(--fb);color:var(--ink);-webkit-font-smoothing:antialiased}
+#deck{position:fixed;inset:0;display:grid;place-items:center}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0;background:var(--paper);overflow:hidden}
+.slide{position:absolute;inset:0;visibility:hidden;opacity:0;background:var(--paper)}
+.slide.on{visibility:visible;opacity:1}
+img{display:block}
+.team{position:absolute;left:120px;bottom:40px;font:600 19px/1 var(--fb);color:var(--mute)}
+.h2{font:700 76px/1.02 var(--fd);color:var(--ink);letter-spacing:-.005em}
+.h3{font:700 38px/1.1 var(--fd);color:var(--berry)}
+.lab{font:600 20px/1.3 var(--fb);color:var(--mute)}
+.p{font:400 24px/1.48 var(--fb)}
+.small{font:400 21px/1.45 var(--fb);color:var(--mute)}
+.note{font:italic 400 20.5px/1.45 var(--fb);color:var(--mute)}
+b,strong{font-weight:600}
+ul.list{list-style:none}
+ul.list li{position:relative;padding-left:28px;font:400 23px/1.45 var(--fb);margin-top:12px}
+ul.list li::before{content:"";position:absolute;left:4px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--berry)}
+.num{position:absolute;right:56px;bottom:40px;font:600 19px/1 var(--fb);color:var(--mute)}
+.tc{font-variant-numeric:lining-nums tabular-nums}
+
+/* 1 cover */
+.cov-photo{position:absolute;right:0;top:0;width:1040px;height:1080px;overflow:hidden}
+.cov-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.cov-left{position:absolute;left:120px;top:0;width:680px;height:1080px;display:flex;flex-direction:column;justify-content:center}
+.cov-logo{width:640px;height:auto}
+.cov-rule{width:120px;height:3px;background:var(--berry);margin:56px 0 30px}
+.cov-kind{font:700 44px/1.15 var(--fd);color:var(--ink)}
+.cov-meta{margin-top:22px;font:400 22px/1.55 var(--fb);color:var(--mute)}
+.cov-cap{position:absolute;right:0;bottom:0;padding:14px 22px;font:italic 400 20px/1 var(--fb);color:#fff;background:rgba(45,43,48,.72)}
+
+/* 2 campaign idea */
+.prop-lab{position:absolute;left:120px;top:236px}
+.prop{position:absolute;left:114px;top:262px;width:1720px;font:400 76px/1.1 var(--fa);color:var(--berry)}
+.cols3{position:absolute;left:120px;top:396px;width:1680px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:64px}
+.cols3 .h3{margin-bottom:16px}
+.cols3 .p{font-size:22px;line-height:1.45}
+.cols3 .note{margin-top:10px;font-size:19.5px;line-height:1.4}
+.goal{position:absolute;left:120px;top:850px;width:1680px}
+.gbar{position:relative;height:30px;margin-top:16px;background:rgba(170,32,96,.08)}
+.gfill{position:absolute;left:0;top:0;bottom:0;width:61.73%;background:var(--berry);transform-origin:0 50%}
+.gfill2{position:absolute;left:61.73%;top:0;bottom:0;width:30.86%;background:var(--rose);border:2px solid var(--berry);border-left:0;transform-origin:0 50%}
+.gticks{position:relative;height:30px;margin-top:6px}
+.gticks span{position:absolute;top:0;font:400 19px/1 var(--fb);color:var(--mute);transform:translateX(-50%)}
+.gkl{position:absolute;top:-62px;font:600 22px/1 var(--fb);transform:translateX(-50%);white-space:nowrap}
+
+/* 3 rico */
+.rico-ph{position:absolute;top:250px;width:560px;height:420px;overflow:hidden;background:#ddd}
+.rico-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rico-cap{position:absolute;left:24px;bottom:22px;font:600 20px/1 var(--fb);color:#fff;background:rgba(45,43,48,.72);padding:10px 14px}
+.rico-txt{position:absolute;left:1340px;top:250px;width:460px}
+.rico-txt .p{font-size:25px;margin-top:0}
+.rico-ask{margin-top:24px;font:700 30px/1.3 var(--fd);color:var(--berry)}
+.rico-src{position:absolute;left:120px;top:682px;width:1120px}
+.route{position:absolute;left:120px;top:752px;width:1680px;height:250px;overflow:visible}
+.route text{font-family:var(--fb);font-size:23px;fill:var(--ink)}
+.route .rl{font-family:var(--fs);font-size:17px;letter-spacing:.16em;fill:var(--mute);text-transform:uppercase}
+
+/* problem / solution */
+.ps{position:absolute;left:120px;top:128px;width:1680px;display:grid;grid-template-columns:1fr 1fr;gap:96px}
+.ps .h2{margin-bottom:22px}
+.ps .lab{margin-top:22px}
+.ps .p{font-size:26px;margin-top:20px}
+.ps ul.list li{font-size:25.5px;margin-top:14px}
+[data-b=ps3] .ps .p{font-size:23px}
+[data-b=ps3] .ps ul.list li{font-size:23px;margin-top:12px}
+.clicks{display:flex;align-items:center;gap:0;margin:16px 0 4px 28px;height:58px;position:relative}
+.clicks svg{overflow:visible}
+.clicks .cnt{font:700 48px/1 var(--fd);color:var(--berry);margin-left:4px;min-width:110px}
+.mlab{display:flex;justify-content:space-between;width:100%;margin-top:8px}
+.mcount{font:700 52px/1.05 var(--fd);color:var(--berry);margin-top:30px}
+.horses{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.horse{position:relative}
+.horse .ph{width:100%;height:330px;overflow:hidden}
+.horse img{width:100%;height:100%;object-fit:cover}
+.horse .nm{font:700 30px/1 var(--fd);margin-top:10px}
+
+/* touchpoint map */
+.tp-h{position:absolute;left:120px;top:128px}
+.tp-sub{position:absolute;left:120px;top:214px}
+.tp-svg{position:absolute;left:120px;top:262px;width:1680px;height:60px;overflow:visible}
+.tp-cols{position:absolute;left:120px;top:330px;width:1680px;display:grid;grid-template-columns:repeat(5,1fr);gap:30px}
+.tp-it{position:relative;padding-left:30px;margin-bottom:13px}
+.tp-it h5{font:600 22.5px/1.22 var(--fb)}
+.tp-it p{font:400 21px/1.34 var(--fb);color:var(--mute);margin-top:3px}
+.tp-it u{text-decoration:none;font-style:italic}
+.dot{position:absolute;left:2px;top:6px;width:16px;height:16px;border-radius:50%;border:2.5px solid var(--berry)}
+.dot.b{background:var(--berry)}
+.dot.p{background:linear-gradient(90deg,var(--berry) 50%,transparent 50%)}
+.dot.m{border-color:var(--gray);background:transparent}
+.tally{position:absolute;right:120px;bottom:70px;display:flex;gap:40px;align-items:center}
+.tally span{position:relative;padding-left:28px;font:600 22px/1 var(--fb)}
+.tally .dot{top:2px}
+.tally em{font-style:normal;font-family:var(--fd);font-weight:700;font-size:34px;color:var(--berry);margin-left:6px}
+
+/* billboard */
+.bb{position:absolute;left:120px;top:250px;width:1080px;height:360px;perspective:2400px}
+.slat{position:absolute;top:0;height:360px;transform-style:preserve-3d}
+.slat .f{position:absolute;inset:0;backface-visibility:hidden;background-size:1080px 360px}
+.slat .k{transform:rotateY(180deg)}
+.bb-post{position:absolute;left:120px;top:610px;width:1080px;height:8px;background:var(--ink)}
+.bb-opt{position:absolute;left:120px;top:640px;display:flex;gap:26px}
+.bb-opt span{font:600 19px/1 var(--fb);color:var(--mute);padding-bottom:8px;border-bottom:3px solid transparent}
+.bb-opt span.on{color:var(--berry);border-color:var(--berry)}
+.bb-txt{position:absolute;left:120px;top:704px;width:1080px}
+.bb-txt .p{font-size:23px}
+.cost{display:inline-block;margin-top:16px;font:600 22px/1.3 var(--fb);color:var(--berry);border-top:2px solid var(--berry);padding-top:10px}
+.radio{position:absolute;left:1290px;top:250px;width:510px}
+.cue{margin-top:18px}
+.cue .k{font:600 21px/1 var(--fb);color:var(--berry)}
+.cue .k i{font-style:normal;color:var(--mute);margin-right:10px}
+.cue p{font:400 22px/1.45 var(--fb);margin-top:6px}
+.cue.sfx p:not(.k){font-style:italic;color:var(--mute)}
+
+/* print */
+.pr-big{position:absolute;top:250px;width:500px;height:750px;box-shadow:0 18px 40px rgba(45,43,48,.18)}
+.pr-big img{width:100%;height:100%;object-fit:cover}
+.pr-grid{position:absolute;left:760px;top:262px;display:grid;grid-template-columns:repeat(3,236px);gap:24px}
+.pr-grid img,.pr-big img{width:100%;height:100%;object-fit:cover}
+.pr-grid div{height:354px;box-shadow:0 12px 28px rgba(45,43,48,.16)}
+.pr-h{position:absolute;left:120px;top:128px}
+.pr-cap{position:absolute;left:1260px;top:250px;width:540px;font:italic 400 34px/1.4 var(--fb)!important;color:var(--berry)}
+
+/* brand kit */
+.sw{position:absolute;left:120px;top:250px;width:1680px;display:grid;grid-template-columns:repeat(7,1fr);gap:18px}
+.sw .c{height:280px;border-radius:10px;transform-origin:50% 100%;box-shadow:inset 0 0 0 1.5px rgba(45,43,48,.2)}
+.sw .n{font:600 20px/1.2 var(--fb);margin-top:12px}
+.sw .x{font:400 20px/1.3 var(--fb);color:var(--mute)}
+.ty{position:absolute;left:120px;top:680px;width:1680px;display:grid;grid-template-columns:1.5fr 1.3fr .7fr .7fr;gap:40px;align-items:start}
+.ty .s > p:first-child{height:84px;display:flex;align-items:center;white-space:nowrap}
+.ty .s{border-top:2px solid var(--ink);padding-top:18px}
+.ty .r{margin-top:10px}
+.voice{position:absolute;left:120px;top:920px;display:flex;align-items:center;gap:40px}
+.btn{font:600 20px/1 var(--fb);color:#fff;background:var(--berry);padding:16px 28px;border-radius:999px}
+
+/* social + site */
+.posts{position:absolute;left:120px;top:250px;display:flex;gap:24px}
+.posts img{height:600px;width:auto;box-shadow:0 10px 26px rgba(45,43,48,.14)}
+.fb-r{position:absolute;left:960px;top:250px;width:840px}
+.fb-cap{font:400 24px/1.48 var(--fb);margin-top:14px}
+.fb-cap + .fb-cap{margin-top:20px}
+.web{position:absolute;left:120px;top:250px;width:1100px;height:640px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.web img{width:1100px;height:auto}
+.web-cap{position:absolute;left:120px;top:906px;width:1100px}
+.web-r{position:absolute;left:1300px;top:250px;width:500px}
+
+/* team openers */
+.op-ph{position:absolute;left:0;top:0;width:1100px;height:1080px;overflow:hidden}
+.op-ph img{width:100%;height:100%;object-fit:cover}
+.op-r{position:absolute;left:1100px;top:0;width:820px;height:1080px;background:var(--berry);color:#fff;padding:0 100px;display:flex;flex-direction:column;justify-content:center}
+.op-t{font:700 168px/.9 var(--fd)}
+.op-w{font:400 32px/1.4 var(--fb);margin-top:44px}
+.op-n{font:italic 400 28px/1.45 var(--fb);color:#fbd9e8;margin-top:36px}
+
+.op-cap{position:absolute;left:0;bottom:0;max-width:900px;padding:22px 30px;background:rgba(45,43,48,.78);color:#fff}
+.op-cap b{display:block;font:700 40px/1 var(--fd)}
+.op-cap span{display:block;font:italic 400 23px/1.4 var(--fb);margin-top:10px}
+
+/* email */
+.inbox{position:absolute;left:120px;top:236px;width:1680px;border-top:2px solid var(--ink)}
+.mail{display:grid;grid-template-columns:34px 1fr 520px;align-items:center;gap:20px;height:84px;border-bottom:1px solid var(--line)}
+.mail .u{width:14px;height:14px;border-radius:50%;background:var(--berry);margin-left:10px}
+.mail .s{font:600 24px/1.2 var(--fb)}
+.mail .a{font:400 20px/1.3 var(--fb);color:var(--mute);margin-top:4px}
+.mail .w{font:400 21px/1.35 var(--fb);color:var(--ink);text-align:right}
+.mail .w b{display:none}
+
+/* tables */
+.tbl{position:absolute;left:120px;top:250px;width:1680px;border-collapse:collapse}
+.tbl td{border-top:2px solid var(--ink);padding:26px 22px 26px 0;vertical-align:top;font:400 23px/1.45 var(--fb)}
+.tbl tr:last-child td{border-bottom:2px solid var(--ink)}
+.tbl td:first-child{font:700 30px/1.2 var(--fd);color:var(--berry);width:330px}
+.tbl td.m{font:600 30px/1.2 var(--fb);width:280px}
+.tbl td.m small{display:block;font:400 20px/1.4 var(--fb);color:var(--mute);margin-top:8px}
+.tbl th{font:600 20px/1.2 var(--fb);color:var(--mute);text-align:left;padding:0 22px 12px 0}
+.tbl td.m.body{font:400 24px/1.35 var(--fb)}
+.tbl td.t{width:300px}
+.tbl.t3 td{font-size:26px;padding:44px 22px 44px 0}
+.tbl.t3 td:first-child{width:260px;font-size:34px}
+.tbl.t3 td.m{width:200px}
+.tbl.t3 td.t{width:200px}
+
+/* storyboard */
+.sb{position:absolute;left:120px;top:270px;width:1680px;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.sb .fr{height:362px;overflow:hidden;background:#111}
+.sb img{width:100%;height:100%;object-fit:cover}
+.sb .ts{font:400 22px/1.35 var(--fb);color:var(--ink);margin-top:56px}
+.sb-line{position:absolute;left:120px;top:658px;width:1680px;height:3px;background:var(--line)}
+.sb-head{position:absolute;left:120px;top:651px;width:3px;height:17px;background:var(--berry)}
+.sb-prog{position:absolute;left:120px;top:658px;width:1680px;height:3px;background:var(--berry);transform-origin:0 50%;transform:scaleX(0)}
+.sb-cap{position:absolute;left:120px;top:880px;width:1300px}
+
+/* community map */
+.cm-svg{position:absolute;inset:0;width:1920px;height:1080px;pointer-events:none}
+.hub{position:absolute;left:810px;top:450px;width:300px;height:300px;border-radius:50%;background:var(--berry);display:grid;place-items:center;text-align:center;color:#fff}
+.hub b{font:700 40px/1.05 var(--fd)}
+.hub small{display:block;font:400 20px/1 var(--fb);margin-top:12px}
+.grp{position:absolute;width:540px}
+.grp .lab{color:var(--berry);margin-bottom:12px;font:700 30px/1.1 var(--fd)}
+.grp li{list-style:none;font:400 22px/1.3 var(--fb);padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:14px}
+.grp li i{font:600 18px/1.6 var(--fb);font-style:normal;color:var(--mute);width:18px}
+
+/* pr */
+.msgs{position:absolute;left:120px;top:250px;width:560px}
+.msgs li{list-style:none;font:400 27px/1.42 var(--fb);padding:20px 0;border-top:1px solid var(--line)}
+.tag{font:italic 400 22px/1 var(--fb);color:var(--mute);white-space:nowrap}
+.stories{position:absolute;left:760px;top:250px;width:1040px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.st h4{font:700 34px/1.15 var(--fd);color:var(--ink)}
+.st p{font:400 22px/1.48 var(--fb);margin-top:14px}
+.st .hook{font:italic 400 27px/1.35 var(--fb);color:var(--berry);margin-top:22px}
+.tl{position:absolute;left:120px;top:250px;width:1680px}
+.tl-bar{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
+.tl-bar i{height:20px;background:var(--rose);transform-origin:0 50%}
+.tl-bar i.on{background:var(--berry)}
+.tl-wk{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:8px}
+.tl-wk span{font:600 20px/1 var(--fb);color:var(--mute)}
+.tl-ph{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:30px}
+.tl-ph h4{font:700 32px/1.15 var(--fd);color:var(--berry)}
+.tl-ph li{list-style:none;font:400 22px/1.42 var(--fb);margin-top:16px}
+.tl-ph li b{font:600 20px/1 var(--fb);color:var(--berry);display:block;margin-bottom:6px}
+.tp-q{position:absolute;left:120px;top:790px;width:1680px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px;border-top:2px solid var(--ink);padding-top:22px}
+.tp-q p{font:italic 400 22px/1.42 var(--fb)}
+.tp-q p.lab{font-style:normal}
+
+/* end */
+.end-a{position:absolute;left:0;top:0;width:560px;height:1080px;overflow:hidden}
+.end-b{position:absolute;left:570px;top:0;width:560px;height:1080px;overflow:hidden}
+.end-a img,.end-b img{width:100%;height:100%;object-fit:cover}
+.end-a img{object-position:28% 50%}
+.end-b img{object-position:50% 35%}
+.end-cap{position:absolute;left:0;bottom:0;padding:12px 18px;font:600 20px/1 var(--fb);color:#fff;background:rgba(45,43,48,.72)}
+.end-r{position:absolute;left:1220px;top:0;width:600px;height:1080px;display:flex;flex-direction:column;justify-content:center}
+.end-q{font:700 112px/1 var(--fd);color:var(--berry)}
+.end-m{font:700 40px/1.2 var(--fd);margin-top:56px}
+.end-g{font:400 26px/1.45 var(--fb);margin-top:16px}
+.end-s{margin-top:40px}
+
+@media print{html,body{overflow:visible;background:#fff}}
+</style>
+</head>
+<body>
+<div id="deck"><div id="stage">
+
+<!-- 1 · cover -->
+<section class="slide" data-b="cover">
+  <div class="cov-photo"><img src="img/rico-before.jpg" alt="Rico when he first arrived: very thin, ribs and hips showing, eating from a tub" style="object-position:30% 50%"></div>
+  <div class="cov-left">
+    <img class="cov-logo" src="img/logo.png" alt="Butterfly Ranch">
+    <div class="cov-rule"></div>
+    <p class="cov-kind">Campaign proposal for<br>Butterfly Rescue Ranch</p>
+    <p class="cov-meta">MKT 4970 Integrated Marketing Communications<br>Price College of Business, University of Oklahoma<br>November 2026</p>
+  </div>
+  <p class="cov-cap">Rico, when he first arrived at Butterfly Ranch</p>
+</section>
+
+<!-- team 1 opener -->
+<section class="slide" data-b="op">
+  <div class="op-ph"><img src="img/horse-reba.jpg" alt="Reba, a chestnut mare with a white blaze"><p class="op-cap"><b>Reba</b><span>“Because of her sweet spirit, she’s been able to be used for lessons for beginner riders.” Ranch staff</span></p></div>
+  <div class="op-r"><p class="op-t">Team 1</p><p class="op-w">Campaign idea, Rico’s story, the touchpoint map, billboard, radio, print and the brand kit</p><p class="op-n">Charlie, Autumn, Logan, Sthefanny and Naomi</p></div>
+</section>
+
+<!-- 2 · campaign idea -->
+<section class="slide" data-b="idea">
+  <p class="team">Team 1 · Campaign idea</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Campaign idea</h2>
+  <p class="lab prop-lab">Proposition</p>
+  <p class="prop">Every horse has a story; every loving heart deserves to see it.</p>
+  <div class="cols3">
+    <div class="c"><h3 class="h3">The idea</h3><p class="p">Every horse deserves a second chance, but rescue doesn’t end when a horse is saved. Through Rico’s story, Butterfly Rescue Ranch will show the ongoing commitment, care, and resources it takes to give horses a safe and healthy future. By sharing real rescue stories, breaking down the costs of horse care, and showing supporters how they can contribute, the campaign will turn awareness into meaningful, ongoing support for the ranch.</p></div>
+    <div class="c"><h3 class="h3">Primary audience</h3><p class="p">Donors are the primary audience, with volunteers and Norman community members as secondary audiences. Braxton confirmed that financial donations are the ranch’s greatest need, although feed, hay, horse supplies, and volunteer time are also valuable contributions.</p></div>
+    <div class="c"><h3 class="h3">Giving Tuesday</h3><p class="p">Giving Tuesday, December 1, 2026: Launch a fundraising campaign featuring Rico’s rescue story, an introduction to the ranch’s mission, and a transparent breakdown of horse care costs. Encourage supporters to contribute toward the <span style="white-space:nowrap">$2,000–$3,000</span> fundraising goal by January 2027 through monetary donations, supplies, and other resources.</p><p class="note">(While this should remain a recommendation, we may need to push it to the following year so we are able to create an audience for her before launching a social media campaign.)</p></div>
+  </div>
+  <div class="goal">
+    <p class="lab">How many months of one horse’s care the goal would cover, at about $360 a month (our arithmetic from Braxton’s figures)<span style="display:block;height:34px"></span></p>
+    <div class="gbar"><div class="gfill"></div><div class="gfill2"></div><span class="gkl k2" style="left:61.73%;top:-30px">$2,000</span><span class="gkl k3" style="left:92.59%;top:-30px">$3,000</span></div>
+    <div class="gticks"><span style="left:11.11%">1</span><span style="left:22.22%">2</span><span style="left:33.33%">3</span><span style="left:44.44%">4</span><span style="left:55.56%">5</span><span style="left:66.67%">6</span><span style="left:77.78%">7</span><span style="left:88.89%">8</span><span style="left:100%;transform:translateX(-100%)">9 months</span></div>
+  </div>
+  <p class="num">02</p>
+</section>
+
+<!-- 3 · rico -->
+<section class="slide" data-b="rico">
+  <p class="team">Team 1 · Rico’s journey</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Rico’s journey</h2>
+  <div class="rico-ph r1" style="left:120px"><img src="img/rico-before.jpg" alt="Rico when he first arrived: very thin, ribs and hips showing, eating from a tub"><span class="rico-cap">When he first arrived</span></div>
+  <div class="rico-ph r2" style="left:700px"><img src="img/rico-now.jpg" alt="Rico today: filled out, standing at the red pipe fence"><span class="rico-cap">Today</span></div>
+  <div class="rico-txt">
+    <p class="p">Rico was pulled from a kill pen, nursed back to health, and rehomed, but that home failed him. He came back to us in worse condition than before, and now he has found his forever home with us, here at Butterfly Rescue Ranch.</p>
+    <p class="rico-ask">Support Rico and horses like him today.</p>
+  </div>
+  <p class="small rico-src">Words from Team 1’s print ad, “Rico’s Journey.” Photos from Team 2’s homepage files.</p>
+  <svg class="route" viewBox="0 0 1680 250" aria-hidden="true">
+    <path class="fwd" d="M60 70 H1500" fill="none" stroke="#AA2060" stroke-width="5" stroke-linecap="round"/>
+    <mask id="bm" maskUnits="userSpaceOnUse" x="0" y="0" width="1680" height="250"><path class="bmk" d="M1500 70 C1640 70 1640 180 1500 180 H776" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="butt"/></mask>
+    <path class="back" mask="url(#bm)" d="M1500 70 C1640 70 1640 180 1500 180 H776" fill="none" stroke="#8E8D93" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 14"/>
+    <g class="n nA"><circle cx="60" cy="70" r="11" fill="#FDF4E7" stroke="#AA2060" stroke-width="5"/><text x="40" y="34">Pulled from a kill pen</text></g>
+    <g class="n nB"><circle cx="760" cy="70" r="11" fill="#FDF4E7" stroke="#AA2060" stroke-width="5"/><text x="760" y="34" text-anchor="middle">Nursed back to health</text></g>
+    <g class="n nC"><circle cx="1500" cy="70" r="11" fill="#FDF4E7" stroke="#AA2060" stroke-width="5"/><text x="1500" y="34" text-anchor="middle">Rehomed. That home failed him.</text></g>
+    <g class="n nD"><text x="1140" y="226" text-anchor="middle" fill="#665c61">He came back in worse condition than before</text></g>
+    <g class="n nE"><circle cx="760" cy="180" r="17" fill="#AA2060"/><circle class="ring" cx="760" cy="180" r="17" fill="none" stroke="#AA2060" stroke-width="3"/><text x="728" y="188" text-anchor="end" font-weight="600">His forever home, here at the ranch</text></g>
+  </svg>
+  <p class="num">03</p>
+</section>
+
+<!-- 4 · team 1 problem / solution -->
+<section class="slide" data-b="ps1">
+  <p class="team">Team 1 · Problem and solution</p>
+  <div class="ps">
+    <div class="c">
+      <h2 class="h2">Problem</h2>
+      <p class="lab">Key findings</p>
+      <ul class="list">
+        <li><b>Inconsistent Social Media:</b> no Instagram or Facebook posts since July 2025</li>
+        <li>Limited brand awareness in the Norman community</li>
+        <li><b>Complicated Donation Process:</b> 8+ clicks just to send an inquiry</li>
+      </ul>
+      <div class="clicks"><svg width="500" height="58" viewBox="0 0 500 58"><path class="hop" fill="none" stroke="#AA2060" stroke-width="3" stroke-linecap="round" d=""/><g class="cd"></g></svg><span class="cnt tc">0</span></div>
+      <p class="lab">What supporters want</p>
+      <ul class="list">
+        <li>Real horse rescue stories</li>
+        <li>Clear proof of how donations make an impact</li>
+        <li>An easier way to get involved.</li>
+      </ul>
+      <p class="p">Butterfly Rescue Ranch has a compelling mission, but inconsistent posting and a hard-to-follow donation process make it hard for supporters to connect and give.</p>
+    </div>
+    <div class="c">
+      <h2 class="h2">Solution</h2>
+      <ul class="list">
+        <li><b>Consistent Brand Guide:</b> unified colors, fonts, messaging, and photography across all platforms, while keeping the ranch’s existing identity</li>
+        <li><b>Manageable Content Calendar:</b> 2–3 posts per week featuring horse spotlights, rescue stories, behind-the-scenes content, and community events</li>
+        <li><b>Simpler Giving:</b> make donation options more visible and accessible, and share regular impact updates showing how gifts help the horses</li>
+        <li><b>Community Engagement:</b> promote volunteer opportunities, petting zoo experiences, and other ways Norman residents can get involved</li>
+      </ul>
+    </div>
+  </div>
+  <p class="num">04</p>
+</section>
+
+<!-- 5 · touchpoint map -->
+<section class="slide" data-b="tp">
+  <p class="team">All teams · Touchpoint map</p>
+  <h2 class="h2 tp-h">Butterfly Ranch Touchpoint Map</h2>
+  <p class="small tp-sub">Customer journey · Discover → Engage → Give → Stay · Prepared by LW</p>
+  <svg class="tp-svg" viewBox="0 0 1680 60" aria-hidden="true">
+    <path class="ar" d="M0 44 H1662" fill="none" stroke="#AA2060" stroke-width="3"/>
+    <path class="ah" d="M1648 34 L1666 44 L1648 54" fill="none" stroke="#AA2060" stroke-width="3" stroke-linejoin="round"/>
+    <g class="stg" font-family="Cinzel" font-weight="600" font-size="19" letter-spacing="3.5" fill="#2D2B30">
+      <text x="0" y="22">DISCOVER</text><text x="342" y="22">ENGAGE</text><text x="684" y="22">GIVE</text><text x="1026" y="22">STAY</text><text x="1368" y="22">STAY CONNECTED</text>
+    </g>
+    <g class="stgd" fill="#AA2060"><circle cx="0" cy="44" r="7"/><circle cx="342" cy="44" r="7"/><circle cx="684" cy="44" r="7"/><circle cx="1026" cy="44" r="7"/><circle cx="1368" cy="44" r="7"/></g>
+  </svg>
+  <div class="tp-cols">
+    <div class="col">
+      <div class="tp-it"><i class="dot b"></i><h5>Website</h5><p>Team 2 · Built</p></div>
+      <div class="tp-it"><i class="dot b"></i><h5>Social media</h5><p>Team 2 · Built</p></div>
+      <div class="tp-it"><i class="dot b"></i><h5>PR / local news story</h5><p>Team 3 · Built: press release drafted</p></div>
+      <div class="tp-it"><i class="dot p"></i><h5>Print / radio / billboard ads</h5><p>Team 1 · Planned: concepts drafted</p></div>
+      <div class="tp-it"><i class="dot p"></i><h5>Community partners</h5><p>Team 3 · Planned: research completed; outreach not confirmed</p></div>
+      <div class="tp-it"><i class="dot m"></i><h5>Word of mouth and referrals</h5><p>Team 3 · Missing: no formal strategy documented</p></div>
+    </div>
+    <div class="col">
+      <div class="tp-it"><i class="dot p"></i><h5>Horse journey series (social)</h5><p>Team 2 · Planned: content ideas planned: Rico before and after facebook post. <u>Butterfly Rescue Ranch Horse Facebook Spotlight</u></p></div>
+      <div class="tp-it"><i class="dot b"></i><h5>Welcome email</h5><p>Team 2 · Built (Email Drafted)</p></div>
+      <div class="tp-it"><i class="dot m"></i><h5>On-site signage and QR codes</h5><p>Team 1 · Missing</p></div>
+      <div class="tp-it"><i class="dot p"></i><h5>Birthday party (the event)</h5><p>Team 3 · Existing activity discussed; package details not confirmed</p></div>
+      <div class="tp-it"><i class="dot m"></i><h5>Volunteer days and meet‑and‑greets</h5><p>Team 3 · Missing: no established volunteer process</p></div>
+    </div>
+    <div class="col">
+      <div class="tp-it"><i class="dot b"></i><h5>Donate page</h5><p>Team 2 · Built: team revisions completed for Charlie’s website</p></div>
+      <div class="tp-it"><i class="dot b"></i><h5>Sponsor‑a‑horse</h5><p>Team 2 · Built · <u>Sponsor‑a‑horse page</u></p></div>
+      <div class="tp-it"><i class="dot b"></i><h5>Volunteer sign-up</h5><p>Team 2 · Built · <u>Volunteer page</u></p></div>
+      <div class="tp-it"><i class="dot p"></i><h5>Giving Tuesday / year‑end giving</h5><p>Team 3 · Planned: launch strategy still needed</p></div>
+    </div>
+    <div class="col">
+      <div class="tp-it"><i class="dot b"></i><h5>Donor thank‑you and receipt</h5><p>Team 2 · Built: donation thank‑you email outlined · <u>3 Email Plans</u></p></div>
+      <div class="tp-it"><i class="dot m"></i><h5>Impact report (where the money goes)</h5><p>Team 1 · Missing</p></div>
+      <div class="tp-it"><i class="dot m"></i><h5>Party follow-up / sponsorship</h5><p>Team 3 · Missing: requires Braxton’s approval</p></div>
+    </div>
+    <div class="col">
+      <div class="tp-it"><i class="dot b"></i><h5>Sponsor updates</h5><p>Team 2 · Built: monthly sponsor update email outlined · <u>3 Email Plans</u></p></div>
+    </div>
+  </div>
+    <div class="tally">
+    <span><i class="dot b"></i>Built <em class="tc" data-to="9">0</em></span>
+    <span><i class="dot p"></i>Planned <em class="tc" data-to="5">0</em></span>
+    <span><i class="dot m"></i>Missing <em class="tc" data-to="5">0</em></span>
+  </div>
+  <p class="num">05</p>
+</section>
+
+<!-- 6 · billboard + radio -->
+<section class="slide" data-b="bb">
+  <p class="team">Team 1 · Advertising</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Billboard + radio script</h2>
+  <div class="bb" aria-label="Billboard: Every horse deserves a future. Two options."></div>
+  <p class="small" style="position:absolute;left:120px;top:622px">Two billboard options; the board turns between them</p>
+  <div class="bb-txt">
+    <p class="p"><b>Proposed location:</b> along I-35, just north of Lindsey Street in Norman, Oklahoma.</p>
+    <p class="p" style="margin-top:10px"><b>Why:</b> I-35 is the main corridor connecting Norman with Oklahoma City, and with towns to the south, so it reaches horse owners from across the region, not just Norman residents.</p>
+    <p class="cost tc">$1,600 to $1,800 per 4-week period (estimate)</p>
+  </div>
+  <div class="radio">
+    <p class="h3" style="font-size:34px">Radio script</p>
+    <div class="cue sfx"><p class="k"><i>1</i>Sound effect</p><p>The sharp sound of the gate latch, followed by heavy footsteps on the gravel and a soft whinny.</p></div>
+    <div class="cue"><p class="k"><i>2</i>Narrator’s voice</p><p>In Norman, Oklahoma, horses in dangerous situations are getting a second chance.</p></div>
+    <div class="cue sfx"><p class="k"><i>3</i>Sound effect</p><p>A light gallop approaching in the background.</p></div>
+    <div class="cue"><p class="k"><i>4</i>Narrator’s voice</p><p>At the Butterfly Rescue Ranch, we rescue, care for, and show you exactly where your help makes a difference. Give or volunteer today at butterflyrescueranch.org. Butterfly Rescue Ranch. Norman, Oklahoma.</p></div>
+    <p class="cost tc">$25 and $100+ per 30-second ad spot (estimate)</p>
+  </div>
+  <p class="num">06</p>
+</section>
+
+<!-- 7 · print -->
+<section class="slide" data-b="print">
+  <p class="team">Team 1 · Print ad</p>
+  <h2 class="h2 pr-h">Print ad</h2>
+  <div class="pr-big" style="left:120px"><img src="img/print-4.jpg" alt="Print ad: Rico’s Journey"></div>
+  <div class="pr-big" style="left:660px"><img src="img/print-6.jpg" alt="Print ad: donate, volunteer, support, each with a horse photo"></div>
+  <p class="pr-cap">“Every horse arrives with a different story, but they all need the same thing: someone who believes in them.”</p>
+  <p class="small" style="position:absolute;left:1260px;top:520px;width:540px">From the print ad’s body copy</p>
+  <p class="num">07</p>
+</section>
+
+<!-- 8 · brand kit -->
+<section class="slide" data-b="kit">
+  <p class="team">Team 1 · Brand kit</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Brand kit</h2>
+  <div class="sw">
+    <div><div class="c" style="background:#AA2060"></div><p class="n">Butterfly Berry</p><p class="x">#AA2060 · primary</p></div>
+    <div><div class="c" style="background:#FEE7F8"></div><p class="n">Blush Pink</p><p class="x">#FEE7F8 · background</p></div>
+    <div><div class="c" style="background:#F6D3E1"></div><p class="n">Soft Rose</p><p class="x">#F6D3E1 · secondary</p></div>
+    <div><div class="c" style="background:#8E8D93"></div><p class="n">Warm Gray</p><p class="x">#8E8D93 · logo grey</p></div>
+    <div><div class="c" style="background:#2D2B30"></div><p class="n">Charcoal</p><p class="x">#2D2B30 · text</p></div>
+    <div><div class="c" style="background:#97A28A"></div><p class="n">Sage Green</p><p class="x">#97A28A</p></div>
+    <div><div class="c" style="background:#FDF4E7"></div><p class="n">Warm Cream</p><p class="x">#FDF4E7</p></div>
+  </div>
+  <div class="ty">
+    <div class="s"><p style="font:700 46px/1.05 var(--fd)">The Ranch Changes Lives</p><p class="lab r">Josefin Slab · main headings</p></div>
+    <div class="s"><p style="font:400 30px/1.3 var(--fb)">Butterfly Ranch is a local nonprofit</p><p class="lab r">Lora · body and details</p></div>
+    <div class="s"><p style="font:400 64px/1 var(--fa);color:var(--berry)">Together</p><p class="lab r">Allura · accent script</p></div>
+    <div class="s"><p style="font:600 40px/1.1 var(--fs);letter-spacing:.32em;color:var(--mute)">RANCH</p><p class="lab r">Cinzel · ranch wordmark</p></div>
+  </div>
+  <div class="voice"><p class="lab">Voice</p><p class="p">hopeful · compassionate · transparent · community-centered</p><p class="small">Buttons: a soft berry button for calls to action</p></div>
+  <p class="num">08</p>
+</section>
+
+<!-- team 2 opener -->
+<section class="slide" data-b="op">
+  <div class="op-ph"><img src="img/horse-dandelion.jpg" alt="Dandelion, a buckskin mare"><p class="op-cap"><b>Dandelion</b><span>“Once she had a little bit of love and a little bit of time to realize that nobody was going to hurt her anymore, she was able to be put into the riding lessons.” Ranch staff</span></p></div>
+  <div class="op-r"><p class="op-t">Team 2</p><p class="op-w">Website, social, email, and what it takes to keep them running</p><p class="op-n">Abby, Emily, Savannah, Kaylee and James</p></div>
+</section>
+
+<!-- 9 · team 2 problem / solution -->
+<section class="slide" data-b="ps2">
+  <p class="team">Team 2 · Problem and solution</p>
+  <div class="ps">
+    <div class="c">
+      <h2 class="h2">Problem</h2>
+      <p class="lab">Key findings</p>
+      <p class="p">Lack of donor support, driven in part by static digital channels</p>
+      <ul class="list">
+        <li><b>Outdated Website:</b> doesn’t reflect current operations, and donors must contact Braxton directly to give</li>
+        <li><b>Inactive Social Media:</b> no updates since July 2025, and content doesn’t reflect the ranch’s current mission and operations</li>
+      </ul>
+      <p class="mcount">No posts since July 2025</p>
+      <p class="p">Butterfly Rescue Ranch’s outdated website and silent social channels make it hard for supporters to see what the ranch does, trust it, and give.</p>
+    </div>
+    <div class="c">
+      <h2 class="h2">Solution</h2>
+      <p class="p">Stakeholder interviews showed that their target audience cares most about individual horse stories, making them the foundation of the marketing plan.</p>
+      <ul class="list">
+        <li><b>Social Media:</b> Show each horse’s journey, from where they were before arriving to where they are today, including background, personality, rehabilitation, and current needs</li>
+        <li><b>Website:</b> Feature each horse’s story under the “Sponsor a Horse” tab</li>
+        <li><b>Email:</b> Send regular updates to current sponsors (key facts and progress on their horse) and to subscribers (horse stories that highlight sponsorship for those on the fence)</li>
+      </ul>
+      <p class="p">Sharing the same stories across every platform creates a cohesive experience and builds a more meaningful connection with supporters.</p>
+    </div>
+  </div>
+  <p class="num">09</p>
+</section>
+
+<!-- facebook post -->
+<section class="slide" data-b="fb">
+  <p class="team">Team 2 · Social</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Social post</h2>
+  <div class="posts"><img src="img/post-1.jpg" alt="Concept post, photo 1: a bay horse drinking at the trough"><img src="img/post-2.jpg" alt="Concept post, photo 2: the horse at the fence"></div>
+  <div class="fb-r">
+    <p class="lab">The caption</p>
+    <p class="fb-cap">You could make a difference!</p>
+    <p class="fb-cap">Serving our horses means being part of something bigger. From helping with daily care to lending a hand wherever it’s needed, every act of service helps us continue our mission of giving horses the care they deserve. Join us in changing the lives of our rescue horses.</p>
+    <p class="fb-cap">Click the volunteer section in our link tree and fill out an inquiry on our website. No previous farm experience required, we need help at all levels!</p>
+    <p class="small" style="margin-top:28px">A concept carousel by Team 2 calling for volunteers: three photos, one caption (two shown).</p>
+  </div>
+  <p class="num">10</p>
+</section>
+
+<!-- website -->
+<section class="slide" data-b="web">
+  <p class="team">Team 2 · Website</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Website homepage</h2>
+  <div class="web"><img src="img/site-home.jpg" alt="The concept website’s homepage, top to bottom"></div>
+  <p class="small web-cap">The concept site, built by Station Solutions (Charlie’s company, donated to the ranch) with Team 2’s changes. Some hero shots are animated from the class’s photos.</p>
+  <div class="web-r">
+    <p class="lab">Team 2’s homepage notes</p>
+    <ul class="list">
+      <li>Larger Donation button</li>
+      <li>Headline: “Every horse here has a story, every loving heart deserves to see it”</li>
+      <li>Change “horse rescue - Norman OK” to the address</li>
+      <li>Rico’s Journey: before and after</li>
+      <li>“The horses at ranch right now” becomes “Meet the Herd”, with only the horses in the rescue program</li>
+      <li>Remove the “our program” section (riding lessons and party bookings)</li>
+    </ul>
+  </div>
+  <p class="num">10</p>
+</section>
+
+<!-- 11 · email -->
+<section class="slide" data-b="mail">
+  <p class="team">Team 2 · Email</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Email plans</h2>
+  <div class="inbox">
+    <div class="mail"><i class="u"></i><div><p class="s">Welcome to the Butterfly Rescue Ranch Family!</p><p class="a">First-time donors and new supporters</p></div><p class="w"><b>When sent</b>After someone makes their first donation</p></div>
+    <div class="mail"><i class="u"></i><div><p class="s">Your Kindness Makes a Difference!</p><p class="a">Anyone who makes a donation</p></div><p class="w"><b>When sent</b>After a donation is received</p></div>
+    <div class="mail"><i class="u"></i><div><p class="s">See the Difference You’re Making!</p><p class="a">Previous donors and supporters</p></div><p class="w"><b>When sent</b>Approximately one month after a donation</p></div>
+    <div class="mail"><i class="u"></i><div><p class="s">Your Monthly Ranch Update!</p><p class="a">People who make recurring monthly donations</p></div><p class="w"><b>When sent</b>Once a month</p></div>
+    <div class="mail"><i class="u"></i><div><p class="s">Meet the Horse You’re Helping!</p><p class="a">Donors who choose to sponsor a specific horse</p></div><p class="w"><b>When sent</b>After someone begins sponsoring a horse</p></div>
+    <div class="mail"><i class="u"></i><div><p class="s">A Special Update From Your Sponsored Horse!</p><p class="a">Donors who sponsor an individual horse</p></div><p class="w"><b>When sent</b>Once a month, when new updates are available</p></div>
+    <div class="mail"><i class="u"></i><div><p class="s">Meet Dandelion: A Horse With a Personality of Her Own!</p><p class="a">Current donors, previous donors, and potential horse sponsors</p></div><p class="w"><b>When sent</b>Once a month, featuring a different horse</p></div>
+    <div class="mail"><i class="u"></i><div><p class="s">Thank You for Celebrating With Butterfly Rescue Ranch!</p><p class="a">Families who have booked a party or event at the ranch</p></div><p class="w"><b>When sent</b>Within 1–2 days after their party or event</p></div>
+  </div>
+  <p class="small" style="position:absolute;left:120px;top:960px">From Team 2’s email plans: subject line, who gets it, and when it goes out</p>
+  <p class="num">11</p>
+</section>
+
+<!-- 12 · what it takes team 2 -->
+<section class="slide" data-b="tbl">
+  <p class="team">Team 2 · What it takes</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">What it takes</h2>
+  <table class="tbl">
+    <tr><th></th><th>Cost</th><th>Time</th><th>How it works</th></tr>
+    <tr><td>Social media content creation and management</td><td class="m body tc">$0</td><td class="t">5–6 hours per week</td><td>Braxton/Current Staff film content; Braxton writes captions and schedules posting</td></tr>
+    <tr><td>Dispatch Station tool</td><td class="m body tc">$94/month list price*</td><td class="t">&lt;1 hour/week for writing emails using provided templates</td><td>Station Solutions provides templates and automates sending; Braxton uses templates to write emails</td></tr>
+    <tr><td>StoreFront Station tools</td><td class="m body">Unlisted monthly subscription*</td><td class="t">&lt;1 hour per week for website updates on current horses and donation item priorities</td><td>Station Solutions provides website and maintenance, Braxton updates for current horses in program, donation priorities, and upcoming events</td></tr>
+  </table>
+  <p class="small" style="position:absolute;left:120px;top:900px;width:1680px">*Currently stated that Station Solutions will not be charging the client. Station Solutions is run by Charlie, a member of the class.</p>
+  <p class="num">12</p>
+</section>
+
+<!-- team 3 opener -->
+<section class="slide" data-b="op">
+  <div class="op-ph"><img src="img/horse-daisy.jpg" alt="Daisy, a cream mare in a red halter"><p class="op-cap"><b>Daisy</b><span>“She was a skeleton when they picked her up. She’s a pretty big mystery, honestly.” Ranch staff</span></p></div>
+  <div class="op-r"><p class="op-t">Team 3</p><p class="op-w">Sponsors and partners, video, the community map and the PR plan</p><p class="op-n">Jonathan, Peter, Ava, Kendall, Gracie and&nbsp;Andrew</p></div>
+</section>
+
+<!-- 13 · team 3 problem / solution -->
+<section class="slide" data-b="ps3">
+  <p class="team">Team 3 · Problem and solution</p>
+  <div class="ps" style="grid-template-columns:1.18fr .82fr;gap:80px">
+    <div class="c">
+      <h2 class="h2">Problem</h2>
+      <p class="p" style="margin-top:0">Community interest isn’t turning into consistent donations, sponsorships, or volunteers</p>
+      <ul class="list">
+        <li><b>High Need for Support:</b> Braxton has four rescue horses and covers much of their expenses out of pocket</li>
+        <li><b>Stronger Partnerships:</b> the ranch needs deeper ties with community organizations</li>
+        <li><b>More Awareness:</b> rescue horse stories need to reach a wider audience</li>
+        <li><b>Better Follow-Up:</b> supporters need ways to stay involved after visiting</li>
+      </ul>
+      <h2 class="h2" style="margin-top:36px">Solution</h2>
+      <ul class="list">
+        <li><b>Sponsor-a-Horse Program:</b> donors contribute toward specific horses and receive updates on their progress</li>
+        <li><b>Local Partnerships:</b> reach out to feed stores, veterinarians, and other local businesses for financial sponsorships or donated supplies</li>
+        <li><b>Awareness:</b> share rescue stories through short videos, local press releases, and community events</li>
+        <li><b>Personal Outreach:</b> staff use a simple, personal approach with visitors and volunteers, encouraging them to donate, sponsor a horse, or stay involved</li>
+      </ul>
+    </div>
+    <div class="c">
+      <p class="lab" style="margin:8px 0 16px">The four rescue horses</p>
+      <div class="horses">
+        <div class="horse"><div class="ph"><img src="img/horse-rico.jpg" alt="Rico" style="object-position:50% 30%"></div><p class="nm">Rico</p></div>
+        <div class="horse"><div class="ph"><img src="img/horse-reba.jpg" alt="Reba"></div><p class="nm">Reba</p></div>
+        <div class="horse"><div class="ph"><img src="img/horse-dandelion.jpg" alt="Dandelion"></div><p class="nm">Dandelion</p></div>
+        <div class="horse"><div class="ph"><img src="img/horse-daisy.jpg" alt="Daisy"></div><p class="nm">Daisy</p></div>
+      </div>
+    </div>
+  </div>
+  <p class="p" style="position:absolute;left:120px;top:946px;width:940px;font-size:21px;line-height:1.3;color:var(--mute)">A sponsor-a-horse program, local business partnerships, and personal outreach will help Butterfly Rescue Ranch turn visitors into long-term supporters.</p>
+  <p class="num">13</p>
+</section>
+
+<!-- 14 · what it takes team 3 -->
+<section class="slide" data-b="tbl">
+  <p class="team">Team 3 · What it takes</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">What it takes</h2>
+  <div class="t3ph" style="position:absolute;right:0;top:0;width:560px;height:1080px;overflow:hidden"><img src="img/sign-sky.jpg" alt="The Butterfly Ranch sign under a wide Oklahoma sky" style="width:100%;height:100%;object-fit:cover"></div>
+  <table class="tbl t3" style="top:280px;width:1120px">
+    <tr><th></th><th>Cost</th><th>Estimate</th><th>Notes</th></tr>
+    <tr><td>Video Ad</td><td class="m tc">$0</td><td class="t tc" style="font:600 30px/1.2 var(--fb)">2–3</td><td>Anyone: resharing links of posted or new content is free on YouTube and other platforms.</td></tr>
+    <tr><td>Boosted Advertisement</td><td class="m tc">$1–$100</td><td class="t tc" style="font:600 30px/1.2 var(--fb)">10–20</td><td>In the event more reach is wanted, advertisements can be boosted so a wider audience can be reached.</td></tr>
+  </table>
+  <p class="num" style="color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)">18</p>
+</section>
+
+<!-- 15 · storyboard -->
+<section class="slide" data-b="sb">
+  <p class="team">Team 3 · Video</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Short storyboard: Rico</h2>
+  <div class="sb">
+    <div><div class="fr"><img src="img/sb_0.5.jpg" alt="This is Rico, a rescued horse from Butterfly Ranch in Norman OK"></div><p class="ts">This is Rico, a rescued horse from Butterfly Ranch in Norman OK</p></div>
+    <div><div class="fr"><img src="img/sb_3.5.jpg" alt="He was given to a family member but was unable to be properly taken care of"></div><p class="ts">He was given to a family member but was unable to be properly taken care of</p></div>
+    <div><div class="fr"><img src="img/sb_6.5.jpg" alt="He came to the Ranch malnourished and under fed"></div><p class="ts">He came to the Ranch malnourished and under fed</p></div>
+    <div><div class="fr"><img src="img/sb_9.5.jpg" alt="But after intense rehabilitation..."></div><p class="ts">But after intense rehabilitation…</p></div>
+    <div><div class="fr"><img src="img/sb_11.jpg" alt="He’s well groomed"></div><p class="ts">He’s well groomed</p></div>
+    <div><div class="fr"><img src="img/sb_15.5.jpg" alt="And well fed..."></div><p class="ts">And well fed…</p></div>
+  </div>
+  <div class="sb-line"></div><div class="sb-prog"></div><div class="sb-head"></div>
+  <p class="p sb-cap">Team 3’s 16-second vertical video, cut from the class’s own footage. The captions are on screen, so it works with the sound off.</p>
+  <p class="num">15</p>
+</section>
+
+<!-- 16 · community map -->
+<section class="slide" data-b="cm">
+  <p class="team">Team 3 · Community connection map</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Community connection map</h2>
+  <svg class="cm-svg" viewBox="0 0 1920 1080" aria-hidden="true">
+    <path class="sp" d="M842 520 C700 470 600 280 480 258" fill="none" stroke="#AA2060" stroke-width="3"/>
+    <path class="sp" d="M1078 520 C1180 470 1220 280 1272 258" fill="none" stroke="#AA2060" stroke-width="3"/>
+    <path class="sp" d="M842 680 C720 700 620 660 520 658" fill="none" stroke="#AA2060" stroke-width="3"/>
+    <path class="sp" d="M1078 680 C1180 690 1230 660 1272 658" fill="none" stroke="#AA2060" stroke-width="3"/>
+  </svg>
+  <div class="hub"><div><b>Butterfly<br>Ranch</b><small>Norman, Oklahoma</small></div></div>
+  <div class="grp" style="left:120px;top:240px"><p class="lab">Community partners</p><ul>
+    <li><i>1</i>Earth Rebirth</li><li><i>2</i>WildCare Oklahoma</li><li><i>3</i>OU Equestrian Team</li><li><i>4</i>Cleveland County Master Gardeners</li><li><i>5</i>Little Britches Rodeo</li><li><i>6</i>Norman Chamber of Commerce</li></ul></div>
+  <div class="grp" style="left:1290px;top:240px"><p class="lab">Media</p><ul>
+    <li><i>1</i>The Norman Transcript</li><li><i>2</i>OU Daily</li><li><i>3</i>Local Facebook groups</li><li><i>4</i>KOCO 5</li><li><i>5</i>KGOU (106.3 FM)</li></ul></div>
+  <div class="grp" style="left:120px;top:640px"><p class="lab">Donors and sponsors</p><ul>
+    <li><i>1</i>Community foundations (Cleveland County)</li><li><i>2</i>First United Bank / local credit unions</li><li><i>3</i>OU Federal Credit Union</li><li><i>4</i>E.L. and Thelma Gaylord Foundation</li><li><i>5</i>Local feed and farm supply store</li><li><i>6</i>Langston’s Western Wear</li></ul></div>
+  <div class="grp" style="left:1290px;top:640px"><p class="lab">Volunteers</p><ul>
+    <li><i>1</i>OU students (OU Big Event)</li><li><i>2</i>OU GivePulse volunteer platform</li><li><i>3</i>Cleveland County 4-H clubs</li><li><i>4</i>OU student media and marketing organizations</li></ul></div>
+    <p class="num">16</p>
+</section>
+
+<!-- 17 · PR plan -->
+<section class="slide" data-b="pr">
+  <p class="team">Team 3 · PR plan</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">PR plan</h2>
+  <div class="msgs">
+    <p class="lab" style="margin-bottom:10px">Core messages to develop</p>
+    <ul>
+      <li>“We are a nonprofit that saves horses from dangerous situations.” <span class="tag">(to confirm)</span></li>
+      <li>“Our why is…” in Braxton’s own words <span class="tag">(to come)</span></li>
+      <li>“Every horse’s journey matters.”</li>
+      <li style="font-family:var(--fd);font-weight:700;color:var(--berry)">Every horse has a story; every loving heart deserves to see it.</li>
+    </ul>
+  </div>
+  <div class="stories">
+    <div class="st"><p class="lab" style="margin-bottom:10px">Story 1</p><h4>Total Transformation</h4><p>A horse that has had a complete 180 turnaround, from arrival to rescue, rehabilitation, and adoption out or continued competition. It shows the organization can successfully operate and has the tools needed to care for a horse, and it builds trust among potential donors.</p><p class="hook">“From Unusable to Unstoppable”</p></div>
+    <div class="st"><p class="lab" style="margin-bottom:10px">Story 2</p><h4>Surrender Story</h4><p>A horse who was given up to the rescue by its owner or by a rescue operation. It shows the rescue can be relied on as a community safety net when necessary.</p><p class="hook">“The Unseen Norman Safety Net, Keeping Norman’s Equine Community Together”</p></div>
+    <div class="st"><p class="lab" style="margin-bottom:10px">Story 3</p><h4>Companion Match</h4><p>A horse who may have failed the adoption process or was unfit to return to riding, and was adopted by the ranch. It shows the ranch doesn’t cut corners or give up when the path to adoption becomes complicated.</p><p class="hook">“Every Horse Has Their Day: The Successful Adoption Story of…” <span class="tag">(horse to be chosen)</span></p></div>
+  </div>
+  <p class="small" style="position:absolute;left:120px;top:960px">From Team 3’s PR plan outline: build awareness, center emotional horse journeys, compassionate care, and donor trust</p>
+  <p class="num">17</p>
+</section>
+
+<!-- 18 · PR timeline -->
+<section class="slide" data-b="tl">
+  <p class="team">Team 3 · PR plan</p>
+  <h2 class="h2" style="position:absolute;left:120px;top:128px">Twelve weeks, three stories <span class="tag" style="font-size:26px;vertical-align:10px">(dates to confirm)</span></h2>
+  <div class="tl">
+    <div class="tl-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="tl-wk"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span><span>W9</span><span>W10</span><span>W11</span><span>W12</span></div>
+    <div class="tl-ph">
+      <div><h4>1 · Proving operational capability</h4><ul>
+        <li><b>Weeks 1–2</b>All preparation work, such as gathering “before” images for the selected horse.</li>
+        <li><b>Week 3</b>Reach out to Norman media outlets with the story and hook.</li>
+        <li><b>Week 4</b>Digitally push the story.</li></ul></div>
+      <div><h4>2 · Community safety net</h4><ul>
+        <li><b>Weeks 5–6</b>Preparation work; find a horse that was voluntarily surrendered to the rescue.</li>
+        <li><b>Week 7</b>Reach out to Norman broadcast stations, such as OU Daily.</li>
+        <li><b>Week 8</b>Digitally push the story on Facebook and Instagram through reels.</li></ul></div>
+      <div><h4>3 · Demonstration of integrity</h4><ul>
+        <li><b>Weeks 9–10</b>Gather all relevant history of the resident horse and draft an outreach story relating to “Every Horse Has Their Day.”</li>
+        <li><b>Week 11</b>Package this specifically for community foundations, such as the Kirkpatrick Family Foundation.</li>
+        <li><b>Week 12</b>Launch a targeted sponsorship campaign with this horse as a dedicated ambassador.</li></ul></div>
+    </div>
+  </div>
+  <div class="tp-q">
+    <div><p class="lab" style="color:var(--berry);margin-bottom:10px">Talking points for Braxton · 1</p><p>Can you tell us about Butterfly Rescue Ranch and how it helps horses that have been in dangerous or difficult situations?</p></div>
+    <div><p class="lab" style="color:var(--berry);margin-bottom:10px">2</p><p>What made you want to start Butterfly Rescue Ranch, and what keeps you motivated to do this work?</p></div>
+    <div><p class="lab" style="color:var(--berry);margin-bottom:10px">3</p><p>Can you tell us about one horse whose journey really shows what Butterfly Rescue Ranch is all about?</p></div>
+  </div>
+  
+  <p class="num">18</p>
+</section>
+
+<!-- questions -->
+<section class="slide" data-b="end">
+  <div class="end-a"><img src="img/rico-before.jpg" alt="Rico when he first arrived, very thin"><span class="end-cap">When he first arrived</span></div>
+  <div class="end-b"><img src="img/horse-rico.jpg" alt="Rico today, looking straight at the camera"><span class="end-cap">Today</span></div>
+  <div class="end-r">
+    <p class="end-q">Questions?</p>
+    <p class="end-m tc">About $360 a month covers one horse’s feed, hay, supplements and farrier care.</p>
+    <p class="end-g tc">The recommended Giving Tuesday goal, <span style="white-space:nowrap">$2,000–$3,000</span> by January 2027, is about 5½ to 8 months of that care for one horse. The ranch has four.</p>
+    <p class="small end-s">Our arithmetic from Braxton’s figures in the class creative brief: hay and feed $9 a day, supplements $50 a month, farrier $50 every six weeks. Vet care is extra.</p>
+  </div>
+</section>
+
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function(){
+  var stage = document.getElementById('stage');
+  var slides = [].slice.call(document.querySelectorAll('.slide'));
+  var Q = new URLSearchParams(location.search);
+  var STILL = Q.has('still') || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var B = 0.55, S = 1.1; // a beat and a stride
+  var cur = -1, tl = null, loops = [];
+  // Josefin Slab's apostrophe sits high; borrow Lora's for that one glyph
+  [].slice.call(document.querySelectorAll('.h2, .h3, .cov-kind, .rico-ask, .mcount, .end-m, .st h4, .tl-ph h4, .op-t, .nm, .grp .lab, .op-cap b')).forEach(function(el){
+    el.innerHTML = el.innerHTML.replace(/\u2019/g, '<span style="font-family:Lora,Georgia,serif">\u2019</span>');
+  });
+  slides.forEach(function(s, i){ var n = s.querySelector('.num'); if (n) n.textContent = (i + 1 < 10 ? '0' : '') + (i + 1); });
+
+  function fit(){
+    var k = Math.min(innerWidth / 1920, innerHeight / 1080);
+    stage.style.transform = 'scale(' + k + ') translate(-50%,-50%)';
+  }
+  addEventListener('resize', fit); fit();
+
+  var $ = function(s, el){ return [].slice.call((el || document).querySelectorAll(s)); };
+  var IN = 'inset(-12% 100% -12% 0%)', OUT = 'inset(-12% 0% -12% 0%)';
+  // text arrives whole and quickly; the clip reveal is kept for photos
+  function wipe(t, els, at, st){ return t.fromTo(els, {opacity: 0}, {opacity: 1, duration: .6, ease: 'power1.out', stagger: st == null ? .16 : Math.min(st, .3)}, at); }
+  function reveal(t, els, at, st){ return t.fromTo(els, {clipPath: IN}, {clipPath: OUT, duration: S, ease: 'power2.inOut', stagger: st == null ? B : st}, at); }
+  function draw(t, path, at, dur, ease){
+    var L = path.getTotalLength();
+    t.fromTo(path, {strokeDasharray: L + ' ' + L, strokeDashoffset: L}, {strokeDashoffset: 0, duration: dur, ease: ease || 'power1.inOut'}, at);
+  }
+  function count(t, el, to, at, dur){ t.fromTo(el, {innerText: 0}, {innerText: to, snap: {innerText: 1}, duration: dur, ease: 'none'}, at); }
+  function settle(t, els, at, st){ return t.fromTo(els, {y: 26, opacity: 0}, {y: 0, opacity: 1, duration: S, ease: 'power3.out', stagger: st == null ? B : st}, at); }
+
+  var build = {
+    cover: function(t, s){
+      t.fromTo(s.querySelector('.cov-photo'), {clipPath: 'inset(0 0 0 100%)'}, {clipPath: 'inset(0 0 0 0%)', duration: 2 * S, ease: 'power3.inOut'}, 0);
+      t.fromTo(s.querySelector('.cov-photo img'), {scale: 1.12}, {scale: 1, duration: 6, ease: 'power2.out'}, 0);
+      wipe(t, s.querySelector('.cov-logo'), 1.5);
+      t.fromTo(s.querySelector('.cov-rule'), {scaleX: 0, transformOrigin: '0 50%'}, {scaleX: 1, duration: S, ease: 'power2.inOut'}, 2.3);
+      wipe(t, [s.querySelector('.cov-kind'), s.querySelector('.cov-meta')], 2.6);
+      t.fromTo(s.querySelector('.cov-cap'), {opacity: 0}, {opacity: 1, duration: S}, 3.4);
+    },
+    idea: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      t.fromTo(s.querySelector('.prop-lab'), {opacity: 0}, {opacity: 1, duration: B}, .2);
+      t.fromTo(s.querySelector('.prop'), {clipPath: 'inset(-20% 100% -20% 0%)'}, {clipPath: 'inset(-20% 0% -20% 0%)', duration: 2.4, ease: 'none'}, .3);
+      wipe(t, $('.cols3 .c', s), 1.6, .3);
+      t.fromTo(s.querySelector('.goal .lab'), {opacity: 0}, {opacity: 1, duration: B}, 2.8);
+      t.fromTo(s.querySelector('.gbar'), {opacity: 0}, {opacity: 1, duration: .3}, 2.9);
+      t.fromTo(s.querySelector('.gticks'), {opacity: 0}, {opacity: 1, duration: .3}, 2.9);
+      t.fromTo(s.querySelector('.gfill'), {scaleX: 0}, {scaleX: 1, duration: 2.2, ease: 'none'}, 3.1);
+      t.fromTo(s.querySelector('.k2'), {opacity: 0}, {opacity: 1, duration: .3}, 5.2);
+      t.fromTo(s.querySelector('.gfill2'), {scaleX: 0}, {scaleX: 1, duration: 1.1, ease: 'none'}, 5.3);
+      t.fromTo(s.querySelector('.k3'), {opacity: 0}, {opacity: 1, duration: .3}, 6.3);
+    },
+    rico: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      reveal(t, s.querySelector('.r1'), .2);
+      var fwd = s.querySelector('.fwd');
+      t.fromTo(s.querySelector('.nA'), {opacity: 0}, {opacity: 1, duration: B}, 1.0);
+      draw(t, fwd, 1.2, 2.6, 'none');
+      t.fromTo(s.querySelector('.nB'), {opacity: 0}, {opacity: 1, duration: B}, 2.3);
+      t.fromTo(s.querySelector('.nC'), {opacity: 0}, {opacity: 1, duration: B}, 3.6);
+      draw(t, s.querySelector('.bmk'), 3.9, 2.0, 'power1.in');
+      t.fromTo(s.querySelector('.nD'), {opacity: 0}, {opacity: 1, duration: B}, 4.6);
+      t.fromTo(s.querySelector('.nE'), {opacity: 0, scale: .4, transformOrigin: '760px 180px'}, {opacity: 1, scale: 1, duration: S, ease: 'back.out(2)'}, 5.8);
+      t.fromTo(s.querySelector('.ring'), {attr: {r: 17}, opacity: 1}, {attr: {r: 46}, opacity: 0, duration: 2 * S, ease: 'power2.out'}, 6.2);
+      reveal(t, s.querySelector('.r2'), 6.0);
+      wipe(t, $('.rico-txt > *, .rico-src', s), 7.0, .3);
+    },
+    ps1: function(t, s){
+      var cols = $('.ps > .c', s);
+      wipe(t, $('.h2, .lab, li, .p', cols[0]), 0, .18);
+      // the 8+ clicks: a hop from dot to dot, counted
+      var svg = s.querySelector('.clicks svg'), g = svg.querySelector('.cd'), hop = svg.querySelector('.hop');
+      if (!g.childNodes.length){
+        var d = 'M14 40', ns = 'http://www.w3.org/2000/svg';
+        for (var i = 0; i < 8; i++){
+          var x = 14 + i * 60, c = document.createElementNS(ns, 'circle');
+          c.setAttribute('cx', x); c.setAttribute('cy', 40); c.setAttribute('r', 11); c.setAttribute('fill', '#FDF4E7'); c.setAttribute('stroke', '#AA2060'); c.setAttribute('stroke-width', 3);
+          g.appendChild(c);
+          if (i) d += ' Q' + (x - 30) + ' 0 ' + x + ' 40';
+        }
+        d += ' Q' + (14 + 7 * 60 + 26) + ' 0 ' + (14 + 7 * 60 + 52) + ' 22';
+        hop.setAttribute('d', d);
+      }
+      var dots = $('circle', g), cnt = s.querySelector('.cnt');
+      t.fromTo(dots, {opacity: 0}, {opacity: 1, duration: .01}, 1.2);
+      draw(t, hop, 1.4, 4.4, 'none');
+      dots.forEach(function(c, i){ t.to(c, {attr: {fill: '#AA2060'}, duration: .12}, 1.4 + i * .55); });
+      t.fromTo(cnt, {innerText: 0}, {innerText: 8, snap: {innerText: 1}, duration: 8 * .55, ease: 'steps(8)'}, 1.4);
+      t.set(cnt, {innerText: '8+'}, 5.8);
+      t.fromTo(cnt, {scale: 1}, {scale: 1.18, duration: .25, yoyo: true, repeat: 1, transformOrigin: '0 50%'}, 5.8);
+      wipe(t, $('.h2, li', cols[1]), 1.6, .25);
+    },
+    tp: function(t, s){
+      wipe(t, [s.querySelector('.tp-h'), s.querySelector('.tp-sub')], 0, .3);
+      draw(t, s.querySelector('.ar'), .8, 5, 'none');
+      t.fromTo(s.querySelector('.ah'), {opacity: 0}, {opacity: 1, duration: .3}, 5.6);
+      var st = $('.stg text', s), sd = $('.stgd circle', s), cols = $('.tp-cols .col', s);
+      st.forEach(function(el, i){
+        var at = .8 + i * 1.0;
+        t.fromTo([el, sd[i]], {opacity: 0}, {opacity: 1, duration: .3}, at);
+        settle(t, $('.tp-it', cols[i]), at + .15, .16);
+      });
+      var em = $('.tally em', s);
+      t.fromTo(s.querySelector('.tally'), {opacity: 0}, {opacity: 1, duration: B}, 6.2);
+      em.forEach(function(e, i){ count(t, e, +e.dataset.to, 6.3 + i * .35, .9); });
+    },
+    bb: function(t, s){
+      var bb = s.querySelector('.bb');
+      if (!bb.children.length){
+        var N = 15, w = 1080 / N;
+        for (var i = 0; i < N; i++){
+          var sl = document.createElement('div'); sl.className = 'slat'; sl.style.left = (i * w) + 'px'; sl.style.width = w + 'px';
+          sl.innerHTML = '<div class="f" style="background-image:url(img/billboard-1.jpg);background-position:-' + (i * w) + 'px 0"></div><div class="f k" style="background-image:url(img/billboard-2.jpg);background-position:-' + (i * w) + 'px 0"></div>';
+          bb.appendChild(sl);
+        }
+      }
+      t.fromTo(s.querySelector('.h2'), {clipPath: IN}, {clipPath: OUT, duration: S}, 0);
+      t.fromTo(bb, {clipPath: 'inset(100% 0 0 0)'}, {clipPath: 'inset(0% 0 0 0)', duration: 2 * B * 1.5, ease: 'power3.inOut'}, .3);
+      t.fromTo(s.querySelector('.bb ~ .small'), {opacity: 0}, {opacity: 1, duration: B}, 1.4);
+      wipe(t, $('.bb-txt > *', s), 1.6, .35);
+      var cues = $('.radio > *', s);
+      wipe(t, cues, 1.2, S);
+      if (!STILL){
+        var slats = $('.slat', s);
+        var lp = gsap.timeline({repeat: -1, delay: 4.5, repeatDelay: 0});
+        lp.to(slats, {rotationY: 180, duration: .9, ease: 'power2.inOut', stagger: .06}, 0)
+          .to(slats, {rotationY: 360, duration: .9, ease: 'power2.inOut', stagger: .06}, 4.6)
+          .set(slats, {rotationY: 0}, 6.3).to({}, {duration: 2.9}, 6.3);
+        loops.push(lp);
+      }
+    },
+    print: function(t, s){
+      wipe(t, s.querySelector('.pr-h'), 0);
+      t.fromTo($('.pr-big', s), {y: 60, rotation: function(i){ return i ? 2 : -2.5; }, opacity: 0}, {y: 0, rotation: 0, opacity: 1, duration: S * 1.3, ease: 'power3.out', stagger: B}, .2);
+      wipe(t, [s.querySelector('.pr-cap'), s.querySelector('.pr-cap + .small')], 1.6, .4);
+    },
+    kit: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      t.fromTo($('.sw .c', s), {scaleY: 0}, {scaleY: 1, duration: S, ease: 'power3.inOut', stagger: .28}, .4);
+      t.fromTo($('.sw .n, .sw .x', s), {opacity: 0}, {opacity: 1, duration: B, stagger: .14}, 1.0);
+      wipe(t, $('.ty .s', s), 2.4, .3);
+      wipe(t, $('.voice > *', s), 3.6, .3);
+    },
+    ps2: function(t, s){
+      var cols = $('.ps > .c', s);
+      wipe(t, [].slice.call(cols[0].children).filter(function(e){ return !e.classList.contains('mcount'); }), 0, .25);
+      t.fromTo(s.querySelector('.mcount'), {opacity: 0, scale: .92, transformOrigin: '0 50%'}, {opacity: 1, scale: 1, duration: S, ease: 'power3.out'}, 1.4);
+      wipe(t, [].slice.call(cols[1].children), 1.8, .25);
+    },
+    fb: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      t.fromTo($('.posts img', s), {x: 120, opacity: 0}, {x: 0, opacity: 1, duration: .8, ease: 'power3.out', stagger: .45}, .2);
+      wipe(t, $('.fb-r > *', s), 1.4, .3);
+    },
+    web: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      reveal(t, s.querySelector('.web'), .2);
+      wipe(t, [s.querySelector('.web-cap'), s.querySelector('.web-r .lab')].concat($('.web-r li', s)), .9, .22);
+      if (!STILL){
+        var img = s.querySelector('.web img');
+        var go = function(){
+          var dy = img.offsetHeight - 640; if (dy <= 0) return;
+          loops.push(gsap.timeline({repeat: -1, yoyo: true, delay: 2.5, repeatDelay: 1.6}).to(img, {y: -dy, duration: dy / 120, ease: 'sine.inOut'}));
+        };
+        img.complete ? go() : img.addEventListener('load', go, {once: true});
+      }
+    },
+    mail: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      t.fromTo(s.querySelector('.inbox'), {clipPath: 'inset(0 100% 0 0)'}, {clipPath: 'inset(0 0% 0 0)', duration: S}, .2);
+      var rows = $('.mail', s);
+      t.fromTo(rows, {opacity: 0, y: -18}, {opacity: 1, y: 0, duration: B * 1.2, ease: 'power3.out', stagger: B}, .8);
+      t.fromTo($('.mail .u', s), {scale: 0}, {scale: 1, duration: B, ease: 'back.out(3)', stagger: B}, 1.0);
+      t.fromTo(s.querySelector('.inbox + .small'), {opacity: 0}, {opacity: 1, duration: B}, 5.4);
+    },
+    tbl: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      var rows = $('tr', s);
+      rows.forEach(function(r, i){
+        var at = .3 + i * .7;
+        t.fromTo(r.children, {opacity: 0}, {opacity: 1, duration: .6, stagger: .12}, at);
+      });
+      t.fromTo($('.tbl ~ .small', s), {opacity: 0}, {opacity: 1, duration: B}, .3 + rows.length * .7);
+      rows.forEach(function(){
+      });
+    },
+    ps3: function(t, s){
+      var c0 = s.querySelector('.ps > .c');
+      wipe(t, [].slice.call(c0.children[1].parentNode.children).reduce(function(a, e){ return a.concat(e.tagName === 'UL' ? [].slice.call(e.children) : [e]); }, []), 0, .3);
+      t.fromTo(s.querySelector('.ps > .c + .c .lab'), {opacity: 0}, {opacity: 1, duration: B}, .4);
+      var hs = $('.horse', s);
+      hs.forEach(function(h, i){
+        t.fromTo(h.querySelector('.ph'), {clipPath: 'inset(100% 0 0 0)'}, {clipPath: 'inset(0% 0 0 0)', duration: S, ease: 'power3.inOut'}, .6 + i * .8);
+        t.fromTo(h.querySelector('img'), {scale: 1.15}, {scale: 1, duration: 2 * S, ease: 'power2.out'}, .6 + i * .8);
+        t.fromTo(h.querySelector('.nm'), {opacity: 0}, {opacity: 1, duration: B}, 1.1 + i * .8);
+      });
+      t.fromTo(s.querySelector('.ps + .p'), {opacity: 0}, {opacity: 1, duration: S}, 4.0);
+    },
+    sb: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      var fr = $('.sb > div', s), stamps = [0, 3, 6, 9, 11, 15];
+      t.fromTo(fr, {opacity: .0, y: 20}, {opacity: .38, y: 0, duration: S, ease: 'power3.out', stagger: .12}, .3);
+      t.fromTo(s.querySelector('.sb-prog'), {scaleX: 0}, {scaleX: 1, duration: 8, ease: 'none'}, 1.6);
+      t.fromTo(s.querySelector('.sb-head'), {x: 0}, {x: 1677, duration: 8, ease: 'none'}, 1.6);
+      fr.forEach(function(f, i){ t.to(f, {opacity: 1, duration: .35}, 1.6 + i * (8 / 6)); });
+      wipe(t, s.querySelector('.sb-cap'), 9.4);
+    },
+    cm: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      t.fromTo(s.querySelector('.hub'), {scale: 0}, {scale: 1, duration: S, ease: 'back.out(1.6)'}, .3);
+      var sp = $('.sp', s), gr = $('.grp', s);
+      sp.forEach(function(p, i){
+        var at = 1.2 + i * 1.3;
+        draw(t, p, at, S, 'power2.inOut');
+        t.fromTo(gr[i].querySelector('.lab'), {opacity: 0}, {opacity: 1, duration: B}, at + .8);
+        t.fromTo($('li', gr[i]), {opacity: 0, x: i % 2 ? 24 : -24}, {opacity: 1, x: 0, duration: B, stagger: .12, ease: 'power2.out'}, at + .9);
+      });
+    },
+    pr: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      wipe(t, $('.msgs .lab, .msgs li', s), .4, .3);
+      $('.st', s).forEach(function(st, i){
+        var at = 1.8 + i * 1.3;
+        wipe(t, [].slice.call(st.children), at, .22);
+      });
+      t.fromTo($('.tag', s), {scale: .5, opacity: 0}, {scale: 1, opacity: 1, duration: B, ease: 'back.out(3)', stagger: .2}, 1.6);
+      t.fromTo(s.querySelector('.stories ~ .small'), {opacity: 0}, {opacity: 1, duration: B}, 6);
+    },
+    tl: function(t, s){
+      wipe(t, s.querySelector('.h2'), 0);
+      var cells = $('.tl-bar i', s), ph = $('.tl-ph > div', s);
+      t.fromTo($('.tl-wk span', s), {opacity: 0}, {opacity: 1, duration: .2, stagger: .05}, .4);
+      cells.forEach(function(c, i){
+        var at = .9 + i * .45;
+        t.fromTo(c, {scaleX: 0}, {scaleX: 1, duration: .4, ease: 'power2.out'}, at);
+        t.call(function(){ c.classList.add('on'); }, null, at);
+      });
+      ph.forEach(function(p, i){ wipe(t, [].slice.call(p.querySelector('h4').parentNode.querySelectorAll('h4, li')), .9 + i * 1.8, .3); });
+      wipe(t, $('.tp-q > div', s), 6.4, .4);
+      t.fromTo(s.querySelector('.tp-q ~ .small'), {opacity: 0}, {opacity: 1, duration: B}, 7.8);
+    },
+    end: function(t, s){
+      reveal(t, s.querySelector('.end-a'), 0);
+      reveal(t, s.querySelector('.end-b'), .9);
+      t.fromTo(s.querySelector('.end-b img'), {scale: 1.08}, {scale: 1, duration: 4, ease: 'power2.out'}, .9);
+      wipe(t, $('.end-r > *', s), 1.6, .3);
+    },
+    op: function(t, s){
+      t.fromTo(s.querySelector('.op-r'), {clipPath: 'inset(0 0 0 100%)'}, {clipPath: 'inset(0 0 0 0%)', duration: S, ease: 'power3.inOut'}, 0);
+      t.fromTo(s.querySelector('.op-ph img'), {scale: 1.1}, {scale: 1, duration: 4, ease: 'power2.out'}, 0);
+      t.fromTo(s.querySelector('.op-t'), {opacity: 0, x: 40}, {opacity: 1, x: 0, duration: S, ease: 'power3.out'}, .6);
+      wipe(t, [s.querySelector('.op-w'), s.querySelector('.op-n')], 1.2, .3);
+    }
+  };
+
+  function show(n){
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    if (n === cur) return;
+    var prev = slides[cur], next = slides[n];
+    if (tl) tl.kill();
+    loops.forEach(function(l){ l.kill(); }); loops = [];
+    $('.slat', document).forEach(function(e){ gsap.set(e, {rotationY: 0}); });
+    tl = gsap.timeline({paused: true});
+    var f = build[next.dataset.b]; if (f) f(tl, next);
+    if (prev){ prev.classList.remove('on'); gsap.set(prev, {clearProps: 'opacity'}); }
+    next.classList.add('on');
+    if (!STILL) gsap.fromTo(next, {opacity: 0}, {opacity: 1, duration: .35, ease: 'power1.out'});
+    cur = n;
+    if (STILL){ tl.progress(1); } else { tl.play(0); }
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.search + '#' + (n + 1));
+  }
+
+  function go(d){ show(cur + d); }
+  addEventListener('keydown', function(e){
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Enter' || k === 'ArrowDown') { e.preventDefault(); go(1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'ArrowUp' || k === 'Backspace') { e.preventDefault(); go(-1); }
+    else if (k === 'Home') show(0);
+    else if (k === 'End') show(slides.length - 1);
+    else if (k === 'r' || k === 'R') { var c = cur; cur = -1; show(c); }
+    else if (k === 'f' || k === 'F') { (document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()).catch(function(){}); }
+  });
+  document.getElementById('deck').addEventListener('click', function(e){ go(e.clientX < innerWidth * .3 ? -1 : 1); });
+  var tx = null;
+  addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, {passive: true});
+  addEventListener('touchend', function(e){ if (tx === null) return; var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1); tx = null; });
+
+  var start = parseInt((location.hash || '#1').slice(1), 10) - 1;
+  function begin(){ show(isNaN(start) ? 0 : start); }
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(begin);
+  window.__deck = {show: show, count: slides.length, tl: function(){ return tl; }};
+})();
+</script>
+</body>
+</html>
