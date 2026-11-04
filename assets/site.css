@@ -50,14 +50,16 @@ header .btn{padding:11px 18px}
 .home main{padding-top:0}
 
 /* film hero (home) */
-.film{--bar:0px;--bar:max(calc(100lvh - 100svh),112px);position:relative;min-height:100vh;min-height:100svh;min-height:max(100lvh,calc(100svh + var(--bar)));display:flex;align-items:flex-end;background:#1d1518;color:#fff;overflow:hidden}
+/* the 112px overshoot is for phone in-app browsers whose toolbar floats over the page; with a mouse it only pushed the words below the fold */
+.film{--bar:0px;position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;background:#1d1518;color:#fff;overflow:hidden}
 .film video,.film .still,.film .still img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
 .film video{background:transparent;opacity:0;transition:opacity .6s ease}   /* hidden until it really plays: no native play button in Low Power Mode */
 .film video.on{opacity:1}
 .film video::-webkit-media-controls,.film video::-webkit-media-controls-start-playback-button,.film video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}
 /* shade only where the words sit (bottom-left) and a light band under the header; the rest of the film stays daylight */
 .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,21,24,.32) 0%,rgba(29,21,24,0) 15%),radial-gradient(120% 75% at 0% 100%,rgba(29,21,24,.72) 0%,rgba(29,21,24,.38) 40%,rgba(29,21,24,0) 72%)}
-.film .wrap{position:relative;z-index:1;padding-bottom:64px;padding-top:140px;width:100%}
+@media (pointer:coarse){.film{--bar:max(calc(100lvh - 100svh),112px);min-height:max(100lvh,calc(100svh + var(--bar)))}}
+.film .wrap{position:relative;z-index:1;padding-bottom:clamp(64px,9vh,112px);padding-top:140px;width:100%}
 .film .label{color:#fff;opacity:.85;text-shadow:0 1px 8px rgba(0,0,0,.5)}
 .film h1{max-width:17ch;margin:14px 0 4px;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.4)}
 .film .lede{font-size:20px;max-width:30em;color:#fff;margin-bottom:28px;text-shadow:0 1px 12px rgba(0,0,0,.55)}
