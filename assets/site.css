@@ -449,6 +449,8 @@ blockquote.said cite{font:400 13px/1.3 var(--fs);letter-spacing:.18em;text-trans
 .film .acts{align-items:center}
 .ba2{grid-template-columns:1fr}
 @media(max-width:600px){.film .acts{align-items:stretch}.film .acts .btn,.film .btn.fill.cta{flex:1 1 0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:17px;line-height:1.1;padding:17px 12px}}
+@media(max-width:1000px){header .wrap{gap:10px}.logo{margin-right:auto}.menu{margin-left:0}}
+@media(max-width:600px){.menu,header .btn.fill{box-sizing:border-box;height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0 16px;font:600 15px/1 var(--fb);border-radius:6px}}
 
 /* ---- torn-poster footer (port of the 21st.dev "Pushpin Tear Footer"; behaviour in assets/tear.js) ---- */
 .tpf{position:relative;overflow:hidden;container-type:size;height:calc(100vh - 78px);height:calc(100svh - 78px);min-height:600px;max-height:940px;background:var(--tpf-sheet);color:var(--tpf-on-sheet);font-family:var(--fb);isolation:isolate;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;--ease:cubic-bezier(.22,1,.36,1);--fs:max(13px,1.9cqmin)}
