@@ -1,6 +1,6 @@
 """Builds the Butterfly Rescue Ranch concept site from data.json. One page per URL, shared chrome, JSON-LD on every page.
 Run from anywhere: python _src/build.py. Output lands next to _src (the git root). Never hand-edit the generated HTML."""
-import json, os, html, datetime, sys
+import json, os, html, datetime, sys, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tear_footer import tear_footer
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -96,7 +96,15 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
 </body>
 </html>"""
 
+# A small caps label above a heading is a template slot (slop-war: eyebrows). Keep it only where it states a fact.
+EYEBROW_KEEP = {"Helping new riders", "Here for good", "Riding with advanced kids", "7475 By Drive · Norman, Oklahoma", "The January goal"}
+EYEBROW_RE = re.compile(r'<span class="label">([^<]*)</span>(?=\s*(?:<div[^>]*>\s*)?<h[1-3]\b)')
+
+def drop_eyebrows(content):
+    return EYEBROW_RE.sub(lambda m: m.group(0) if html.unescape(m.group(1)) in EYEBROW_KEEP else "", content)
+
 def write(path, content):
+    content = drop_eyebrows(content)
     out = os.path.join(ROOT, path, "index.html") if path else os.path.join(ROOT, "index.html")
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, "w", encoding="utf-8", newline="\n").write(content)
