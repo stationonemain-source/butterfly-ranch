@@ -50,7 +50,7 @@ header .btn{padding:11px 18px}
 .home main{padding-top:0}
 
 /* film hero (home) */
-.film{--bar:0px;--bar:max(calc(100lvh - 100svh),72px);position:relative;min-height:100vh;min-height:100svh;min-height:max(100lvh,calc(100svh + var(--bar)));display:flex;align-items:flex-end;background:#1d1518;color:#fff;overflow:hidden}
+.film{--bar:0px;--bar:max(calc(100lvh - 100svh),112px);position:relative;min-height:100vh;min-height:100svh;min-height:max(100lvh,calc(100svh + var(--bar)));display:flex;align-items:flex-end;background:#1d1518;color:#fff;overflow:hidden}
 .film video,.film .still,.film .still img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
 .film video{background:transparent;opacity:0;transition:opacity .6s ease}   /* hidden until it really plays: no native play button in Low Power Mode */
 .film video.on{opacity:1}

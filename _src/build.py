@@ -68,7 +68,6 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
     <a class="logo" href="{rel if rel else './'}" aria-label="{e(O['name'])}, home"><img class="dark-logo" src="{rel}assets/logo.png" alt="{e(O['short'])}" width="900" height="313"><img class="light-logo" src="{rel}assets/logo-white.png" alt="" width="900" height="313" aria-hidden="true"></a>
     <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav">{links}</nav>
-    <button class="how-btn" type="button" aria-pressed="false" hidden title="Show which Station product runs each part of this page"><span class="how-sw" aria-hidden="true"></span>How it works</button>
     <a class="btn fill" href="{rel}donate/">Donate</a>
   </div>
 </header>
@@ -93,7 +92,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
   }}
 }})();
 </script>
-<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/give.js?v={ASSETV}" defer></script><script src="{rel}assets/chat.js?v=5" defer></script><script src="{rel}assets/how.js?v={ASSETV}" defer></script>
+<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/give.js?v={ASSETV}" defer></script><script src="{rel}assets/chat.js?v=5" defer></script>
 </body>
 </html>"""
 
