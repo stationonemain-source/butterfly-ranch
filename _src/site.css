@@ -291,6 +291,15 @@ form .btn{justify-self:start}
   .film{min-height:100vh;min-height:100svh;min-height:100lvh}
   .film .wrap{padding-top:96px;padding-bottom:calc(56px + var(--bar))}
   .ph .wrap{grid-template-columns:1fr;gap:24px;padding-top:20px;padding-bottom:40px}
+  .ph.horse .wrap{gap:0}
+  .ph.horse .wrap>div:first-child{display:contents}
+  .ph.horse .crumbs{order:1;margin:0 0 8px}
+  .ph.horse .label{order:2}
+  .ph.horse h1{order:3;margin:6px 0 18px}
+  .ph.horse img{order:4;margin:0 0 22px}
+  .ph.horse .lede{order:5;margin:0 0 22px}
+  .ph.horse .acts{order:6;margin:0 0 16px}
+  .ph.horse .feed{order:7}
   .head,.path,.journal,.ledger-grid,.prog,.give,.two,.band .wrap,.upd{grid-template-columns:1fr;gap:28px}
   .band .acts{justify-content:flex-start}
   .card-id,.promise,.prog figure{position:static}

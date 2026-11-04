@@ -7,6 +7,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = json.load(open(os.path.join(ROOT, "_src", "data.json"), encoding="utf-8"))
 O = D["org"]; BASE = O["url"]
 TODAY = datetime.date.today().isoformat()
+def status_label(h):
+    return f'<span class="label">{e(h["status"])}</span>' if h.get("status") else ""
+
 def e(s): return html.escape(str(s), quote=True)
 
 NAV = [("The horses", "horses/"), ("Gallery", "gallery/"), ("Sponsor", "sponsor/"), ("Volunteer", "volunteer/"), ("Program", "program/"), ("About", "about/"), ("Visit", "visit/")]
@@ -226,8 +229,8 @@ def horse(h):
     others = [x for x in D["horses"] if x["slug"] != h["slug"]][:4]
     more = "".join(f'<a href="../{x["slug"]}/"><img src="{rel}assets/photos/horse-{x["slug"]}.jpg" alt="{e(x["alt"])}" width="1200" height="1500" loading="lazy"><h3>{e(x["title"])}</h3><p class="coat">{e(x["coat"])}</p></a>' for x in others)
     body = f'''
-<div class="ph"><div class="wrap">
-  <div><p class="crumbs"><a href="{rel}">Home</a> › <a href="../">The horses</a> › {e(h["title"])}</p><span class="label">{e(h["status"])}</span><h1>{e(h["title"])}</h1>
+<div class="ph horse"><div class="wrap">
+  <div><p class="crumbs"><a href="{rel}">Home</a> › <a href="../">The horses</a> › {e(h["title"])}</p>{status_label(h)}<h1>{e(h["title"])}</h1>
   <p class="lede">{lede}</p>
   <div class="acts" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn fill" href="{rel}sponsor/?horse={h["slug"]}#start">Sponsor {e(who)}</a><a class="btn line" href="{rel}donate/?horse={h["slug"]}">Give toward {his if named else "its"} care</a></div>
   <a class="feed" href="{rel}donate/?horse={h["slug"]}&amp;amt=9"><b>$9</b><span>feeds {e(who)} for a day: hay and feed</span><em>Give $9 →</em></a></div>
@@ -240,7 +243,7 @@ def horse(h):
     {head("The journal", f"From the day {'she' if she else 'he'} arrived" if named else "From the day it arrived", "Updated as the horse recovers, with what was spent and who helped, so donors can see what their gift did.")}
     <div class="journal" data-how="journal">
       <aside class="card-id" aria-label="Horse details">
-        <span class="label">{e(h["status"])}</span>
+        {status_label(h)}
         <div class="name">{e(h["title"])}</div>
         <dl><dt>Coat</dt><dd>{e(h["coat"])}</dd>{card}<dt>Costs a month</dt><dd>About ${O["cost_month"]}</dd><dt>Sponsored by</dt><dd class="tbc">Open</dd></dl>
         <a class="btn fill" href="{rel}sponsor/?horse={h["slug"]}#start">Sponsor {e(who)}</a>
@@ -371,7 +374,7 @@ def sponsor():
 <div><span class="label">Sponsor</span><div class="a">$90</div><p class="per">a month · a quarter of one horse's month</p><ul><li>Everything above</li><li>Come out and meet your horse</li><li>Named in the monthly email</li></ul></div>
 <div><span class="label">Business</span><div class="a">$360</div><p class="per">a month · one horse's whole month</p><ul><li>Everything above</li><li>Your logo on this page and on the horse's page</li><li>A thank-you post on the ranch's channels</li></ul></div></div>
 <p class="note">Suggested from Braxton's own costs: $9 a day for hay and feed, about $360 a month for one horse. The ranch sets the final levels.</p>'''
-    cards = "".join(f'''<article><a href="{rel}horses/{h["slug"]}/"><img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"></a><div><span class="label">{e(h["status"])}</span><h3>{e(h["title"])}</h3><p>{e(h["lede"])}</p><p class="how-sp">Sponsoring {e(h["title"])} pays for the feed, care and farrier {"she needs" if h.get("pron") == "she" else "he needs"}, and you'll get {"her" if h.get("pron") == "she" else "his"} updates every month.</p><a class="btn fill" href="?horse={h["slug"]}#start">Sponsor {e(h["title"])}</a></div></article>''' for h in D["horses"])
+    cards = "".join(f'''<article><a href="{rel}horses/{h["slug"]}/"><img src="{rel}assets/photos/horse-{h["slug"]}.jpg" alt="{e(h["alt"])}" width="1200" height="1500" loading="lazy"></a><div>{status_label(h)}<h3>{e(h["title"])}</h3><p>{e(h["lede"])}</p><p class="how-sp">Sponsoring {e(h["title"])} pays for the feed, care and farrier {"she needs" if h.get("pron") == "she" else "he needs"}, and you'll get {"her" if h.get("pron") == "she" else "his"} updates every month.</p><a class="btn fill" href="?horse={h["slug"]}#start">Sponsor {e(h["title"])}</a></div></article>''' for h in D["horses"])
     body = ph("Sponsor a horse", "One horse. Your name on its story.", "Pick a horse, cover part of its care each month, and follow it from the day it arrived to the day it's well.", img="horse-sign", alt="A bay horse at the fence in front of the pink Butterfly Ranch sign", crumbs=[("Home", ""), ("Sponsor a horse", None)], rel=rel)
     body += f'''
 <section class="dark"><div class="wrap">{head("Pick a horse", "The four horses you can sponsor", "Only the horses in the rescue program are open for sponsorship. The other horses at the ranch are Braxton's own.", f'<a href="{rel}horses/">Meet the herd →</a>')}
