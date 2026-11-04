@@ -7,6 +7,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = json.load(open(os.path.join(ROOT, "_src", "data.json"), encoding="utf-8"))
 O = D["org"]; BASE = O["url"]
 TODAY = datetime.date.today().isoformat()
+# cache-bust token that changes whenever any shipped CSS/JS source changes (a date alone served stale CSS to phones)
+import hashlib as _hl, glob as _gl, os as _os
+ASSETV = _hl.sha1(b"".join(open(f, "rb").read() for f in sorted(_gl.glob(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "*.css")) + _gl.glob(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "*.js"))))).hexdigest()[:10]
 def status_label(h):
     return f'<span class="label">{e(h["status"])}</span>' if h.get("status") else ""
 
@@ -55,7 +58,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cinzel:wght@400;600&family=Josefin+Slab:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{rel}assets/site.css?v={TODAY}">
+<link rel="stylesheet" href="{rel}assets/site.css?v={ASSETV}">
 {lds}
 </head>
 <body{BODYCLS}>
@@ -90,7 +93,7 @@ def page(path, title, desc, body, ld=(), current=None, depth=None, home=False):
   }}
 }})();
 </script>
-<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/give.js?v={TODAY}" defer></script><script src="{rel}assets/chat.js?v=5" defer></script><script src="{rel}assets/how.js?v={TODAY}" defer></script>
+<script src="{rel}assets/forms.js?v=1" defer></script><script src="{rel}assets/give.js?v={ASSETV}" defer></script><script src="{rel}assets/chat.js?v=5" defer></script><script src="{rel}assets/how.js?v={ASSETV}" defer></script>
 </body>
 </html>"""
 
