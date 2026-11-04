@@ -415,7 +415,7 @@ button,input,select,textarea{font-family:var(--fb)}
 .dark .faq summary::after,.dark .steps .n,.dark .amt,.dark .stats .n{color:#f0a8c8}
 .dark .dash{color:#b9aab1}
 
-.film .btn.fill.big{font-size:18px;padding:17px 34px}
+.film .btn.fill.cta{font-size:18px;padding:17px 34px}
 blockquote.said{margin:0 0 40px;max-width:780px}
 blockquote.said p{font:400 clamp(22px,2.4vw,30px)/1.35 var(--fd);margin:0 0 12px}
 blockquote.said cite{font:400 13px/1.3 var(--fs);letter-spacing:.18em;text-transform:uppercase;font-style:normal;color:var(--mute)}
@@ -448,6 +448,7 @@ blockquote.said cite{font:400 13px/1.3 var(--fs);letter-spacing:.18em;text-trans
 .said-home blockquote.said cite a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .film .acts{align-items:center}
 .ba2{grid-template-columns:1fr}
+@media(max-width:600px){.film .acts{align-items:stretch}.film .acts .btn,.film .btn.fill.cta{flex:1 1 0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:17px;line-height:1.1;padding:17px 12px}}
 
 /* ---- torn-poster footer (port of the 21st.dev "Pushpin Tear Footer"; behaviour in assets/tear.js) ---- */
 .tpf{position:relative;overflow:hidden;container-type:size;height:calc(100vh - 78px);height:calc(100svh - 78px);min-height:600px;max-height:940px;background:var(--tpf-sheet);color:var(--tpf-on-sheet);font-family:var(--fb);isolation:isolate;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;--ease:cubic-bezier(.22,1,.36,1);--fs:max(13px,1.9cqmin)}

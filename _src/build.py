@@ -158,7 +158,7 @@ def home():
     <span class="label">{e(O["street"])} · {e(O["city"])}, Oklahoma</span>
     <h1>Every horse here has a story.</h1>
     <p class="script">Every loving heart deserves to see it.</p>
-    <div class="acts"><a class="btn fill big" href="donate/">Donate</a><a class="btn ghost" href="horses/">Meet the herd</a></div>
+    <div class="acts"><a class="btn fill cta" href="donate/">Donate</a><a class="btn ghost" href="horses/">Meet the herd</a></div>
   </div>
   <span class="credit">Filmed at the ranch by OU students, October 2026 · some shots animated from their photos</span>
 </div>
